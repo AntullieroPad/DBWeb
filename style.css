@@ -586,3 +586,98 @@ body {
     margin-bottom: 1rem;
     color: #555;
 }
+
+
+/* Default styles (for larger screens) */
+
+/* ================= MOBILE RESPONSIVENESS ================= */
+@media (max-width: 768px) {
+    /* Adjusts sidebar */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Make main content adjust */
+    .main-container {
+        margin-left: 0; /* If your sidebar is fixed, this removes unwanted space */
+        padding: 20px;
+    }
+
+    /* Fix hero section */
+    .hero-image {
+        background-size: cover;
+        height: 250px; /* Reduce height for mobile */
+    }
+
+    /* Adjust images in gallery */
+    .image-grid img {
+        width: 100%;  /* Ensures images scale to fit */
+        height: auto; /* Keeps aspect ratio */
+    }
+
+    /* Fix event folders */
+    .folder-preview {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Instead of 2x2 on desktop, use 1x2 */
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Reduce font sizes for readability */
+    h1, h2 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    /* Adjust buttons */
+    .hero-btn {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    /* Fix search bar positioning */
+    .sidebar-search {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    /* Make social icons appear in a row */
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Hide sidebar by default and add a toggle button */
+    .hamburger-btn {
+        display: block; /* Show menu button */
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    /* Hide sidebar nav by default */
+    .sidebar-nav {
+        display: none;
+    }
+
+    /* Show sidebar nav when active */
+    .sidebar.open .sidebar-nav {
+        display: flex;
+    }
+}

@@ -103,3 +103,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.querySelector(".sidebar");
+    const hamburgerBtn = document.createElement("button");
+    hamburgerBtn.classList.add("hamburger-btn");
+    hamburgerBtn.innerHTML = "☰"; // Unicode for hamburger menu
+    document.body.prepend(hamburgerBtn);
+
+    hamburgerBtn.addEventListener("click", function () {
+        sidebar.classList.toggle("open");
+    });
+});
