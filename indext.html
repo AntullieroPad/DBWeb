@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DB Yale - Puerto Rico Syllabus Inspired</title>
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/d7310f2557.js"
+            crossorigin="anonymous"></script>
+
+    <!-- Link to your external CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+            rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="DB-Logo.png">
+    <link rel="icon" type="DB Logo Outline.png" href="favicon.ico">
+
+</head>
+<body>
+
+
+
+<!-- Fixed SIDEBAR -->
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <a href="indext.html">
+        <img
+                src="DB Logo Outline.png"
+                alt="DB Yale Logo"
+                class="logo-img"/>
+        </a>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="indext.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="syllabus.html">Syllabus</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="news.html">News + Events</a>
+        <a href="meettheboard.html">Meet the Board</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="#">Español</a>
+    </nav>
+
+    <div class="sidebar-footer">
+
+        <div class="sidebar-search">
+            <input type="text" id="sidebarSearch" placeholder="Search news/events..." />
+            <i class="fas fa-search"></i> <!-- Optional search icon -->
+        </div>
+
+        <!-- Social Media Links -->
+        <!-- Example Facebook -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:jaden.gonzalez@yale.edu" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div> <!-- Correctly closing social-icons div -->
+
+        <div class="license">© 2025 DB Yale</div>
+    </div>
+
+</aside>
+
+<!-- (Optional) HAMBURGER BUTTON FOR MOBILE SIDEBAR -->
+<button class="hamburger-btn" onclick="toggleSidebar()">
+    <!-- Simple “three lines” icon -->
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<!-- MAIN CONTAINER (to the right of the fixed sidebar) -->
+<div class="main-container">
+
+    <!-- LARGE HERO WITH BACKGROUND IMAGE -->
+    <section class="hero-image">
+        <!-- The .hero-overlay will hold your main hero text -->
+        <div class="hero-overlay">
+            <img src = "/DbImages/Screenshot 2025-02-06 204053.png" alt="A descriptive alt text" class="full-hero-img">
+        </div>
+    </section>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1 id="fancy-title">Despierta Boricua</h1>
+        </div>
+    </section>
+
+<!-- BLACK HERO SECTION -->
+<section class="black-hero">
+    <div class="hero-content">
+        <h1>Puerto Rico Syllabus–Inspired Layout</h1>
+        <p>
+            Here’s a brief introduction or mission statement for DB. Describe your goals, etc.
+        </p>
+        <button class="hero-btn" onclick="window.location.href='about.html'">
+            Learn More
+        </button>
+    </div>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+    <!-- A sample "intro" section -->
+    <section class="content-section">
+        <h3>Welcome to DB Yale</h3>
+        <p>
+            This is an example layout inspired by the Puerto Rico Syllabus website.
+            Add more content here: images, articles, or event listings. Below are sample “rows” describing
+            what DB stands for.
+        </p>
+    </section>
+
+
+    <!-- ROWS: "WHAT DB STANDS FOR" -->
+    <section class="content-row">
+        <div class="img-col">
+            <!-- Replace this with your actual image -->
+            <img
+                    src="https://via.placeholder.com/600x400" alt="Historical context" />
+                    alt="Activism"
+        </div>
+        <div class="text-col">
+            <h3 class="section-tag">SECTION 1</h3>
+            <h2>Education & Community Empowerment</h2>
+            <p>
+                DB prioritizes knowledge-sharing at the
+                local level. By partnering with community
+                members and leaders, DB fosters an environment
+                where learning is co-created and everyone’s voice is valued.
+            </p>
+        </div>
+    </section>
+
+    <section class="content-row alt">
+        <div class="img-col">
+            <img
+                    src="https://via.placeholder.com/600x400" alt="Another example" />
+            alt="Culture"
+        </div>
+        <div class="text-col">
+            <h3 class="section-tag">SECTION 2</h3>
+            <h2>Cultural Preservation & Representation</h2>
+            <p>
+                Celebrating the rich histories and traditions that
+                shape our identities. DB highlights underrepresented voices,
+                ensuring cultural narratives remain alive and vibrant in
+                academic and public discourse.
+            </p>
+        </div>
+    </section>
+
+    <section class="content-row alt">
+        <div class="img-col">
+            <img
+                    src="https://via.placeholder.com/600x400" alt="Another example" />
+            alt="Critical Thinking"
+        </div>
+        <div class="text-col">
+            <h3 class="section-tag">SECTION 2</h3>
+            <h2>Critical Analysis of Sociopolitical Issues</h2>
+            <p>
+                DB pushes for discussions about pressing
+                social and political challenges,
+                inviting the community to question, analyze,
+                and propose solutions.
+            </p>
+        </div>
+    </section>
+
+    <section class="content-row alt">
+        <div class="img-col">
+            <img
+                    src="https://via.placeholder.com/600x400" alt="Another example" />
+            alt="Collaboration"
+        </div>
+        <div class="text-col">
+            <h3 class="section-tag">SECTION 2</h3>
+            <h2>Collaborative Action</h2>
+            <p>
+                DB unites activists, educators, students,
+                and organizations under a shared mission.
+                We believe in collective efforts amplifying individual
+                strengths and forging new alliances to foster
+                meaningful social change.
+            </p>
+        </div>
+    </section>
+
+    <section class="content-row alt">
+        <div class="img-col">
+            <img
+                    src="https://via.placeholder.com/600x400" alt="Another example" />
+            alt="Inclusivity"
+        </div>
+        <div class="text-col">
+            <h3 class="section-tag">SECTION 2</h3>
+            <h2>Inclusivity</h2>
+            <p>
+                Progress demands that we consider overlapping
+                impacts of race, gender, class, ability, and more.
+                DB stands for an inclusive future where policies and
+                conversations respect every perspective.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+    <!-- Link to your external JS -->
+    <script src="script.js"></script>
+
+    <!-- Script for possible mobile toggle (if needed) -->
+    <script src="script.js"></script>
+
+ </body>
+</html>

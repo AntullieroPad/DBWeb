@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>News & Events – DB Yale</title>
+
+    <!-- Same global CSS file -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- FIXED SIDEBAR -->
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <a href="indext.html">
+            <img
+                    src="DB Logo Outline.png"
+                    alt="DB Yale Logo"
+                    class="logo-img"/>
+        </a>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="indext.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="syllabus.html">Syllabus</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="news.html">News + Events</a>
+        <a href="meettheboard.html">Meet the Board</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="#">Español</a>
+    </nav>
+    <div class="sidebar-footer">
+        <!-- Social Media Links -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:jaden.gonzalez@yale.edu" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div> <!-- Correctly closing social-icons div -->
+
+        <div class="license">© 2025 DB Yale</div>
+    </div>
+
+</aside>
+
+<!-- MAIN CONTAINER (to the right of the fixed sidebar) -->
+<div class="main-container">
+
+    <!-- OPTIONAL HERO OR BANNER -->
+    <section class="black-hero">
+        <div class="hero-content">
+            <h1>Latest News & Events</h1>
+            <p>Stay updated on DB Yale happenings, announcements, and upcoming gatherings.</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- FILTER CHECKBOXES -->
+        <div class="filter-options">
+            <label><input type="checkbox" name="category" value="workshop" checked /> Workshop</label>
+            <label><input type="checkbox" name="category" value="social" checked /> Social</label>
+            <label><input type="checkbox" name="category" value="activism" checked /> Activism</label>
+            <label><input type="checkbox" name="category" value="recent" checked /> Recent Events</label>
+            <label><input type="checkbox" name="category" value="media" checked /> Media Coverage</label>
+        </div>
+
+        <!-- NEWS LIST -->
+        <section id="newsList">
+            <h2>Upcoming Events</h2>
+
+            <!-- Culture & Community -->
+            <div class="events-category">
+                <h3>Culture & Community</h3>
+                <ul class="event-list">
+                    <li data-category="social">
+                        <strong>Community Cooking at La Casa</strong><br>
+                        <em>Saturday, 5–7 PM</em><br>
+                        Share recipes and stories in a communal cooking experience. Hosted by DB and local chefs.
+                    </li>
+                    <li data-category="activism social">
+                        <strong>Afro-Boricua Celebration</strong><br>
+                        <em>Feb 28</em><br>
+                        Exploring Afro–Puerto Rican heritage through music, dance, and art. Led by Elyse & Antonio.
+                    </li>
+                    <li data-category="activism">
+                        <strong>Julia de Burgos Anniversary</strong><br>
+                        <em>Feb 23</em><br>
+                        Special poetry reading: “We Are Owned.” Curated by Kris to honor the legacy of Julia de Burgos.
+                    </li>
+                    <li data-category="social">
+                        <strong>El Coquí Show – Long Wharf Theatre</strong><br>
+                        Date TBA. A theatrical tribute to Puerto Rican folklore, in collaboration with local performers.
+                    </li>
+                    <li data-category="social">
+                        <strong>Soar Celebration</strong><br>
+                        <em>Wed (Exact Date TBA)</em><br>
+                        A spirited gathering to celebrate DB’s achievements and future goals.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Activism & Education -->
+            <div class="events-category">
+                <h3>Activism & Education</h3>
+                <ul class="event-list">
+                    <li data-category="activism">
+                        <strong>Bomba Classes</strong><br>
+                        Explore the rich traditions of this Afro–Puerto Rican dance form. Beginners welcome!
+                    </li>
+                    <li data-category="activism">
+                        <strong>Mecha × DB</strong><br>
+                        Collaboration with MEChA to foster intercultural dialogue. Organized by Jaden & Kris.
+                    </li>
+                    <li data-category="activism">
+                        <strong>David Gonzalez (Journalist) + Conga</strong><br>
+                        A potential talk or Q&A about journalism, culture, and activism. Coordinated by Sonia.
+                    </li>
+                    <li data-category="social">
+                        <strong>Pru Cafecito</strong><br>
+                        <em>Feb 14</em><br>
+                        A warm, casual meetup to discuss pressing community issues over coffee.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Ongoing Gatherings -->
+            <div class="events-category">
+                <h3>Ongoing Gatherings</h3>
+                <ul class="event-list">
+                    <li data-category="social">
+                        <strong>House Meetings</strong><br>
+                        Regular check-ins to plan upcoming initiatives and events.
+                    </li>
+                    <li data-category="social">
+                        <strong>Cafecitos</strong><br>
+                        Weekly informal meetups for conversation and networking. Led by Antonio.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Recent Events -->
+            <div class="events-category">
+                <h3>Recent Events</h3>
+                <ul class="event-list">
+                    <li data-category="recent">
+                        <strong>Brazilian Mixer</strong><br>
+                        <em>Jan 25 (Completed)</em><br>
+                        Mixer to encourage Brazilians to associate with La Casa and challenge what it means to be Latino.
+                    </li>
+                    <li data-category="recent">
+                        <strong>Bad Bunny Party</strong><br>
+                        <em>Jan 25 (Completed)</em><br>
+                        Listening party to the #1 album in the world with a glass full of coquito.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Media Coverage -->
+            <div class="events-category">
+                <h3>Media Coverage</h3>
+                <ul class="media-list">
+                    <li data-category="media">
+                        <strong>La Voz Newspaper</strong><br>
+                        Feature Article: <a href="#">“DB Yale’s Community Approach to Activism”</a> (Feb 3)
+                    </li>
+                    <li data-category="media">
+                        <strong>Yale Daily News</strong><br>
+                        Interview with DB Board discussing upcoming cultural workshops (Jan 25)
+                    </li>
+                    <li data-category="media">
+                        <strong>Local Radio Station WRPU</strong><br>
+                        On-air segment about the Afro–Boricua Celebration (Feb 28)
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- Optional JS -->
+<script src="script.js"></script>
+</body>
+</html>
