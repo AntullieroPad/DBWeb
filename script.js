@@ -116,3 +116,38 @@ document.addEventListener("DOMContentLoaded", function () {
         sidebar.classList.toggle("open");
     });
 });
+
+//for home page news
+
+let currentIndex = 0;
+
+function moveSlide(direction) {
+    const slides = document.querySelector(".carousel-container");
+    const totalSlides = document.querySelectorAll(".news-item").length;
+
+    currentIndex += direction;
+
+    if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+    } else if (currentIndex < 0) {
+        currentIndex = totalSlides - 1;
+    }
+
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+
+// auto fill gallery pages
+document.addEventListener("DOMContentLoaded", function () {
+    const galleryContainer = document.getElementById("dtmfGallery");
+    const imageFolder = "DMTF_Party_Photos"; // Your folder name
+    const totalImages = 10; // Number of images (adjust as needed)
+
+    for (let i = 1; i <= totalImages; i++) {
+        let img = document.createElement("img");
+        img.src = `${imageFolder}/img${i}.jpg`; // Assumes filenames are "img1.jpg", "img2.jpg", etc.
+        img.alt = `DTMF Party Image ${i}`;
+        img.classList.add("gallery-image"); // Add styling
+        galleryContainer.appendChild(img);
+    }
+});
