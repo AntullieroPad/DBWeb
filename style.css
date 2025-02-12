@@ -9,8 +9,17 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333;
     background-color: #fff;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-in-out forwards;
 }
-
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes metallicShine {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
 /* === Fixed SIDEBAR === */
 .sidebar {
     position: fixed;
@@ -27,6 +36,7 @@ body {
     overflow-y: auto;
 
     /* box-shadow here: */
+    animation: metallicShine 4s linear infinite alternate;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -50,17 +60,24 @@ body {
 
 /* Sidebar Nav Links */
 .sidebar-nav {
-    flex: 1; /* fill up middle space */
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-aligns text */
+    text-align: center; /* Ensures text stays centered */
+    gap: 10px; /* Adjust spacing between links */
 }
 
 .sidebar-nav a {
     text-decoration: none;
-    color: #333;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
     display: block;
+    font-size: 16px; /* Adjust font size if needed */
+    font-weight: normal; /* Reset bold if it was applied */
+    padding: 5px 0; /* Adds some breathing space */
     transition: color 0.3s ease, font-size 0.3s ease, margin-left 0.3s ease;
+}
+
+.sidebar-nav a:visited {
+    color: black; /* Forces visited links to stay the original color */
 }
 
 .sidebar-nav a:hover {
@@ -246,6 +263,8 @@ body {
     color: #fff;            /* white text */
     padding: 4rem 1rem;
     text-align: center;
+    background: linear-gradient(45deg, #000, #333);
+    animation: backgroundShift 5s infinite alternate;
 }
 
 .black-hero .hero-content {
@@ -287,6 +306,34 @@ body {
     margin-bottom: 3rem;
 }
 
+/* Add spacing between sections */
+.main-content section {
+    margin-bottom: 30px; /* Adds space below each section */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc; /* Adds a subtle separator */
+}
+
+/* Increase spacing between list items */
+.main-content ul {
+    margin-bottom: 15px;
+}
+
+a {
+    display: inline !important;
+    white-space: nowrap; /* Prevents unwanted breaking */
+}
+
+a:hover {
+    color: #ff8800;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Better spacing for links */
+.main-content a {
+    display: block; /* Each link gets its own line */
+    margin-bottom: 8px;
+}
+
 .content-section p {
     margin-bottom: 20px;
     line-height: 1.7;
@@ -294,12 +341,12 @@ body {
 
 /* Adds spacing below the filter options */
 .filter-options {
-    margin-bottom: 25px; /* Adjust spacing as needed */
+    margin-bottom: 20px; /* Adjust spacing as needed */
 }
 
 /* Adds spacing below each category title */
 .events-category h3 {
-    margin-bottom: 15px; /* Adjust spacing as needed */
+    margin-bottom: 25px; /* Adjust spacing as needed */
 }
 
 .content-section h3 {
