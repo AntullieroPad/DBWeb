@@ -151,3 +151,52 @@ document.addEventListener("DOMContentLoaded", function () {
         galleryContainer.appendChild(img);
     }
 });
+
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+// Check if user has dark mode saved
+let darkMode = localStorage.getItem("dark-mode") === "enabled";
+
+function applyDarkMode(enabled) {
+    document.body.classList.toggle("dark-mode", enabled);
+    localStorage.setItem("dark-mode", enabled ? "enabled" : "disabled");
+}
+
+// Toggle dark mode on button click
+darkModeToggle.addEventListener("click", () => {
+    darkMode = !darkMode;
+    applyDarkMode(darkMode);
+});
+
+// Apply dark mode on page load
+applyDarkMode(darkMode);
+
+
+
+//lang
+document.addEventListener("DOMContentLoaded", () => {
+    const langToggle = document.getElementById("lang-toggle");
+    const elementsToTranslate = document.querySelectorAll("[data-key]");
+
+    // Check if user has a language preference saved
+    let currentLang = localStorage.getItem("lang") || "en";
+
+    function updateLanguage(lang) {
+        elementsToTranslate.forEach((el) => {
+            const key = el.getAttribute("data-key");
+            el.textContent = translations[lang][key];
+        });
+    }
+
+    // Toggle language when clicking "Español" button
+    langToggle.addEventListener("click", () => {
+        currentLang = currentLang === "en" ? "es" : "en";
+        localStorage.setItem("lang", currentLang);
+        updateLanguage(currentLang);
+        langToggle.textContent = currentLang === "en" ? "Español" : "English"; // Toggle button text
+    });
+
+    // Load saved language on page load
+    updateLanguage(currentLang);
+    langToggle.textContent = currentLang === "en" ? "Español" : "English";
+});
