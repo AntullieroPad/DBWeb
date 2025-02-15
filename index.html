@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata and character encoding -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Page Title -->
     <title>DB Yale - Puerto Rico Syllabus Inspired</title>
 
-    <!-- Font Awesome Kit -->
+    <!-- Font Awesome Kit for icons -->
     <script src="https://kit.fontawesome.com/d7310f2557.js"
             crossorigin="anonymous"></script>
 
-    <!-- Link to your external CSS -->
+    <!-- Link to external CSS file for styling -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Preconnect for performance, then load the Roboto font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,13 +23,12 @@
             rel="stylesheet"
     />
 
-    <link rel="icon" type="image/png" href="DB-Logo.png">
+    <!-- Favicon links for browser tab icons -->
+    <link rel="icon" type="image/png" href="./DB Logo Outline.png">
     <link rel="icon" type="DB Logo Outline.png" href="favicon.ico">
 
 </head>
 <body>
-
-
 
 <!-- Fixed SIDEBAR -->
 <aside class="sidebar">
@@ -38,6 +40,8 @@
                 class="logo-img"/>
         </a>
     </div>
+
+    <!-- Navigation Links within the sidebar -->
     <nav class="sidebar-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -50,15 +54,16 @@
         <a href="gallery.html" class="active">Gallery</a>
     </nav>
 
+    <!-- Sidebar Footer: Includes search, social icons, and license info -->
     <div class="sidebar-footer">
-
+        <!-- Search Bar inside the sidebar -->
         <div class="sidebar-search">
             <input type="text" id="sidebarSearch" placeholder="Search news/events..." />
-            <i class="fas fa-search"></i> <!-- Optional search icon -->
+            <!-- Font Awesome search icon -->
+            <i class="fas fa-search"></i>
         </div>
 
         <!-- Social Media Links -->
-        <!-- Example Facebook -->
         <div class="social-icons">
             <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
                 <i class="fab fa-facebook-f"></i>
@@ -69,14 +74,15 @@
             <a href="mailto:jaden.gonzalez@yale.edu" class="social-link">
                 <i class="fas fa-envelope"></i>
             </a>
-        </div> <!-- Correctly closing social-icons div -->
+        </div>
 
+        <!-- Copyright / License Information -->
         <div class="license">© 2025 DB Yale</div>
     </div>
 
 </aside>
 
-<!-- (Optional) HAMBURGER BUTTON FOR MOBILE SIDEBAR -->
+<!-- Hamburger Button for toggling the sidebar on mobile devices -->
 <button class="hamburger-btn" onclick="toggleSidebar()">
     <!-- Simple “three lines” icon -->
     <span></span>
@@ -84,10 +90,10 @@
     <span></span>
 </button>
 
-<!-- MAIN CONTAINER (to the right of the fixed sidebar) -->
+<!-- Main Container: Contains the primary content (to the right of the fixed sidebar) -->
 <div class="main-container">
 
-    <!-- LARGE HERO WITH BACKGROUND IMAGE -->
+    <!-- HERO SECTION: Large background image as a visual header -->
     <section class="hero-image">
         <!-- The .hero-overlay will hold your main hero text -->
         <div class="hero-overlay">
@@ -95,13 +101,14 @@
         </div>
     </section>
 
+    <!-- Secondary Hero Section with the main title -->
     <section class="hero">
         <div class="hero-overlay">
             <h1 id="fancy-title">Despierta Boricua</h1>
         </div>
     </section>
 
-<!-- BLACK HERO SECTION -->
+    <!-- Black Hero Section: Emphasizes club's mission with a call-to-action button -->
 <section class="black-hero">
     <div class="hero-content">
         <h1>Celebrating Puerto Rican Identity & Resistance</h1>
@@ -110,6 +117,7 @@
             We uplift, empower, and celebrate our culture, history,
             and people.
         </p>
+        <!-- Button to navigate to the About page -->
         <button class="hero-btn" onclick="window.location.href='about.html'">
             Learn More
         </button>
@@ -123,15 +131,16 @@
     <section class="content-section">
         <h3 data-key="title">Welcome to DB Yale</h3>
         <p data-key="subtitle">
-
+            <!-- Placeholder for subtitle content -->
         </p>
     </section>
 
 
-    <!-- ROWS: "WHAT DB STANDS FOR" -->
+    <!-- ROWS: "WHAT DB STANDS FOR" content sections -->
+    <!-- Section 1: Education & Community Empowerment -->
     <section class="content-row">
         <div class="img-col">
-            <!-- Replace this with your actual image -->
+            <!-- Replace this image with an appropriate one -->
             <img
                     src="./PedroAlbPhoto.jpg" alt="Historical context" />
         </div>
@@ -147,6 +156,7 @@
         </div>
     </section>
 
+    <!-- Section 2: Cultural Preservation & Representation -->
     <section class="content-row alt">
         <div class="img-col">
             <img
@@ -165,6 +175,7 @@
         </div>
     </section>
 
+    <!-- Section 3: Critical Analysis of Sociopolitical Issues -->
     <section class="content-row alt">
         <div class="img-col">
             <img
@@ -182,6 +193,7 @@
         </div>
     </section>
 
+    <!-- Section 4: Collaborative Action -->
     <section class="content-row alt">
         <div class="img-col">
             <img
@@ -200,6 +212,7 @@
         </div>
     </section>
 
+    <!-- Section 5: Inclusivity -->
     <section class="content-row alt">
         <div class="img-col">
             <img
@@ -217,6 +230,7 @@
         </div>
     </section>
 
+    <!-- Section 6: Activism & Resistance -->
     <section class="content-row alt">
         <div class="img-col">
             <img
@@ -243,24 +257,29 @@
         </div>
     </section>
 
+    <!-- News & Current Events Section with a carousel -->
     <section class="news-events">
         <h2>📰 News & Current Events</h2>
         <div class="carousel">
             <div class="carousel-container">
+                <!-- First news item: Announcement -->
                 <div class="news-item">
-                    <img src="images/news1.jpg" alt="Meet Our Spring 2021 Team">
-                    <p>Meet Our Spring 2021 Team!</p>
+                    <p><b>Incoming Features:</b></p>
+                    <p>Dark Mode, Spanish mode, exclusive alumni connections,
+                        and updated syllabus</p>
                 </div>
+                <!-- Second news item with image and caption -->
                 <div class="news-item">
-                    <img src="images/news2.jpg" alt="Join Us for Sancocho Live 2">
-                    <p>Join Us for Sancocho Live 2</p>
+                    <img src="images/news2.jpg" alt="PRU Festivals and Parade!">
+                    <p>Join Us for the future - you might find us on a parade float</p>
                 </div>
+                <!-- Third news item with image and caption -->
                 <div class="news-item">
                     <img src="images/news3.jpg" alt="PRS at NYPL | Teaching the Syllabus">
                     <p>PRS at NYPL | Teaching the #Syllabus</p>
                 </div>
             </div>
-            <!-- Carousel Navigation -->
+            <!-- Carousel Navigation Buttons-->
             <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
             <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
@@ -268,11 +287,9 @@
 
 </main>
 
-    <!-- Link to your external JS -->
+    <!-- External JavaScript file for functionality -->
     <script src="script.js"></script>
+    <!-- Note: The mobile toggle script is also included in script.js -->
 
-    <!-- Script for possible mobile toggle (if needed) -->
-    <script src="script.js"></script>
-
- </body>
+</body>
 </html>
