@@ -1,0 +1,26 @@
+{
+  "name": "dbweb",
+  "version": "1.0.0",
+  "main": "lang.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntullieroPad/DBWeb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntullieroPad/DBWeb/issues"
+  },
+  "homepage": "https://github.com/AntullieroPad/DBWeb#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
