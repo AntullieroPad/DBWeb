@@ -256,3 +256,29 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Language toggle not found!");
     }
 });
+
+//mobile sidebar
+// Select the sidebar element from the DOM
+const sidebar = document.querySelector('.sidebar');
+// Boolean to track if the sidebar is open or closed
+let sidebarOpen = false;
+
+
+/**
+ * Toggle the sidebar open/close state.
+ * When called, it inverts the value of `sidebarOpen` and adds or removes
+ * the 'open' class on the sidebar accordingly.
+ */
+function toggleSidebar() {
+    sidebarOpen = !sidebarOpen; // Toggle state (true if closed, false if open)
+    if (sidebarOpen) {
+        sidebar.classList.add('open'); // Add the class to show the sidebar
+    } else {
+        sidebar.classList.remove('open'); // Remove the class to hide the sidebar
+    }
+}
+
+
+// Log a message to the console to confirm the script is loaded
+console.log('DB Yale site script loaded!');
+
