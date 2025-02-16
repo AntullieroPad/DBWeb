@@ -133,18 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Search input or button not found!");
     }
 
-    // ------------------------------
-    // Create and Append Hamburger Button for Mobile (if not already in HTML)
-    // ------------------------------
-    const mobileSidebar = document.querySelector(".sidebar");
-    const hamburgerBtn = document.createElement("button");
-    hamburgerBtn.classList.add("hamburger-btn");
-    hamburgerBtn.innerHTML = "☰"; // Unicode for hamburger menu
-    document.body.prepend(hamburgerBtn);
-
-    hamburgerBtn.addEventListener("click", function () {
-        mobileSidebar.classList.toggle("open");
-    });
 
     // ------------------------------
     // Home Page News Carousel
@@ -279,6 +267,15 @@ function toggleSidebar() {
 }
 
 
-// Log a message to the console to confirm the script is loaded
-console.log('DB Yale site script loaded!');
+// ------------------------------
+// Create and Append Hamburger Button for Mobile (if not already in HTML)
+// ------------------------------
+const mobileSidebar = document.querySelector(".sidebar");
+const hamburgerBtn = document.createElement("button");
+hamburgerBtn.classList.add("hamburger-btn");
+hamburgerBtn.innerHTML = "☰"; // Unicode for hamburger menu
+document.body.prepend(hamburgerBtn);
 
+hamburgerBtn.addEventListener("click", function () {
+    mobileSidebar.classList.toggle("open");
+});
