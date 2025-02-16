@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link your CSS -->
+  <!-- Favicon links for browser tab icons -->
+  <link rel="icon" type="image/png" href="./DB Logo Outline.png">
+  <link rel="icon" type="DB Logo Outline.png" href="favicon.ico">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/lightbox.css" />
+</head>
+<body>
+<h1>Filter Test</h1>
+<div class="filter-options">
+  <label>
+    <input type="checkbox" name="category" value="workshop" checked /> Workshop
+  </label>
+  <label>
+    <input type="checkbox" name="category" value="social" checked /> Social
+  </label>
+  <label>
+    <input type="checkbox" name="category" value="activism" checked /> Activism
+  </label>
+  <label>
+    <input type="checkbox" name="category" value="recent" checked /> Recent
+  </label>
+  <label>
+    <input type="checkbox" name="category" value="media" checked /> Media
+  </label>
+  <button id="resetFilters">Reset Filters</button>
+</div>
+<section id="newsList">
+  <h2>Upcoming Events</h2>
+  <ul class="event-list">
+    <li data-category="activism social">
+      <strong>Julia de Burgos Anniversary</strong>
+    </li>
+    <li data-category="social">
+      <strong>El Coquí Show</strong>
+    </li>
+    <li data-category="social">
+      <strong>Poetry Night</strong>
+    </li>
+  </ul>
+  <ul class="media-list">
+    <li data-category="media">
+      <strong>La Voz Newspaper Feature</strong>
+    </li>
+    <li data-category="media">
+      <strong>Yale Daily News Interview</strong>
+    </li>
+  </ul>
+</section>
+<script src="script.js"></script>
+
+</body>
+</html>

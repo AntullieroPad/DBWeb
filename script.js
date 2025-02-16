@@ -1,202 +1,258 @@
-// Simple sidebar open/close toggle for mobile
-const sidebar = document.querySelector('.sidebar');
-let sidebarOpen = false;
+document.addEventListener("DOMContentLoaded", () => {
+    // ------------------------------
+    // Sidebar Toggle for Mobile
+    // ------------------------------
+    const sidebar = document.querySelector('.sidebar');
+    let sidebarOpen = false;
 
-function toggleSidebar() {
-    sidebarOpen = !sidebarOpen;
-    if (sidebarOpen) {
-        sidebar.classList.add('open');
-    } else {
-        sidebar.classList.remove('open');
+    function toggleSidebar() {
+        sidebarOpen = !sidebarOpen;
+        if (sidebarOpen) {
+            sidebar.classList.add('open');
+        } else {
+            sidebar.classList.remove('open');
+        }
     }
-}
 
-// Optional console log to confirm JS is loaded
-console.log('DB Yale site script loaded!');
+    console.log('DB Yale site script loaded!');
 
-//Actual filter
-document.addEventListener("DOMContentLoaded", function () {
-    const checkboxes = document.querySelectorAll('input[name="category"]');
-    const contentItems = document.querySelectorAll('.event-list li, .media-list li');
+    // ------------------------------
+    // Content Filtering Based on Categories
+    // ------------------------------
+    // Use the checkboxes from .filter-options
+    const filters = document.querySelectorAll('.filter-options input[name="category"]');
+    // Attach event listeners to each checkbox
+    filters.forEach(input => {
+        input.addEventListener('change', filterEvents);
+    });
 
-    function filterContent() {
-        const selectedCategories = Array.from(checkboxes)
-            .filter(cb => cb.checked)
-            .map(cb => cb.value);
+    // Attach event listener to a reset button, if present
+    const resetBtn = document.getElementById('resetFilters');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetFilters);
+    }
 
-        contentItems.forEach(item => {
-            const itemCategories = item.getAttribute("data-category").split(" ");
-            const isVisible = selectedCategories.some(category => itemCategories.includes(category));
-            item.style.display = isVisible ? "" : "none";
+    function filterEvents() {
+        // Get active filter values
+        const activeCategories = Array.from(filters)
+            .filter(input => input.checked)
+            .map(input => input.value.trim());
+
+        console.log("Active categories:", activeCategories);
+
+        // Get all event items (both event-list and media-list items)
+        const events = document.querySelectorAll('.event-list li, .media-list li');
+        console.log("Found event items:", events.length);
+
+        events.forEach(item => {
+            // Get data-category, trim it, and split by whitespace
+            let itemCategories = item.getAttribute('data-category');
+            if (itemCategories) {
+                itemCategories = itemCategories.trim().split(/\s+/);
+            } else {
+                itemCategories = [];
+            }
+            console.log("Item categories:", itemCategories);
+
+            // Check if any active category is present
+            const isVisible = activeCategories.some(category => itemCategories.includes(category));
+            console.log("Setting display for item:", isVisible);
+
+            // Immediately show/hide without transition:
+            item.style.display = isVisible ? 'block' : 'none';
         });
     }
 
-    // Apply filter when checkboxes change
-    checkboxes.forEach(cb => cb.addEventListener("change", filterContent));
+    function resetFilters() {
+        filters.forEach(input => input.checked = true);
+        filterEvents();
+    }
 
-    // Run filter on page load
-    filterContent();
-});
+    // Initial filter call
+    filterEvents();
 
-
-// search bar function
-document.addEventListener("DOMContentLoaded", function () {
+    // ------------------------------
+    // Search Bar Functionality (Not Functional)
+    // ------------------------------
+    // This section is intact even though it's not fully functional
     const searchInput = document.getElementById("sidebarSearch");
     const searchButton = document.getElementById("searchButton");
 
-    if (!searchInput || !searchButton) {
-        console.error("Search input or button not found!");
-        return;
-    }
+    if (searchInput && searchButton) {
+        const allSections = document.querySelectorAll("h2, h3, p, li");
 
-    const allSections = document.querySelectorAll("h2, h3, p, li"); // What the search looks for on the page
+        function searchContent() {
+            const filter = searchInput.value.trim().toLowerCase();
+            let found = false;
 
-    function searchContent() {
-        const filter = searchInput.value.trim().toLowerCase();
-        let found = false;
+            allSections.forEach((section) => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(filter) && !found) {
+                    section.scrollIntoView({ behavior: "smooth", block: "center" });
+                    section.style.backgroundColor = "yellow";
+                    setTimeout(() => section.style.backgroundColor = "transparent", 2000);
+                    found = true;
+                }
+            });
+            return found;
+        }
 
-        allSections.forEach((section) => {
-            const text = section.textContent.toLowerCase();
+        function searchAndRedirect() {
+            const filter = searchInput.value.trim().toLowerCase();
+            const pageMap = {
+                "about": "about.html",
+                "collaborate": "collaborate.html",
+                "syllabus": "syllabus.html",
+                "news": "news.html",
+                "gallery": "gallery.html",
+                "board": "meettheboard.html",
+                "events": "news.html",
+                "mission": "about.html"
+            };
 
-            if (text.includes(filter) && !found) {
-                section.scrollIntoView({ behavior: "smooth", block: "center" });
-                section.style.backgroundColor = "yellow"; // Highlight
-                setTimeout(() => section.style.backgroundColor = "transparent", 2000);
-                found = true;
+            for (const keyword in pageMap) {
+                if (filter.includes(keyword)) {
+                    window.location.href = pageMap[keyword];
+                    return;
+                }
+            }
+
+            if (!searchContent()) {
+                alert("No matching results found.");
+            }
+        }
+
+        searchButton.addEventListener("click", searchAndRedirect);
+        searchInput.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                searchAndRedirect();
             }
         });
-
-        return found;
+    } else {
+        console.error("Search input or button not found!");
     }
 
-    function searchAndRedirect() {
-        const filter = searchInput.value.trim().toLowerCase();
-
-        const pageMap = {
-            "about": "about.html",
-            "collaborate": "collaborate.html",
-            "syllabus": "syllabus.html",
-            "news": "news.html",
-            "gallery": "gallery.html",
-            "board": "meettheboard.html",
-            "events": "news.html",
-            "mission": "about.html"
-        };
-
-        for (const keyword in pageMap) {
-            if (filter.includes(keyword)) {
-                window.location.href = pageMap[keyword];
-                return;
-            }
-        }
-
-        if (!searchContent()) {
-            alert("No matching results found.");
-        }
-    }
-
-    searchButton.addEventListener("click", searchAndRedirect);
-    searchInput.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            searchAndRedirect();
-        }
-    });
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const sidebar = document.querySelector(".sidebar");
+    // ------------------------------
+    // Create and Append Hamburger Button for Mobile (if not already in HTML)
+    // ------------------------------
+    const mobileSidebar = document.querySelector(".sidebar");
     const hamburgerBtn = document.createElement("button");
     hamburgerBtn.classList.add("hamburger-btn");
     hamburgerBtn.innerHTML = "☰"; // Unicode for hamburger menu
     document.body.prepend(hamburgerBtn);
 
     hamburgerBtn.addEventListener("click", function () {
-        sidebar.classList.toggle("open");
+        mobileSidebar.classList.toggle("open");
     });
-});
 
-//for home page news
+    // ------------------------------
+    // Home Page News Carousel
+    // ------------------------------
+    let currentIndex = 0;
+    let autoRotate; // For auto-rotation
 
-let currentIndex = 0;
+    const autoRotateInterval = 3000; // Interval in milliseconds
 
-function moveSlide(direction) {
-    const slides = document.querySelector(".carousel-container");
-    const totalSlides = document.querySelectorAll(".news-item").length;
+    function moveSlide(direction) {
+        const slidesContainer = document.querySelector(".carousel-container");
+        const totalSlides = document.querySelectorAll(".news-item").length;
 
-    currentIndex += direction;
+        // Update the current index based on the direction
+        currentIndex += direction;
+        if (currentIndex >= totalSlides) {
+            currentIndex = 0;
+        } else if (currentIndex < 0) {
+            currentIndex = totalSlides - 1;
+        }
 
-    if (currentIndex >= totalSlides) {
-        currentIndex = 0;
-    } else if (currentIndex < 0) {
-        currentIndex = totalSlides - 1;
+        // Use slidesContainer (not an undefined variable)
+        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Reset the auto-rotate timer
+        resetAutoRotate();
     }
 
-    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
+    function resetAutoRotate() {
+        clearInterval(autoRotate);
+        autoRotate = setInterval(() => {
+            moveSlide(1);
+        }, autoRotateInterval);
+    }
 
+    // Start auto-rotation on load
+    autoRotate = setInterval(() => {
+        moveSlide(1);
+    }, autoRotateInterval);
 
-// auto fill gallery pages
-document.addEventListener("DOMContentLoaded", function () {
+    // ------------------------------
+    // Auto-Fill Gallery Pages
+    // ------------------------------
     const galleryContainer = document.getElementById("dtmfGallery");
-    const imageFolder = "DMTF_Party_Photos"; // Your folder name
-    const totalImages = 10; // Number of images (adjust as needed)
+    if (galleryContainer) {
+        const imageFolder = "DMTF_Party_Photos"; // Your folder name
+        const totalImages = 10; // Adjust as needed
 
-    for (let i = 1; i <= totalImages; i++) {
-        let img = document.createElement("img");
-        img.src = `${imageFolder}/img${i}.jpg`; // Assumes filenames are "img1.jpg", "img2.jpg", etc.
-        img.alt = `DTMF Party Image ${i}`;
-        img.classList.add("gallery-image"); // Add styling
-        galleryContainer.appendChild(img);
+        for (let i = 1; i <= totalImages; i++) {
+            let img = document.createElement("img");
+            img.src = `${imageFolder}/img${i}.jpg`;
+            img.alt = `DTMF Party Image ${i}`;
+            img.classList.add("gallery-image");
+            galleryContainer.appendChild(img);
+        }
     }
-});
 
-const darkModeToggle = document.getElementById("dark-mode-toggle");
+    // ------------------------------
+    // Dark Mode Toggle
+    // ------------------------------
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    let darkMode = localStorage.getItem("dark-mode") === "enabled";
 
-// Check if user has dark mode saved
-let darkMode = localStorage.getItem("dark-mode") === "enabled";
+    function applyDarkMode(enabled) {
+        document.body.classList.toggle("dark-mode", enabled);
+        localStorage.setItem("dark-mode", enabled ? "enabled" : "disabled");
+    }
 
-function applyDarkMode(enabled) {
-    document.body.classList.toggle("dark-mode", enabled);
-    localStorage.setItem("dark-mode", enabled ? "enabled" : "disabled");
-}
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener("click", () => {
+            darkMode = !darkMode;
+            applyDarkMode(darkMode);
+        });
+    } else {
+        console.error("Dark mode toggle not found!");
+    }
 
-// Toggle dark mode on button click
-darkModeToggle.addEventListener("click", () => {
-    darkMode = !darkMode;
+    // Apply dark mode on page load
     applyDarkMode(darkMode);
-});
 
-// Apply dark mode on page load
-applyDarkMode(darkMode);
-
-
-
-//lang
-document.addEventListener("DOMContentLoaded", () => {
+    // ------------------------------
+    // Language Toggle (English/Spanish)
+    // ------------------------------
     const langToggle = document.getElementById("lang-toggle");
     const elementsToTranslate = document.querySelectorAll("[data-key]");
-
-    // Check if user has a language preference saved
     let currentLang = localStorage.getItem("lang") || "en";
 
     function updateLanguage(lang) {
         elementsToTranslate.forEach((el) => {
             const key = el.getAttribute("data-key");
-            el.textContent = translations[lang][key];
+            // Assumes translations is a defined global object
+            if (typeof translations !== "undefined" && translations[lang] && translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
         });
     }
 
-    // Toggle language when clicking "Español" button
-    langToggle.addEventListener("click", () => {
-        currentLang = currentLang === "en" ? "es" : "en";
-        localStorage.setItem("lang", currentLang);
-        updateLanguage(currentLang);
-        langToggle.textContent = currentLang === "en" ? "Español" : "English"; // Toggle button text
-    });
+    if (langToggle) {
+        langToggle.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "es" : "en";
+            localStorage.setItem("lang", currentLang);
+            updateLanguage(currentLang);
+            langToggle.textContent = currentLang === 'en' ? 'Español' : 'English';
+        });
 
-    // Load saved language on page load
-    updateLanguage(currentLang);
-    langToggle.textContent = currentLang === "en" ? "Español" : "English";
+        updateLanguage(currentLang);
+        langToggle.textContent = currentLang === 'en' ? 'Español' : 'English';
+    } else {
+        console.error("Language toggle not found!");
+    }
 });

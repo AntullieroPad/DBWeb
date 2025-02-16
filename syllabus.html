@@ -7,7 +7,65 @@
 
     <!-- Same global CSS file -->
     <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d7310f2557.js"
+            crossorigin="anonymous"></script>
+    <style>
+        .table-of-contents {
+            background: #f6f6f6;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .table-of-contents ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .table-of-contents li {
+            margin-bottom: 0.5rem;
+        }
+        .table-of-contents a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .section-header {
+            border-bottom: 2px solid #ccc;
+            margin-top: 2rem;
+            padding-bottom: 0.5rem;
+        }
+        /* Example styles for the collapsible panels */
+        details {
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 1rem;
+            background: #f9f9f9;
+        }
+        summary {
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            list-style: none;
+            margin-bottom: 0.5rem;
+        }
+        summary::marker {
+            display: none;
+        }
+        details[open] {
+            background: #fff;
+        }
+        .resource-list {
+            margin: 0.5rem 0 0.5rem 1.5rem; /* Indent the list and add vertical spacing */
+        }
+        .resource-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <!-- Favicon links for browser tab icons -->
+    <link rel="icon" type="image/png" href="./DB Logo Outline.png">
+    <link rel="icon" type="DB Logo Outline.png" href="favicon.ico">
+
 </head>
 <body>
 
@@ -28,9 +86,9 @@
         <a href="collaborate.html">Collaborate</a>
         <a href="news.html">News + Events</a>
         <a href="meettheboard.html">Meet the Board</a>
-        <a href="alumni.html" class="active">Alumni</a>
+        <a href="alumni.html" >Alumni</a>
         <a href="merch.html">Merch</a>
-        <a href="gallery.html" class="active">Gallery</a>
+        <a href="gallery.html" >Gallery</a>
     </nav>
     <div class="sidebar-footer">
         <!-- Social Media Links -->
@@ -63,33 +121,253 @@
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
-        <section>
-            <h2>II. Curated Reading Lists</h2>
 
-            <h3>A. Foundational Texts & Scholarly Works</h3>
+        <nav class="table-of-contents">
+            <h3>Table of Contents</h3>
             <ul>
-                <li>
-                    <strong>Historical and Political Context:</strong> Consider reading
-                    <em>José Trías Monge’s</em>
-                    <a href="https://yalebooks.yale.edu/book/9780300076189/puerto-rico/">Puerto Rico: The Trials of the Oldest Colony in the World</a>
-                    and selections from <em>Arlene Dávila</em> (e.g.
-                    <a href="https://www.jstor.org/stable/10.1525/j.ctt1pp7vb">Barrio Dreams</a> or
-                    <a href="https://nyupress.org/9780814720073/latino-spin/">Latino Spin</a>).
-                </li>
-                <li>
-                    <strong>Contemporary Perspectives:</strong> Explore essays on statehood,
-                    diaspora identity, and neoliberal impacts on Puerto Rican communities.
-                </li>
+                <li><a href="#section-1">I. Introduction</a></li>
+                <li><a href="#section-2">II. Curated Reading Lists</a></li>
+                <li><a href="#section-3">III. Digital Archives &amp; Collections</a></li>
+                <li><a href="#section-4">IV. Multimedia &amp; Podcasts</a></li>
+                <li><a href="#section-5">V. Research Guides &amp; Academic Portals</a></li>
+                <li><a href="#section-6">VI. Guiding Questions</a></li>
+                <li><a href="#section-7">VII. Additional Resources</a></li>
             </ul>
+        </nav>
 
-            <h3>B. Online Reading Collections</h3>
-            <ul>
-                <li><a href="https://guides.loc.gov/puerto-rico">Library of Congress – Puerto Rico: Hispanic Reading Room Research Guide</a></li>
-                <li><a href="https://libguides.brown.edu/">Freely Available Resources on Puerto Rican History & Culture (Brown LibGuides)</a></li>
-            </ul>
+        <!-- I. INTRODUCTION -->
+        <section id="section-1">
+            <h2>I. Introduction</h2>
+            <p>Welcome to the DB Yale Syllabus! This living document highlights key
+                readings, digital archives, and guiding questions to deepen your
+                understanding of Puerto Rico’s rich history, culture, and political landscape.
+                We encourage you to explore these materials, share your insights, and help
+                us expand this resource over time.</p>
         </section>
 
-        <section>
+
+            <section id="section-2">
+            <h2>II. Curated Reading Lists</h2>
+                <p><b>This section presents an extensive, curated reading list based on Amanda Rivera’s scholarship.
+                    Click on each category below to reveal the detailed texts.</b> </p>
+                <details open>
+                    <summary>1. Pre-1898 Puerto Rican History: Spanish Colonial Rule, Enslavement, Resistance &amp; Early Whispers of Independence</summary>
+                    <ul class="resource-list">
+                        <li><strong>Pre-Columbian and Early Conquest:</strong>
+                            <ul>
+                                <li>Stephan Palmié and Francisco A. Scarano, eds. <em>The Caribbean: A History of the Region and its Peoples</em> (2011) – Chapters on labor, migration, and resistance.</li>
+                                <li>Jalil Sued-Badillo, “From Taínos to Africans in the Caribbean: Labor, Migration and Resistance” (Chapter 6).</li>
+                                <li>Stephan Palmié, “Toward Sugar and Slavery” (Chapter 8).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Colonial Diasporic Perspectives:</strong>
+                            <ul>
+                                <li>José Morales, “The Hispaniola Diaspora, 1791-1850: Puerto Rico, Cuba, Louisiana and Other Host Societies” (1986 dissertation).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mortality &amp; Social Memory:</strong>
+                            <ul>
+                                <li>David M. Stark, "Failure to Show Reverence to the Dead: Death and Dying in Late Eighteenth-Century Mayagüez, Puerto Rico." <em>Journal of Caribbean History</em> 51, no. 2 (2017): 113-142.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Subaltern Identity Formation:</strong>
+                            <ul>
+                                <li>Francisco A. Scarano, “The Jíbaro Masquerade and the Subaltern Politics of Creole Identity Formation in Puerto Rico, 1745-1823.” <em>The American Historical Review</em> 101, no. 5 (Dec 1996): 1398-1431.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>2. Enslavement, Resistance &amp; Early Rumbles of Independence</summary>
+                    <ul class="resource-list">
+                        <li><strong>Slavery and Plantation Economy:</strong>
+                            <ul>
+                                <li>Francisco A. Scarano, <em>Sugar and Slavery in Puerto Rico: The Plantation Economy of Ponce, 1800-1850</em> (1984).</li>
+                                <li>Joseph C. Dorsey, <em>Slave Traffic in the Age of Abolition: Puerto Rico, West Africa, and the Non-Hispanic Caribbean, 1815-1859</em> (2003).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Abolition and Resistance:</strong>
+                            <ul>
+                                <li>Joseph C. Dorsey, “Seamy Sides of Abolition: Puerto Rico and the Cabotage Slave Trade to Cuba, 1848-1873.” <em>Slavery and Abolition</em> 19:1 (April 1998): 106-128.</li>
+                                <li>Jay Kinsbruner, <em>Not of Pure Blood: The Free People of Color and Racial Prejudice in Nineteenth-Century Puerto Rico</em> (1996).</li>
+                                <li>Victor C. Simpson, “Harnessing a Critical Resource: Black West Indian Migration to Puerto Rico during the Eighteenth and Nineteenth Centuries.” <em>The Journal of Caribbean History</em> 43, no. 1 (2009): 51-IX.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Early Independence Movements:</strong>
+                            <ul>
+                                <li>Olga Jiménez de Wagenheim, <em>Puerto Rico’s Revolt for Independence: El Grito de Lares</em> (1985).</li>
+                                <li>Jesse Hofnung-Garskof, “To Abolish the Law of Castes: Merit, Manhood, and the Problem of Colour in the Puerto Rican Liberal Movement, 1873-92.” <em>Social History</em> 36, no. 3 (2011): 312-42.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>3. The Beginnings of the American Occupation</summary>
+                    <ul class="resource-list">
+                        <li><strong>Legal Frameworks of Belonging:</strong>
+                            <ul>
+                                <li>Sam Erman, <em>Almost Citizens: Puerto Rico, the U.S. Constitution, and Empire</em> (2019).</li>
+                                <li>Christina Duffy Burnett and Burke Marshall, eds. <em>Foreign in a Domestic Sense: Puerto Rico, American Expansion, and the Constitution</em> (2001).</li>
+                                <li>Frances Negrón-Muntaner and Ramón Grosfoguel, eds. <em>Puerto Rican Jam: Rethinking Colonialism and Nationalism</em> (1997).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Labor and Economic Colonization:</strong>
+                            <ul>
+                                <li>César J. Ayala and Laird Bergad, <em>Agrarian Puerto Rico: Reconsidering Rural Economy and Society, 1899-1940</em> (2020).</li>
+                                <li>César J. Ayala, <em>American Sugar Kingdom: The Plantation Economy of the Spanish Caribbean, 1898-1934</em> (1999).</li>
+                                <li>Manuel R. Rodriguez, <em>A New Deal for the Tropics: Puerto Rico during the Depression Era, 1932-1935</em> (2011).</li>
+                                <li>Helen I. Safa, <em>The Myth of the Male Breadwinner: Women and Industrialization in the Caribbean</em> (1995) and <em>The Urban Poor of Puerto Rico: A Study in Development and Inequality</em> (1974).</li>
+                                <li>Ed Morales, <em>Fantasy Island: Colonialism, Exploitation, and the Betrayal of Puerto Rico</em> (2019).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Diasporic Labor:</strong>
+                            <ul>
+                                <li>Altagracia Ortiz, ed. <em>Puerto Rican Women and Work: Bridges in Transnational Labor</em> (1996).</li>
+                                <li>Edna Acosta-Belén, ed. <em>The Puerto Rican Woman: Perspectives on Culture, History, and Society</em> (1986); includes essays by Blanca Silvestrini and Virginia Sánchez Korrol.</li>
+                                <li>Ismael Garcia-Colón, <em>Colonial Migrants at the Heart of Empire: Puerto Rican Workers on U.S. Farms</em> (2020).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>4. Educational Colonialism &amp; Knowledge Production</summary>
+                    <ul class="resource-list">
+                        <li><strong>Language Policy &amp; Education:</strong>
+                            <ul>
+                                <li>Maria Josefa Canino, “An Historical Review of the English Language Policy in Puerto Rico’s Educational System: 1898-1949.” (1981 dissertation).</li>
+                                <li>Solsiree del Moral, <em>Negotiating Empire: The Cultural Politics of Schools in Puerto Rico, 1898–1952</em> (2013).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Archival Practices &amp; Knowledge Production:</strong>
+                            <ul>
+                                <li>Jorell A. Meléndez-Badillo, <em>The Lettered Barriada: Workers, Archival Power, and the Politics of Knowledge in Puerto Rico</em> (2021).</li>
+                                <li>Pablo Navarro-Rivera, “Acculturation Under Duress: The Puerto Rican Experience at the Carlisle Indian Industrial School, 1898-1918.”</li>
+                                <li>Catherine S. Ramirez, “Indians and Negroes in Spite of Themselves: Puerto Rican Students at the Carlisle Indian Industrial School.” (2019).</li>
+                                <li>Clif Stratton, <em>Education for Empire: American Schools, Race, and the Paths of Good Citizenship</em> (2016), pp. 173-210.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>5. Early Sociopolitical Constructions &amp; Contestations of Puertorriquenidad</summary>
+                    <ul class="resource-list">
+                        <li><strong>Masculinity, Domesticity, &amp; Migration:</strong>
+                            <ul>
+                                <li>Eileen Findlay, <em>We Are Left Without a Father Here: Masculinity, Domesticity, and Migration in Postwar Puerto Rico</em> (2014).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Race, Gender, &amp; Nation:</strong>
+                            <ul>
+                                <li>Hilda Lloréns, <em>Imaging the Great Puerto Rican Family: Framing Nation, Race, and Gender during the American Century</em> (2014).</li>
+                                <li>Yiedy Rivero, <em>Tuning Out Blackness: Race and Nation in the History of Puerto Rican Television</em> (2005).</li>
+                                <li>Ileana Rodriguez-Silva, <em>Silencing Race: Disentangling Blackness, Colonialism, and National Identities in Puerto Rico</em> (2012).</li>
+                                <li>Marisol LeBrón, “Puerto Rico and the Colonial Circuits of Policing.” <em>NACLA Report on the Americas</em> 49, no. 3 (2017): 328-334.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>6. New York as the (Un)Promised Land</summary>
+                    <ul class="resource-list">
+                        <li><strong>Setting the Scene:</strong>
+                            <ul>
+                                <li>Jesse Hofnung-Garskof, <em>Racial Migrations: New York City and the Revolutionary Politics of the Spanish Caribbean</em> (2019).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Social Scientific Accounts:</strong>
+                            <ul>
+                                <li>Laurence Chenault, <em>The Puerto Rican Migrant in New York City</em> (1938).</li>
+                                <li>C. Wright Mills, Clarence Senior and Rose Kohn Goldsen, <em>The Puerto Rican Journey: New York’s Newest Migrants</em> (1950).</li>
+                                <li>Oscar Lewis, <em>La Vida: A Puerto Rican Family in the Culture of Poverty</em> (1966).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Nuyorican Voices:</strong>
+                            <ul>
+                                <li>Elena Padilla, <em>Up from Puerto Rico</em> (1958).</li>
+                                <li>Virginia Sánchez Korrol, <em>From Colonia to Community: The History of Puerto Ricans in New York City, 1917-1948</em> (1983).</li>
+                                <li>Clara Rodríguez, <em>Puerto Ricans: Born in the USA</em> (1989).</li>
+                                <li>Ana Celia Zentella, <em>Growing Up Bilingual: Puerto Rican Children in New York</em> (1997).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>7. Alternative Sites of Diaspora</summary>
+                    <ul class="resource-list">
+                        <li><strong>Hawaii:</strong>
+                            <ul>
+                                <li>JoAnna Poblete, <em>Islanders in the Empire: Filipino and Puerto Rican Laborers in Hawai’i</em> (2014).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Chicago and the Midwest:</strong>
+                            <ul>
+                                <li>Ana Ramos-Zayas, <em>National Performances: Class, Race, and Space in Puerto Rican Chicago</em> (2003).</li>
+                                <li>Mérida M. Rúa, <em>A Grounded Identidad: Making New Lives in Chicago’s Puerto Rican Neighborhoods</em> (2012).</li>
+                                <li>Gina M. Pérez, <em>Citizen, Student, Soldier: Latina/o Youth, JROTC, and the American Dream</em> (2015).</li>
+                                <li>Mirelsie Velázquez, <em>Puerto Rican Chicago: Schooling the City, 1940-1977</em> (2022).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mid-Atlantic:</strong>
+                            <ul>
+                                <li>Mercy Romero, <em>Toward Camden</em> (2021).</li>
+                                <li>Judith Goode, <em>Koreans and Puerto Ricans in Philadelphia: How Interethnic Relations are Shaped by Local Situations and Racialist Discourse</em> (1999).</li>
+                            </ul>
+                        </li>
+                        <li><strong>New England:</strong>
+                            <ul>
+                                <li>Llana Barber, <em>Latino City: Immigration and Urban Crisis in Lawrence, Massachusetts 1945-2000</em> (2017).</li>
+                                <li>Félix V. Matos Rodríguez, “Saving the Parcela: A Short History of Boston’s Puerto Rican Population” (2005).</li>
+                                <li>Alex Huxley Westfried, <em>Ethnic Leadership in a New England Community: Three Puerto Rican Families</em> (1981).</li>
+                                <li>Jeffrey R. Backstrand and Stephen Schensul, “Co-Evolution in an Outlying Ethnic Community: The Puerto Ricans of Hartford, Connecticut” (1982): 9-37.</li>
+                                <li>Ruth Glasser, <em>Aquí Me Quedo: Puerto Ricans in Connecticut</em> (1997).</li>
+                                <li>José E. Cruz, <em>Identity and Power: Puerto Rican Workers and Postwar Economies</em> (1998).</li>
+                                <li>Hilda Lloréns and Carlos Garcia-Quijano, “Puerto Rican Girls Speak! The Meanings of Success for Puerto Rican Girls in Hartford, Connecticut” (2012): 84-109.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Orlando:</strong>
+                            <ul>
+                                <li>Patricia Silver, <em>Sunbelt Diaspora: Race, Class, and Latino Politics in Puerto Rican Orlando</em> (2020).</li>
+                                <li>Simone Delerme, “The Latinization of Orlando: Language, Whiteness, and the Politics of Place” (2013): 60-95.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>8. Ongoing Struggles, Resistances &amp; Stateside Perspectives</summary>
+                    <ul class="resource-list">
+                        <li><strong>Contemporary Struggles &amp; Environmental Justice:</strong>
+                            <ul>
+                                <li>Hilda Lloréns, <em>Making Livable Worlds: Afro-Puerto Rican Women Building Environmental Justice</em> (2021).</li>
+                                <li>Zaire Dinzey-Flores, <em>Locked In, Locked Out: Gated Communities in a Puerto Rican City</em> (2013).</li>
+                                <li>Yarimar Bonilla, ed. <em>Aftershocks of Disaster: Puerto Rico Before and After the Storm</em> (2019).</li>
+                                <li>Yarimar Bonilla and Isar Godreau, “Nonsovereign Racecraft: How Colonialism, Debt, and Disaster are Transforming Puerto Rican Racial Subjectivities” (2021): 509-525.</li>
+                                <li>Hilda Lloréns, “Beyond blanqueamiento: Black Affirmation in Contemporary Puerto Rico” (2018): 157-178.</li>
+                                <li>Marisol LeBrón, “Policing Solidarity: State Violence, Blackness, and the University of Puerto Rico Strikes” (2015): 113-134.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stateside Perspectives:</strong>
+                            <ul>
+                                <li>Johanna Fernández, <em>The Young Lords: A Radical History</em> (2020).</li>
+                                <li>Arlene Dávila, <em>Barrio Dreams: Puerto Ricans, Latinos and the Neoliberal City</em> (2004).</li>
+                                <li>Salvador Vidal-Ortiz, “On Being a White Person of Color: Using Autoethnography to Understand Puerto Ricans' Racialization” (2021).</li>
+                                <li>Dan Berger, “’A Common Citizenship of Freedom’: What Black Power Taught Chicago’s Puerto Rican Independentistas” (2016): 127-151.</li>
+                                <li>Sonia Song-Ha Lee, <em>Building a Latino Civil Rights Movement: Puerto Ricans, African Americans, and the Pursuit of Racial Justice in New York City</em> (2014).</li>
+                                <li>Ana Ramos-Zayas, “Delinquent Citizenship, National Performances: Racialization, Surveillance, and the Politics of ‘Worthiness’ in Puerto Rican Chicago” (2004): 26-44.</li>
+                                <li>Pedro Cabán, “Puerto Rican Studies: Changing Islands of Knowledge” (2009): 256-281.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+            </section>
+
+            <section id="section-3">
             <h2>III. Digital Archives & Online Collections</h2>
 
             <h3>A. Academic & Archival Resources</h3>
@@ -106,7 +384,7 @@
             </ul>
         </section>
 
-        <section>
+            <section id="section-4">
             <h2>IV. Multimedia & Podcasts</h2>
 
             <h3>A. Audio & Video Resources</h3>
@@ -126,7 +404,8 @@
             </ul>
         </section>
 
-        <section>
+            <section id="section-5">
+
             <h2>V. Research Guides & Academic Portals</h2>
 
             <h3>A. University-Based Guides</h3>
@@ -142,7 +421,7 @@
             </ul>
         </section>
 
-        <section>
+            <section id="section-6">
             <h2>VI. Guiding Questions for Deeper Study</h2>
             <ul>
                 <li><strong>Identity & Diaspora:</strong> How do colonial legacies and diaspora experiences shape contemporary Puerto Rican identity?</li>
@@ -153,9 +432,8 @@
             </ul>
         </section>
 
-        <section>
+            <section id="section-7">
             <h2>VII. Additional Resources & Community Engagement</h2>
-
             <h3>A. Websites & Blogs</h3>
             <ul>
                 <li><a href="https://centropr.hunter.cuny.edu/">CentroPR</a> - Ongoing exhibitions and cultural programs.</li>
@@ -173,6 +451,7 @@
 
             <p class="note">This syllabus is designed to evolve—feel free to add new links, update readings, and incorporate community feedback.</p>
         </section>
+
     </main>
 </div>
 

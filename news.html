@@ -8,6 +8,9 @@
     <!-- Same global CSS file -->
     <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
+
+    <!-- Favicon links for browser tab icons -->
+    <link rel="icon" type="image/png" href="./DB Logo Outline.png">
 </head>
 <body>
 
@@ -28,9 +31,9 @@
         <a href="collaborate.html">Collaborate</a>
         <a href="news.html">News + Events</a>
         <a href="meettheboard.html">Meet the Board</a>
-        <a href="alumni.html" class="active">Alumni</a>
+        <a href="alumni.html" >Alumni</a>
         <a href="merch.html">Merch</a>
-        <a href="gallery.html" class="active">Gallery</a>
+        <a href="gallery.html" >Gallery</a>
     </nav>
     <div class="sidebar-footer">
         <!-- Social Media Links -->
@@ -67,11 +70,22 @@
 
         <!-- FILTER CHECKBOXES -->
         <div class="filter-options">
-            <label><input type="checkbox" name="category" value="workshop" checked /> Workshop</label>
-            <label><input type="checkbox" name="category" value="social" checked /> Social</label>
-            <label><input type="checkbox" name="category" value="activism" checked /> Activism</label>
-            <label><input type="checkbox" name="category" value="recent" checked /> Recent Events</label>
-            <label><input type="checkbox" name="category" value="media" checked /> Media Coverage</label>
+            <label>
+                <input type="checkbox" name="category" value="workshop" checked /> Workshop
+            </label>
+            <label>
+                <input type="checkbox" name="category" value="social" checked /> Social
+            </label>
+            <label>
+                <input type="checkbox" name="category" value="activism" checked /> Activism
+            </label>
+            <label>
+                <input type="checkbox" name="category" value="recent" checked /> Recent Events
+            </label>
+            <label>
+                <input type="checkbox" name="category" value="media" checked /> Media Coverage
+            </label>
+            <button id="resetFilters">Reset Filters</button>
         </div>
 
         <!-- NEWS LIST -->
@@ -149,7 +163,7 @@
                     </li>
                     <li data-category="social">
                         <strong>Community Cooking at La Casa</strong><br>
-                        <em>Saturday, 5–7 PM</em><br>
+                        <em>Saturday Feb 8, 5–7 PM</em><br>
                         Share recipes and stories in a communal cooking experience. Hosted by DB and local chefs.
                     </li>
                     <li data-category="social">
