@@ -522,7 +522,18 @@ body.dark-mode {
 }
 
 
-
+/* Ensures text doesn’t overflow horizontally - mostly for mobile*/
+body, p, a, li {
+    overflow-wrap: break-word;    /* Modern CSS property */
+    word-wrap: break-word;        /* Legacy property for older browsers */
+    word-break: break-word;       /* Also helps in some older browsers */
+    hyphens: auto;                /* Optional for hyphenation support */
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* or inline-block if needed */
+}
 /* ======================================================================
    7. OTHER COMPONENTS & EXTRA SECTIONS
 ====================================================================== */
@@ -637,6 +648,102 @@ body.dark-mode {
     height: auto; /* Maintain aspect ratio */
     display: block; /* Ensures proper alignment */
     margin: 0 auto; /* Centers the image */
+}
+
+.merch-section {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the section on larger screens */
+}
+
+.merch-section h1 {
+    text-align: center;       /* Center the main heading */
+    margin-bottom: 1rem;
+}
+
+.merch-section p {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* The container that holds all merch items */
+.merch-gallery {
+    display: flex;            /* Use flex layout */
+    flex-wrap: wrap;          /* Allow items to wrap onto new lines */
+    gap: 1rem;                /* Space between items */
+    justify-content: center;  /* Center them horizontally */
+}
+
+.merch-intro {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+.merch-items {
+    display: flex;         /* Use flex layout */
+    flex-wrap: wrap;       /* Allow wrapping if there's not enough space */
+    gap: 1rem;             /* Spacing between items */
+    justify-content: center; /* Center items horizontally */
+}
+
+.merch-item {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1 1 200px;       /* Grow/shrink, min 200px wide */
+    max-width: 300px;      /* So items don't stretch too wide on large screens */
+    text-align: center;
+    padding: 1rem;
+}
+
+.merch-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+/* Image styling for the merch item */
+.merch-image {
+    max-width: 100%;           /* Scale image to container width */
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem;       /* Center image and add spacing below */
+}
+
+/* Make text visually appealing */
+.merch-item p {
+    margin-bottom: 0.5rem;
+}
+
+.buy-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Example button color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    padding: 0.5rem 1rem;
+}
+
+.buy-link:hover {
+    background-color: #0056b3;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .merch-items {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center;    /* Center them */
+    }
+    .merch-item {
+        width: 100%;           /* Let each item fill the screen width */
+        max-width: 100%;       /* Let items fill the width on mobile */
+    }
 }
 
 /* ===== Board Page Styles ===== */
