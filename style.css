@@ -1071,6 +1071,10 @@ ul, ol {
     padding-left: 1.5rem; /* Indent bullets/numbers for clarity */
 }
 
+ul {
+    margin-top: 1rem; /* adds space above the list */
+}
+
 
 
 /* CTA Box Section */
