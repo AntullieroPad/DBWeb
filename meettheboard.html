@@ -37,6 +37,8 @@
         <a href="merch.html">Merch</a>
         <a href="gallery.html" >Gallery</a>
     </nav>
+    <button id="lang-toggle">Español</button>
+
     <div class="sidebar-footer">
         <!-- Social Media Links -->
         <div class="social-icons">
@@ -61,8 +63,8 @@
     <!-- Optional Hero or Black Banner -->
     <section class="black-hero">
         <div class="hero-content">
-            <h1>Meet the Board</h1>
-            <p>
+            <h1 data-key="boardHeroTitle">Meet the Board</h1>
+            <p data-key="boardHeroText">
                 Here at DB Yale, we’re more than just colleagues—<strong>we’re Bori-buddies!</strong>
                 Get to know the team behind our activism, creative projects, and community outreach.
             </p>
@@ -72,7 +74,7 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
         <section class="corkboard-section">
-            <h2 class="board-heading">Pin Your Eyes on Our Bori-Buddies!</h2>
+            <h2 class="board-heading" data-key="boardHeading">Pin Your Eyes on Our Bori‑Buddies!</h2>
 
             <!-- BOARD GRID styled like pinned polaroids -->
             <div class="board-grid">
@@ -82,7 +84,7 @@
                     <img src="./WhatsApp Image 2025-02-06 at 11.50.28 PM.jpeg" alt="Jaden Morales" />
                     <h3>Jaden Gonzalez</h3>
                     <span class="member-role">Co-President</span>
-                    <p>
+                    <p data-key="jadenText">
                         Jaden spearheads strategic direction, bridging activism and academia.
                         A proud Bori-buddy who’s all about uplifting new voices.
                     </p>
@@ -93,7 +95,7 @@
                     <img src="./IMG_3816 - Kristen St Louis.jpeg" alt="Kristen St. Louis" />
                     <h3>Kristen St. Louis</h3>
                     <span class="member-role">Co-President</span>
-                    <p>
+                    <p data-key="kristenText">
                         Kris shares Co-President duties, ensuring that every DB initiative
                         highlights the stories and creativity of our vibrant community.
                     </p>
@@ -104,7 +106,7 @@
                     <img src="./22F6C6A2-82C3-4FD4-9A38-E35F91B89184 - Elyse Thomas.jpeg" alt="Elyse Thomas" />
                     <h3>Elyse Thomas</h3>
                     <span class="member-role">Event Coordinator</span>
-                    <p>
+                    <p data-key="elyseText">
                         Elyse orchestrates everything from cooking nights to cultural showcases.
                         She ensures every DB event feels like a true familia gathering.
                     </p>
@@ -115,7 +117,7 @@
                     <img src="./WhatsApp Image 2025-02-09 at 11.27.29 PM.jpeg" alt="Aryana Ramos-Vazquez" />
                     <h3>Aryana Ramos-Vazquez</h3>
                     <span class="member-role">Social Media Manager</span>
-                    <p>
+                    <p data-key="aryanaText">
                         Aryana fosters partnerships and community engagement,
                         forging alliances that amplify DB’s mission across campus and beyond.
                     </p>
@@ -126,7 +128,7 @@
                     <img src="./1BDF6047-2EDC-49C6-9B8D-74257382703A - Alanna Rivera.jpeg" alt="Alanna" />
                     <h3>Alanna Rivera</h3>
                     <span class="member-role">Treasurer</span>
-                    <p>
+                    <p data-key="alannaText">
                         Alanna manages DB’s financial health, ensuring every project is feasible
                         and every event stays on budget.
                     </p>
@@ -137,7 +139,7 @@
                     <img src="./IMG_3287 - Sonia Rosa.jpeg" alt="Sonia" />
                     <h3>Sonia Rosa</h3>
                     <span class="member-role">Alumni Relations Coordinator</span>
-                    <p>
+                    <p data-key="soniaText">
                         Sonia fosters connections between current members and alumni,
                         bridging generations of Bori-buddies for lasting community impact.
                     </p>
@@ -148,7 +150,7 @@
                     <img src="./WhatsApp Image 2025-02-09 at 11.21.01 PM.jpeg" alt="Roberto Lopez" />
                     <h3>Roberto Lopez</h3>
                     <span class="member-role">Social Media Manager</span>
-                    <p>
+                    <p data-key="robertoText">
                         Roberto teams up with Aryana to keep DB’s socials buzzing. He’s a
                         Bori-buddy who loves to connect with followers and amplify fresh voices.
                     </p>
@@ -159,7 +161,7 @@
                     <img src="./IMG_20240801_165604 - Antonio Padilla.jpg" alt="Antonio Padilla" />
                     <h3>Antonio Padilla</h3>
                     <span class="member-role">First Year Mentor</span>
-                    <p>
+                    <p data-key="antonioText">
                         Antonio connects incoming Yalies with the DB community.
                         Antonio is also the brains behind our digital footprint.
                         A Bori-buddy who codes, creates, and keeps DB’s online home running strong.
@@ -172,8 +174,8 @@
 
         <!-- Constitution Section: under the board grid, inside main-content -->
         <section class="constitution-section">
-            <h2>Our Constitution</h2>
-            <p>
+            <h2 data-key="constitutionHeading">Our Constitution</h2>
+            <p data-key="constitutionText">
                 DB Yale’s guiding principles, mission, and structure are outlined
                 in our official constitution. Click below to download or view it.
             </p>
@@ -197,5 +199,7 @@
 
 <!-- Optional JS for hamburger, etc. -->
 <script src="script.js"></script>
+<script src="lang.js"></script>
+
 </body>
 </html>

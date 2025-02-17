@@ -30,6 +30,7 @@
         <a href="merch.html">Merch</a>
         <a href="gallery.html" >Gallery</a>
     </nav>
+    <button id="lang-toggle">Español</button>
 
     <div class="sidebar-footer">
 
@@ -73,8 +74,8 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
         <section class="merch-section">
-            <h1>Support DB with Exclusive Merch!</h1>
-            <p>
+            <h1 data-key="merchHeading">Support DB with Exclusive Merch!</h1>
+            <p data-key="merchText">
                 Represent DB Yale with official merchandise! All proceeds go
                 towards funding cultural events and initiatives.
             </p>
@@ -87,7 +88,7 @@
                     <p><strong>DB Sweater</strong> - $30</p>
                     <a
                             href="https://docs.google.com/forms/d/e/1FAIpQLSeIYM0QSTbcAe5v9X5DG_tm6La72fwP3y2dKBV-xy0AMh__Rw/viewform?usp=sf_link"
-                            class="buy-now"> Buy Now
+                            class="buy-now" data-key="buyNow"> Buy Now
                     </a>
                 </div>
                 <!-- Add more .merch-item divs if you have more products -->
@@ -96,5 +97,7 @@
     </main>
 </div>
 <script src="script.js"></script>
+<script src="lang.js"></script>
+
 </body>
 </html>

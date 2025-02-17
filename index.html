@@ -55,16 +55,17 @@
 
     <!-- Navigation Links within the sidebar -->
     <nav class="sidebar-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="syllabus.html">Syllabus</a>
-        <a href="collaborate.html">Collaborate</a>
-        <a href="news.html">News + Events</a>
-        <a href="meettheboard.html">Meet the Board</a>
-        <a href="alumni.html" >Alumni</a>
-        <a href="merch.html">Merch</a>
-        <a href="gallery.html" >Gallery</a>
+        <a href="index.html" data-key="navHome">Home</a>
+        <a href="about.html" data-key="navAbout">About</a>
+        <a href="syllabus.html" data-key="navSyllabus">Syllabus</a>
+        <a href="collaborate.html" data-key="navCollaborate">Collaborate</a>
+        <a href="news.html" data-key="navNews">News + Events</a>
+        <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
+        <a href="alumni.html" data-key="navAlumni">Alumni</a>
+        <a href="merch.html" data-key="navMerch">Merch</a>
+        <a href="gallery.html" data-key="navGallery">Gallery</a>
     </nav>
+    <button id="lang-toggle">Español</button>
 
     <!-- Sidebar Footer: Includes search, social icons, and license info -->
     <div class="sidebar-footer">
@@ -123,8 +124,8 @@
     <!-- Black Hero Section: Emphasizes club's mission with a call-to-action button -->
 <section class="black-hero">
     <div class="hero-content">
-        <h1>Celebrating Puerto Rican Identity & Resistance</h1>
-        <p>
+        <h1 data-key="blackHeroHeading">Celebrating Puerto Rican Identity & Resistance</h1>
+        <p data-key="blackHeroParagraph">
             More than a club—Despierta Boricua is a movement.
             We uplift, empower, and celebrate our culture, history,
             and people.
@@ -141,12 +142,11 @@
 <main class="main-content">
     <!-- A sample "intro" section -->
     <section class="content-section">
-        <h3 data-key="title">Welcome to DB Yale</h3>
-        <p data-key="subtitle">
-            <!-- Placeholder for subtitle content -->
+        <h3 data-key="introTitle">Welcome to DB Yale</h3>
+        <p data-key="introSubtitle">
+            Explore our initiatives, engage with our community, and celebrate culture and activism.
         </p>
     </section>
-
 
     <!-- ROWS: "WHAT DB STANDS FOR" content sections -->
     <!-- Section 1: Education & Community Empowerment -->
@@ -157,9 +157,9 @@
                     src="./PedroAlbPhoto.jpg" alt="Historical context" />
         </div>
         <div class="text-col">
-            <h3 class="section-tag">SECTION 1</h3>
-            <h2>Education & Community Empowerment</h2>
-            <p>
+            <h3 class="section-tag" data-key="section1Tag">SECTION 1</h3>
+            <h2 data-key="section1Title">Education & Community Empowerment</h2>
+            <p data-key="section1Paragraph">
                 DB prioritizes knowledge-sharing at the
                 local level. By partnering with community
                 members and leaders, DB fosters an environment
@@ -176,9 +176,9 @@
 
         </div>
         <div class="text-col">
-            <h3 class="section-tag">SECTION 2</h3>
-            <h2>Cultural Preservation & Representation</h2>
-            <p>
+            <h3 class="section-tag" data-key="section2Tag">SECTION 2</h3>
+            <h2 data-key="section2Title">Cultural Preservation & Representation</h2>
+            <p data-key="section2Paragraph">
                 Celebrating the rich histories and traditions that
                 shape our identities. DB highlights underrepresented voices,
                 ensuring cultural narratives remain alive and vibrant in
@@ -194,9 +194,9 @@
                     src="./Ponce_Massacre.jpg" alt="Another example" />
         </div>
         <div class="text-col">
-            <h3 class="section-tag">SECTION 3</h3>
-            <h2>Critical Analysis of Sociopolitical Issues</h2>
-            <p>
+            <h3 class="section-tag" data-key="section3Tag">SECTION 3</h3>
+            <h2 data-key="section3Title">Critical Analysis of Sociopolitical Issues</h2>
+            <p data-key="section3Paragraph">
                 DB pushes for discussions about pressing
                 social and political challenges,
                 inviting the community to question, analyze,
@@ -212,9 +212,9 @@
                     src="./PR_1963_NPS.jpeg" alt="Another example" />
         </div>
         <div class="text-col">
-            <h3 class="section-tag">SECTION 4</h3>
-            <h2>Collaborative Action</h2>
-            <p>
+            <h3 class="section-tag" data-key="section4Tag">SECTION 4</h3>
+            <h2 data-key="section4Title">Collaborative Action</h2>
+            <p data-key="section4Paragraph">
                 DB unites activists, educators, students,
                 and organizations under a shared mission.
                 We believe in collective efforts amplifying individual
@@ -231,9 +231,9 @@
                     src="./SylviaRivera-Activ.jpg" alt="Another example" />
         </div>
         <div class="text-col">
-            <h3 class="section-tag">SECTION 5</h3>
-            <h2>Inclusivity</h2>
-            <p>
+            <h3 class="section-tag" data-key="section5Tag">SECTION 5</h3>
+            <h2 data-key="section5Title">Inclusivity</h2>
+            <p data-key="section5Paragraph">
                 Progress demands that we consider overlapping
                 impacts of race, gender, class, ability, and more.
                 DB stands for an inclusive future where policies and
@@ -249,9 +249,9 @@
                     src="./The First Rainbow Coalition-1024-512.jpg" alt="Another example" />
         </div>
         <div class="text-col">
-            <h3 class="section-tag">SECTION 6</h3>
-            <h2>Activism & Resistance</h2>
-            <p>
+            <h3 class="section-tag" data-key="section6Tag">SECTION 6</h3>
+            <h2 data-key="section6Title">Activism & Resistance</h2>
+            <p data-key="section6Paragraph">
                 Activism and resistance is central to
                 Puerto Rican identity and struggle, both on the
                 island and diaspora: environmental
@@ -259,7 +259,8 @@
                 have continually resisted oppression and fought for sovereignty,
                 dignity, and self-determination. </p>
 
-                <p> Movements such as the Grito de Lares (1868),
+            <p data-key="section6ParagraphB">
+                    Movements such as the Grito de Lares (1868),
                     student protests at the University of
                 Puerto Rico, and decades of struggle against the Navy’s
                 occupation of Vieques exemplify the resilience Puerto Rican people.
@@ -271,27 +272,35 @@
 
     <!-- News & Current Events Section with a carousel -->
     <section class="news-events">
-        <h2>📰 News & Current Events</h2>
+        <h2 data-key="newsEventsHeading">📰 News & Events</h2>
         <div class="carousel">
             <div class="carousel-container">
 
                 <!-- First news item: Announcement -->
                 <div class="news-item">
-                    <p><b>Incoming Features:</b></p>
-                    <p>Dark Mode, Spanish mode, exclusive alumni connections,
-                        and updated syllabus</p>
+                <p data-key="newsItem1Title">
+                    <b>Incoming Features:</b>
+                </p>
+                <p data-key="newsItem1Text">
+                    Dark Mode, Spanish mode, exclusive alumni connections,
+                        and updated syllabus
+                </p>
                 </div>
 
                 <!-- Second news item with image and caption -->
                 <div class="news-item">
                     <img src="./PRU_PRicanFest.jpeg" alt="PRU Festivals and Parade!">
-                    <p>Join Us for the future - you might find us on a parade float</p>
+                    <p data-key="newsItem2Text">
+                        Join Us for the future - you might find us on a parade float
+                    </p>
                 </div>
 
                 <!-- Third news item with image and caption -->
                 <div class="news-item">
                     <img src="./PRU_Abolition.jpeg" alt="PRS at NYPL | Teaching the Syllabus">
-                    <p>Slavery in Puerto Rico | learn about Afro-Boricua History </p>
+                    <p data-key="newsItem3Text">
+                        Slavery in Puerto Rico | learn about Afro-Boricua History
+                    </p>
                 </div>
 
             </div>
@@ -305,26 +314,21 @@
     <section class="cta-box">
         <div class="cta-content">
             <div class="cta-text">
-                <h2>Sign Up to Our Newsletter</h2>
-                <p>Stay updated on DB Yale happenings, events, and more!</p>
-                <p><b>Coming Soon!</b></p>
+                <h2 data-key="ctaNewsletterHeading">Sign Up to Our Newsletter</h2>
+                <p data-key="ctaNewsletterText">Stay updated on DB Yale happenings, events, and more!</p>
+                <p data-key="ctaComingSoon"><b>Coming Soon!</b></p>
             </div>
 
             <div class="la-casa-link">
-                <h3>La Casa Cultural</h3>
-                <p>Learn more about events and resources at Yale’s La Casa Cultural.</p>
-                <a
-                        href="https://lacasa.yalecollege.yale.edu/"
-                        class="la-casa-btn"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                >
+                <h3 data-key="laCasaHeading">La Casa Cultural</h3>
+                <p data-key="laCasaText">Learn more about events and resources at Yale’s La Casa Cultural.</p>
+                <a href="https://lacasa.yalecollege.yale.edu/" class="la-casa-btn" target="_blank" rel="noopener noreferrer" data-key="laCasaBtn">
                     Visit La Casa
                 </a>
             </div>
 
             <div class="cta-socials">
-                <h3>Follow Us</h3>
+                <h3 data-key="ctaFollowHeading">Follow Us</h3>
                 <div class="cta-social-icons">
                     <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank">
                         <i class="fab fa-facebook-f"></i>
@@ -340,7 +344,7 @@
                     </a>
                 </div>
                 <!-- Within your CTA box, near the "Subscribe" or other links -->
-                <a href="donate.html" class="cta-btn">Donate</a>
+                <a href="donate.html" class="cta-btn" data-key="ctaDonateBtn">Donate</a>
 
             </div>
         </div>
@@ -352,6 +356,8 @@
 </div>
 <!-- External JavaScript file for functionality -->
 <script src="script.js"></script>
+<script src="lang.js"></script>
+
 <!-- Note: The mobile toggle script is also included in script.js -->
 </body>
 </html>

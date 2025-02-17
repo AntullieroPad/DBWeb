@@ -90,6 +90,8 @@
         <a href="merch.html">Merch</a>
         <a href="gallery.html" >Gallery</a>
     </nav>
+    <button id="lang-toggle">Español</button>
+
     <div class="sidebar-footer">
         <!-- Social Media Links -->
         <div class="social-icons">
@@ -114,8 +116,9 @@
     <!-- OPTIONAL HERO OR BANNER -->
     <section class="black-hero">
         <div class="hero-content">
-            <h1>DB Yale Syllabus</h1>
-            <p>Explore our curated resources, reading lists, and guiding questions for deeper study.</p>
+            <h1 id="fancy-title" data-key="heroTitle">DB Yale Syllabus</h1>
+            <p data-key="introSubtitle">
+                Explore our curated resources, reading lists, and guiding questions for deeper study.</p>
         </div>
     </section>
 
@@ -123,22 +126,23 @@
     <main class="main-content">
 
         <nav class="table-of-contents">
-            <h3>Table of Contents</h3>
+            <h3 data-key="tocHeading">Table of Contents</h3>
             <ul>
-                <li><a href="#section-1">I. Introduction</a></li>
-                <li><a href="#section-2">II. Curated Reading Lists</a></li>
-                <li><a href="#section-3">III. Digital Archives &amp; Collections</a></li>
-                <li><a href="#section-4">IV. Multimedia &amp; Podcasts</a></li>
-                <li><a href="#section-5">V. Research Guides &amp; Academic Portals</a></li>
-                <li><a href="#section-6">VI. Guiding Questions</a></li>
-                <li><a href="#section-7">VII. Additional Resources</a></li>
+                <li><a href="#section-1" data-key="tocSection1">I. Introduction</a></li>
+                <li><a href="#section-2" data-key="tocSection2">II. Curated Reading Lists</a></li>
+                <li><a href="#section-3" data-key="tocSection3">III. Digital Archives & Collections</a></li>
+                <li><a href="#section-4" data-key="tocSection4">IV. Multimedia & Podcasts</a></li>
+                <li><a href="#section-5" data-key="tocSection5">V. Research Guides & Academic Portals</a></li>
+                <li><a href="#section-6" data-key="tocSection6">VI. Guiding Questions</a></li>
+                <li><a href="#section-7" data-key="tocSection7">VII. Additional Resources</a></li>
             </ul>
         </nav>
 
         <!-- I. INTRODUCTION -->
         <section id="section-1">
-            <h2>I. Introduction</h2>
-            <p>Welcome to the DB Yale Syllabus! This living document highlights key
+            <h2 data-key="introHeading">I. Introduction</h2>
+            <p data-key="introParagraph">
+            Welcome to the DB Yale Syllabus! This living document highlights key
                 readings, digital archives, and guiding questions to deepen your
                 understanding of Puerto Rico’s rich history, culture, and political landscape.
                 We encourage you to explore these materials, share your insights, and help
@@ -147,11 +151,13 @@
 
 
             <section id="section-2">
-            <h2>II. Curated Reading Lists</h2>
-                <p><b>This section presents an extensive, curated reading list based on Amanda Rivera’s scholarship.
+                <h2 data-key="curatedHeading">II. Curated Reading Lists</h2>
+                <p data-key="curatedIntro">
+                    <b>This section presents an extensive, curated reading list based on Amanda Rivera’s scholarship.
                     Click on each category below to reveal the detailed texts.</b> </p>
                 <details open>
-                    <summary>1. Pre-1898 Puerto Rican History: Spanish Colonial Rule, Enslavement, Resistance &amp; Early Whispers of Independence</summary>
+                    <summary data-key="curatedCategory1">
+                        1. Pre-1898 Puerto Rican History: Spanish Colonial Rule, Enslavement, Resistance &amp; Early Whispers of Independence</summary>
                     <ul class="resource-list">
                         <li><strong>Pre-Columbian and Early Conquest:</strong>
                             <ul>
@@ -179,7 +185,8 @@
                 </details>
 
                 <details>
-                    <summary>2. Enslavement, Resistance &amp; Early Rumbles of Independence</summary>
+                    <summary data-key="curatedCategory2">
+                        2. Enslavement, Resistance &amp; Early Rumbles of Independence</summary>
                     <ul class="resource-list">
                         <li><strong>Slavery and Plantation Economy:</strong>
                             <ul>
@@ -204,7 +211,8 @@
                 </details>
 
                 <details>
-                    <summary>3. The Beginnings of the American Occupation</summary>
+                    <summary data-key="curatedCategory3">
+                        3. The Beginnings of the American Occupation</summary>
                     <ul class="resource-list">
                         <li><strong>Legal Frameworks of Belonging:</strong>
                             <ul>
@@ -233,7 +241,8 @@
                 </details>
 
                 <details>
-                    <summary>4. Educational Colonialism &amp; Knowledge Production</summary>
+                    <summary data-key="curatedCategory4">
+                        4. Educational Colonialism &amp; Knowledge Production</summary>
                     <ul class="resource-list">
                         <li><strong>Language Policy &amp; Education:</strong>
                             <ul>
@@ -253,7 +262,8 @@
                 </details>
 
                 <details>
-                    <summary>5. Early Sociopolitical Constructions &amp; Contestations of Puertorriquenidad</summary>
+                    <summary data-key="curatedCategory5">
+                        5. Early Sociopolitical Constructions &amp; Contestations of Puertorriquenidad</summary>
                     <ul class="resource-list">
                         <li><strong>Masculinity, Domesticity, &amp; Migration:</strong>
                             <ul>
@@ -272,7 +282,8 @@
                 </details>
 
                 <details>
-                    <summary>6. New York as the (Un)Promised Land</summary>
+                    <summary data-key="curatedCategory6">
+                        6. New York as the (Un)Promised Land</summary>
                     <ul class="resource-list">
                         <li><strong>Setting the Scene:</strong>
                             <ul>
@@ -298,7 +309,8 @@
                 </details>
 
                 <details>
-                    <summary>7. Alternative Sites of Diaspora</summary>
+                    <summary data-key="curatedCategory7">
+                        7. Alternative Sites of Diaspora</summary>
                     <ul class="resource-list">
                         <li><strong>Hawaii:</strong>
                             <ul>
@@ -340,7 +352,8 @@
                 </details>
 
                 <details>
-                    <summary>8. Ongoing Struggles, Resistances &amp; Stateside Perspectives</summary>
+                    <summary data-key="curatedCategory8">
+                        8. Ongoing Struggles, Resistances &amp; Stateside Perspectives</summary>
                     <ul class="resource-list">
                         <li><strong>Contemporary Struggles &amp; Environmental Justice:</strong>
                             <ul>
@@ -368,9 +381,9 @@
             </section>
 
             <section id="section-3">
-            <h2>III. Digital Archives & Online Collections</h2>
+                <h2 data-key="digitalHeading">Digital Archives & Online Collections</h2>
 
-            <h3>A. Academic & Archival Resources</h3>
+                <h3 data-key="academicResourcesTitle">A. Academic & Archival Resources</h3>
             <ul>
                 <li><a href="https://centropr.hunter.cuny.edu/">CentroPR – Center for Puerto Rican Studies Library & Archives</a></li>
                 <li><a href="https://libguides.kean.edu/">Biblioteca Digital Puertorriqueña / Puerto Rican Digital Library</a></li>
@@ -384,10 +397,10 @@
             </ul>
         </section>
 
-            <section id="section-4">
-            <h2>IV. Multimedia & Podcasts</h2>
+        <section id="section-4">
+            <h2 data-key="multimediaHeading">Multimedia & Podcasts</h2>
 
-            <h3>A. Audio & Video Resources</h3>
+            <h3 data-key="audioVideoTitle">A. Audio & Video Resources</h3>
             <ul>
                 <li><a href="https://en.wikipedia.org/wiki/La_Brega">
                     La Brega: Stories of the Puerto Rican Experience</a>
@@ -406,50 +419,57 @@
 
             <section id="section-5">
 
-            <h2>V. Research Guides & Academic Portals</h2>
+                <h2 data-key="researchHeading">Research Guides & Academic Portals</h2>
 
-            <h3>A. University-Based Guides</h3>
+                <h3 data-key="universityGuidesTitle">A. University-Based Guides</h3>
             <ul>
                 <li><a href="https://libguides.kean.edu/">Puerto Rico and Puerto Rican Studies LibGuides (Kean University, UConn, UCLA)</a></li>
                 <li><a href="https://en.wikipedia.org/wiki/Centro_de_Estudios_Puertorrique%C3%B1os">Centro de Estudios Puertorriqueños (Centro) Overview</a></li>
             </ul>
 
-            <h3>B. Discussion Forums & Community Engagement</h3>
-            <ul>
-                <li>Explore academic forums and online discussion groups (such as College Confidential and university Facebook groups).</li>
-                <li>Consider establishing a **moderated discussion board** on the DB Yale site for community insights.</li>
-            </ul>
-        </section>
+                <h3 data-key="forumsTitle">B. Discussion Forums & Community Engagement</h3>
+                <ul>
+                    <li data-key="forum1">Explore academic forums and
+                        online discussion groups (such as College
+                        Confidential and university Facebook groups).</li>
+                    <li data-key="forum2">Consider establishing a
+                        moderated discussion board on the DB Yale
+                        site for community insights.</li>
+                </ul>
+            </section>
 
-            <section id="section-6">
-            <h2>VI. Guiding Questions for Deeper Study</h2>
+
+        <section id="section-6">
+            <h2 data-key="questionsHeading">Guiding Questions for Deeper Study</h2>
             <ul>
-                <li><strong>Identity & Diaspora:</strong> How do colonial legacies and diaspora experiences shape contemporary Puerto Rican identity?</li>
-                <li><strong>Cultural Resilience:</strong> How do literature, music, and oral histories reflect the “brega” (struggle)?</li>
-                <li><strong>Political and Social Transformation:</strong> How have debates over political status influenced cultural and social policies?</li>
-                <li><strong>Digital Humanities:</strong> What is the impact of digital archives on preserving Puerto Rican history?</li>
-                <li><strong>Science & Culture:</strong> How do initiatives like <em>Ciencia Puerto Rico</em> contribute to progress?</li>
+                <li data-key="question1"><strong>Identity & Diaspora:</strong> How do colonial legacies and diaspora experiences shape contemporary Puerto Rican identity?</li>
+                <li data-key="question2"><strong>Cultural Resilience:</strong> How do literature, music, and oral histories reflect the "brega" (struggle)?</li>
+                <li data-key="question3"><strong>Political and Social Transformation:</strong> How have debates over political status influenced cultural and social policies?</li>
+                <li data-key="question4"><strong>Digital Humanities:</strong> What is the impact of digital archives on preserving Puerto Rican history?</li>
+                <li data-key="question5"><strong>Science & Culture:</strong> How do initiatives like Ciencia Puerto Rico contribute to progress?</li>
             </ul>
         </section>
 
             <section id="section-7">
-            <h2>VII. Additional Resources & Community Engagement</h2>
-            <h3>A. Websites & Blogs</h3>
+                <h2 data-key="additionalHeading">Additional Resources & Community Engagement</h2>
+
+                <h3 data-key="websitesTitle">A. Websites & Blogs</h3>
             <ul>
                 <li><a href="https://centropr.hunter.cuny.edu/">CentroPR</a> - Ongoing exhibitions and cultural programs.</li>
             </ul>
 
-            <h3>B. Social Media & Virtual Events</h3>
+                <h3 data-key="socialMediaTitle">B. Social Media & Virtual Events</h3>
             <ul>
                 <li><a href="https://puertoricanstudies.clas.uconn.edu/">Puerto Rican Studies Initiative for Civic Engagement and Public Policy at UConn</a></li>
             </ul>
 
-            <h3>C. Discussion Groups</h3>
+                <h3 data-key="discussionGroupsTitle">C. Discussion Groups</h3>
             <ul>
-                <li>Join or create to discuss readings and digital exhibits.</li>
+                <li data-key="discussionNote">Join or create to discuss readings and digital exhibits.</li>
             </ul>
 
-            <p class="note">This syllabus is designed to evolve—feel free to
+                <p class="note" data-key="evolvingNote">
+                This syllabus is designed to evolve—feel free to
                 suggest to us different and new links, update readings, and
                 community resources.</p>
         </section>
@@ -460,5 +480,7 @@
 <!-- Optional JS -->
 <script src="script.js"></script>
 <button id="backToTop" title="Back to top">&#8679;</button>
+<script src="lang.js"></script>
+
 </body>
 </html>

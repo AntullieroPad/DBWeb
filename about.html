@@ -36,6 +36,7 @@
         <a href="merch.html">Merch</a>
         <a href="gallery.html" >Gallery</a>
     </nav>
+    <button id="lang-toggle">Español</button>
 
     <div class="sidebar-footer">
 
@@ -71,9 +72,9 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
         <section class="content-section">
-            <h3>Our Mission</h3>
-            <p>
-                Despierta Boricua exists to elevate,
+            <h3 data-key="missionTitle">Our Mission</h3>
+            <p data-key="missionText">
+            Despierta Boricua exists to elevate,
                 empower, and unite the Puerto Rican community—celebrating
                 our rich heritage, confronting injustice, and crafting a
                 future where our voices are heard and our dignity is upheld.
@@ -81,8 +82,8 @@
         </section>
 
         <section class="content-section">
-            <h3>Our History</h3>
-            <p>
+            <h3 data-key="historyTitle">Our History</h3>
+            <p data-key="historyText1">
                 Despierta Boricua (DB) was founded in 1971 by Puerto Rican
                 students at Yale University. The founders included Eduardo Padró,
                 Manuel Del Valle, Cruz Ramos, Gilberto "Gilbert" Casellas, and
@@ -91,7 +92,7 @@
                 for the needs of Puerto Rican students at Yale and for the Puerto
                 Rican community in New Haven.</p>
 
-            <p class="text-wrap">
+            <p class="text-wrap" data-key="historyText2">
                     DB's initial focus was on increasing the number of mainland Puerto
                 Rican students at Yale. At the time, the majority of Puerto Rican
                 students at Yale came from the island of Puerto Rico and were from
@@ -109,15 +110,18 @@
                 inter-Ivy League network of Puerto Rican students and establish a Puerto Rican
                 cultural center at Yale.</p>
 
-            <p class="text-wrap">DB's activism was successful in increasing the number of mainland Puerto
+            <p class="text-wrap" data-key="historyText3">
+                DB's activism was successful in increasing the number of mainland Puerto
                 Rican students at Yale and in raising awareness of the needs of Puerto Rican
                 students and the Puerto Rican community. DB also helped to create a more inclusive
                 environment for all students at Yale.</p>
 
-            <p> DB is still active today and continues to advocate for the needs of Puerto Rican
+            <p data-key="historyText4">
+                DB is still active today and continues to advocate for the needs of Puerto Rican
                 students at Yale and for the Puerto Rican community.</p>
 
-            <p> - <b> <i> History brought to you by Amanda Rivera, Yale University, Dissertation in Progress, 2024 </i> </b> </p>
+            <p data-key="historyAttribution">
+                <b> <i> History brought to you by Amanda Rivera, Yale University, Dissertation in Progress, 2024 </i> </b> </p>
         </section>
 
     </main>
@@ -127,5 +131,7 @@
 
 <!-- (Optional) JS for hamburger toggle, etc. -->
 <script src="script.js"></script>
+<script src="lang.js"></script>
+
 </body>
 </html>
