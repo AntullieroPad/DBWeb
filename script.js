@@ -279,3 +279,26 @@ document.body.prepend(hamburgerBtn);
 hamburgerBtn.addEventListener("click", function () {
     mobileSidebar.classList.toggle("open");
 });
+
+
+
+// this is for homepage logo button function
+
+document.addEventListener("DOMContentLoaded", () => {
+    const logoLink = document.getElementById("homepageLogoLink");
+
+    // Check if we're on the homepage.
+    // Adjust this condition based on your actual homepage path.
+    const isHomePage =
+        window.location.pathname.endsWith("index.html") ||
+        window.location.pathname === "/";
+
+    if (logoLink && isHomePage) {
+        // Prevent normal navigation if on the homepage
+        logoLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            // Smooth scroll to the top
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+});
