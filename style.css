@@ -1302,3 +1302,24 @@ ul {
 .la-casa-btn:hover {
     background-color: #0056b3; /* Darken on hover */
 }
+
+#backToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: none;         /* Hidden by default */
+    background-color: #007bff; /* Customize to your site's color */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;         /* Make sure it sits on top */
+    transition: opacity 0.3s ease;
+}
+
+#backToTop:hover {
+    background-color: #0056b3;
+}
