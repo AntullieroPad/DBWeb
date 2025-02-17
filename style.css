@@ -1247,3 +1247,25 @@ ul, ol {
         align-items: center;
     }
 }
+
+
+@media (max-width: 768px) {
+    .content-row {
+        flex-direction: column; /* Stack image & text */
+        align-items: flex-start; /* or center, if you prefer */
+    }
+    .img-col, .text-col {
+        width: 100%; /* Take full width on mobile */
+    }
+    .img-col img {
+        margin-bottom: 1rem; /* Add space below the image */
+    }
+    .text-col h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .text-col p {
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+}
