@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "junta": "meettheboard.html",    // 'Board'
                 "eventos": "news.html",          // 'Events'
                 "misión": "about.html",
-                "exalumnos": "alumni.html"
+                "exalumnos": "alumni.html",
                 "mercancía": "merch.html"
             };
 
