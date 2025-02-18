@@ -107,7 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 "gallery": "gallery.html",
                 "board": "meettheboard.html",
                 "events": "news.html",
-                "mission": "about.html"
+                "mission": "about.html",
+                "merch": "merch.html",
+                "alumni": "alumni.html"
             };
 
             for (const keyword in pageMap) {
