@@ -109,8 +109,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 "events": "news.html",
                 "mission": "about.html",
                 "merch": "merch.html",
-                "alumni": "alumni.html"
+                "alumni": "alumni.html",
+                "sobre": "about.html",         // 'About'
+                "colabora": "collaborate.html",  // 'Collaborate'
+                "programa": "syllabus.html",     // 'Syllabus'
+                "noticias": "news.html",         // 'News'
+                "galería": "gallery.html",       // 'Gallery'
+                "junta": "meettheboard.html",    // 'Board'
+                "eventos": "news.html",          // 'Events'
+                "misión": "about.html",
+                "exalumnos": "alumni.html"
+                "mercancía": "merch.html"
             };
+
 
             for (const keyword in pageMap) {
                 if (filter.includes(keyword)) {
