@@ -1274,6 +1274,12 @@ ul {
     }
 }
 
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Adjust to something smaller */
+    }
+}
+
 .la-casa-link {
     margin: 1rem 0;
     text-align: center; /* or left, depending on your layout */
