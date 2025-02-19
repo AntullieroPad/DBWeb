@@ -42,24 +42,131 @@ a {
 /* ======================================================================
    2. DARK MODE OVERRIDES
 ====================================================================== */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
 
+/* Light Mode Styles */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Dark Mode Overrides */
 body.dark-mode {
+    /* Option 1: Override the CSS variables */
+    --bg-color: #121212;
+    --text-color: #ffffff;
+}
+
+/* Dark Mode applied styles */
+body.dark-mode {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Dark mode sidebar */
+body.dark-mode .sidebar {
+    background-color: #1f1f1f; /* or #121212 */
+    color: #ffffff;
+}
+
+/* Make links visible in dark mode */
+body.dark-mode .sidebar a {
+    color: #ffffff; /* or another light color */
+}
+
+body.dark-mode .sidebar-logo img {
+    content: url("./DarkModeLogoVersion.png"); /* Use the dark mode logo */
+}
+
+body.dark-mode a {
+    color: #8ab4f8;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #666;  /* Slightly lighter on hover */
+}
+
+.dark-mode-toggle .icon {
+    font-size: 1.2rem;       /* Larger icon */
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;              /* Reduced gap */
+    padding: 0.5px 2px;
+    justify-content: center;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.7rem;     /* Smaller font size */
+    font-family: inherit;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .my-special-section {
+    background-color: var(--bg-color) !important;
+}
+
+/* Dark mode overrides */
+body.dark-mode .content-row {
     background-color: #121212;
     color: #ffffff;
 }
 
-.dark-mode .sidebar {
-    background-color: #1e1e1e;
-    color: #fff;
-}
-.dark-mode .sidebar-logo img {
-    content: url('./DB_Logo_Outline_Dark.png'); /* Use the dark mode logo */
+body.dark-mode .content-row.alt {
+    background-color: #1c1c1c; /* a darker shade if you want variety */
+    color: #ffffff;
 }
 
-.dark-mode a {
-    color: #8ab4f8;
+body.dark-mode .content-row .text-col h3,
+body.dark-mode .content-row .text-col h2,
+body.dark-mode .content-row .text-col p {
+    color: #ffffff;
 }
 
+body.dark-mode .table-of-contents {
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
+
+/* Dark Mode for details container */
+body.dark-mode details {
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
+
+/* Dark Mode for summary */
+body.dark-mode details summary {
+    background-color: #333; /* Slightly lighter than #1f1f1f */
+    color: #ffffff;
+}
+
+/* Dark Mode for the resource list */
+body.dark-mode .resource-list {
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
+
+/* Make sure nested lists (li > ul) are also readable */
+body.dark-mode .resource-list li {
+    color: #ffffff;
+}
+
+body.dark-mode .person-name {
+    color: #000000;
+}
+
+
+body.dark-mode .corkboard-section {
+    background: url("/BlackFlag.jpg") center/cover no-repeat;
+}
 
 
 /* ======================================================================
@@ -809,7 +916,7 @@ img {
     height: auto;
     display: block;
     border-radius: 5px; /* or 50% if you want them circular */
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
     object-fit: cover;
 }
 
@@ -819,6 +926,7 @@ img {
     font-size: 1.25rem;
     font-weight: 700;
     text-align: center;
+    margin-top: 0.25rem; /* Decrease or set to 0 if you want it very close */
 }
 
 .member-role {

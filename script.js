@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     filterEvents();
 
     // ------------------------------
-    // Search Bar Functionality (Not Functional)
+    // Search Bar Functionality
     // ------------------------------
     // This section is intact even though it's not fully functional
     const searchInput = document.getElementById("sidebarSearch");
@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "news": "news.html",
                 "gallery": "gallery.html",
                 "board": "meettheboard.html",
+                "members": "meettheboard.html",
                 "events": "news.html",
                 "mission": "about.html",
                 "merch": "merch.html",
@@ -202,29 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
             galleryContainer.appendChild(img);
         }
     }
-
-    // ------------------------------
-    // Dark Mode Toggle
-    // ------------------------------
-    const darkModeToggle = document.getElementById("dark-mode-toggle");
-    let darkMode = localStorage.getItem("dark-mode") === "enabled";
-
-    function applyDarkMode(enabled) {
-        document.body.classList.toggle("dark-mode", enabled);
-        localStorage.setItem("dark-mode", enabled ? "enabled" : "disabled");
-    }
-
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener("click", () => {
-            darkMode = !darkMode;
-            applyDarkMode(darkMode);
-        });
-    } else {
-        console.error("Dark mode toggle not found!");
-    }
-
-    // Apply dark mode on page load
-    applyDarkMode(darkMode);
 
     // ------------------------------
     // Language Toggle (English/Spanish)
@@ -336,3 +314,33 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+// ------------------------------
+// Dark Mode Toggle
+// ------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+    if (!darkModeToggle) {
+        return console.error("Dark mode toggle not found!");
+    }
+
+    // On page load, check localStorage and apply dark mode if enabled
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        document.body.classList.add("dark-mode");
+        console.log("Dark mode applied from localStorage");
+    }
+
+    darkModeToggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+
+        // Save the current mode to localStorage
+        localStorage.setItem("dark-mode", isDark ? "enabled" : "disabled");
+        console.log("Dark mode toggled:", isDark);
+    });
+});
+
+
