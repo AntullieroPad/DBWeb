@@ -68,7 +68,7 @@ const translations = {
         historyText2: "DB's initial focus was on increasing the number of mainland Puerto Rican students at Yale. At the time, the majority of Puerto Rican students at Yale came from the island of Puerto Rico and were from upper-class backgrounds. DB believed it was important to increase the representation of mainland Puerto Ricans, who were more likely to be working-class and from public school backgrounds. In addition to admissions, DB also advocated for establishing a Puerto Rican studies program at Yale, creating an inter-Ivy League network of Puerto Rican students, and establishing a Puerto Rican cultural center.",
         historyText3: "DB's activism was successful in increasing the number of mainland Puerto Rican students at Yale and raising awareness of the needs of Puerto Rican students and the community. DB also helped create a more inclusive environment for all Yale students.",
         historyText4: "DB is still active today and continues to advocate for the needs of Puerto Rican students at Yale and for the Puerto Rican community.",
-        historyAttribution: "- History brought to you by Amanda Rivera, Yale University, Dissertation in Progress, 2024",
+        historyAttribution: "<b><i>- History brought to you by Amanda Rivera, Yale University, Dissertation in Progress, 2024</b></i>",
 
 
         pageTitle: "Syllabus – DB Yale",
@@ -134,7 +134,7 @@ const translations = {
         collabResource: "Resource Sharing: Contribute readings, articles, or multimedia to enrich the DB Yale knowledge base.",
         collabResearch: "Joint Research: Team up with our scholars and partners on deeper investigative projects.",
         collabContactHeading: "Contact Us",
-        collabContactText: "Ready to discuss collaboration ideas? Reach out to us at Jaden Gonzalez, Kritsen St. Louis, or Elyse Thomas, or fill out our quick proposal form.",
+        collabContactText: "Ready to discuss collaboration ideas? Reach out to us at <a href='mailto:jaden.gonzalez@yale.edu'>Jaden Gonzalez</a>, <a href='mailto:kristen.stlouis@yale.edu'>Kritsen St. Louis</a>, <a href='mailto:elyse.thomas@yale.edu'>Elyse Thomas</a> or fill out our quick <a href='https://forms.gle/mjVXqDP2F39yHg3q6' target='_blank' rel='noopener noreferrer'>proposal form</a>.",
         collabProposalLink: "proposal form",
 
         jadenRole: "Co-President",
@@ -174,6 +174,9 @@ const translations = {
         merchText: "Represent DB Yale with official merchandise! All proceeds go towards funding cultural events and initiatives.",
         buyNow: "Buy Now",
 
+        merchHeroTitle: "DB Yale Merch – Wear Your Boricua Pride",
+        merchHeroText: "Show your love for DB Yale and Puerto Rican culture with our exclusive merch! Every purchase supports our initiatives and keeps the community thriving.",
+
         pageTitleGallery: "DB Yale Photo Gallery",
         galleryHeroTitle: "DB Yale Photo Gallery",
         galleryHeroText: "Browse our events and gatherings—snapshots of our community spirit.",
@@ -191,7 +194,29 @@ const translations = {
         galleryEvent3FolderHeading: "Weekly Cafecitos",
 
         galleryEvent4Heading: "Future Events Incoming!",
-        galleryEvent4Text: "As we keep building memories, photos will appear right here!"
+        galleryEvent4Text: "As we keep building memories, photos will appear right here!",
+
+
+
+        // Collaborate page hero
+        collabHeroTitle: "Collaborate with DB Yale",
+        collabHeroText: "We believe that meaningful work happens through partnerships and shared visions.",
+
+        // News + Events page hero
+        newsHeroTitle: "Latest News & Events",
+        newsHeroText: "Stay updated on DB Yale happenings, announcements, and upcoming gatherings.",
+
+        // Meet the Board page hero
+        boardHeroTitle: "Meet the Board",
+        boardHeroText: "Here at DB Yale, we’re more than just colleagues—we’re Bori‑buddies!",
+
+
+     introTitle: "Welcome to DB Yale",
+        introSubtitle: "Explore our initiatives, engage with our community, and celebrate culture and activism.",
+        aboutHeroTitle: "About DB Yale",
+        aboutHeroText: "DB Yale is dedicated to fostering a vibrant, inclusive community rooted in Puerto Rican heritage and activism."
+        // ... other keys ...
+
     },
     es: {
         navHome: "Inicio",
@@ -261,7 +286,7 @@ const translations = {
         historyText2: "El enfoque inicial de DB fue aumentar el número de estudiantes puertorriqueños del continente en Yale. En ese entonces, la mayoría de los estudiantes puertorriqueños en Yale provenían de la isla de Puerto Rico y eran de clase alta. DB creía que era importante aumentar la representación de los puertorriqueños del continente, quienes tenían más probabilidades de ser de clase trabajadora y de escuelas públicas. Además de las admisiones, DB abogó por el establecimiento de un programa de estudios puertorriqueños en Yale, por la creación de una red inter-Ivy League de estudiantes puertorriqueños y por establecer un centro cultural puertorriqueño.",
         historyText3: "El activismo de DB tuvo éxito al aumentar el número de estudiantes puertorriqueños del continente en Yale y al sensibilizar sobre las necesidades de los estudiantes y de la comunidad puertorriqueña. DB también ayudó a crear un ambiente más inclusivo para todos los estudiantes en Yale.",
         historyText4: "DB sigue activo hoy en día y continúa abogando por las necesidades de los estudiantes puertorriqueños en Yale y por la comunidad puertorriqueña.",
-        historyAttribution: "- Historia presentada por Amanda Rivera, Universidad de Yale, Disertación en Progreso, 2024",
+        historyAttribution: "<b><i>- Historia presentada por Amanda Rivera, Universidad de Yale, Disertación en Progreso, 2024</b></i>",
 
 
         pageTitle: "Programa – DB Yale",
@@ -328,7 +353,7 @@ const translations = {
         collabResource: "Intercambio de Recursos: Contribuye con lecturas, artículos o multimedia para enriquecer la base de conocimiento de DB Yale.",
         collabResearch: "Investigación Conjunta: Únete a nuestros académicos y socios en proyectos investigativos profundos.",
         collabContactHeading: "Contáctanos",
-        collabContactText: "¿Listo para discutir ideas de colaboración? Comunícate con nosotros a través de Jaden Gonzalez, Kritsen St. Louis o Elyse Thomas, o completa nuestro breve formulario de propuesta.",
+        collabContactText: "¿Listo para discutir ideas de colaboración? Comunícate con nosotros a través de <a href='mailto:jaden.gonzalez@yale.edu'>Jaden Gonzalez</a>, <a href='mailto:kristen.stlouis@yale.edu'>Kritsen St. Louis</a> o <a href='mailto:elyse.thomas@yale.edu'>Elyse Thomas</a>, o completa nuestro breve <a href='https://forms.gle/mjVXqDP2F39yHg3q6' target='_blank' rel='noopener noreferrer'>formulario de propuesta</a>.",
         collabProposalLink: "formulario de propuesta",
 
 
@@ -387,8 +412,64 @@ const translations = {
         galleryEvent3FolderHeading: "Cafecitos Semanales",
 
         galleryEvent4Heading: "¡Próximos Eventos!",
-        galleryEvent4Text: "¡A medida que creamos recuerdos, aquí aparecerán las fotos!"
+        galleryEvent4Text: "¡A medida que creamos recuerdos, aquí aparecerán las fotos!",
+
+        // About page hero
+        aboutHeroTitle: "Nuestra Misión",
+        aboutHeroText: "En DB Yale, nos dedicamos a fomentar colaboraciones y el compromiso comunitario.",
+
+        // Collaborate page hero
+        collabHeroTitle: "Colabora con DB Yale",
+        collabHeroText: "Creemos que el trabajo significativo surge de las alianzas y visiones compartidas.",
+
+        // News + Events page hero
+        newsHeroTitle: "Últimas Noticias y Eventos",
+        newsHeroText: "Mantente al tanto de las actividades, anuncios y próximos eventos de DB Yale.",
+
+        // Meet the Board page hero
+        boardHeroTitle: "Conoce a la Junta",
+        boardHeroText: "En DB Yale, somos más que colegas—¡somos Bori‑amigos!",
+
+        // Merch page hero
+
+        merchHeroTitle: "Mercancía de DB Yale – Luce tu Orgullo Boricua",
+        merchHeroText: "¡Demuestra tu amor por DB Yale y la cultura puertorriqueña con nuestra mercancía exclusiva! Cada compra apoya nuestras iniciativas y mantiene vibrante a la comunidad.",
+        introTitle: "Bienvenido a DB Yale",
+        introSubtitle: "Explora nuestras iniciativas, involúcrate con nuestra comunidad y celebra la cultura y el activismo.",
+
     }
 };
+let currentLang = "en";
+// Get the saved language from localStorage or default to English.
 
+// Function to update all translatable elements using innerHTML.
+function updateLanguage(lang) {
+    const elementsToTranslate = document.querySelectorAll("[data-key]");
+    elementsToTranslate.forEach(el => {
+        const key = el.getAttribute("data-key");
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+}
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Initially update language based on currentLang.
+    updateLanguage(currentLang);
+
+    // Setup the language toggle button.
+    const langToggle = document.getElementById("lang-toggle");
+    if (langToggle) {
+        // Set initial button text.
+        langToggle.textContent = currentLang === "en" ? "Español" : "English";
+
+        // When the button is clicked, toggle language.
+        langToggle.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "es" : "en";
+            localStorage.setItem("lang", currentLang);
+            updateLanguage(currentLang);
+            // Update the button label to reflect the alternative language.
+            langToggle.textContent = currentLang === "en" ? "Español" : "English";
+        });
+    }
+});
