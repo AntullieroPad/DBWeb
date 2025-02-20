@@ -14,7 +14,6 @@ body {
     background-color: #fff;
     opacity: 0;
     animation: fadeIn 0.4s ease-in-out forwards;
-    cursor: url("./TainoSymbolCursor2.cur"), auto;
 }
 
 /* Fade-in keyframes for overall page load */
@@ -1437,4 +1436,8 @@ ul {
 
 #backToTop:hover {
     background-color: #0056b3;
+}
+
+body {
+    cursor: url("./TainoSymbolCursor.png"), auto;
 }
