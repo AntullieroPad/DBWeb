@@ -279,40 +279,30 @@
     <!-- News & Current Events Section with a carousel -->
     <section class="news-events">
         <h2 data-key="newsEventsHeading">📰 News & Events</h2>
-        <div class="carousel">
-            <div class="carousel-container">
-
-                <!-- First news item: Announcement -->
+        <!-- HOME carousel container with unique class -->
+        <div class="homepage-carousel">
+            <!-- The "track" for homepage slides -->
+            <div class="homepage-carousel-track">
+                <!-- Slide 1 -->
                 <div class="news-item">
-                <p data-key="newsItem1Title">
-                    <b>Incoming Features:</b>
-                </p>
-                <p data-key="newsItem1Text">
-                    Exclusive alumni connections
-
-                </p>
+                    <h3><b>Incoming Features</b></h3>
+                    <p>Exclusive alumni connections</p>
                 </div>
-
-                <!-- Second news item with image and caption -->
+                <!-- Slide 2 -->
                 <div class="news-item">
                     <img src="./PRU_PRicanFest.jpeg" alt="PRU Festivals and Parade!">
-                    <p data-key="newsItem2Text">
-                        Join Us for the future - you might find us on a parade float
-                    </p>
+                    <p>Join Us for the future — you might find us on a parade float</p>
                 </div>
-
-                <!-- Third news item with image and caption -->
+                <!-- Slide 3 -->
                 <div class="news-item">
                     <img src="./PRU_Abolition.jpeg" alt="PRS at NYPL | Teaching the Syllabus">
-                    <p data-key="newsItem3Text">
-                        Slavery in Puerto Rico | learn about Afro-Boricua History
-                    </p>
+                    <p>Slavery in Puerto Rico | learn about Afro-Boricua History</p>
                 </div>
-
             </div>
-            <!-- Carousel Navigation Buttons-->
-            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+            <!-- Carousel Navigation Buttons for homepage -->
+            <button class="home-prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="home-next" onclick="moveSlide(1)">&#10095;</button>
         </div>
     </section>
 

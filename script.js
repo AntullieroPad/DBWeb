@@ -148,44 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ------------------------------
-    // Home Page News Carousel
-    // ------------------------------
-    let currentIndex = 0;
-    let autoRotate; // For auto-rotation
-
-    const autoRotateInterval = 3000; // Interval in milliseconds
-
-    function moveSlide(direction) {
-        const slidesContainer = document.querySelector(".carousel-container");
-        const totalSlides = document.querySelectorAll(".news-item").length;
-
-        // Update the current index based on the direction
-        currentIndex += direction;
-        if (currentIndex >= totalSlides) {
-            currentIndex = 0;
-        } else if (currentIndex < 0) {
-            currentIndex = totalSlides - 1;
-        }
-
-        // Use slidesContainer (not an undefined variable)
-        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-        // Reset the auto-rotate timer
-        resetAutoRotate();
-    }
-
-    function resetAutoRotate() {
-        clearInterval(autoRotate);
-        autoRotate = setInterval(() => {
-            moveSlide(1);
-        }, autoRotateInterval);
-    }
-
-    // Start auto-rotation on load
-    autoRotate = setInterval(() => {
-        moveSlide(1);
-    }, autoRotateInterval);
 
     // ------------------------------
     // Auto-Fill Gallery Pages - nonfunctional
@@ -369,25 +331,45 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.style.cursor = `url("${randomCursor}"), auto`;
 });
 
+// ------------------------------
+// Home Page News Carousel
+// ------------------------------
+// Home Page News Carousel
+let homeIndex = 0;
+
+function moveSlide(direction) {
+    const slidesContainer = document.querySelector(".homepage-carousel-track");
+    const totalSlides = document.querySelectorAll(".news-item").length;
+
+    homeIndex += direction;
+    if (homeIndex >= totalSlides) {
+        homeIndex = 0;
+    } else if (homeIndex < 0) {
+        homeIndex = totalSlides - 1;
+    }
+
+    slidesContainer.style.transform = `translateX(-${homeIndex * 100}%)`;
+}
 
 
-////Gallery
-document.querySelectorAll('.carousel-container').forEach(carousel => {
-    const track = carousel.querySelector('.carousel-track');
-    const items = carousel.querySelectorAll('.carousel-item');
+// ------------------------------
+// Gallery Carousel
+// ------------------------------
+// Gallery Carousel
+document.querySelectorAll('.gallery-carousel-container').forEach(carousel => {
+    const track = carousel.querySelector('.gallery-carousel-track');
+    const items = carousel.querySelectorAll('.gallery-carousel-item');
     const prevButton = carousel.querySelector('.carousel-button.prev');
     const nextButton = carousel.querySelector('.carousel-button.next');
 
     let currentIndex = 0;
     const totalItems = items.length;
 
-    // Move the track to show the correct slide
     function updateCarousel() {
         const slideWidth = carousel.querySelector('.carousel-window').offsetWidth;
         track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
     }
 
-    // Prev button
     prevButton.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex--;
@@ -395,10 +377,12 @@ document.querySelectorAll('.carousel-container').forEach(carousel => {
         }
     });
 
-    // Next button
     nextButton.addEventListener('click', () => {
         if (currentIndex < totalItems - 1) {
             currentIndex++;
             updateCarousel();
         }
-    });}
+    });
+
+    window.addEventListener('resize', updateCarousel);
+});

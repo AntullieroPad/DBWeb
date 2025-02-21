@@ -415,7 +415,7 @@ body.dark-mode .corkboard-section {
 
 /* --- BLACK HERO SECTION (Call-to-Action) --- */
 .black-hero {
-    background-color: #000; /* black background */
+    background: #000; /* black background */
     color: #fff;            /* white text */
     padding: 4rem 1rem;
     text-align: center;
@@ -663,29 +663,33 @@ img {
     font-size: 1rem; /* Change sizes */
 }
 
-
-/* Carousel Container */
-.carousel-container {
+/* GALLERY Carousel */
+.gallery-carousel-container {
     position: relative;
     overflow: hidden;
     margin-bottom: 2rem;
 }
+
 .carousel-window {
     width: 100%;
     overflow: hidden;
 }
-.carousel-track {
+
+/* The track for gallery slides */
+.gallery-carousel-track {
     display: flex;
     transition: transform 0.3s ease-in-out;
 }
-.carousel-item {
+
+/* Each slide in the gallery */
+.gallery-carousel-item {
     flex: 0 0 100%;
     display: flex;
     justify-content: center;
     padding: 1rem;
 }
 
-/* Carousel Buttons */
+/* Buttons for the gallery carousel */
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -698,12 +702,10 @@ img {
     z-index: 5;
     font-size: 1.2rem;
 }
-.carousel-button.prev {
-    left: 10px;
-}
-.carousel-button.next {
-    right: 10px;
-}
+
+.carousel-button.prev { left: 10px; }
+.carousel-button.next { right: 10px; }
+
 
 /* Folder Preview Styles */
 .event-folder {
@@ -774,7 +776,6 @@ img {
     gap: 15px; /* bigger gap if you like */
     max-width: 1200px; /* optional: limit total width so images appear bigger on huge screens */
     margin: 0 auto; /* center the grid horizontally */
-    margin-top: 0;
 }
 
 .image-grid img {
@@ -1059,29 +1060,28 @@ body.dark-mode .about-logo {
     font-weight: bold;
     margin-bottom: 1rem;
 }
-
-/* Carousel container and sliding effect */
-.carousel {
+/* HOMEPAGE Carousel */
+.homepage-carousel {
     position: relative;
     max-width: 600px;
     margin: auto;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* Sliding Effect */
-.carousel-container {
+/* The track that slides horizontally */
+.homepage-carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-/* Individual News Items */
+/* Each .news-item is one slide, taking 100% width */
 .news-item {
-    min-width: 100%;           /* Each slide takes up the full carousel width */
+    min-width: 100%;
     box-sizing: border-box;
     text-align: center;
-    background-color: #fff;     /* White background for clarity */
+    background-color: #fff;
     padding: 1rem;
 }
 
@@ -1092,31 +1092,26 @@ body.dark-mode .about-logo {
     margin-bottom: 1rem;
 }
 
-/* Hover Effect: Zoom-in */
-.news-item img:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0.9;
-}
-
-/* Carousel Navigation Buttons */
-.prev, .next {
+/* Buttons for the homepage carousel */
+.home-prev, .home-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
     border: none;
     cursor: pointer;
     padding: 10px;
     font-size: 18px;
     border-radius: 50%;
-    z-index: 2;               /* Make sure buttons sit on top of slides */
+    z-index: 2;
 }
-.prev { left: 10px; }
-.next { right: 10px; }
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Darken on hover */
+
+.home-prev { left: 10px; }
+.home-next { right: 10px; }
+
+.home-prev:hover, .home-next:hover {
+    background-color: rgba(0,0,0,0.7);
 }
 
 
@@ -1270,7 +1265,7 @@ ul {
 
 /* CTA Box Section */
 .cta-box {
-    background-color: #2c2c2c; /* Example dark background */
+    background: #2c2c2c; /* Example dark background */
     color: #fff;
     padding: 2rem 1rem;
     background: linear-gradient(45deg, #000, #333);
