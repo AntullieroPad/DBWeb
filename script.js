@@ -183,6 +183,18 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
+
+// Function to update all translatable elements using innerHTML.
+    function updateLanguage(lang) {
+        const elementsToTranslate = document.querySelectorAll("[data-key]");
+        elementsToTranslate.forEach(el => {
+            const key = el.getAttribute("data-key");
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+    }
+
         if (langToggle) {
             langToggle.addEventListener("click", () => {
                 currentLang = currentLang === "en" ? "es" : "en";
