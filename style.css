@@ -407,7 +407,7 @@ body.dark-mode .news-item {
 }
 
 @media (max-width: 768px) {
-    .fancy-title {
+    #fancy-title {
         font-size: 1.5rem;
         line-height: 1.2;
         text-align: center;
