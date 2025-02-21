@@ -169,6 +169,21 @@ body.dark-mode .corkboard-section {
 }
 
 
+/* Dark mode overrides for News & Events */
+body.dark-mode .news-events {
+    background-color: #000; /* black background */
+    padding: 1rem;          /* optional spacing */
+    border-radius: 10px;    /* optional rounding */
+}
+
+body.dark-mode .news-events .carousel {
+    background-color: #000;
+}
+
+body.dark-mode .news-item {
+    color: #000; /* black background */
+}
+
 /* ======================================================================
    3. SIDEBAR & NAVIGATION
 ====================================================================== */
