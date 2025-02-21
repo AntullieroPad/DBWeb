@@ -643,6 +643,14 @@ body.dark-mode .news-item {
     .main-content {
         margin-left: 0; /* Freed from the sidebar’s fixed space on mobile */
     }
+
+    /* Ensures text doesn’t overflow horizontally - mostly for mobile*/
+    body, p, a, li {
+        overflow-wrap: break-word;    /* Modern CSS property */
+        word-wrap: break-word;        /* Legacy property for older browsers */
+        word-break: break-word;       /* Also helps in some older browsers */
+        hyphens: auto;                /* Optional for hyphenation support */
+    }
 }
 
 
