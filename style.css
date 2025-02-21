@@ -1175,12 +1175,20 @@ body.dark-mode .about-logo {
 
 
 /* ================= MOBILE RESPONSIVENESS ================= */
+
+
+/* Hamburger button: hidden on desktop */
+.hamburger-btn {
+    display: none;
+}
+
 @media (max-width: 768px) {
     /* Adjusts sidebar */
     .sidebar {
         width: 100%;
         height: auto;
         position: relative;
+        display: none;
     }
 
     .sidebar-nav {
@@ -1189,10 +1197,37 @@ body.dark-mode .about-logo {
         align-items: center;
     }
 
+    /* When .open is added, display sidebar */
+    .sidebar.open {
+        display: block;
+    }
+
     /* Make main content adjust */
     .main-container {
         margin-left: 0; /* If your sidebar is fixed, this removes unwanted space */
         padding: 20px;
+    }
+
+
+    /* Show the hamburger button on mobile */
+    .hamburger-btn {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        background: none;
+        border: none;
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    /* Optional: style the hamburger spans */
+    .hamburger-btn span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px 0;
+        background: #333;
     }
 
     /* Fix hero section */
