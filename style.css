@@ -1116,14 +1116,17 @@ body, p, a, li, h2, h3 {
 
 /* Hide the hamburger button on desktop by default */
 .hamburger-btn {
-    display: none;
+    display: none;         /* Hidden on desktop by default */
+    position: fixed;
+    top: 1rem;
+    left: 50%;             /* Center horizontally */
+    transform: translateX(-50%); /* Shift it left by half its own width */
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1000; /* ensure it's above the sidebar */
-    width: 50px;   /* clickable area */
-    height: 50px;
-    /* No position/fixed yet (desktop hidden) */
 }
 
 /* Optional: style the bars (span elements) */
@@ -1131,7 +1134,7 @@ body, p, a, li, h2, h3 {
     display: block;
     width: 25px;
     height: 3px;
-    margin: 5px 0;
+    margin: 5px auto;
     background: #333;
 }
 
@@ -1139,24 +1142,12 @@ body, p, a, li, h2, h3 {
 @media (max-width: 768px) {
     /* Show the hamburger button on mobile */
     .hamburger-btn {
-        display: block;       /* visible on mobile */
-        position: fixed;      /* so it stays in the same spot while scrolling */
-        top: 1rem;
-        right: 1rem;          /* or left: 1rem; if you prefer it on the left side */
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 1000;
-        width: 50px;
-        height: 50px;
+        display: block;
     }
 
     .hamburger-btn span {
         /* You can keep the same styling or override for mobile if needed */
-        width: 25px;
-        height: 3px;
-        margin: 5px 0;
-        background: #333;
+        display: block;
     }
 
     /* Example: a fixed-position sidebar hidden by default */
