@@ -169,34 +169,34 @@ document.addEventListener("DOMContentLoaded", () => {
     // ------------------------------
     // Language Toggle (English/Spanish)
     // ------------------------------
-    const langToggle = document.getElementById("lang-toggle");
-    const elementsToTranslate = document.querySelectorAll("[data-key]");
-    let currentLang = localStorage.getItem("lang") || "en";
+        const langToggle = document.getElementById("lang-toggle");
+        const elementsToTranslate = document.querySelectorAll("[data-key]");
+        let currentLang = localStorage.getItem("lang") || "en";
 
-    function updateLanguage(lang) {
-        elementsToTranslate.forEach((el) => {
-            const key = el.getAttribute("data-key");
-            // Assumes translations is a defined global object
-            if (typeof translations !== "undefined" && translations[lang] && translations[lang][key]) {
-                el.textContent = translations[lang][key];
-            }
-        });
-    }
+        function updateLanguage(lang) {
+            elementsToTranslate.forEach((el) => {
+                const key = el.getAttribute("data-key");
+                // Assumes translations is a defined global object
+                if (typeof translations !== "undefined" && translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
 
-    if (langToggle) {
-        langToggle.addEventListener("click", () => {
-            currentLang = currentLang === "en" ? "es" : "en";
-            localStorage.setItem("lang", currentLang);
+        if (langToggle) {
+            langToggle.addEventListener("click", () => {
+                currentLang = currentLang === "en" ? "es" : "en";
+                localStorage.setItem("lang", currentLang);
+                updateLanguage(currentLang);
+                langToggle.textContent = currentLang === "en" ? "Español" : "English";
+            });
+
             updateLanguage(currentLang);
-            langToggle.textContent = currentLang === 'en' ? 'Español' : 'English';
-        });
-
-        updateLanguage(currentLang);
-        langToggle.textContent = currentLang === 'en' ? 'Español' : 'English';
-    } else {
-        console.error("Language toggle not found!");
-    }
-});
+            langToggle.textContent = currentLang === "en" ? "Español" : "English";
+        } else {
+            console.error("Language toggle not found!");
+        }
+    });
 
 
 

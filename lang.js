@@ -450,37 +450,3 @@ const translations = {
 
     }
 };
-let currentLang = "en";
-// Get the saved language from localStorage or default to English.
-
-// Function to update all translatable elements using innerHTML.
-function updateLanguage(lang) {
-    const elementsToTranslate = document.querySelectorAll("[data-key]");
-    elementsToTranslate.forEach(el => {
-        const key = el.getAttribute("data-key");
-        if (translations[lang] && translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
-        }
-    });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Initially update language based on currentLang.
-    updateLanguage(currentLang);
-
-    // Setup the language toggle button.
-    const langToggle = document.getElementById("lang-toggle");
-    if (langToggle) {
-        // Set initial button text.
-        langToggle.textContent = currentLang === "en" ? "Español" : "English";
-
-        // When the button is clicked, toggle language.
-        langToggle.addEventListener("click", () => {
-            currentLang = currentLang === "en" ? "es" : "en";
-            localStorage.setItem("lang", currentLang);
-            updateLanguage(currentLang);
-            // Update the button label to reflect the alternative language.
-            langToggle.textContent = currentLang === "en" ? "Español" : "English";
-        });
-    }
-});
