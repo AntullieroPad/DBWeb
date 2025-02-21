@@ -645,7 +645,7 @@ body.dark-mode .news-item {
     }
 
     /* Ensures text doesn’t overflow horizontally - mostly for mobile*/
-    body, p, a, li {
+    body, p, a, li, h2, h3 {
         overflow-wrap: break-word;    /* Modern CSS property */
         word-wrap: break-word;        /* Legacy property for older browsers */
         word-break: break-word;       /* Also helps in some older browsers */
