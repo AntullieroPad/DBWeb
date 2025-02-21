@@ -110,6 +110,8 @@ body.dark-mode a {
     transition: background-color 0.3s;
 }
 
+
+
 body.dark-mode .my-special-section {
     background-color: var(--bg-color) !important;
 }
@@ -345,13 +347,16 @@ body.dark-mode .news-item {
 
 .hamburger-btn {
     display: none; /* Hidden by default; show only on mobile */
-    position: absolute;
+    position: relative;
     top: 1rem;
     left: 1rem;
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1000; /* Above the sidebar */
+    z-index: 9999; /* Above the sidebar */
+    width: 50px;   /* or more */
+    height: 50px;
+    padding: 0.5rem;
 }
 
 .hamburger-btn span {
@@ -425,6 +430,14 @@ body.dark-mode .news-item {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .big-heading {
+        font-size: 2rem;
+        line-height: 1.2;
+        text-align: center;
     }
 }
 
