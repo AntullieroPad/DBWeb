@@ -382,7 +382,7 @@ body.dark-mode .news-item {
 /* Fancy Title Styling (used for #fancy-title) */
 #fancy-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: bold;
     opacity: 0;
     transform: translateY(50px);
