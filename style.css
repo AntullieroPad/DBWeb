@@ -826,6 +826,11 @@ img {
     margin: 0 auto; /* center the grid horizontally */
 }
 
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+}
 .image-grid img {
     width: 100%;
     height: auto;
@@ -873,6 +878,14 @@ img {
     display: block; /* Prevents any extra spacing issues */
 }
 
+@media (max-width: 768px) {
+    .about-logo {
+        float: none;
+        display: block;
+        margin: 0 auto 1rem auto;
+        max-width: 100%;
+    }
+}
 
 body.dark-mode .about-logo {
     content: url("./OldDarkLogo.png");
