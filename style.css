@@ -347,16 +347,15 @@ body.dark-mode .news-item {
 
 .hamburger-btn {
     display: none; /* Hidden by default; show only on mobile */
-    position: relative;
+    position: absolute;
     top: 1rem;
     left: 1rem;
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 9999; /* Above the sidebar */
+    z-index: 1000; /* Above the sidebar */
     width: 50px;   /* or more */
     height: 50px;
-    padding: 0.5rem;
 }
 
 .hamburger-btn span {
@@ -435,7 +434,7 @@ body.dark-mode .news-item {
 
 @media (max-width: 768px) {
     .big-heading {
-        font-size: 2rem;
+        font-size: 1.5rem;
         line-height: 1.2;
         text-align: center;
     }
