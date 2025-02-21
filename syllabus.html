@@ -60,6 +60,21 @@
         .resource-list li {
             margin-bottom: 0.5rem;
         }
+
+        /* FLOATING IMAGES (Desktop only) */
+        .desktop-float {
+            float: right;             /* Float to the right */
+            margin: 0 0 1rem 1rem;    /* Some spacing on the left and below */
+            width: 200px;             /* Adjust as desired */
+            display: none;            /* Hidden by default (mobile) */
+        }
+
+        /* Show them only on wider screens (e.g., >=992px) */
+        @media (min-width: 992px) {
+            .desktop-float {
+                display: block; /* Appear on desktop */
+            }
+        }
     </style>
 
     <!-- Favicon links for browser tab icons -->
@@ -137,6 +152,11 @@
     <main class="main-content">
 
         <nav class="table-of-contents">
+            <img
+                    src="./PolitImgReinterpPhoto3.webp"
+                    alt="Political Imagery Reinterpretation 3"
+                    class="desktop-float"
+            />
             <h3 data-key="tocHeading">Table of Contents</h3>
             <ul>
                 <li><a href="#section-1" data-key="tocSection1">I. Introduction</a></li>
@@ -147,6 +167,8 @@
                 <li><a href="#section-6" data-key="tocSection6">VI. Guiding Questions</a></li>
                 <li><a href="#section-7" data-key="tocSection7">VII. Additional Resources</a></li>
             </ul>
+
+
         </nav>
 
         <!-- I. INTRODUCTION -->
@@ -392,6 +414,11 @@
             </section>
 
             <section id="section-3">
+                <img
+                        src="./PolitImgReinterpPhoto2.webp"
+                        alt="Political Imagery Reinterpretation 2"
+                        class="desktop-float"
+                />
                 <h2 data-key="digitalHeading">Digital Archives & Online Collections</h2>
 
                 <h3 data-key="academicResourcesTitle">A. Academic & Archival Resources</h3>
@@ -461,6 +488,11 @@
         </section>
 
             <section id="section-7">
+                <img
+                        src="./PolitImgReinterpPhoto1.webp"
+                        alt="Political Imagery Reinterpretation 1"
+                        class="desktop-float"
+                />
                 <h2 data-key="additionalHeading">Additional Resources & Community Engagement</h2>
 
                 <h3 data-key="websitesTitle">A. Websites & Blogs</h3>

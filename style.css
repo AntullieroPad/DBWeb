@@ -1612,3 +1612,23 @@ ul {
 
 body {
     cursor: auto;}
+
+
+
+
+/* Syllabus images*/
+.desktop-float {
+    float: right;
+    margin: 0 0 1rem 1rem;
+    width: 200px;
+    display: none; /* hidden by default for mobile */
+    border-radius: 5px; /* slight rounding of corners */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* optional drop shadow */
+    height: auto;
+}
+
+@media (min-width: 992px) {
+    .desktop-float {
+        display: block; /* only visible on desktop */
+    }
+}
