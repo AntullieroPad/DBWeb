@@ -15,15 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Create and append the hamburger button for mobile if not already in HTML
-    const hamburgerBtn = document.createElement("button");
-    hamburgerBtn.classList.add("hamburger-btn");
-    hamburgerBtn.innerHTML = "☰"; // Unicode for hamburger menu
-    // Prepend the hamburger button to the body
-    document.body.prepend(hamburgerBtn);
+    const hamburgerBtn = document.querySelector(".hamburger-btn");
+    hamburgerBtn.addEventListener("click", function () {
+        sidebar.classList.toggle("open");
+    });
 
-    // Add click event to the hamburger button to toggle the sidebar
-    hamburgerBtn.addEventListener("click", toggleSidebar);
 });
 
 
