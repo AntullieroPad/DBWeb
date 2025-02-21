@@ -857,7 +857,7 @@ img {
 
 .about-logo {
     float: right;  /* Floats the image to the right of the text */
-    width: 260px; /* Adjust the width as needed */
+    max-width: 100%; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     margin: 0 0 15px 15px; /* Adds spacing between the text and the image */
     border-radius: 5px; /* adds rounded corners */
@@ -1186,6 +1186,7 @@ body.dark-mode .about-logo {
     .image-grid img {
         width: 100%;  /* Ensures images scale to fit */
         height: auto; /* Keeps aspect ratio */
+        grid-template-columns: repeat(2,1fr);
     }
 
     /* Fix event folders */
