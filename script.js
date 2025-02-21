@@ -1,22 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ------------------------------
-    // Sidebar Toggle for Mobile
-    // ------------------------------
-    const sidebar = document.querySelector('.sidebar');
+    console.log("DB Yale site script loaded!");
+
+    // Select the sidebar element
+    const sidebar = document.querySelector(".sidebar");
     let sidebarOpen = false;
 
+    // Function to toggle the sidebar open/close state
     function toggleSidebar() {
         sidebarOpen = !sidebarOpen;
         if (sidebarOpen) {
-            sidebar.classList.add('open');
+            sidebar.classList.add("open");
         } else {
-            sidebar.classList.remove('open');
+            sidebar.classList.remove("open");
         }
     }
 
-    console.log('DB Yale site script loaded!');
+    // Create and append the hamburger button for mobile if not already in HTML
+    const hamburgerBtn = document.createElement("button");
+    hamburgerBtn.classList.add("hamburger-btn");
+    hamburgerBtn.innerHTML = "☰"; // Unicode for hamburger menu
+    // Prepend the hamburger button to the body
+    document.body.prepend(hamburgerBtn);
 
-    // ------------------------------
+    // Add click event to the hamburger button to toggle the sidebar
+    hamburgerBtn.addEventListener("click", toggleSidebar);
+});
+
+
+
+// ------------------------------
     // Content Filtering Based on Categories
     // ------------------------------
     // Use the checkboxes from .filter-options
@@ -169,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ------------------------------
     // Language Toggle (English/Spanish)
     // ------------------------------
+document.addEventListener("DOMContentLoaded", () => {
         const langToggle = document.getElementById("lang-toggle");
         const elementsToTranslate = document.querySelectorAll("[data-key]");
         let currentLang = localStorage.getItem("lang") || "en";
@@ -182,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         }
+
 
 
 // Function to update all translatable elements using innerHTML.
@@ -209,43 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Language toggle not found!");
         }
     });
-
-
-
-//mobile sidebar
-// Select the sidebar element from the DOM
-const sidebar = document.querySelector('.sidebar');
-// Boolean to track if the sidebar is open or closed
-let sidebarOpen = false;
-
-
-/**
- * Toggle the sidebar open/close state.
- * When called, it inverts the value of `sidebarOpen` and adds or removes
- * the 'open' class on the sidebar accordingly.
- */
-function toggleSidebar() {
-    sidebarOpen = !sidebarOpen; // Toggle state (true if closed, false if open)
-    if (sidebarOpen) {
-        sidebar.classList.add('open'); // Add the class to show the sidebar
-    } else {
-        sidebar.classList.remove('open'); // Remove the class to hide the sidebar
-    }
-}
-
-
-// ------------------------------
-// Create and Append Hamburger Button for Mobile (if not already in HTML)
-// ------------------------------
-const mobileSidebar = document.querySelector(".sidebar");
-const hamburgerBtn = document.createElement("button");
-hamburgerBtn.classList.add("hamburger-btn");
-hamburgerBtn.innerHTML = "☰"; // Unicode for hamburger menu
-document.body.prepend(hamburgerBtn);
-
-hamburgerBtn.addEventListener("click", function () {
-    mobileSidebar.classList.toggle("open");
-});
 
 
 

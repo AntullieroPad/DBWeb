@@ -220,7 +220,12 @@ const translations = {
      introTitle: "Welcome to DB Yale",
         introSubtitle: "Explore our initiatives, engage with our community, and celebrate culture and activism.",
         aboutHeroTitle: "About DB Yale",
-        aboutHeroText: "DB Yale is dedicated to fostering a vibrant, inclusive community rooted in Puerto Rican heritage and activism."
+        aboutHeroText: "DB Yale is dedicated to fostering a vibrant, inclusive community rooted in Puerto Rican heritage and activism.",
+
+        volunteer1: "Hosting Workshops: Co-create public events, seminars, or debates.",
+        volunteer2: "Resource Sharing: Contribute readings, articles, or multimedia to enrich the DB Yale knowledge base.",
+        volunteer3: "Joint Research: Team up with our scholars and partners on deeper investigative projects.",
+
         // ... other keys ...
 
     },
@@ -448,5 +453,8 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
         introTitle: "Bienvenido a DB Yale",
         introSubtitle: "Explora nuestras iniciativas, involúcrate con nuestra comunidad y celebra la cultura y el activismo.",
 
+        volunteer1: "Organización de Talleres: Co-crea eventos públicos, seminarios o debates.",
+        volunteer2: "Compartir Recursos: Contribuye con lecturas, artículos o contenido multimedia para enriquecer la base de conocimientos de DB Yale.",
+        volunteer3: "Investigación Conjunta: Colabora con nuestros académicos y socios en proyectos de investigación más profundos."
     }
 };
