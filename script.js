@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, autoRotateInterval);
 
     // ------------------------------
-    // Auto-Fill Gallery Pages
+    // Auto-Fill Gallery Pages - nonfunctional
     // ------------------------------
     const galleryContainer = document.getElementById("dtmfGallery");
     if (galleryContainer) {
@@ -343,4 +343,62 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//Curosor randomization
+document.addEventListener("DOMContentLoaded", function() {
+    // Array of Taino symbol cursor image paths.
+    // Ensure these images are appropriately sized (e.g., 32x32) and in a supported format.
+    const cursorImages = [
+        "./TainoSymbolCursor1.png",
+        "./TainoSymbolCursor2.png",
+        "./TainoSymbolCursor3.png",
+        "./TainoSymbolCursor4.png",
+        "./TainoSymbolCursor5.png",
+        "./TainoSymbolCursor6.png",
+        "./TainoSymbolCursor7.png",
+        "./TainoSymbolCursor8.png",
+        "./TainoSymbolCursor9.png",
+        "./TainoSymbolCursor10.png",
+        "./TainoSymbolCursor11.png",
+    ];
 
+    // Randomly select one image from the array.
+    const randomCursor = cursorImages[Math.floor(Math.random() * cursorImages.length)];
+
+    // Apply the selected cursor image to the body.
+    // The numbers 0 0 define the hotspot offset. 'auto' is the fallback.
+    document.body.style.cursor = `url("${randomCursor}"), auto`;
+});
+
+
+
+////Gallery
+document.querySelectorAll('.carousel-container').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const items = carousel.querySelectorAll('.carousel-item');
+    const prevButton = carousel.querySelector('.carousel-button.prev');
+    const nextButton = carousel.querySelector('.carousel-button.next');
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    // Move the track to show the correct slide
+    function updateCarousel() {
+        const slideWidth = carousel.querySelector('.carousel-window').offsetWidth;
+        track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+    }
+
+    // Prev button
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    // Next button
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < totalItems - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });}

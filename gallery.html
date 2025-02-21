@@ -65,7 +65,7 @@
     <!-- Optional hero or banner -->
     <section class="black-hero">
         <div class="hero-content">
-            <h1 data-key="galleryHeroTitle">DB Yale Photo Gallery</h1>
+            <h1 style="text-align:center;" data-key="galleryHeroTitle">DB Yale Photo Gallery</h1>
             <p data-key="galleryHeroText">Browse our events and gatherings—snapshots
                 of our community spirit.</p>
         </div>
@@ -74,71 +74,95 @@
     <main class="main-content">
 
         <!-- 1) BAD BUNNY ALBUM LISTENING EVENT -->
-        <section class="gallery-event">
-            <h2 data-key="galleryEvent1Heading">Bad Bunny New Album Listening</h2>
-            <p data-key="galleryEvent1Text">
-                We jammed out to the latest hits! Check out the
-                vibes from this unforgettable night.</p>
-
-            <div class="event-folder">
-                <a href="dtmf-party.html">
-                    <div class="folder-preview">
-                        <img src="./DTMF_Party_Photos/DMTF-24.jpeg" alt="DTMF Party" class="cover">
-                        <img src="./DTMF_Party_Photos/DMTF-23.jpeg" alt="DTMF Party" class="cover">
-                        <img src="./DTMF_Party_Photos/DMTF-17.jpeg" alt="DTMF Party" class="cover">
-                        <img src="./DTMF_Party_Photos/DMTF-9.jpeg" alt="DTMF Party" class="cover">
+        <section class="gallery-section" data-category="MajorEvents">
+            <h2 data-key="majorEventsTitle">Major / Annual Events</h2>
+            <p data-key="majorEventsDesc">
+                Once-in-a-lifetime or rare celebrations and parties.
+            </p>
+            <div class="carousel-container">
+                <button class="carousel-button prev" data-key="carouselPrevBtn">‹</button>
+                <div class="carousel-window">
+                    <div class="carousel-track">
+                        <!-- Example: DTMF Party (Rare event) -->
+                        <div class="carousel-item">
+                            <div class="event-folder">
+                                <a href="dtmf-party.html">
+                                    <div class="folder-preview">
+                                        <img src="./DTMF_Party_Photos/DMTF-24.jpeg" alt="DTMF Party 1">
+                                        <img src="./DTMF_Party_Photos/DMTF-23.jpeg" alt="DTMF Party 2">
+                                        <img src="./DTMF_Party_Photos/DMTF-17.jpeg" alt="DTMF Party 3">
+                                        <img src="./DTMF_Party_Photos/DMTF-9.jpeg"  alt="DTMF Party 4">
+                                    </div>
+                                    <h3 data-key="dtmfPartyTitle">DTMF Party</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Add more .carousel-item blocks here for other rare/annual events -->
                     </div>
-                    <h3>DTMF Party</h3>
-                </a>
+                </div>
+                <button class="carousel-button next" data-key="carouselNextBtn">›</button>
             </div>
         </section>
 
-        <!-- 2) BRAZILIAN MIXER -->
-        <section class="gallery-event">
-            <h2 data-key="galleryEvent2Heading">Brazilian Mixer</h2>
-            <p data-key="galleryEvent2Text">
-                A lively night of samba, feijoada, and cross-cultural exchange with our Brazilian friends.</p>
-
-            <div class="event-folder">
-                <a href="brazil-mixer.html">
-                    <div class="folder-preview">
-                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (1).jpeg" alt="BR Mixer" class="cover">
-                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (2).jpeg"alt="DTMF Party" class="cover">
-                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (3).jpeg" alt="DTMF Party" class="cover">
-                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (4).jpeg"alt="DTMF Party" class="cover">
+        <!-- CATEGORY 2: CULTURAL MIXERS (Recurring, but not weekly) -->
+        <section class="gallery-section" data-category="CulturalMixers">
+            <h2 data-key="culturalMixersTitle">Cultural Mixers</h2>
+            <p data-key="culturalMixersDesc">
+                These gatherings happen multiple times a semester, showcasing different cultures.
+            </p>
+            <div class="carousel-container">
+                <button class="carousel-button prev" data-key="carouselPrevBtn">‹</button>
+                <div class="carousel-window">
+                    <div class="carousel-track">
+                        <!-- Example: Brazilian Mixer -->
+                        <div class="carousel-item">
+                            <div class="event-folder">
+                                <a href="brazil-mixer.html">
+                                    <div class="folder-preview">
+                                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (1).jpeg" alt="Brazilian Mixer 1">
+                                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (2).jpeg" alt="Brazilian Mixer 2">
+                                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (3).jpeg" alt="Brazilian Mixer 3">
+                                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (4).jpeg" alt="Brazilian Mixer 4">
+                                    </div>
+                                    <h3 data-key="brazilMixerTitle">Brazilian Mixer</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Add more .carousel-item blocks for other cultural mixers if needed -->
                     </div>
-                    <h3 data-key="galleryEvent2FolderHeading">Brazilian Mixer</h3>
-                </a>
+                </div>
+                <button class="carousel-button next" data-key="carouselNextBtn">›</button>
             </div>
         </section>
 
-        <!-- 3) WEEKLY CAFECITOS -->
-        <section class="gallery-event">
-            <h2 data-key="galleryEvent3Heading">Weekly Cafecitos</h2>
-            <p data-key="galleryEvent3Text">
-                Our ongoing gatherings for coffee, conversation, and community building.</p>
-
-            <div class="event-folder">
-                <a href="weekly-cafecitos.html">
-                    <div class="folder-preview">
-                        <img src="./Cafecitos/Cafecito_img13.jpg" alt="BR Mixer" class="cover">
-                        <img src="./Cafecitos/Cafecito_img10.jpg" alt="DTMF Party" class="cover">
-                        <img src="./Cafecitos/Cafecito_img8.jpg" alt="DTMF Party" class="cover">
-                        <img src="./Cafecitos/Cafecito_img3.jpg" alt="DTMF Party" class="cover">
+        <!-- CATEGORY 3: WEEKLY GATHERINGS -->
+        <section class="gallery-section" data-category="WeeklyGatherings">
+            <h2 data-key="weeklyGatheringsTitle">Weekly Gatherings</h2>
+            <p data-key="weeklyGatheringsDesc">
+                Our regular events that happen every week or very frequently.
+            </p>
+            <div class="carousel-container">
+                <button class="carousel-button prev" data-key="carouselPrevBtn">‹</button>
+                <div class="carousel-window">
+                    <div class="carousel-track">
+                        <!-- Example: Weekly Cafecitos -->
+                        <div class="carousel-item">
+                            <div class="event-folder">
+                                <a href="weekly-cafecitos.html">
+                                    <div class="folder-preview">
+                                        <img src="./Cafecitos/Cafecito_img13.jpg" alt="Weekly Cafecitos 1">
+                                        <img src="./Cafecitos/Cafecito_img10.jpg" alt="Weekly Cafecitos 2">
+                                        <img src="./Cafecitos/Cafecito_img8.jpg"  alt="Weekly Cafecitos 3">
+                                        <img src="./Cafecitos/Cafecito_img3.jpg"  alt="Weekly Cafecitos 4">
+                                    </div>
+                                    <h3 data-key="cafecitosTitle">Weekly Cafecitos</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Add more .carousel-item blocks for other weekly events if needed -->
                     </div>
-                    <h3 data-key="galleryEvent3FolderHeading">Weekly Cafecitos</h3>
-                </a>
-            </div>
-        </section>
-
-        <!-- Keep adding sections for future events... -->
-        <section class="gallery-event">
-            <h2 data-key="galleryEvent4Heading">Future Events Incoming!</h2>
-            <p data-key="galleryEvent4Text">
-                As we keep building memories, photos will appear right here!</p>
-
-            <div class="gallery-grid">
-                <!-- No images yet, but we can add them after the event happens. -->
+                </div>
+                <button class="carousel-button next" data-key="carouselNextBtn">›</button>
             </div>
         </section>
 
