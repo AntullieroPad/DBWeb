@@ -44,10 +44,16 @@ const translations = {
         section6ParagraphB: "Movements such as the Grito de Lares, student protests at the University of Puerto Rico, and decades-long resistance against the Navy’s occupation of Vieques exemplify the resilience and determination of Puerto Rican people.",
 
         newsEventsHeading: "📰 News & Events",
-        newsItem1Title: "Incoming Features:",
-        newsItem1Text: "Dark Mode, Spanish mode, exclusive alumni connections, and an updated syllabus.",
-        newsItem2Text: "Join Us for the future – you might find us on a parade float.",
-        newsItem3Text: "Slavery in Puerto Rico | Learn about Afro-Boricua History.",
+        newsItem1Title: "Incoming Features",
+        newsItem1Text: "Exclusive alumni connections",
+        newsItem2Text: "Join Us for the future — you might find us on a parade float",
+        newsItem3Text: "Slavery in Puerto Rico | learn about Afro-Boricua History",
+        majorEventsTitle: "Major / Annual Events",
+        majorEventsDesc: "Once-in-a-lifetime or rare celebrations and parties.",
+        culturalMixersTitle: "Cultural Mixers",
+        culturalMixersDesc: "These gatherings happen multiple times a semester, showcasing different cultures.",
+        galleryPrevBtn: "‹",
+        galleryNextBtn: "›",
 
         ctaNewsletterHeading: "Sign Up to Our Newsletter",
         ctaNewsletterText: "Stay updated on DB Yale happenings, events, and more!",
@@ -181,17 +187,17 @@ const translations = {
         galleryHeroTitle: "DB Yale Photo Gallery",
         galleryHeroText: "Browse our events and gatherings—snapshots of our community spirit.",
 
-        galleryEvent1Heading: "Bad Bunny New Album Listening",
-        galleryEvent1Text: "We jammed out to the latest hits! Check out the vibes from this unforgettable night.",
+        dtmfPartyTitle: "Bad Bunny DTMF Album Listening",
+        dtmfPartyDesc: "We jammed out to the latest hits! Check out the vibes from this unforgettable night.",
         galleryEvent1FolderHeading: "DTMF Party",
 
-        galleryEvent2Heading: "Brazilian Mixer",
-        galleryEvent2Text: "A lively night of samba, feijoada, and cross-cultural exchange with our Brazilian friends.",
+        brazilMixerTitle: "Brazilian Mixer",
+        brazilMixerDesc: "A lively night of samba, feijoada, and cross-cultural exchange with our Brazilian friends.",
         galleryEvent2FolderHeading: "Brazilian Mixer",
 
-        galleryEvent3Heading: "Weekly Cafecitos",
-        galleryEvent3Text: "Our ongoing gatherings for coffee, conversation, and community building.",
-        galleryEvent3FolderHeading: "Weekly Cafecitos",
+        cafecitosTitle: "Weekly Cafecitos",
+        cafecitosDesc: "Our ongoing gatherings for coffee, conversation, and community building.",
+        weeklyGatheringsTitle: "Weekly Cafecitos",
 
         galleryEvent4Heading: "Future Events Incoming!",
         galleryEvent4Text: "As we keep building memories, photos will appear right here!",
@@ -262,10 +268,16 @@ const translations = {
         section6ParagraphB: "Movimientos como el Grito de Lares, las protestas estudiantiles en la Universidad de Puerto Rico y la resistencia de décadas contra la ocupación de Vieques ejemplifican la resiliencia y determinación del pueblo puertorriqueño.",
 
         newsEventsHeading: "📰 Noticias y Eventos",
-        newsItem1Title: "Próximas Funciones:",
-        newsItem1Text: "Modo Oscuro, modo en español, conexiones exclusivas con exalumnos y un programa actualizado.",
-        newsItem2Text: "Únete al futuro – podrías encontrarnos en una carroza del desfile.",
-        newsItem3Text: "Esclavitud en Puerto Rico | Aprende sobre la Historia Afro-Boricua.",
+        newsItem1Title: "Nuevas Funciones",
+        newsItem1Text: "Conexiones exclusivas con exalumnos",
+        newsItem2Text: "Únete a nosotros en el futuro: ¡podrías vernos en una carroza de desfile!",
+        newsItem3Text: "Esclavitud en Puerto Rico | aprende sobre la historia Afro-Boricua",
+        majorEventsTitle: "Eventos Mayores / Anuales",
+        majorEventsDesc: "Celebraciones únicas o poco frecuentes.",
+        culturalMixersTitle: "Mixers Culturales",
+        culturalMixersDesc: "Estos encuentros suceden varias veces por semestre, destacando diversas culturas.",
+        galleryPrevBtn: "‹",
+        galleryNextBtn: "›",
 
         ctaNewsletterHeading: "Suscríbete a Nuestro Boletín",
         ctaNewsletterText: "Mantente al tanto de las actividades, eventos y noticias de DB Yale.",
@@ -400,16 +412,16 @@ const translations = {
         galleryHeroTitle: "Galería de Fotos de DB Yale",
         galleryHeroText: "Explora nuestros eventos y reuniones—instantáneas del espíritu de nuestra comunidad.",
 
-        galleryEvent1Heading: "Escucha del Nuevo Álbum de Bad Bunny",
-        galleryEvent1Text: "¡Nos pusimos a bailar con los últimos éxitos! Mira el ambiente de esta noche inolvidable.",
+        dtmfPartyTitle: "Escucha del DTMF Álbum de Bad Bunny",
+        dtmfPartyDesc: "¡Nos pusimos a bailar con los últimos éxitos! Mira el ambiente de esta noche inolvidable.",
 
-        galleryEvent2Heading: "Mixer Brasileño",
-        galleryEvent2Text: "Una noche vibrante de samba, feijoada y un intercambio intercultural con nuestros amigos brasileños.",
+        brazilMixerTitle: "Mixer Brasileño",
+        brazilMixerDesc: "Una noche vibrante de samba, feijoada y un intercambio intercultural con nuestros amigos brasileños.",
         galleryEvent2FolderHeading: "Mixer Brasileño",
 
-        galleryEvent3Heading: "Cafecitos Semanales",
-        galleryEvent3Text: "Nuestras reuniones continuas para café, conversación y construcción de comunidad.",
-        galleryEvent3FolderHeading: "Cafecitos Semanales",
+        cafecitosTitle: "Cafecitos Semanales",
+        cafecitosDesc: "Nuestras reuniones continuas para café, conversación y construcción de comunidad.",
+        weeklyGatheringsTitle: "Cafecitos Semanales",
 
         galleryEvent4Heading: "¡Próximos Eventos!",
         galleryEvent4Text: "¡A medida que creamos recuerdos, aquí aparecerán las fotos!",
@@ -423,7 +435,6 @@ const translations = {
         collabHeroText: "Creemos que el trabajo significativo surge de las alianzas y visiones compartidas.",
 
         // News + Events page hero
-        newsHeroTitle: "Últimas Noticias y Eventos",
         newsHeroText: "Mantente al tanto de las actividades, anuncios y próximos eventos de DB Yale.",
 
         // Meet the Board page hero

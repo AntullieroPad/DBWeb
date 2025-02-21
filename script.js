@@ -198,6 +198,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+
 //mobile sidebar
 // Select the sidebar element from the DOM
 const sidebar = document.querySelector('.sidebar');

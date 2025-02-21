@@ -710,8 +710,11 @@ img {
 /* Folder Preview Styles */
 .event-folder {
     width: 300px;
-    text-align: center;
+    display: inline-block;  /* or block, or flex (we'll show examples below) */
+    vertical-align: top;    /* ensures it aligns nicely if you have multiple folders side by side */
+    text-align: center;     /* center the text within the folder */
     cursor: pointer;
+    float: none;
 }
 
 .folder-preview {
@@ -723,6 +726,8 @@ img {
     overflow: hidden;
     border-radius: 10px;
     border: 2px solid #ccc;
+    margin-bottom: 1rem;
+    overflow: hidden;
 }
 
 .folder-preview img {
@@ -739,12 +744,32 @@ img {
 .event-folder a {
     text-decoration: none;
     color: black;
+    flex-direction: column;
+    align-items: center; /* centers text horizontally if desired */
+    color: inherit;        /* keep text color consistent */
+    display: flex;
+}
+
+.folder-text {
+    padding: 0.5rem;
+    text-align: center;
+    overflow-y: auto;          /* scroll if text doesn't fit vertically */
+    word-wrap: break-word;     /* allow line breaks in long text */
+    white-space: normal;       /* normal wrapping */
 }
 
 .event-folder h3 {
-    margin-top: 10px;
     font-size: 1.2em;
     font-weight: bold;
+}
+
+.folder-text h3,
+.folder-text p {
+    margin: 0.3rem 0;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
 }
 
 /* --- Event Images & Gallery --- */
