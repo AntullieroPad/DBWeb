@@ -619,27 +619,29 @@ body.dark-mode .news-item {
 /* GALLERY Carousel */
 .gallery-carousel-container {
     position: relative;
+    width: 100%;
+    margin: 2rem 0;
     overflow: hidden;
-    margin-bottom: 2rem;
 }
 
 .carousel-window {
     width: 100%;
     overflow: hidden;
+    padding: 0 10px;
 }
 
 /* The track for gallery slides */
-.gallery-carousel-track {
+.carousel-track {
     display: flex;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+    gap: 20px;
 }
 
 /* Each slide in the gallery */
-.gallery-carousel-item {
-    flex: 0 0 100%;
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
+.carousel-item {
+    flex: 0 0 auto;
+    width: 300px; /* Fixed width or set percentage like 30% */
+    min-width: 300px;
 }
 
 /* Buttons for the gallery carousel */
@@ -647,18 +649,61 @@ body.dark-mode .news-item {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    z-index: 5;
-    font-size: 1.2rem;
+    z-index: 10;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel-button.prev { left: 10px; }
 .carousel-button.next { right: 10px; }
 
+
+/* On screens ≥ 992px, show 3 items per row (optional) */
+@media (min-width: 992px) {
+    .gallery-carousel-item {
+        flex: 0 0 33.33%;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        width: 280px;
+        min-width: 280px;
+    }
+
+    .carousel-button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item {
+        width: 260px;
+        min-width: 260px;
+    }
+
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+}
 
 /* Folder Preview Styles */
 .event-folder {
@@ -791,12 +836,6 @@ body.dark-mode .news-item {
     margin: 40px 0;
 }
 
-/* Optional: show 2 items at once on large screens */
-@media (min-width: 900px) {
-    .carousel-item {
-        flex: 0 0 50%;
-    }
-}
 
 .about-logo {
     content: url("./OldDBLogo1.png");
@@ -1281,6 +1320,33 @@ body, p, a, li, h2, h3 {
 
 summary {
     white-space: normal; /* Allows multi-line wrapping if needed */
+    position: relative;
+    cursor: pointer;
+}
+
+/* Tooltip styling */
+.summary-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Show tooltip on hover */
+summary:hover .summary-tooltip {
+    opacity: 1;
+    visibility: visible;
 }
 
 h2 {
