@@ -86,28 +86,31 @@ body.dark-mode a {
 }
 
 .dark-mode-toggle:hover {
-    background-color: #666;  /* Slightly lighter on hover */
+    background: linear-gradient(145deg, #555, #444);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .dark-mode-toggle .icon {
-    font-size: 1.2rem;       /* Larger icon */
+    font-size: 0.7rem;       /* Larger icon */
 }
 
 /* Dark Mode Toggle Button */
 .dark-mode-toggle {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 2px;              /* Reduced gap */
-    padding: 0.5px 2px;
     justify-content: center;
-    background-color: #444;
+    gap: 8px;
+    margin: 0.5rem auto;
+    padding: 8px 15px;
+    background: linear-gradient(145deg, #444, #333);
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 0.7rem;     /* Smaller font size */
-    font-family: inherit;
-    transition: background-color 0.3s;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -205,21 +208,27 @@ body.dark-mode .news-item {
     overflow-y: auto;
     /* box-shadow here: */
     animation: metallicShine 4s linear infinite alternate;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); /* Softer shadow for depth */
+    transition: all 0.3s ease;
 }
 
 /* --- Sidebar Logo --- */
 .sidebar-logo {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     text-align: center;
-    background-color: #f6f6f6;
-    border-bottom: 1px solid #ccc;
+    background: linear-gradient(to bottom, #f6f6f6, transparent); /* Fade out gradient */
+    border-bottom: 2px solid rgba(0, 123, 255, 0.1); /* Subtle colored border */
 }
 .sidebar-logo .logo-img {
-    max-width: 120px; /* Limit the logo’s max width */
+    max-width: 130px; /* Limit the logo’s max width */
     height: auto;     /* Keep aspect ratio */
     display: block;
     margin: 0 auto;   /* Center */
+    transition: transform 0.3s ease;
+}
+
+.sidebar-logo .logo-img:hover {
+    transform: scale(1.05);
 }
 
 .sidebar-logo h2 {
@@ -235,16 +244,34 @@ body.dark-mode .news-item {
     text-align: center; /* Ensures text stays centered */
     gap: 10px; /* Adjust spacing between links */
     padding-top: 5px;
+
 }
 
 .sidebar-nav a {
+    /*position: relative; */
     text-decoration: none;
+    padding: 5px 0;
+    /*margin-bottom: 6px; */
     display: block;
     font-size: 16px; /* Adjust font size if needed */
     font-weight: normal; /* Reset bold if it was applied */
-    padding: 5px 0; /* Adds some breathing space */
     transition: color 0.3s ease, font-size 0.3s ease, margin-left 0.3s ease;
+    overflow: hidden; /* For the hover effect */
+
 }
+
+.sidebar-nav a:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+    transition: all 0.4s ease;
+}
+
+
 
 .sidebar-nav a:visited {
     color: black; /* Forces visited links to stay the original color */
@@ -257,8 +284,10 @@ body.dark-mode .news-item {
 }
 
 .sidebar-nav a.active {
+    background-color: rgba(0, 123, 255, 0.1);
     color: #007bff;
-    font-weight: normal;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* --- Sidebar Footer: Search, Social Icons, and License --- */
@@ -276,7 +305,7 @@ body.dark-mode .news-item {
 
 /* Search bar styling */
 .sidebar-search {
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: center;
     background: white;
@@ -2088,4 +2117,27 @@ body {
 .resources-list i {
     font-size: 1.2rem;
     color: #666;
+}
+
+
+#lang-toggle {
+    margin: 0.5rem auto;
+    padding: 8px 15px;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#lang-toggle:hover {
+    background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
+    border-color: #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
