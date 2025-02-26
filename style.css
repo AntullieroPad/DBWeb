@@ -547,9 +547,13 @@ body.dark-mode .news-item {
 .filter-options {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1rem;
+    gap: 10px;
+    margin: 1.5rem 0;
     justify-content: center;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .filter-btn {
@@ -562,38 +566,230 @@ body.dark-mode .news-item {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .filter-options label {
-    font-size: 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
     cursor: pointer;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease;
+    user-select: none;
 }
+
+.filter-options input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.filter-options input[type="checkbox"]:checked + span {
+    color: #007bff;
+    font-weight: 500;
+}
+
+.filter-options label span {
+    padding-left: 20px;
+    position: relative;
+}
+
+.filter-options label span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.filter-options input[type="checkbox"]:checked + span:before {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.filter-options input[type="checkbox"]:checked + span:after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 10px;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
 .event-list li, .media-list li {
-    margin-bottom: 0.5rem;
-    transition: opacity 0.3s ease;
-    padding: 0.5rem;
-    list-style: none;
+    margin-bottom: 1.5rem;
+    padding: 15px;
+    border-left: 4px solid #007bff;
+    background-color: #f9f9f9;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.event-list li:hover, .media-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Color-coding different event types */
+.event-list li[data-category="social"] {
+    border-left-color: #4CAF50; /* Green for social events */
+}
+
+.event-list li[data-category="activism"] {
+    border-left-color: #F44336; /* Red for activism events */
+}
+
+.event-list li[data-category="recent"] {
+    border-left-color: #FFC107; /* Yellow/amber for recent events */
+}
+
+.media-list li[data-category="media"] {
+    border-left-color: #9C27B0; /* Purple for media coverage */
+}
+
+
 .filter-btn.active {
     background-color: #007bff;
     color: #fff;
 }
 
 .filter-btn:hover {
-    background-color: #0056b3;
-    color: #fff;
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 #resetFilters {
-    padding: 0.5rem 1rem;
-    border: 2px solid #dc3545;
-    background-color: #fff;
-    color: #dc3545;
-    border-radius: 4px;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
 }
 
 #resetFilters:hover {
-    background-color: #dc3545;
-    color: #fff;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+
+/* Event headings */
+.events-category h3 {
+    position: relative;
+    font-size: 1.4rem;
+    padding-bottom: 10px;
+    margin: 2rem 0 1.5rem;
+    color: #333;
+}
+
+.events-category h3:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #007bff;
+}
+
+/* Make strong elements stand out more */
+.event-list li strong, .media-list li strong {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Style date/time italics */
+.event-list li em, .media-list li em {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* Add subtle animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.events-category {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Improved Section Styling */
+#newsList {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+#newsList h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#newsList h2:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #007bff, transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filter-options {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-options label {
+        margin-bottom: 8px;
+    }
+
+    #newsList {
+        padding: 0 10px;
+    }
+}
+
+/* Add a "New" badge to recent events */
+.event-list li[data-category="recent"] strong:after {
+    content: "New";
+    display: inline-block;
+    font-size: 0.7rem;
+    background-color: #FF5722;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-weight: bold;
 }
 
 /* ======================================================================
