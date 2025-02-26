@@ -1,27 +1,103 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("DB Yale site script loaded!");
+// Add active class to current page link in sidebar
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all navigation links in the sidebar
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
 
-    // Select the sidebar element
-    const sidebar = document.querySelector(".sidebar");
-    let sidebarOpen = false;
+    // Get current page URL
+    const currentUrl = window.location.href;
 
-    // Function to toggle the sidebar open/close state
-    function toggleSidebar() {
-        sidebarOpen = !sidebarOpen;
-        if (sidebarOpen) {
-            sidebar.classList.add("open");
-        } else {
-            sidebar.classList.remove("open");
+    // Loop through all links and add active class to current page link
+    navLinks.forEach(link => {
+        // Check if the link href is part of the current URL
+        if (currentUrl.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
         }
-    }
-
-    const hamburgerBtn = document.querySelector(".hamburger-btn");
-    hamburgerBtn.addEventListener("click", function () {
-        sidebar.classList.toggle("open");
     });
 
-});
+    // Handle sidebar logo hover effect
+    const sidebarLogo = document.querySelector('.sidebar-logo img');
+    if (sidebarLogo) {
+        sidebarLogo.addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.05) rotate(2deg)';
+        });
 
+        sidebarLogo.addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)';
+        });
+    }
+
+    // Improve hamburger button functionality
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (hamburgerBtn && sidebar) {
+        hamburgerBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('open');
+
+            // Optionally add overlay when sidebar is open on mobile
+            let overlay = document.querySelector('.sidebar-overlay');
+
+            if (sidebar.classList.contains('open')) {
+                if (!overlay) {
+                    overlay = document.createElement('div');
+                    overlay.className = 'sidebar-overlay';
+                    document.body.appendChild(overlay);
+
+                    // Style the overlay
+                    overlay.style.position = 'fixed';
+                    overlay.style.top = '0';
+                    overlay.style.left = '0';
+                    overlay.style.width = '100%';
+                    overlay.style.height = '100%';
+                    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                    overlay.style.zIndex = '998';
+                    overlay.style.opacity = '0';
+                    overlay.style.transition = 'opacity 0.3s ease';
+
+                    // Add click event to close sidebar when overlay is clicked
+                    overlay.addEventListener('click', function() {
+                        sidebar.classList.remove('open');
+                        this.style.opacity = '0';
+                        setTimeout(() => {
+                            this.remove();
+                        }, 300);
+                    });
+
+                    // Animate overlay
+                    setTimeout(() => {
+                        overlay.style.opacity = '1';
+                    }, 10);
+                }
+            } else if (overlay) {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.remove();
+                }, 300);
+            }
+        });
+    }
+
+    // Close sidebar when clicking a link on mobile
+    if (sidebar) {
+        const sidebarLinks = sidebar.querySelectorAll('a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('open');
+
+                    // Remove overlay if it exists
+                    const overlay = document.querySelector('.sidebar-overlay');
+                    if (overlay) {
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            overlay.remove();
+                        }, 300);
+                    }
+                }
+            });
+        });
+    }
+});
 
 
 // ------------------------------

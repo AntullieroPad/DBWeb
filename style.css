@@ -68,13 +68,17 @@ body.dark-mode {
 
 /* Dark mode sidebar */
 body.dark-mode .sidebar {
-    background-color: #1f1f1f; /* or #121212 */
-    color: #ffffff;
+    background: linear-gradient(145deg, #222, #1a1a1a);
 }
 
 /* Make links visible in dark mode */
 body.dark-mode .sidebar a {
     color: #ffffff; /* or another light color */
+}
+
+
+body.dark-mode .sidebar-nav a {
+    color: #ccc;
 }
 
 body.dark-mode .sidebar-logo img {
@@ -86,13 +90,28 @@ body.dark-mode a {
 }
 
 .dark-mode-toggle:hover {
-    background: linear-gradient(145deg, #555, #444);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #4da6ff;
+    background-color: rgba(77, 166, 255, 0.1);
 }
 
-.dark-mode-toggle .icon {
-    font-size: 0.7rem;       /* Larger icon */
+
+body.dark-mode .sidebar-nav a.active {
+    background-color: rgba(77, 166, 255, 0.15);
+    color: #4da6ff;
+}
+
+body.dark-mode .social-icons a:hover {
+    background: linear-gradient(145deg, #333, #2c2c2c);
+    color: white;
+}
+
+body.dark-mode .license {
+    color: #777;
+}
+
+body.dark-mode .sidebar-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to top, #2c2c2c, transparent);
 }
 
 /* Dark Mode Toggle Button */
@@ -113,6 +132,33 @@ body.dark-mode a {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+
+body.dark-mode .dark-mode-toggle {
+    background: linear-gradient(145deg, #ffb700, #ffa200);
+    color: #333;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background: linear-gradient(145deg, #ffc133, #ffb733);
+}
+
+body.dark-mode .dark-mode-toggle .icon {
+    content: "☀️";
+}
+
+body.dark-mode .dark-mode-toggle .label {
+    content: "Light Mode";
+}
+
+body.dark-mode #lang-toggle {
+    background: linear-gradient(145deg, #2c2c2c, #222);
+    color: #ddd;
+    border-color: #444;
+}
+
+body.dark-mode #lang-toggle:hover {
+    background: linear-gradient(145deg, #333, #2c2c2c);
+}
 
 
 body.dark-mode .my-special-section {
@@ -305,8 +351,8 @@ body.dark-mode .news-item {
 
 /* Search bar styling */
 .sidebar-search {
-    width: 100%;
-    display: flex;
+    width: 90%;
+    max-width: 200px;
     align-items: center;
     background: white;
     border-radius: 5px;
@@ -316,36 +362,69 @@ body.dark-mode .news-item {
 }
 
 .sidebar-search input {
-    flex-grow: 1;
-    padding: 8px;
-    border: none;
-    font-size: 14px;
-    outline: none;
     width: 100%;
+    padding: 10px 15px;
+    padding-right: 35px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+.sidebar-search input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2);
 }
 
 .sidebar-search button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     background: none;
     border: none;
     padding: 5px;
     cursor: pointer;
     color: #333;
+    font-size: 0;
 }
 
-.sidebar-search button i {
-    font-size: 16px;
+.sidebar-search i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
 }
 
 /*
     /* Make social icons appear in a row */
 .social-icons {
     display: flex;
-    /* Align them in a row, horizontally */
-    flex-direction: row;
-    /* Center or left align them, up to you */
-    justify-content: center; /* or space-between, flex-start, etc. */
+    justify-content: center;
     align-items: center;
-    gap: 0.5rem; /* The space between each icon */
+    gap: 15px;
+    margin-bottom: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-socials .social-link {
@@ -364,10 +443,34 @@ body.dark-mode .news-item {
 
 /* Social Icons Hover Effect */
 .social-icons a:hover {
-    transform: scale(1.2);
-    background: #FFD700; /* Gold hover effect */
-    color: black;
+    transform: scale(1.2) translateY(-3px) rotate(5deg);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
+
+
+.social-icons a:nth-child(1):hover {
+    background: #3b5998; /* Facebook color */
+    color: white;
+}
+
+.social-icons a:nth-child(2):hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
+    color: white;
+}
+
+.social-icons a:nth-child(3):hover {
+    background: #007bff; /* Email color */
+    color: white;
+}
+
+/* License text */
+.license {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+}
+
 
 
 /* ======================================================================
@@ -1404,14 +1507,47 @@ body, p, a, li, h2, h3 {
 
 /* ========== Mobile Overrides ========== */
 @media (max-width: 768px) {
-    /* Show the hamburger button on mobile */
+    /* Hamburger button styling */
     .hamburger-btn {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+        transition: all 0.3s ease;
     }
 
     .hamburger-btn span {
-        /* You can keep the same styling or override for mobile if needed */
-        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar.open + .hamburger-btn span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .sidebar.open + .hamburger-btn span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .sidebar.open + .hamburger-btn span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    body.dark-mode .hamburger-btn {
+        background: #333;
+    }
+
+    body.dark-mode .hamburger-btn span {
+        background-color: #fff;
     }
 
     /* Example: a fixed-position sidebar hidden by default */
@@ -1486,13 +1622,6 @@ body, p, a, li, h2, h3 {
     .hero-btn {
         font-size: 14px;
         padding: 10px 15px;
-    }
-
-
-    /* Fix search bar positioning */
-    .sidebar-search {
-        width: 90%;
-        margin: 10px auto;
     }
 
 
