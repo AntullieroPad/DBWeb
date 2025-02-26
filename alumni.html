@@ -84,14 +84,104 @@
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
+
         <h1 data-key="alumniMainHeading">DB Alumni Network</h1>
         <p data-key="alumniMainText">
         Stay connected with the DB Yale alumni network! Whether you're looking for mentorship, networking, or just keeping in touch, this is the place to reconnect.</p>
     <div class="alumni-sections">
         <h2 data-key="mentorshipHeading">Mentorship Program</h2>
         <p data-key="mentorshipText">
-            Get paired with a DB alum who can provide career and academic advice.</p>
-        <p data-key="mentorshipComingSoon"><b>Coming Soon!</b></p>
+            Get paired with a DB alum who can provide career and academic advice.
+        </p>
+
+        <!-- Password-protected section -->
+        <div id="password-section" class="password-section">
+            <p>To access alumni resources and mentorship opportunities, please enter the alumni password:</p>
+
+            <div class="password-form">
+                <input type="password" id="alumni-password" placeholder="Enter password" />
+                <button id="submit-password">Access Resources</button>
+            </div>
+
+            <p class="password-error" id="password-error">Incorrect password. Please try again or contact an administrator.</p>
+        </div>
+
+        <!-- Bomba animation container (hidden by default) -->
+        <div id="animation-container" class="animation-container">
+            <div class="bomba-animation">
+                <div class="bomba-dancer"></div>
+                <div class="bomba-drummer"></div>
+                <div class="loading-text">Loading alumni resources...</div>
+            </div>
+        </div>
+
+        <!-- Protected content (hidden by default) -->
+        <div id="protected-content" class="protected-content">
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h3>Welcome to the DB Yale Alumni Network!</h3>
+                <p>You now have access to exclusive alumni resources and mentorship opportunities.</p>
+            </div>
+
+            <div class="alumni-resources">
+
+                <!-- <h3>Mentorship Directory</h3>
+                <div class="mentors-grid">
+                    <div class="mentor-card">
+                        <div class="mentor-image">
+                            <img src="/api/placeholder/150/150" alt="Eduardo Padró" />
+                        </div>
+                        <h4>Eduardo Padró</h4>
+                        <p class="mentor-role">Judge, New York State Supreme Court</p>
+                        <p class="mentor-class">Class of 1975</p>
+                        <p class="mentor-bio">Co-founder of DB Yale. Specializes in mentoring students interested in law and public service.</p>
+                        <a href="mailto:alumni@dbyale.org" class="connect-btn">Connect</a>
+                    </div>
+
+                    <div class="mentor-card">
+                        <div class="mentor-image">
+                            <img src="/api/placeholder/150/150" alt="Sofia Rodriguez" />
+                        </div>
+                        <h4>Sofia Rodriguez</h4>
+                        <p class="mentor-role">Healthcare Executive</p>
+                        <p class="mentor-class">Class of 2010</p>
+                        <p class="mentor-bio">Passionate about increasing Latino representation in healthcare leadership.</p>
+                        <a href="mailto:alumni@dbyale.org" class="connect-btn">Connect</a>
+                    </div>
+
+                    <div class="mentor-card">
+                        <div class="mentor-image">
+                            <img src="/api/placeholder/150/150" alt="Manuel Rivera" />
+                        </div>
+                        <h4>Manuel Rivera</h4>
+                        <p class="mentor-role">Nonprofit Director</p>
+                        <p class="mentor-class">Class of 1998</p>
+                        <p class="mentor-bio">Focused on community development and education equity in Puerto Rican communities.</p>
+                        <a href="mailto:alumni@dbyale.org" class="connect-btn">Connect</a>
+                    </div>
+                </div>
+            -->
+
+                <h3>Upcoming Networking Events</h3>
+                <ul class="alumni-events">
+                    <li>
+                        <strong>Summer Alumni Mixer</strong> - June 15, 2025<br>
+                        Virtual networking event connecting current students with alumni across industries.
+                    </li>
+                    <li>
+                        <strong>Career Development Workshop</strong> - July 20, 2025<br>
+                        Resume review and interview preparation specifically for Latino students entering the job market.
+                    </li>
+                </ul>
+
+                <h3>Resources & Documents</h3>
+                <ul class="resources-list">
+                    <li><a href="#"><i class="fas fa-file-pdf"></i> DB Yale Alumni Directory (PDF)</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Mentorship Program Guidelines</a></li>
+                    <li><a href="#"><i class="fas fa-link"></i> Alumni LinkedIn Group</a></li>
+                </ul>
+            </div>
+        </div>
 
         <h2 data-key="eventsHeading">Upcoming Alumni Events</h2>
         <p data-key="eventsText">

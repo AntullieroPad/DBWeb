@@ -516,3 +516,116 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+// Alumni password protection functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const passwordSection = document.getElementById('password-section');
+    const animationContainer = document.getElementById('animation-container');
+    const protectedContent = document.getElementById('protected-content');
+    const passwordInput = document.getElementById('alumni-password');
+    const submitButton = document.getElementById('submit-password');
+    const errorMessage = document.getElementById('password-error');
+
+    // The password you want to use (you should store and verify this securely in a production environment)
+    const correctPassword = 'bomba2025'; // Change this to your desired password
+
+    // Check if we're already logged in (using sessionStorage)
+    if (sessionStorage.getItem('alumniAuthenticated') === 'true') {
+        showProtectedContent();
+    }
+
+    // Handle password submission
+    if (submitButton) {
+        submitButton.addEventListener('click', validatePassword);
+    }
+
+    // Allow enter key to submit password
+    if (passwordInput) {
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                validatePassword();
+            }
+        });
+    }
+
+    function validatePassword() {
+        const password = passwordInput.value;
+
+        if (password === correctPassword) {
+            // Password is correct
+            passwordSection.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            // Show animation
+            animationContainer.style.display = 'block';
+
+            // Set session storage to remember authentication within this session
+            sessionStorage.setItem('alumniAuthenticated', 'true');
+
+            // After animation completes (3 seconds), show protected content
+            setTimeout(function() {
+                animationContainer.style.display = 'none';
+                showProtectedContent();
+            }, 3000);
+        } else {
+            // Password is incorrect
+            errorMessage.style.display = 'block';
+            passwordInput.value = '';
+            passwordInput.focus();
+
+            // Shake animation for error feedback
+            passwordSection.classList.add('shake');
+            setTimeout(function() {
+                passwordSection.classList.remove('shake');
+            }, 500);
+        }
+    }
+
+    function showProtectedContent() {
+        passwordSection.style.display = 'none';
+        animationContainer.style.display = 'none';
+        protectedContent.style.display = 'block';
+    }
+
+    // Add shake animation for error feedback
+    const shakeKeyframes = `
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+    .shake {
+      animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    }
+  `;
+
+    // Add the keyframes to the page
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    style.appendChild(document.createTextNode(shakeKeyframes));
+    document.head.appendChild(style);
+
+    // Optional: Add a logout button functionality
+    const logoutBtn = document.createElement('button');
+    logoutBtn.textContent = 'Log Out';
+    logoutBtn.className = 'logout-btn';
+    logoutBtn.style.marginTop = '1rem';
+    logoutBtn.style.padding = '8px 15px';
+    logoutBtn.style.backgroundColor = '#f8f9fa';
+    logoutBtn.style.border = '1px solid #ddd';
+    logoutBtn.style.borderRadius = '4px';
+    logoutBtn.style.cursor = 'pointer';
+
+    logoutBtn.addEventListener('click', function() {
+        sessionStorage.removeItem('alumniAuthenticated');
+        protectedContent.style.display = 'none';
+        passwordInput.value = '';
+        passwordSection.style.display = 'block';
+    });
+
+    // Append logout button to the protected content
+    if (protectedContent) {
+        protectedContent.appendChild(logoutBtn);
+    }
+});
