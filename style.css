@@ -14,6 +14,7 @@ body {
     background-color: #fff;
     opacity: 0;
     animation: fadeIn 0.4s ease-in-out forwards;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Fade-in keyframes for overall page load */
@@ -235,12 +236,65 @@ body.dark-mode .news-item {
     color: #000; /* black background */
 }
 
+
+
+
+
+
+/* Dark mode support */
+body.dark-mode .filter-options {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .events-search input,
+body.dark-mode .filter-options input[type="checkbox"] {
+    background-color: #333;
+    border-color: #444;
+    color: #eee;
+}
+
+body.dark-mode .view-btn {
+    background-color: #333;
+    border-color: #444;
+    color: #eee;
+}
+
+body.dark-mode .view-btn.active {
+    background-color: #0056b3;
+    color: white;
+}
+
+body.dark-mode .filter-options input[type="checkbox"]:checked {
+    background-color: #0056b3;
+}
+
+body.dark-mode #resetFilters {
+    background-color: #333;
+    border-color: #444;
+    color: #eee;
+}
+
+body.dark-mode #resetFilters:hover {
+    background-color: #444;
+}
+
+/* Compact events view */
+.event-list-compact li {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+
+/* Optional: Add a transition for filter changes */
+.event-list li, .media-list li {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 /* ======================================================================
    3. SIDEBAR & NAVIGATION
 ====================================================================== */
 /* === Fixed SIDEBAR === */
 .sidebar {
-    position: fixed;
+    position: fixed  !important;
     background-color: #fff;
     top: 0;
     left: 0;
@@ -248,10 +302,10 @@ body.dark-mode .news-item {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     border-right: 1px solid #ccc;
     z-index: 999;
     overflow-y: auto;
+
     /* box-shadow here: */
     animation: metallicShine 4s linear infinite alternate;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); /* Softer shadow for depth */
@@ -680,10 +734,9 @@ body.dark-mode .news-item {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin: 1.5rem 0;
-    justify-content: center;
+    margin-bottom: 1rem; /* Reduce space after filters */
+    margin-top: 1rem; /* Consistent top margin */    justify-content: center;
     background-color: #f8f8f8;
-    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -699,7 +752,7 @@ body.dark-mode .news-item {
 }
 .filter-options label {
     position: relative;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     cursor: pointer;
     font-size: 0.9rem;
@@ -707,18 +760,24 @@ body.dark-mode .news-item {
     border-radius: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
-    transition: all 0.2s ease;
+    transition: transform 0.2s, box-shadow 0.2s;
     user-select: none;
+}
+
+
+/* Add hover effect to show interactivity */
+.filter-options label:hover {
+    transform: translateY(-2px);
 }
 
 .filter-options input[type="checkbox"] {
     position: absolute;
     opacity: 0;
+    cursor: pointer;
 }
 
-.filter-options input[type="checkbox"]:checked + span {
-    color: #007bff;
-    font-weight: 500;
+.filter-options input[type="checkbox"]:hover {
+    border-color: #999;
 }
 
 .filter-options label span {
@@ -755,6 +814,57 @@ body.dark-mode .news-item {
 }
 
 
+/* Search bar styling */
+.events-search {
+    display: flex;
+    max-width: 300px;
+    margin: 0 0 1rem 0; /* Reduce bottom margin */
+    position: relative;
+}
+
+.events-search input {
+    width: 100%;
+    padding: 8px 35px 8px 12px; /* Right padding for icon */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.events-search button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+}
+
+/* View toggle styling */
+.view-toggle {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.view-btn {
+    padding: 6px 12px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.view-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
 
 .event-list li, .media-list li {
     margin-bottom: 1.5rem;
@@ -829,6 +939,7 @@ body.dark-mode .news-item {
     font-size: 1.4rem;
     padding-bottom: 10px;
     margin: 2rem 0 1.5rem;
+    margin-top: 1.5rem; /* Reduced space above category headings */
     color: #333;
 }
 
