@@ -426,3 +426,93 @@ document.addEventListener("DOMContentLoaded", function() {
         updatePosition();
     });
 });
+
+// Event search functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('eventSearch');
+    const searchButton = document.getElementById('searchButton');
+    const eventItems = document.querySelectorAll('.event-list li, .media-list li');
+
+    // Search function
+    function searchEvents() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        let resultsFound = false;
+
+        eventItems.forEach(item => {
+            const eventText = item.textContent.toLowerCase();
+            const shouldShow = eventText.includes(searchTerm);
+
+            // Only modify display if it's not already hidden by category filters
+            if (shouldShow) {
+                item.classList.add('search-match');
+                resultsFound = true;
+            } else {
+                item.classList.remove('search-match');
+            }
+
+            // Apply search results only if item is not already hidden by category filter
+            if (item.style.display !== 'none') {
+                item.style.display = shouldShow ? 'block' : 'none';
+            }
+        });
+
+        // Show a message if no results
+        const noResultsMessage = document.getElementById('noResultsMessage');
+        if (!resultsFound && searchTerm !== '') {
+            if (!noResultsMessage) {
+                const message = document.createElement('p');
+                message.id = 'noResultsMessage';
+                message.textContent = 'No events match your search. Try different keywords.';
+                message.style.textAlign = 'center';
+                message.style.padding = '1rem';
+                message.style.color = '#666';
+                document.getElementById('newsList').appendChild(message);
+            }
+        } else {
+            if (noResultsMessage) {
+                noResultsMessage.remove();
+            }
+        }
+    }
+
+    // Event listeners
+    if (searchButton) {
+        searchButton.addEventListener('click', searchEvents);
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchEvents();
+            }
+        });
+
+        // Optional: Real-time search as user types
+        searchInput.addEventListener('input', function() {
+            if (this.value.length >= 2 || this.value === '') {
+                searchEvents();
+            }
+        });
+    }
+
+    // View toggle functionality
+    const viewButtons = document.querySelectorAll('.view-btn');
+    const eventsList = document.getElementById('newsList');
+
+    viewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            viewButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Switch view based on data-view attribute
+            const viewType = this.getAttribute('data-view');
+            if (viewType === 'calendar') {
+                eventsList.classList.add('calendar-view');
+            } else {
+                eventsList.classList.remove('calendar-view');
+            }
+        });
+    });
+});
