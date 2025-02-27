@@ -705,3 +705,94 @@ document.addEventListener('DOMContentLoaded', function() {
         protectedContent.appendChild(logoutBtn);
     }
 });
+
+
+// Scroll Animation JavaScript
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all sections to animate
+    const sections = document.querySelectorAll('.fade-in-section');
+
+    // Optional: Set stagger indices for child elements
+    sections.forEach(section => {
+        const staggerItems = section.querySelectorAll('.stagger-item');
+        staggerItems.forEach((item, index) => {
+            item.style.setProperty('--item-index', index);
+        });
+    });
+
+    // Check if sections are visible when page loads
+    checkVisibility();
+
+    // Check visibility on scroll
+    window.addEventListener('scroll', checkVisibility);
+
+    // Function to check if elements are in the viewport
+    function checkVisibility() {
+        sections.forEach(section => {
+            // Get section position relative to viewport
+            const sectionTop = section.getBoundingClientRect().top;
+            const sectionBottom = section.getBoundingClientRect().bottom;
+
+            // Check if section is in viewport (with offset)
+            // Adjust the offset value to control when the animation triggers
+            const offset = 100; // section becomes visible when it's 100px from entering the viewport
+
+            const isVisible =
+                (sectionTop < window.innerHeight - offset) &&
+                (sectionBottom > offset);
+
+            // Add or remove the visible class
+            if (isVisible) {
+                section.classList.add('is-visible');
+            } else {
+                // Optional: if you want sections to fade out when scrolled past
+                // section.classList.remove('is-visible');
+            }
+        });
+    }
+
+    // Check for visibility on resize too
+    window.addEventListener('resize', checkVisibility);
+});
+
+// Alternative approach using Intersection Observer API (more modern)
+// Uncomment this section and comment out the above code if you prefer to use this approach
+
+/*
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('.fade-in-section');
+
+  // Set stagger indices
+  sections.forEach(section => {
+    const staggerItems = section.querySelectorAll('.stagger-item');
+    staggerItems.forEach((item, index) => {
+      item.style.setProperty('--item-index', index);
+    });
+  });
+
+  // Create observer instance
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+
+        // Optional: stop observing after the section becomes visible
+        // observer.unobserve(entry.target);
+      } else {
+        // Optional: remove class when section is no longer visible
+        // entry.target.classList.remove('is-visible');
+      }
+    });
+  }, {
+    root: null, // viewport
+    threshold: 0.15, // 15% of the section must be visible
+    rootMargin: '0px 0px -50px 0px' // offset from the bottom
+  });
+
+  // Observe all sections
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+*/
