@@ -135,6 +135,7 @@ const translations = {
         pageTitleCollab: "Collaborate – DB Yale",
         collabWhyHeading: "Why Collaboration Matters",
         collabWhyText: "At DB Yale, we’re dedicated to fostering collaborations that spark critical conversations and actionable insights. From educators to community organizers, we welcome every perspective.",
+        collabWhyText2: "Through our network of partners, we've created impactful programs, educational resources, and community events that celebrate Puerto Rican heritage and address important issues.",
         collabWaysHeading: "Ways to Collaborate",
         collabWorkshop: "Hosting Workshops: Co-create public events, seminars, or debates.",
         collabResource: "Resource Sharing: Contribute readings, articles, or multimedia to enrich the DB Yale knowledge base.",
@@ -142,6 +143,41 @@ const translations = {
         collabContactHeading: "Contact Us",
         collabContactText: "Ready to discuss collaboration ideas? Reach out to us at <a href='mailto:jaden.gonzalez@yale.edu'>Jaden Gonzalez</a>, <a href='mailto:kristen.stlouis@yale.edu'>Kritsen St. Louis</a>, <a href='mailto:elyse.thomas@yale.edu'>Elyse Thomas</a> or fill out our quick <a href='https://forms.gle/mjVXqDP2F39yHg3q6' target='_blank' rel='noopener noreferrer'>proposal form</a>.",
         collabProposalLink: "proposal form",
+
+        workshopsTitle: "Workshops & Events",
+        volunteer1: "Co-create public events, seminars, or debates that bring together diverse perspectives on Puerto Rican issues and culture.",
+        workshopsExample1: "Guest speaker series",
+        workshopsExample2: "Cultural workshops",
+        workshopsExample3: "Panel discussions",
+
+        resourcesTitle: "Resource Sharing",
+        volunteer2: "Contribute readings, articles, or multimedia to enrich the DB Yale knowledge base and syllabus.",
+        resourcesExample1: "Academic articles",
+        resourcesExample2: "Multimedia resources",
+        resourcesExample3: "Teaching materials",
+
+        researchTitle: "Joint Research",
+        volunteer3: "Team up with our scholars and partners on deeper investigative projects exploring Puerto Rican history, culture, and contemporary issues.",
+        researchExample1: "Academic partnerships",
+        researchExample2: "Community research",
+        researchExample3: "Data collection & analysis",
+
+        advocacyTitle: "Advocacy & Outreach",
+        volunteer4: "Join forces with us on advocacy campaigns and community outreach initiatives to raise awareness about issues affecting Puerto Ricans.",
+        advocacyExample1: "Campus initiatives",
+        advocacyExample2: "Community outreach",
+        advocacyExample3: "Awareness campaigns",
+
+        leadershipTitle: "Leadership Contacts",
+        jadenContactRole: "Jaden Gonzalez, Co-President",
+        kristenContactRole: "Kristen St. Louis, Co-President",
+        elyseContactRole: "Elyse Thomas, Event Coordinator",
+
+        proposalTitle: "Proposal Form",
+        proposalText: "Submit a detailed collaboration proposal through our online form.",
+
+        locationTitle: "Find Us",
+        locationText: "La Casa Cultural, 301 Crown Street, New Haven, CT",
 
         jadenRole: "Co-President",
         jadenText: "Jaden spearheads strategic direction, bridging activism and academia. A proud Bori‑buddy dedicated to uplifting new voices.",
@@ -207,6 +243,8 @@ const translations = {
         // Collaborate page hero
         collabHeroTitle: "Collaborate with DB Yale",
         collabHeroText: "We believe that meaningful work happens through partnerships and shared visions.",
+        collabHeroCta: "Get Involved Today",
+
 
         // News + Events page hero
         newsHeroTitle: "Latest News & Events",
@@ -222,11 +260,29 @@ const translations = {
         aboutHeroTitle: "About DB Yale",
         aboutHeroText: "DB Yale is dedicated to fostering a vibrant, inclusive community rooted in Puerto Rican heritage and activism.",
 
-        volunteer1: "Hosting Workshops: Co-create public events, seminars, or debates.",
-        volunteer2: "Resource Sharing: Contribute readings, articles, or multimedia to enrich the DB Yale knowledge base.",
-        volunteer3: "Joint Research: Team up with our scholars and partners on deeper investigative projects.",
-
         // ... other keys ...
+
+        // Values section
+        valuesTitle: "Our Values",
+        communityTitle: "Community",
+        communityText: "Building strong connections within the Yale Puerto Rican community and beyond.",
+        justiceTitle: "Justice",
+        justiceText: "Advocating for social and political equity for Puerto Ricans and all marginalized groups.",
+        educationTitle: "Education",
+        educationText: "Promoting knowledge and understanding of Puerto Rican history, culture, and current issues.",
+        activismTitle: "Activism",
+        activismText: "Taking meaningful action to create positive change both on campus and in wider society.",
+
+        // CTA section
+        joinTitle: "Join Our Community",
+        joinText: "Be part of our ongoing mission to elevate Puerto Rican voices and create meaningful change.",
+        collaborateBtn: "Collaborate With Us",
+        exploreBtn: "Explore Our Resources",
+
+        // Join Team section
+        joinTeamTitle: "Want to Join Our Team?",
+        joinTeamText: "DB Yale is always looking for passionate new members! Whether you're a first-year student or a senior, there are plenty of ways to get involved and make a difference.",
+        joinTeamBtn: "Get Involved"
 
     },
     es: {
@@ -365,13 +421,52 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
         pageTitleCollab: "Colabora – DB Yale",
         collabWhyHeading: "Por qué es importante colaborar",
         collabWhyText: "En DB Yale, nos dedicamos a fomentar colaboraciones que generen conversaciones críticas y acciones concretas. Desde educadores hasta organizadores comunitarios, valoramos cada perspectiva.",
+        collabWhyText2: "A través de nuestra red de socios, hemos creado programas de impacto, recursos educativos y eventos comunitarios que celebran la herencia puertorriqueña y abordan temas importantes.",
         collabWaysHeading: "Formas de Colaborar",
         collabWorkshop: "Talleres: Crea conjuntamente eventos públicos, seminarios o debates.",
         collabResource: "Intercambio de Recursos: Contribuye con lecturas, artículos o multimedia para enriquecer la base de conocimiento de DB Yale.",
         collabResearch: "Investigación Conjunta: Únete a nuestros académicos y socios en proyectos investigativos profundos.",
-        collabContactHeading: "Contáctanos",
-        collabContactText: "¿Listo para discutir ideas de colaboración? Comunícate con nosotros a través de <a href='mailto:jaden.gonzalez@yale.edu'>Jaden Gonzalez</a>, <a href='mailto:kristen.stlouis@yale.edu'>Kritsen St. Louis</a> o <a href='mailto:elyse.thomas@yale.edu'>Elyse Thomas</a>, o completa nuestro breve <a href='https://forms.gle/mjVXqDP2F39yHg3q6' target='_blank' rel='noopener noreferrer'>formulario de propuesta</a>.",
         collabProposalLink: "formulario de propuesta",
+
+
+        workshopsTitle: "Talleres y Eventos",
+        volunteer1: "Co-crea eventos públicos, seminarios o debates que reúnan diversas perspectivas sobre temas y cultura puertorriqueña.",
+        workshopsExample1: "Series de conferenciantes invitados",
+        workshopsExample2: "Talleres culturales",
+        workshopsExample3: "Paneles de discusión",
+
+        resourcesTitle: "Compartir Recursos",
+        volunteer2: "Contribuye con lecturas, artículos o multimedia para enriquecer la base de conocimientos y el programa de estudios de DB Yale.",
+        resourcesExample1: "Artículos académicos",
+        resourcesExample2: "Recursos multimedia",
+        resourcesExample3: "Materiales didácticos",
+
+        researchTitle: "Investigación Conjunta",
+        volunteer3: "Únete a nuestros académicos y socios en proyectos de investigación más profundos que exploren la historia, cultura y temas contemporáneos de Puerto Rico.",
+        researchExample1: "Colaboraciones académicas",
+        researchExample2: "Investigación comunitaria",
+        researchExample3: "Recopilación y análisis de datos",
+
+        advocacyTitle: "Promoción y Divulgación",
+        volunteer4: "Únete a nosotros en campañas de promoción e iniciativas comunitarias para crear conciencia sobre los problemas que afectan a los puertorriqueños.",
+        advocacyExample1: "Iniciativas en el campus",
+        advocacyExample2: "Alcance comunitario",
+        advocacyExample3: "Campañas de concientización",
+
+        collabContactHeading: "Contáctanos",
+        collabContactText: "¿Listo para discutir ideas de colaboración? Comunícate con nosotros directamente o completa nuestro formulario de contacto.",
+
+        leadershipTitle: "Contactos de Liderazgo",
+        jadenContactRole: "Jaden Gonzalez, Co-Presidente",
+        kristenContactRole: "Kristen St. Louis, Co-Presidente",
+        elyseContactRole: "Elyse Thomas, Coordinadora de Eventos",
+
+        proposalTitle: "Formulario de Propuesta",
+        proposalText: "Envía una propuesta detallada de colaboración a través de nuestro formulario en línea.",
+
+        locationTitle: "Encuéntranos",
+        locationText: "La Casa Cultural, 301 Crown Street, New Haven, CT",
+
 
 
         jadenRole: "Co‑Presidente",
@@ -432,12 +527,14 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
         galleryEvent4Text: "¡A medida que creamos recuerdos, aquí aparecerán las fotos!",
 
         // About page hero
-        aboutHeroTitle: "Nuestra Misión",
+        aboutHeroTitle: "Sobre Nosotros",
         aboutHeroText: "En DB Yale, nos dedicamos a fomentar colaboraciones y el compromiso comunitario.",
 
         // Collaborate page hero
         collabHeroTitle: "Colabora con DB Yale",
         collabHeroText: "Creemos que el trabajo significativo surge de las alianzas y visiones compartidas.",
+        collabHeroCta: "Participa Hoy",
+
 
         // News + Events page hero
         newsHeroText: "Mantente al tanto de las actividades, anuncios y próximos eventos de DB Yale.",
@@ -453,8 +550,25 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
         introTitle: "Bienvenido a DB Yale",
         introSubtitle: "Explora nuestras iniciativas, involúcrate con nuestra comunidad y celebra la cultura y el activismo.",
 
-        volunteer1: "Organización de Talleres: Co-crea eventos públicos, seminarios o debates.",
-        volunteer2: "Compartir Recursos: Contribuye con lecturas, artículos o contenido multimedia para enriquecer la base de conocimientos de DB Yale.",
-        volunteer3: "Investigación Conjunta: Colabora con nuestros académicos y socios en proyectos de investigación más profundos."
-    }
+        // Values section
+        valuesTitle: "Nuestros Valores",
+        communityTitle: "Comunidad",
+        communityText: "Construyendo conexiones sólidas dentro de la comunidad puertorriqueña de Yale y más allá.",
+        justiceTitle: "Justicia",
+        justiceText: "Defendiendo la equidad social y política para los puertorriqueños y todos los grupos marginados.",
+        educationTitle: "Educación",
+        educationText: "Promoviendo el conocimiento y la comprensión de la historia, cultura y temas actuales de Puerto Rico.",
+        activismTitle: "Activismo",
+        activismText: "Tomando acciones significativas para crear cambios positivos tanto en el campus como en la sociedad en general.",
+
+        // CTA section
+        joinTitle: "Únete a Nuestra Comunidad",
+        joinText: "Sé parte de nuestra misión continua de elevar las voces puertorriqueñas y crear cambios significativos.",
+        collaborateBtn: "Colabora Con Nosotros",
+        exploreBtn: "Explora Nuestros Recursos",
+
+        joinTeamTitle: "¿Quieres Unirte a Nuestro Equipo?",
+        joinTeamText: "¡DB Yale siempre está buscando nuevos miembros apasionados! Ya seas estudiante de primer año o de último año, hay muchas maneras de involucrarte y marcar la diferencia.",
+        joinTeamBtn: "Involúcrate"
+        }
 };

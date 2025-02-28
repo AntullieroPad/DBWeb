@@ -220,6 +220,62 @@ body.dark-mode .corkboard-section {
     background: url("/BlackFlag.jpg") center/cover no-repeat;
 }
 
+/* Dark mode overrides */
+body.dark-mode .board-icon {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .polaroid {
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .person-name {
+    color: #fff;
+}
+
+body.dark-mode .member-info p {
+    color: #bbb;
+}
+
+body.dark-mode .contact-link {
+    background-color: #444;
+    color: #ddd;
+}
+
+body.dark-mode .contact-link:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+body.dark-mode .constitution-section {
+    background-color: #222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .action-btn {
+    background-color: #444;
+    color: #ddd;
+}
+
+body.dark-mode .action-btn:hover {
+    background-color: #555;
+}
+
+body.dark-mode .download-btn {
+    background-color: #0056b3;
+}
+
+body.dark-mode .download-btn:hover {
+    background-color: #006ee6;
+}
+
+body.dark-mode .constitution-viewer {
+    border-color: #444;
+}
+
+
 
 /* Dark mode overrides for News & Events */
 body.dark-mode .news-events {
@@ -533,6 +589,9 @@ body.dark-mode #resetFilters:hover {
 .main-container {
     /* Move it right so it doesn't go under the sidebar */
     margin-left: 240px;
+    width: calc(100% - 240px); /* Match sidebar width */
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* === HERO WITH BACKGROUND IMAGE === */
@@ -703,16 +762,24 @@ body.dark-mode #resetFilters:hover {
 }
 
 .fade-in-section.fast {
-    transition-duration: 0.4s;
+    transition-duration: 0.5s;
 }
 
-/* Optional: Staggered appearance for child elements */
+/* Fix for the staggered animation items (line 714 error) */
 .fade-in-section .stagger-item {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    transition-delay: calc(var(--item-index, 0) * 0.1s);
+    /* Remove the problematic transition-delay with custom property */
+    transition-delay: 0.1s; /* Use a standard delay instead */
 }
+
+/* Apply different delays to specific items if needed */
+.fade-in-section .stagger-item:nth-child(1) { transition-delay: 0.1s; }
+.fade-in-section .stagger-item:nth-child(2) { transition-delay: 0.2s; }
+.fade-in-section .stagger-item:nth-child(3) { transition-delay: 0.3s; }
+.fade-in-section .stagger-item:nth-child(4) { transition-delay: 0.4s; }
+.fade-in-section .stagger-item:nth-child(5) { transition-delay: 0.5s; }
 
 .fade-in-section.is-visible .stagger-item {
     opacity: 1;
@@ -1552,6 +1619,55 @@ body.dark-mode .about-logo {
     color: #555;
 }
 
+
+
+/* Join Team section */
+.join-team-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./path-to-team-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    margin: 2rem 0 0;
+    border-radius: 8px;
+}
+
+.join-team-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.join-team-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.join-team-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.primary-btn {
+    display: inline-block;
+    padding: 0.2rem 2rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.primary-btn:hover {
+    background-color: transparent;
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* --- News & Events (Carousel) --- */
 .news-events {
     text-align: center;
@@ -2111,24 +2227,46 @@ ul {
 }
 
 #backToTop {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    display: none;         /* Hidden by default */
-    background-color: #007bff; /* Customize to your site's color */
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 1000;         /* Make sure it sits on top */
-    transition: opacity 0.3s ease;
+    position: fixed !important; /* Force fixed positioning with !important to override other styles */
+    bottom: 30px !important; /* Distance from bottom of viewport */
+    right: 30px !important; /* Distance from right of viewport */
+    display: none; /* Initially hidden until scrolled */
+    width: 50px !important;
+    height: 50px !important;
+    line-height: 46px !important; /* Center the arrow vertically */
+    font-size: 24px !important;
+    text-align: center !important;
+    background-color: #007bff !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    z-index: 9999 !important; /* Extremely high z-index to ensure it's above everything */
+    opacity: 0.8 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+    transition: opacity 0.3s, background-color 0.3s !important;
 }
 
 #backToTop:hover {
-    background-color: #0056b3;
+    opacity: 1 !important;
+    background-color: #0056b3 !important;
+}
+
+/* Ensure no other styles interfere with our fixed positioning */
+body.dark-mode #backToTop {
+    background-color: #0e5fc1 !important;
+}
+
+/* Make sure mobile styles don't override */
+@media (max-width: 768px) {
+    #backToTop {
+        width: 40px !important;
+        height: 40px !important;
+        line-height: 36px !important;
+        font-size: 20px !important;
+        bottom: 20px !important;
+        right: 20px !important;
+    }
 }
 
 body {
@@ -2417,4 +2555,347 @@ body {
     border-color: #ccc;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/*for the collab section*/
+/* Section headers with icons */
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.75rem;
+}
+
+.section-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.section-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+/* Hero section enhancements */
+.black-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.black-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.5)), url('/api/placeholder/1200/400');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-cta-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.hero-cta-btn:hover {
+    background-color: transparent;
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Rounded image style */
+.rounded-img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 100%;
+    height: auto;
+}
+
+/* CTA Buttons */
+.primary-btn, .secondary-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+.primary-btn:hover, .secondary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+.secondary-btn:hover {
+    background-color: rgba(0,123,255,0.1);
+}
+
+/* ===== ABOUT PAGE SPECIFIC STYLES ===== */
+
+/* Mission section styling */
+.mission-section {
+    margin-bottom: 3rem;
+}
+
+.mission-quote {
+    position: relative;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-left: 5px solid #007bff;
+    border-radius: 0 8px 8px 0;
+    margin: 0;
+    max-width: 100%; /* Ensure it doesn't push content off screen */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.mission-quote::before {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 4rem;
+    color: #007bff;
+    opacity: 0.2;
+    line-height: 1;
+}
+
+.mission-quote p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+
+}
+
+/* Timeline styling */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100px;
+    width: 4px;
+    background-color: #e0e0e0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 150px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 85px; /* Aligned with the line */
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.timeline-content {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.history-attribution {
+    text-align: right;
+    font-style: italic;
+    margin-top: 2rem;
+    color: #666;
+}
+
+/* Founders gallery styling */
+.founders-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.founder-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.founder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.founder-image {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    border-bottom: 3px solid #007bff;
+}
+
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.founder-card h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.25rem;
+    padding: 0 1rem;
+}
+
+.founder-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Values section styling */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.value-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+}
+
+.value-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.value-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* About CTA section */
+.about-cta-section {
+    background-color: #f9f9f9;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 8px;
+    margin: 3rem 0 1rem;
+}
+
+.about-cta-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.about-cta-section p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Make about page specific adjustments */
+@media (max-width: 992px) {
+    .mission-quote p {
+        font-size: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
 }
