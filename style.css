@@ -289,12 +289,147 @@ body.dark-mode .news-events .carousel {
 }
 
 body.dark-mode .news-item {
-    color: #000; /* black background */
+    color: #ffffff !important;
+    background-color: #333 !important;
 }
 
 
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode li,
+body.dark-mode label span {
+    color: #ffffff !important; /* Force white text in dark mode */
+}
+
+/* Fix sidebar menu text color in dark mode */
+body.dark-mode .sidebar.open a {
+    color: #ffffff !important;
+}
+
+/* Fix for event filter checkboxes */
+body.dark-mode .filter-options label {
+    color: #ffffff !important;
+    background-color: #333 !important;
+    border-color: #555 !important;
+}
+
+/* Fix white text in news items on dark background */
+body.dark-mode .news-item {
+    color: #ffffff !important;
+    background-color: #333 !important;
+}
+
+/* Fix for checkbox inputs being invisible */
+body.dark-mode input[type="checkbox"] {
+    border: 1px solid #777 !important;
+    background-color: #444 !important;
+}
+
+/* Make all buttons more readable in dark mode */
+body.dark-mode button,
+body.dark-mode .btn,
+body.dark-mode .hero-btn,
+body.dark-mode .cta-btn {
+    color: #ffffff !important;
+    border-color: #777 !important;
+}
+
+/* Fix for collaborate page cards */
+body.dark-mode .event-list li,
+body.dark-mode .media-list li {
+    background-color: #333 !important;
+    color: #e0e0e0 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
 
 
+/* Make sure strong elements (event titles) stand out in dark mode */
+body.dark-mode .event-list li strong,
+body.dark-mode .media-list li strong {
+    color: #ffffff !important;
+}
+
+/* Make sure em elements (dates) are visible in dark mode */
+body.dark-mode .event-list li em,
+body.dark-mode .media-list li em {
+    color: #bbb !important;
+}
+
+/* Fix for category legend text in dark mode */
+body.dark-mode .category-legend {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .legend-item .legend-label {
+    color: #e0e0e0 !important;
+}
+
+/* Fix for heading */
+body.dark-mode .events-category h3 {
+    color: #ffffff !important;
+}
+
+/* Filter options fix */
+body.dark-mode .filter-options label span {
+    color: #ffffff !important;
+}
+
+/* View toggle buttons in dark mode */
+body.dark-mode .view-btn {
+    background-color: #444;
+    color: #ddd;
+    border-color: #666;
+}
+
+body.dark-mode .view-btn.active {
+    background-color: #0056b3;
+    color: white;
+    border-color: #0056b3;
+}
+
+/* Search input in dark mode */
+body.dark-mode .events-search input {
+    background-color: #333;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark-mode .events-search button {
+    color: #bbb;
+}
+
+body.dark-mode .event-list li h3,
+body.dark-mode .media-list li h3 {
+    color: #ffffff !important;
+}
+
+/* Fix for unreadable filter checkboxes and buttons */
+body.dark-mode .filter-options label {
+    background-color: #444;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-mode #resetFilters {
+    background-color: #555;
+    color: #fff;
+    border-color: #777;
+}
+
+/* Fix for search inputs in dark mode */
+body.dark-mode input[type="text"],
+body.dark-mode input[type="search"] {
+    background-color: #444;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-mode input::placeholder {
+    color: #aaa;
+}
 
 
 /* Dark mode support */
@@ -1126,7 +1261,7 @@ body.dark-mode #resetFilters:hover {
 
 /* Add a "New" badge to recent events */
 .event-list li[data-category="recent"] strong:after {
-    content: "New";
+    content: none;
     display: inline-block;
     font-size: 0.7rem;
     background-color: #FF5722;
@@ -1965,6 +2100,7 @@ body, p, a, li, h2, h3 {
         height: auto;
         display: block; /* or inline-block if needed */
     }
+
 }
 
 
