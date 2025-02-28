@@ -1773,34 +1773,36 @@ body, p, a, li, h2, h3 {
     .main-container {
         margin-left: 0;
         width: 100%;
-        padding:10; /* Remove excess padding */
         overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     /* Hamburger button styling */
-    .hamburger-btn {
-        position: fixed !important; /* Ensure it stays fixed regardless of other styles */
-        top: 15px;
-        left: 15px;
-        z-index: 2000 !important; /* Higher z-index to keep it above all content */
-        background-color: rgba(0, 0, 0, 0.7) !important;
-        border-radius: 5px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        padding: 10px;
-        width: 42px;
-        height: 42px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        transition: all 0.3s ease;
+        .hamburger-btn {
+            position: fixed !important;
+            top: 15px !important;
+            left: 15px !important;
+            z-index: 2000 !important;
+            background-color: rgba(0, 0, 0, 0.7) !important;
+            border-radius: 5px !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+            padding: 10px !important;
+            width: 42px !important;
+            height: 42px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            transition: all 0.3s ease !important;
+            /* Remove transform that might be interfering */
+            transform: none !important;
     }
 
     .hamburger-btn span {
-        width: 100%;
-        height: 3px;
-        background-color: white !important; /* White lines for better contrast */
-        border-radius: 3px;
-        transition: all 0.3s ease;
+        width: 24px !important;
+        height: 3px !important;
+        background-color: white !important;
+        border-radius: 3px !important;
+        margin: 2px 0 !important;
+        transition: all 0.3s ease !important;
     }
 
     /* Add some visual feedback when scrolling - optional */
@@ -1808,6 +1810,15 @@ body, p, a, li, h2, h3 {
         background-color: rgba(0, 0, 0, 0.85) !important;
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
     }
+
+        #fancy-title {
+            font-size: 2.5rem !important;
+            font-weight: bold !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+            margin: 1rem 0 !important;
+            padding: 0 0.5rem !important;
+            white-space: normal !important;
+        }
 
     .sidebar.open + .hamburger-btn span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
