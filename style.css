@@ -1773,31 +1773,40 @@ body, p, a, li, h2, h3 {
     .main-container {
         margin-left: 0;
         width: 100%;
-        padding:0; /* Remove excess padding */
+        padding:10; /* Remove excess padding */
         overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     /* Hamburger button styling */
     .hamburger-btn {
+        position: fixed !important; /* Ensure it stays fixed regardless of other styles */
+        top: 15px;
+        left: 15px;
+        z-index: 2000 !important; /* Higher z-index to keep it above all content */
+        background-color: rgba(0, 0, 0, 0.7) !important;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        width: 42px;
+        height: 42px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 42px;
-        height: 42px;
-        padding: 10px;
-        background: white;
-        border-radius: 5px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1001;
+        align-items: center;
         transition: all 0.3s ease;
-        background-color: rgba(0, 0, 0, 0.7) !important; /* Semi-transparent black background */
     }
 
     .hamburger-btn span {
         width: 100%;
         height: 3px;
-        background-color: #333;
+        background-color: white !important; /* White lines for better contrast */
         border-radius: 3px;
         transition: all 0.3s ease;
+    }
+
+    /* Add some visual feedback when scrolling - optional */
+    .hamburger-btn.scrolled {
+        background-color: rgba(0, 0, 0, 0.85) !important;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
     }
 
     .sidebar.open + .hamburger-btn span:nth-child(1) {
@@ -1812,12 +1821,18 @@ body, p, a, li, h2, h3 {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    /* Dark mode adjustments for hamburger */
     body.dark-mode .hamburger-btn {
-        background: #333;
+        background-color: rgba(30, 30, 30, 0.8) !important;
     }
 
     body.dark-mode .hamburger-btn span {
-        background-color: #fff;
+        background-color: white !important;
+    }
+
+    body.dark-mode .hamburger-btn:hover,
+    body.dark-mode .sidebar.open + .hamburger-btn {
+        background-color: rgba(50, 50, 50, 0.9) !important;
     }
 
     /* Example: a fixed-position sidebar hidden by default */

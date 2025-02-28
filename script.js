@@ -99,6 +99,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+
+    if (hamburgerBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                hamburgerBtn.classList.add('scrolled');
+            } else {
+                hamburgerBtn.classList.remove('scrolled');
+            }
+        });
+    }
+});
 
 // ------------------------------
     // Content Filtering Based on Categories
