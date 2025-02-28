@@ -3009,3 +3009,104 @@ body {
         max-width: 100%;
     }
 }
+
+/* Additional Mobile Fixes for Alumni Page */
+@media (max-width: 768px) {
+    /* Fix password section */
+    .password-section {
+        width: 90%;
+        max-width: 90%;
+        margin: 1rem 0;
+        box-sizing: border-box;
+    }
+
+    /* More precise targeting for the password input */
+    #alumni-password {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 10px;
+        font-size: 16px; /* Better size for mobile */
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .password-form {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .password-form input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .password-form button {
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
+        white-space: normal;
+    }
+
+    .password-section p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    /* Fix Access Resources button showing vertically */
+    #submit-password {
+        width: 100%;
+        position: static !important;
+        writing-mode: horizontal-tb !important;
+        text-orientation: mixed !important;
+        transform: none !important;
+        right: auto !important;
+        height: auto !important;
+        display: block !important;
+        margin-top: 10px;
+    }
+
+    /* Fix protected content */
+    .protected-content {
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    /* Fix resources lists */
+    .resources-list li a {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        word-break: break-word;
+    }
+
+    /* Fix alumni events */
+    .alumni-events li {
+        padding: 1rem;
+        word-break: break-word;
+    }
+
+    /* Fix alumni sections */
+    .alumni-sections {
+        padding: 0 1rem;
+    }
+
+    /* Fix hero section text */
+    .black-hero .hero-content p {
+        font-size: 1rem;
+        padding: 0 1rem;
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    /* Fix vertical text orientation anywhere it might appear */
+    * {
+        writing-mode: horizontal-tb !important;
+        text-orientation: mixed !important;
+    }
+}
