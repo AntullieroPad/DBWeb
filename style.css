@@ -74,12 +74,12 @@ body.dark-mode .sidebar {
 
 /* Make links visible in dark mode */
 body.dark-mode .sidebar a {
-    color: #ffffff; /* or another light color */
+    color: #ffffff !important; /* or another light color */
 }
 
 
 body.dark-mode .sidebar-nav a {
-    color: #ccc;
+    color: #ccc !important;
 }
 
 body.dark-mode .sidebar-logo img {
@@ -87,18 +87,18 @@ body.dark-mode .sidebar-logo img {
 }
 
 body.dark-mode a {
-    color: #8ab4f8;
+    color: #8ab4f8 !important;
 }
 
 .dark-mode-toggle:hover {
-    color: #4da6ff;
+    color: #4da6ff !important;
     background-color: rgba(77, 166, 255, 0.1);
 }
 
 
 body.dark-mode .sidebar-nav a.active {
     background-color: rgba(77, 166, 255, 0.15);
-    color: #4da6ff;
+    color: #4da6ff !important;
 }
 
 body.dark-mode .social-icons a:hover {
