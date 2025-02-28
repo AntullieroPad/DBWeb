@@ -1771,6 +1771,13 @@ body, p, a, li, h2, h3 {
 
 /* ========== Mobile Overrides ========== */
 @media (max-width: 768px) {
+
+    .main-container {
+        margin-left: 0;
+        width: 100%;
+        padding:0; /* Remove excess padding */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
     /* Hamburger button styling */
     .hamburger-btn {
         display: flex;
@@ -1827,6 +1834,26 @@ body, p, a, li, h2, h3 {
         z-index: 999;             /* behind the hamburger (1000) */
     }
 
+    /* Hide sidebar nav by default */
+    .sidebar-nav {
+        display: none;
+    }
+
+    .sidebar-nav a {
+        color: #333 !important;
+        display: block !important;
+        text-align: left;
+        padding: 10px 20px;
+        width: 100%;
+        font-size: 16px;
+    }
+
+
+    /* Show sidebar nav when active */
+    .sidebar.open .sidebar-nav {
+        display: flex;
+    }
+
     .sidebar a {
         color: black !important; /* Forces text to stay black */
     }
@@ -1838,13 +1865,6 @@ body, p, a, li, h2, h3 {
     /* When the sidebar has .open, slide it in */
     .sidebar.open {
         transform: translateX(0);
-    }
-
-
-    /* Make main content adjust */
-    .main-container {
-        margin-left: 0; /* If your sidebar is fixed, this removes unwanted space */
-        padding: 20px;
     }
 
 
@@ -1898,18 +1918,6 @@ body, p, a, li, h2, h3 {
         justify-content: center; /* or space-between, flex-start, etc. */
         align-items: center;
         gap: 0.5rem; /* The space between each icon */
-    }
-
-
-    /* Hide sidebar nav by default */
-    .sidebar-nav {
-        display: none;
-    }
-
-
-    /* Show sidebar nav when active */
-    .sidebar.open .sidebar-nav {
-        display: flex;
     }
 
 
