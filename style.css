@@ -276,6 +276,92 @@ body.dark-mode .constitution-viewer {
 }
 
 
+body.dark-mode .mission-quote {
+    background-color: #333 !important;
+    border-left-color: #0077cc !important;
+}
+
+body.dark-mode .mission-quote p {
+    color: #ffffff !important;
+}
+
+/* Value cards */
+body.dark-mode .value-card {
+    background-color: #333 !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .value-card h3 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .value-card p {
+    color: #cccccc !important;
+}
+
+body.dark-mode .value-icon {
+    background-color: #0077cc !important;
+    color: #ffffff !important;
+}
+
+/* CTA section */
+body.dark-mode .about-cta-section {
+    background-color: #222 !important;
+}
+
+body.dark-mode .about-cta-section h2 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .about-cta-section p {
+    color: #cccccc !important;
+}
+
+/* Primary and secondary buttons in CTA section */
+body.dark-mode .primary-btn {
+    background-color: #0077cc !important;
+    color: #ffffff !important;
+    border-color: #0077cc !important;
+}
+
+body.dark-mode .secondary-btn {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+body.dark-mode .primary-btn:hover {
+    background-color: #0056b3 !important;
+}
+
+body.dark-mode .secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Section headers with icons */
+body.dark-mode .section-header h2 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .section-icon {
+    background-color: #0077cc !important;
+}
+
+/* History section text */
+body.dark-mode .content-section p {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .content-section h3 {
+    color: #ffffff !important;
+}
+
+/* Attribution text */
+body.dark-mode p[data-key="historyAttribution"] {
+    color: #aaaaaa !important;
+}
+
+
 
 /* Dark mode overrides for News & Events */
 body.dark-mode .news-events {
