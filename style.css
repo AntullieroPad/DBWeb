@@ -576,7 +576,6 @@ body.dark-mode #resetFilters:hover {
     top: 0;
     left: 0;
     width: 220px;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     border-right: 1px solid #ccc;
@@ -634,6 +633,7 @@ body.dark-mode #resetFilters:hover {
     font-weight: normal; /* Reset bold if it was applied */
     transition: color 0.3s ease, font-size 0.3s ease, margin-left 0.3s ease;
     overflow: hidden; /* For the hover effect */
+    color: black !important; /* Slightly lighter gray on hover */
 
 }
 
@@ -644,25 +644,25 @@ body.dark-mode #resetFilters:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent) !important;
     transition: all 0.4s ease;
 }
 
 
 
 .sidebar-nav a:visited {
-    color: black; /* Forces visited links to stay the original color */
+    color: black !important; /* Forces visited links to stay the original color */
 }
 
 .sidebar-nav a:hover {
-    color: #007bff;       /* Switch text color to a “blue” */
+    color: #007bff !important;       /* Switch text color to a “blue” */
     font-size: 1.2rem;    /* Slightly enlarge text (was ~1.0rem, typically) */
     margin-left: 1rem;    /* Push the hovered link to the right, making it stand out */
 }
 
 .sidebar-nav a.active {
-    background-color: rgba(0, 123, 255, 0.1);
-    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1) !important;
+    color: #007bff !important;
     font-weight: 500;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
