@@ -11,9 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
         ],
         "curatedCategory2": [ // Enslavement & Resistance
            // "El que no conoce su historia, está condenado a repetirla. – José Martí",//
-           // "The abolition of slavery is the revolution. – Ramón Emeterio Betances",//
+           // "The abolition of slavery is the revolution. – //
+            "Borinquen llama a sus hijos a la libertad. - Ramón Emeterio Betances",
             //"To enslave a man is to kill him slowly. – José Julián Acosta",//
            // "A nation cannot call itself civilized while maintaining the institution of slavery. – Alejandro Tapia y Rivera//
+            "Porque ni hoy, ni mañana, ni nunca nuestra patria dejará de ser nuestra - Eugenio María de Hostos"
 ],
     "curatedCategory3": [ // American Occupation
        // "We do not want to change masters; we want to be masters of ourselves. – Luis Muñoz Rivera",//
