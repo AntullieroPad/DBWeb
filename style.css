@@ -1968,17 +1968,17 @@ body.dark-mode .profile-social a:hover {
 }
 
 
-
-/* Join Team section */
 .join-team-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./path-to-team-image.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url('/api/placeholder/1200/400');
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem 4rem;
     margin: 2rem 0 0;
     border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .join-team-content {
@@ -1987,26 +1987,37 @@ body.dark-mode .profile-social a:hover {
 }
 
 .join-team-content h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-top: 0;
     margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .join-team-content p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
     line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* Improve the button styling */
 .primary-btn {
     display: inline-block;
-    padding: 0.2rem 2rem;
+    padding: 0.8rem 2.5rem;
     background-color: #007bff;
     color: white;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 500;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.5rem;
+
 }
 
 .primary-btn:hover {
@@ -2015,6 +2026,24 @@ body.dark-mode .profile-social a:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .join-team-section {
+        /* Maintain balanced padding on mobile */
+        padding: 2.5rem 1.5rem 3.5rem;
+        margin: 2rem 0;
+    }
+
+    .join-team-content h2 {
+        font-size: 2rem;
+    }
+
+    .join-team-content p {
+        font-size: 1.1rem;
+    }
+}
+
 
 /* --- News & Events (Carousel) --- */
 .news-events {
@@ -2263,6 +2292,91 @@ body, p, a, li, h2, h3 {
         margin: 0 auto 1.5rem;
     }
 
+    .floating-mascot-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .floating-mascot {
+        width: 70px; /* Very small size */
+        height: auto;
+        filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+        transition: transform 0.3s ease;
+    }
+
+    .floating-mascot:hover {
+        transform: scale(1.1);
+    }
+
+    .mini-credit {
+        font-size: 0.55rem;
+        color: #666;
+        margin-top: 2px;
+    }
+
+
+    /* Dark mode support */
+    body.dark-mode .mini-credit {
+        color: #aaa;
+    }
+
+    /* Hide on very small screens */
+    @media (max-width: 480px) {
+        .floating-mascot-container {
+            display: none;
+        }
+    }
+
+
+    /* Hero image container */
+    .hero-image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Coquí image styling */
+    .hero-mascot {
+        width: 100px; /* Reduced from 180px to 100px */
+        height: auto;
+        margin-bottom: 0.25rem;
+        filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+        transition: transform 0.3s ease;
+    }
+    
+
+    .hero-mascot:hover {
+        transform: scale(1.05);
+    }
+
+    /* Artist credit styling */
+    .artist-credit {
+        font-size: 0.65rem;
+        text-align: center;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Dark mode support */
+    body.dark-mode .artist-credit {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 768px) {
+        .hero-mascot {
+            width: 80px; /* Even smaller on mobile */
+        }
+
+        .artist-credit {
+            font-size: 0.6rem;
+        }
+    }
 
     /* Adjust images in gallery */
     .image-grid img {
@@ -2300,13 +2414,16 @@ body, p, a, li, h2, h3 {
 
     /* Make social icons appear in a row */
     .social-icons {
-        display: flex;
-        /* Align them in a row, horizontally */
-        flex-direction: row;
-        /* Center or left align them, up to you */
-        justify-content: center; /* or space-between, flex-start, etc. */
-        align-items: center;
-        gap: 0.5rem; /* The space between each icon */
+        flex-shrink: 0; /* Prevent the icon from shrinking */
+        width: 40px;
+        height: 40px;
+        margin-right: 0; /* Remove right margin (using gap instead) */
+        margin-top: 0; /* Remove top margin that could be pushing it up */
+    }
+
+    .section-header h2, .section-header h3 {
+        margin: 0; /* Remove any margin that could affect alignment */
+        padding: 0; /* Remove any padding that could affect alignment */
     }
 
 
@@ -2881,6 +2998,7 @@ body {
 .connect-btn:hover {
     background-color: #0056b3;
 }
+
 
 /* Alumni events list */
 .alumni-events {
@@ -3502,3 +3620,105 @@ body {
         text-orientation: mixed !important;
     }
 }
+
+/* for the icons in collab*/
+
+/* ===== FIX 1: Contact Methods Section ===== */
+/* Make contact methods display as flex containers */
+.contact-method {
+    display: flex !important;
+    align-items: flex-start !important;
+    margin-bottom: 20px !important;
+}
+
+/* Fix the method icon positioning */
+.method-icon {
+    margin-right: 15px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Ensure method details take remaining width */
+.method-details {
+    flex: 1 !important;
+}
+
+/* Ensure headings are properly aligned */
+.method-details h4 {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+}
+
+/* ===== FIX 2: Collaboration Cards Section ===== */
+/* Hide the original card-icon div */
+.collab-card .card-icon {
+    display: none !important;
+}
+
+/* Create the icon as a pseudo-element before the heading */
+.collab-card h3:before {
+    /* Show the appropriate icon */
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    margin-right: 10px !important;
+    font-size: 1.2rem !important;
+    width: 30px !important;
+    display: inline-block !important;
+    text-align: center !important;
+}
+
+/* Set the specific icon for each heading type */
+h3[data-key="workshopsTitle"]:before {
+    content: "\f51c" !important; /* fa-chalkboard-teacher */
+}
+
+h3[data-key="resourcesTitle"]:before {
+    content: "\f02d" !important; /* fa-book */
+}
+
+h3[data-key="researchTitle"]:before {
+    content: "\f002" !important; /* fa-search */
+}
+
+h3[data-key="advocacyTitle"]:before {
+    content: "\f0a1" !important; /* fa-bullhorn */
+}
+
+
+/* Target all section headers with icons */
+.section-header {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+}
+
+.section-header .section-icon {
+    margin-right: 15px !important;
+    margin-top: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+
+/* ===== FIX 5: General Icon Fixes ===== */
+/* Make all Font Awesome icons inline with text */
+.fas {
+    vertical-align: middle !important;
+}
+
+/* Specific styling for the main section icons */
+.fa-handshake, .fa-lightbulb, .fa-envelope, .fa-user, .fa-file-alt, .fa-map-marker-alt {
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+    /* Ensure proper spacing on mobile */
+    .contact-method {
+        margin-bottom: 15px !important;
+    }
+
+    /* Adjust icon size on mobile for better visibility */
+    .method-icon i, .collab-card h3:before, .section-icon i {
+        font-size: 1.1rem !important;
+    }
