@@ -809,3 +809,281 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 */
+// Calendar View functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // View toggle functionality
+    const viewButtons = document.querySelectorAll('.view-btn');
+    const eventsList = document.getElementById('newsList');
+
+    if (!viewButtons.length || !eventsList) return;
+
+    // Process dates to prepare for calendar view
+    function processEventDates() {
+        const eventItems = document.querySelectorAll('.event-list li');
+
+        eventItems.forEach(item => {
+            const dateText = item.querySelector('em');
+            if (dateText) {
+                // Parse date from the em element
+                const dateContent = dateText.textContent.trim();
+
+                // Store the date text as a data attribute for sorting/filtering
+                item.setAttribute('data-date', dateContent);
+
+                // Optional: You could parse actual dates here if the format is consistent
+                // For example: if dates are in format "Jan 25", you could convert to "2025-01-25"
+                // This would allow for better sorting and organization
+            }
+        });
+    }
+
+    // Function to enhance calendar view with visual elements
+    function enhanceCalendarView() {
+        // Add any dynamic elements needed for calendar view
+        const calendarCategories = document.querySelectorAll('.calendar-view .events-category');
+
+        calendarCategories.forEach(category => {
+            // Optional: Group events by month if dates are available
+            const events = category.querySelectorAll('.event-list li[data-date]');
+            const eventsByMonth = {};
+
+            // This is a simple example - you could enhance with proper date parsing
+            events.forEach(event => {
+                const dateText = event.getAttribute('data-date');
+                const monthMatch = dateText.match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i);
+
+                if (monthMatch) {
+                    const month = monthMatch[1];
+                    if (!eventsByMonth[month]) {
+                        eventsByMonth[month] = [];
+                    }
+                    eventsByMonth[month].push(event);
+                }
+            });
+        });
+    }
+            // Toggle between views
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    viewButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Switch view based on data-view attribute
+                    const viewType = this.getAttribute('data-view');
+
+                    if (viewType === 'calendar') {
+                        eventsList.classList.add('calendar-view');
+                        // Process dates and enhance calendar view
+                        processEventDates();
+                        enhanceCalendarView();
+                    } else {
+                        eventsList.classList.remove('calendar-view');
+                    }
+
+                    // Store the current view preference in localStorage
+                    localStorage.setItem('eventViewPreference', viewType);
+                });
+            });
+
+            // Check for saved preference
+            const savedView = localStorage.getItem('eventViewPreference');
+            if (savedView) {
+                // Find the button with the matching data-view attribute
+                const matchingButton = Array.from(viewButtons).find(btn =>
+                    btn.getAttribute('data-view') === savedView
+                );
+
+                if (matchingButton) {
+                    // Trigger a click event on the matching button
+                    matchingButton.click();
+                }
+            }
+        });
+
+// Image Pull-Down Animation with Fact Cards
+document.addEventListener('DOMContentLoaded', function() {
+    // List of DB Yale facts
+    const dbFacts = [
+        "Despierta Boricua was founded at Yale in 1974.",
+        "Despierta Boricua means 'Wake up, Puerto Rican' in Spanish.",
+        "DB Yale holds weekly cafecitos led by Antonio for networking and conversation.",
+        "DB Yale hosted a Julia de Burgos Anniversary event on Feb 23 featuring poetry readings.",
+        "Despierta Boricua organizes Bomba classes to explore Afro-Puerto Rican dance traditions.",
+        "DB Yale collaborates with MEChA to foster intercultural dialogue and understanding.",
+        "The organization hosts community cooking events at La Casa Cultural.",
+        "DB Yale works to promote awareness about Puerto Rico's political status and history."
+    ];
+
+    // Target images that have the 'desktop-float' class in the syllabus section
+    const targetImages = document.querySelectorAll('.desktop-float');
+
+    targetImages.forEach((img, index) => {
+        // Create a container for the whole interactive element
+        const container = document.createElement('div');
+        container.className = 'tilt-popup-container';
+        container.style.position = 'relative';
+        container.style.width = img.offsetWidth + 'px';
+        container.style.height = img.offsetHeight + 'px';
+        container.style.float = 'right';
+        container.style.margin = '0 0 15px 15px';
+        container.style.cursor = 'pointer';
+        container.style.perspective = '800px';
+        container.style.transformStyle = 'preserve-3d';
+
+        // Create the image container that will tilt
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'tilt-image';
+        imageContainer.style.width = '100%';
+        imageContainer.style.height = '100%';
+        imageContainer.style.position = 'relative';
+        imageContainer.style.transformOrigin = 'bottom center';
+        imageContainer.style.transform = 'rotateX(0deg)';
+        imageContainer.style.transition = 'transform 0.5s cubic-bezier(0.3, 1.05, 0.4, 1.05)';
+        imageContainer.style.zIndex = '2';
+
+        // Clone the original image
+        const clonedImg = img.cloneNode(true);
+        clonedImg.style.width = '100%';
+        clonedImg.style.height = '100%';
+        clonedImg.style.display = 'block';
+        clonedImg.style.borderRadius = '8px';
+        clonedImg.style.objectFit = 'cover';
+        clonedImg.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
+
+        // Create the fact card that will pop out
+        const factCard = document.createElement('div');
+        factCard.className = 'fact-popup';
+        factCard.style.position = 'absolute';
+        factCard.style.width = '100%';
+        factCard.style.padding = '15px';
+        factCard.style.backgroundColor = '#007bff';
+        factCard.style.color = 'white';
+        factCard.style.borderRadius = '8px';
+        factCard.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
+        factCard.style.fontWeight = 'bold';
+        factCard.style.fontSize = '14px';
+        factCard.style.textAlign = 'center';
+        factCard.style.zIndex = '1';
+        factCard.style.left = '0';
+        factCard.style.top = '-60px';  // Position above the image
+        factCard.style.transformOrigin = 'center bottom';
+        factCard.style.transform = 'translateY(-20px) scale(0.7)';
+        factCard.style.opacity = '0';
+        factCard.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease';
+
+        // Select a random fact
+        const factText = dbFacts[index % dbFacts.length];
+        factCard.textContent = `DB Fact: ${factText}`;
+
+        // Create a small visual cue at the bottom of the image
+        const visualCue = document.createElement('div');
+        visualCue.className = 'visual-cue';
+        visualCue.style.position = 'absolute';
+        visualCue.style.bottom = '5px';
+        visualCue.style.left = '50%';
+        visualCue.style.transform = 'translateX(-50%)';
+        visualCue.style.width = '40px';
+        visualCue.style.height = '5px';
+        visualCue.style.backgroundColor = 'rgba(0,0,0,0.2)';
+        visualCue.style.borderRadius = '3px';
+        visualCue.style.opacity = '0.7';
+        visualCue.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+
+        // Hover effect for subtle discovery hint
+        container.addEventListener('mouseenter', function() {
+            if (!isTilted) {
+                visualCue.style.opacity = '1';
+                // Very slight initial tilt on hover - now correct direction
+                imageContainer.style.transform = 'rotateX(-3deg)';
+            }
+        });
+
+        container.addEventListener('mouseleave', function() {
+            if (!isTilted) {
+                visualCue.style.opacity = '0.7';
+                imageContainer.style.transform = 'rotateX(0deg)';
+            }
+        });
+
+        // State tracking
+        let isTilted = false;
+
+        // Toggle tilt animation on click
+        container.addEventListener('click', function() {
+            if (!isTilted) {
+                // Tilt image with top toward viewer (negative X rotation)
+                imageContainer.style.transform = 'rotateX(-22deg)';
+
+                // Show fact card popping out
+                setTimeout(() => {
+                    factCard.style.opacity = '1';
+                    factCard.style.transform = 'translateY(0) scale(1)';
+                    factCard.style.zIndex = '5';  // Ensure it's above everything
+                }, 100);
+
+                isTilted = true;
+            } else {
+                // Hide fact card first
+                factCard.style.opacity = '0';
+                factCard.style.transform = 'translateY(-20px) scale(0.7)';
+                factCard.style.zIndex = '1';
+
+                // Then return image to normal position
+                setTimeout(() => {
+                    imageContainer.style.transform = 'rotateX(0deg)';
+                }, 200);
+
+                isTilted = false;
+            }
+        });
+
+        // Assemble all components
+        imageContainer.appendChild(clonedImg);
+        imageContainer.appendChild(visualCue);
+        container.appendChild(factCard);
+        container.appendChild(imageContainer);
+
+        // Replace the original image
+        img.parentNode.replaceChild(container, img);
+
+        // Add styles for 3D effects and dark mode
+        const styleElement = document.createElement('style');
+        styleElement.textContent = `
+      .tilt-popup-container {
+        perspective: 800px;
+        transform-style: preserve-3d;
+        overflow: visible;
+      }
+      
+      .tilt-image {
+        backface-visibility: hidden;
+      }
+      
+      body.dark-mode .fact-popup {
+        background-color: #0056b3; 
+        color: #fff;
+      }
+      
+      body.dark-mode .visual-cue {
+        background-color: rgba(255,255,255,0.2);
+      }
+      
+      @media (max-width: 768px) {
+        .tilt-popup-container {
+          float: none;
+          margin: 1.5rem auto;
+          max-width: 280px;
+        }
+        
+        .fact-popup {
+          font-size: 12px;
+          padding: 10px;
+        }
+      }
+    `;
+        document.head.appendChild(styleElement);
+    });
+});

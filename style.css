@@ -3819,3 +3819,236 @@ h3[data-key="advocacyTitle"]:before {
         font-size: 1.1rem !important;
     }
 }
+
+
+/* Calendar View Styling */
+.calendar-view .events-category {
+    margin-bottom: 2rem;
+}
+
+.calendar-view .event-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.calendar-view .event-list li {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    border-top: 5px solid #007bff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calendar-view .event-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Color coding for different event types */
+.calendar-view .event-list li[data-category="social"] {
+    border-top-color: #4CAF50; /* Green for social events */
+}
+
+.calendar-view .event-list li[data-category="activism"] {
+    border-top-color: #F44336; /* Red for activism events */
+}
+
+.calendar-view .event-list li[data-category="recent"] {
+    border-top-color: #FFC107; /* Yellow/amber for recent events */
+}
+
+.calendar-view .media-list li[data-category="media"] {
+    border-top-color: #9C27B0; /* Purple for media coverage */
+}
+
+/* Date/calendar indicator for events with dates */
+.calendar-view .event-list li em:before {
+    content: "\f133"; /* Font Awesome calendar icon */
+    font-family: "Font Awesome 5 Free";
+    margin-right: 5px;
+    font-weight: 900;
+}
+
+/* Event title styling */
+.calendar-view .event-list li strong {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Empty date styling */
+.calendar-view .event-list li:not(:has(em)) {
+    padding-top: 40px; /* Add space at the top for events without dates */
+}
+
+.calendar-view .event-list li:not(:has(em)):before {
+    content: "TBD";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e0e0e0;
+    color: #666;
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+/* Dark mode support */
+body.dark-mode .calendar-view .event-list li {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .calendar-view .event-list li:not(:has(em)):before {
+    background-color: #444;
+    color: #aaa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .calendar-view .event-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-view .event-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Optionally add month headers if dates are available */
+.calendar-month-heading {
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin: 1.5rem 0 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+body.dark-mode .calendar-month-heading {
+    background-color: #444;
+    color: #eee;
+}
+
+
+/* Enhanced styling for corrected tilt animation */
+.tilt-popup-container {
+    position: relative;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    z-index: 10;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    overflow: visible;
+    width: 280px;
+    height: 280px;
+}
+
+.tilt-popup-container:hover {
+    z-index: 20;
+}
+
+.tilt-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-origin: bottom center;
+    transform: rotateX(0deg);
+    transition: transform 0.5s cubic-bezier(0.3, 1.05, 0.4, 1.05);
+    backface-visibility: hidden;
+    z-index: 2;
+    will-change: transform;
+}
+
+.tilt-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.fact-popup {
+    position: absolute;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    z-index: 1;
+    left: 0;
+    top: auto;
+    bottom: 0px;  /* Adjust to show less of the blue box */
+    transform-origin: center top;
+    transform: translateY(90%) scale(0.95);  /* Tuck more under the image */
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    will-change: transform, opacity;
+}
+
+/* Tilt animation */
+.tilt-popup-container:hover .tilt-image {
+    transform: rotateX(30deg) translateY(-10px);
+}
+
+.tilt-popup-container:hover .fact-popup {
+    opacity: 1;
+    transform: translateY(80%) scale(1);  /* Adjust to show less */
+}
+
+.visual-cue {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 5px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.tilt-popup-container:hover .visual-cue {
+    opacity: 1;
+}
+
+/* Dark mode support */
+body.dark-mode .fact-popup {
+    background: linear-gradient(145deg, #0056b3, #004494);
+    color: #fff;
+}
+
+body.dark-mode .visual-cue {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .tilt-popup-container {
+        float: none;
+        margin: 1.5rem auto;
+        max-width: 280px;
+    }
+
+    .fact-popup {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
