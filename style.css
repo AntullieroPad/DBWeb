@@ -3197,7 +3197,18 @@ body {
 /* Mission section styling */
 .mission-section {
     margin-bottom: 3rem;
+    padding: 0 1rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.mission-section .section-header {
+    margin-top: 1.13rem; /* Add space above the header */
+    position: relative; /* To ensure proper spacing */
+}
+
+
 
 .mission-quote {
     position: relative;
@@ -3218,14 +3229,17 @@ body {
     color: #007bff;
     opacity: 0.2;
     line-height: 1;
+    font-family: Georgia, serif;
 }
 
 .mission-quote p {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.7;
     font-style: italic;
     position: relative;
     z-index: 1;
+    margin: 0;
+    color: #333;
 
 }
 
@@ -3289,9 +3303,75 @@ body {
 /* Founders gallery styling */
 .founders-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns in the first row */
+    grid-template-rows: auto auto; /* Two rows */
+    gap: 2rem;
     margin-top: 2rem;
+    width: 100%;
+    max-width: 1000px; /* Constrain max width for proper spacing */
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+
+/* Target the 4th and 5th elements specifically */
+.founders-gallery .founder-card:nth-child(4),
+.founders-gallery .founder-card:nth-child(5) {
+    grid-column: span 1; /* Takes 1 column space */
+}
+
+/* Position 4th element to start in column 1 of second row */
+.founders-gallery .founder-card:nth-child(4) {
+    grid-column: 1 / span 1; /* Start at column 1, end at column 2 */
+    grid-row: 2; /* Put in second row */
+    /* Push toward center from left */
+    margin-left: auto;
+    margin-right: 0;
+    /* Control the width */
+    width: 90%;
+    justify-self: end;
+}
+
+/* Position 5th element to start in column 3 of second row */
+.founders-gallery .founder-card:nth-child(5) {
+    grid-column: 3 / span 1; /* Start at column 3, end at column 4 */
+    grid-row: 2; /* Put in second row */
+    margin-right: auto;
+    margin-left: 0;
+    /* Control the width */
+    width: 90%;
+    justify-self: start;
+}
+
+
+/* Create a better bottom row balanced layout */
+.founders-gallery::after {
+    content: "";
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* For responsive design, adjust the layout for smaller screens */
+@media (max-width: 768px) {
+    .founders-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        gap: 1rem;
+    }
+
+    /* Reset positioning for all cards on smaller screens */
+    .founders-gallery .founder-card:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+        margin: 0;
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .founders-gallery {
+        grid-template-columns: 1fr; /* Single column on smallest screens */
+    }
 }
 
 .founder-card {
@@ -3301,6 +3381,8 @@ body {
     box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1rem; /* Add bottom margin */
+    max-width: 100%; /* Ensure cards don't overflow */
 }
 
 .founder-card:hover {
@@ -3313,6 +3395,8 @@ body {
     height: 150px;
     overflow: hidden;
     border-bottom: 3px solid #007bff;
+    object-fit: cover;
+    max-width: 100%;
 }
 
 .founder-image img {
@@ -3339,6 +3423,7 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
+    max-width: 1000px; /* Constrain max width for proper spacing */
 }
 
 .value-card {
@@ -3439,12 +3524,23 @@ body {
         flex-direction: row;
         align-items: center;
         flex-wrap: nowrap;
-        padding: 0 1rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.75rem;
     }
 
     .section-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.75rem;
+        font-size: 1.2rem;
         flex-shrink: 0;
-        margin-right: 0.5rem;
     }
 
     /* Fix values grid */
@@ -3722,3 +3818,4 @@ h3[data-key="advocacyTitle"]:before {
     .method-icon i, .collab-card h3:before, .section-icon i {
         font-size: 1.1rem !important;
     }
+}
