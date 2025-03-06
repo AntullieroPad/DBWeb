@@ -50,8 +50,8 @@ const translations = {
         newsItem3Text: "Slavery in Puerto Rico | learn about Afro-Boricua History",
         majorEventsTitle: "Major / Annual Events",
         majorEventsDesc: "Once-in-a-lifetime or rare celebrations and parties.",
-        culturalMixersTitle: "Cultural Mixers",
-        culturalMixersDesc: "These gatherings happen multiple times a semester, showcasing different cultures.",
+        culturalMixersTitle: "Mixers & Retreats",
+        culturalMixersDesc: "These gatherings happen multiple times a semester of with various goals and themes.",
         galleryPrevBtn: "‹",
         galleryNextBtn: "›",
 
@@ -335,8 +335,8 @@ const translations = {
         newsItem3Text: "Esclavitud en Puerto Rico | aprende sobre la historia Afro-Boricua",
         majorEventsTitle: "Eventos Mayores / Anuales",
         majorEventsDesc: "Celebraciones únicas o poco frecuentes.",
-        culturalMixersTitle: "Mixers Culturales",
-        culturalMixersDesc: "Estos encuentros suceden varias veces por semestre, destacando diversas culturas.",
+        culturalMixersTitle: "Mixers & Retreats",
+        culturalMixersDesc: "Estos encuentros suceden varias veces por semestre de varios temas y metas.",
         galleryPrevBtn: "‹",
         galleryNextBtn: "›",
 
