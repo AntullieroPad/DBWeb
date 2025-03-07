@@ -15,9 +15,6 @@ const translations = {
         blackHeroParagraph: "More than a club—Despierta Boricua is a movement. We uplift, empower, and celebrate our culture, history, and people.",
         learnMoreBtn: "Learn More",
 
-        title: "Welcome to DB Yale",
-        subtitle: "A short introduction to DB Yale in English...",
-
         section1Tag: "SECTION 1",
         section1Title: "Education & Community Empowerment",
         section1Paragraph: "DB prioritizes knowledge-sharing at the local level. By partnering with community members and leaders, DB fosters an environment where learning is co-created and everyone’s voice is valued.",
@@ -255,7 +252,7 @@ const translations = {
         boardHeroText: "Here at DB Yale, we’re more than just colleagues—we’re Bori‑buddies!",
 
 
-     introTitle: "Welcome to DB Yale",
+     introTitle: "Welcome to DB Yale | Yale's Puerto Rican Student Organization",
         introSubtitle: "Explore our initiatives, engage with our community, and celebrate culture and activism.",
         aboutHeroTitle: "About DB Yale",
         aboutHeroText: "DB Yale is dedicated to fostering a vibrant, inclusive community rooted in Puerto Rican heritage and activism.",
@@ -299,9 +296,6 @@ const translations = {
         blackHeroHeading: "Celebrando la Identidad y Resistencia Puertorriqueña",
         blackHeroParagraph: "Más que un club—Despierta Boricua es un movimiento. Elevamos, empoderamos y celebramos nuestra cultura, historia y comunidad.",
         learnMoreBtn: "Aprende Más",
-
-        title: "Bienvenido a DB Yale",
-        subtitle: "Una breve introducción a DB Yale en español...",
 
         section1Tag: "SECCIÓN 1",
         section1Title: "Educación y Empoderamiento Comunitario",
@@ -537,6 +531,7 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
 
 
         // News + Events page hero
+        newsHeroTitle: "Noticias & Eventos Recentes",
         newsHeroText: "Mantente al tanto de las actividades, anuncios y próximos eventos de DB Yale.",
 
         // Meet the Board page hero
@@ -547,7 +542,7 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
 
         merchHeroTitle: "Mercancía de DB Yale – Luce tu Orgullo Boricua",
         merchHeroText: "¡Demuestra tu amor por DB Yale y la cultura puertorriqueña con nuestra mercancía exclusiva! Cada compra apoya nuestras iniciativas y mantiene vibrante a la comunidad.",
-        introTitle: "Bienvenido a DB Yale",
+        introTitle: "Bienvenido a DB Yale | Organización Estudiantil Puertorriqueña de Yale",
         introSubtitle: "Explora nuestras iniciativas, involúcrate con nuestra comunidad y celebra la cultura y el activismo.",
 
         // Values section

@@ -1087,3 +1087,199 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.appendChild(styleElement);
     });
 });
+
+
+
+// Board member locations - update these with actual locations
+const boardMembers = [
+    {
+        name: "Jaden Gonzalez",
+        role: "Co-President",
+        position: { lat: 18.2011, lng: -67.1399 }, // Mayagüez
+        description: "My family comes from Mayagüez on the west coast of Puerto Rico."
+    },
+    {
+        name: "Kristen St. Louis",
+        role: "Co-President",
+        position: { lat: 18.0111, lng: -66.6140 }, // Ponce
+        description: "My family's roots are in Ponce, known as 'La Perla del Sur'."
+    },
+    {
+        name: "Elyse Thomas",
+        role: "Event Coordinator",
+        position: { lat: 18.0356, lng: -66.8509 }, // Yauco
+        description: "My family is from Yauco, famous for its coffee production."
+    },
+    {
+        name: "Aryana Ramos-Vazquez",
+        role: "Social Media Manager",
+        position: { lat: 18.4655, lng: -66.1057 }, // San Juan
+        description: "My family comes from San Juan, the vibrant capital city."
+    },
+    {
+        name: "Alanna Rivera",
+        role: "Treasurer",
+        position: { lat: 17.9841, lng: -66.1132 }, // Guayama
+        description: "My roots are in Guayama on the southern coast."
+    },
+    {
+        name: "Sonia Rosa",
+        role: "Alumni Relations",
+        position: { lat: 18.3263, lng: -65.6525 }, // Fajardo
+        description: "My family is from Fajardo on the eastern tip of the island."
+    },
+    {
+        name: "Roberto Lopez",
+        role: "Social Media Manager",
+        position: { lat: 18.3031, lng: -65.3013 }, // Culebra
+        description: "My family comes from the beautiful island of Culebra."
+    },
+    {
+        name: "Antonio Padilla",
+        role: "First Year Mentor",
+        position: { lat: 18.4663, lng: -66.1057 }, // San Juan
+        description: "My family is from San Juan, where I learned to cook traditional Puerto Rican dishes."
+    }
+];
+
+// Helper function to get pin color based on role
+function getPinColorForRole(role) {
+    const roleColors = {
+        "Co-President": "#E74C3C",              // Red
+        "Event Coordinator": "#3498DB",         // Blue
+        "Social Media Manager": "#9B59B6",      // Purple
+        "Treasurer": "#2ECC71",                 // Green
+        "Alumni Relations": "#F39C12",          // Orange
+        "First Year Mentor": "#1ABC9C"          // Turquoise
+    };
+
+    return roleColors[role] || "#95A5A6"; // Default gray if role not found
+}
+
+// Initialize the map
+function initMap() {
+    console.log("Map initialization started"); // Debug log
+
+    // Center map on Puerto Rico
+    const puertoRico = { lat: 18.2208, lng: -66.5901 };
+
+    // Create the map centered on Puerto Rico
+    const map = new google.maps.Map(document.getElementById("board-member-map"), {
+        zoom: 9,
+        center: puertoRico,
+        mapTypeId: "terrain",
+        mapTypeControl: true,
+        fullscreenControl: true,
+        streetViewControl: false,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+            mapTypeIds: ["roadmap", "terrain", "satellite"]
+        }
+    });
+
+    // Create an info window to share between markers
+    const infoWindow = new google.maps.InfoWindow();
+
+    console.log("Adding markers for " + boardMembers.length + " board members"); // Debug log
+
+    // Create markers for each board member
+    boardMembers.forEach((member, i) => {
+        console.log(`Creating marker for ${member.name} at position:`, member.position); // Debug log
+
+        // Create the marker with standard pin first (more reliable)
+        const marker = new google.maps.Marker({
+            position: member.position,
+            map: map,
+            title: member.name,
+            animation: google.maps.Animation.DROP
+        });
+
+        // Try to set custom pin style after marker is created
+        setTimeout(() => {
+            marker.setIcon({
+                path: google.maps.SymbolPath.CIRCLE,
+                fillColor: getPinColorForRole(member.role),
+                fillOpacity: 0.9,
+                strokeWeight: 2,
+                strokeColor: "#FFFFFF",
+                scale: 10
+            });
+        }, 500); // Small delay to ensure marker is properly created first
+
+        // Add click listener to show info window with member details
+        marker.addListener("click", () => {
+            console.log("Marker clicked:", member.name); // Debug log
+
+            // Create content for info window
+            const contentString = `
+        <div class="map-info-window">
+          <h3>${member.name}</h3>
+          <p><strong>${member.role}</strong></p>
+          <p>${member.description}</p>
+        </div>
+      `;
+
+            // Open info window
+            infoWindow.setContent(contentString);
+            infoWindow.open(map, marker);
+
+            // Find and highlight the board member card
+            const boardMembers = document.querySelectorAll('.board-member');
+
+            boardMembers.forEach(element => {
+                const nameElement = element.querySelector('.person-name');
+                if (nameElement && nameElement.textContent.includes(member.name)) {
+                    // Scroll to the member and add a highlight effect
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    element.classList.add('highlight-member');
+                    setTimeout(() => {
+                        element.classList.remove('highlight-member');
+                    }, 2000);
+                }
+            });
+        });
+    });
+
+    console.log("Map initialization completed"); // Debug log
+}
+
+// Make sure the function is available globally
+window.initMap = initMap;
+
+// Load the Google Maps script after the page is ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM loaded, setting up map");
+
+    // Create the map div if it doesn't exist yet
+    if (!document.getElementById('board-member-map')) {
+        console.log("Creating map container");
+        const mapSection = document.querySelector('.family-roots-section');
+        if (mapSection) {
+            const mapContainer = document.createElement('div');
+            mapContainer.id = 'board-member-map';
+            mapSection.insertBefore(mapContainer, mapSection.querySelector('.map-legend'));
+        }
+    }
+
+    // Add the Google Maps script if not already present
+    if (!document.getElementById('google-maps-script')) {
+        console.log("Loading Google Maps API");
+        const script = document.createElement('script');
+        script.id = 'google-maps-script';
+        // Replace YOUR_ACTUAL_API_KEY with your Google Maps API key
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWM0R4sG2HK8977Mtmi3WSvwY7u-5Sik&callback=initMap';
+        script.async = true;
+        script.defer = true;
+
+        // Error handling for script loading
+        script.onerror = function() {
+            console.error("Error loading Google Maps API");
+            const mapDiv = document.getElementById('board-member-map');
+            if (mapDiv) {
+                mapDiv.innerHTML = '<p style="color:red;">Error loading Google Maps. Please check your API key and internet connection.</p>';
+            }
+        };
+
+        document.head.appendChild(script);
+    }
+});
