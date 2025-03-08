@@ -230,6 +230,25 @@
             </div>
         </section>
 
+    <section class="la-brega-quiz-section">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-puzzle-piece"></i></div>
+            <h2>Cultural Experience</h2>
+        </div>
+        <div class="hidden-quiz-container">
+            <p class="quiz-explainer">
+                <em>"La brega"</em> is a uniquely Puerto Rican concept that embodies resourcefulness,
+                resilience, and the ability to navigate life's challenges with creativity.
+                It's an essential part of Puerto Rican cultural identity, especially in the face of adversity.
+            </p>
+            <div class="brega-quiz-container">
+                <a href="#" id="brega-link" class="brega-link">¿Sabes bregar?</a>
+                <div id="quiz-container" style="display: none;">
+                    <!-- Quiz will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Success stories / testimonials -->
 
@@ -254,6 +273,22 @@
 <!-- (Optional) JS for hamburger toggle, etc. -->
 <script src="script.js"></script>
 <script src="lang.js"></script>
-
+<!-- Add this script right before the closing </body> tag -->
+<<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add a subtle animation to draw attention to the quiz link
+        const quizContainer = document.querySelector('.hidden-quiz-container');
+        if (quizContainer) {
+            setTimeout(() => {
+                quizContainer.classList.add('pulse-attention');
+                setTimeout(() => {
+                    quizContainer.classList.remove('pulse-attention');
+                }, 1000);
+            }, 3000);
+        }
+    });
+</script>
+    <script src="quiz.js"></script>
+</script>
 </body>
 </html>

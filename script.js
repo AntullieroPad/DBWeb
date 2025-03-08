@@ -2121,3 +2121,683 @@ document.addEventListener('DOMContentLoaded', function() {
         redirectToAntillesPage();
     }
 });
+
+// Add this to your script.js file to enable El Gran Apagón Mode
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all search inputs on the site
+    const searchInputs = document.querySelectorAll('#sidebarSearch, #eventSearch, input[type="search"], input[type="text"][placeholder*="search" i]');
+
+    // Search terms that will trigger El Apagón mode
+    const triggerTerms = [
+        'luma',
+        'apagon',
+        'apagón',
+        'electric',
+        'power outage',
+        'blackout'
+    ];
+
+    // Function to check if search contains any trigger terms
+    function containsTriggerTerm(searchText) {
+        searchText = searchText.toLowerCase().trim();
+        return triggerTerms.some(term => searchText.includes(term.toLowerCase()));
+    }
+
+    // Add event listeners to all search inputs
+    searchInputs.forEach(input => {
+        if (input) {
+            // Listen for Enter key
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (containsTriggerTerm(searchTerm)) {
+                        e.preventDefault(); // Prevent default search behavior
+                        triggerApagonMode();
+                    }
+                }
+            });
+        }
+    });
+
+    // Also attach to search buttons
+    const searchButtons = document.querySelectorAll('#searchButton, button[aria-label*="search" i], button[type="submit"]');
+    searchButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function(e) {
+                // Find the input associated with this button
+                const searchInput = this.previousElementSibling ||
+                    this.closest('form')?.querySelector('input[type="text"], input[type="search"]');
+
+                if (searchInput && containsTriggerTerm(searchInput.value)) {
+                    e.preventDefault();
+                    triggerApagonMode();
+                }
+            });
+        }
+    });
+
+    // Function to trigger El Apagón mode
+    function triggerApagonMode() {
+        // 1. Create the blackout overlay
+        const blackoutOverlay = document.createElement('div');
+        blackoutOverlay.className = 'apagon-overlay';
+        blackoutOverlay.style.position = 'fixed';
+        blackoutOverlay.style.top = '0';
+        blackoutOverlay.style.left = '0';
+        blackoutOverlay.style.width = '100%';
+        blackoutOverlay.style.height = '100%';
+        blackoutOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+        blackoutOverlay.style.zIndex = '9999';
+        blackoutOverlay.style.transition = 'background-color 0.2s ease';
+        document.body.appendChild(blackoutOverlay);
+
+        // 2. Create the message container (initially hidden)
+        const messageContainer = document.createElement('div');
+        messageContainer.className = 'apagon-message';
+        messageContainer.style.position = 'fixed';
+        messageContainer.style.top = '50%';
+        messageContainer.style.left = '50%';
+        messageContainer.style.transform = 'translate(-50%, -50%)';
+        messageContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        messageContainer.style.color = '#fff';
+        messageContainer.style.padding = '25px 40px';
+        messageContainer.style.borderRadius = '8px';
+        messageContainer.style.textAlign = 'center';
+        messageContainer.style.maxWidth = '90%';
+        messageContainer.style.opacity = '0';
+        messageContainer.style.zIndex = '10000';
+        messageContainer.style.transition = 'opacity 0.5s ease';
+        messageContainer.innerHTML = `
+            <p style="font-size: 1.5rem; font-style: italic; line-height: 1.5;">Lo que me pertenece a mí, se lo quedan ellos.<br>¡Que se vayan ellos!</p>
+            <p style="margin-top: 15px; font-size: 0.9rem;">(Click anywhere to restore power)</p>
+        `;
+        document.body.appendChild(messageContainer);
+
+        // 3. Create the flashlight icon (initially hidden)
+        const flashlightIcon = document.createElement('div');
+        flashlightIcon.className = 'flashlight-icon';
+        flashlightIcon.style.position = 'fixed';
+        flashlightIcon.style.bottom = '30px';
+        flashlightIcon.style.right = '30px';
+        flashlightIcon.style.width = '50px';
+        flashlightIcon.style.height = '50px';
+        flashlightIcon.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        flashlightIcon.style.borderRadius = '50%';
+        flashlightIcon.style.cursor = 'pointer';
+        flashlightIcon.style.display = 'flex';
+        flashlightIcon.style.alignItems = 'center';
+        flashlightIcon.style.justifyContent = 'center';
+        flashlightIcon.style.fontSize = '24px';
+        flashlightIcon.style.opacity = '0';
+        flashlightIcon.style.zIndex = '10001';
+        flashlightIcon.style.transition = 'opacity 0.5s ease, transform 0.3s ease';
+        flashlightIcon.innerHTML = '🔦';
+        document.body.appendChild(flashlightIcon);
+
+        // 4. Create flickering effect (like power going out)
+        setTimeout(() => {
+            blackoutOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+
+            setTimeout(() => {
+                blackoutOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+
+                setTimeout(() => {
+                    blackoutOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+                    setTimeout(() => {
+                        // Go completely black after flickering
+                        blackoutOverlay.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+
+                        // Show flashlight after 5 seconds in the dark
+                        setTimeout(() => {
+                            flashlightIcon.style.opacity = '1';
+                            flashlightIcon.style.animation = 'pulse 2s infinite';
+
+                            // Add a subtle hover effect
+                            flashlightIcon.addEventListener('mouseover', function() {
+                                this.style.transform = 'scale(1.1)';
+                            });
+
+                            flashlightIcon.addEventListener('mouseout', function() {
+                                this.style.transform = 'scale(1)';
+                            });
+
+                            // Add flashlight click functionality
+                            flashlightIcon.addEventListener('click', function() {
+                                // Hide flashlight
+                                this.style.opacity = '0';
+
+                                // Fade in message
+                                messageContainer.style.opacity = '1';
+
+                                // Slightly brighten the overlay to see the message better
+                                blackoutOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+
+                                // Make entire page clickable to restore
+                                blackoutOverlay.addEventListener('click', restorePage);
+                                messageContainer.addEventListener('click', restorePage);
+                            });
+                        }, 5000);
+                    }, 300);
+                }, 200);
+            }, 200);
+        }, 100);
+
+        // Function to restore the page to normal
+        function restorePage() {
+            // Fade out message
+            messageContainer.style.opacity = '0';
+
+            // Gradually restore page
+            blackoutOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+            setTimeout(() => {
+                blackoutOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+
+                setTimeout(() => {
+                    blackoutOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+
+                    // After transition completes, remove elements
+                    setTimeout(() => {
+                        document.body.removeChild(blackoutOverlay);
+                        document.body.removeChild(messageContainer);
+                        document.body.removeChild(flashlightIcon);
+                    }, 500);
+                }, 200);
+            }, 200);
+        }
+
+        // Add CSS animation for the flashlight pulse
+        const styleElement = document.createElement('style');
+        styleElement.textContent = `
+            @keyframes pulse {
+                0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+                70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+            }
+        `;
+        document.head.appendChild(styleElement);
+    }
+
+    // Check URL params to see if we should trigger Apagón mode
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search') || urlParams.get('q');
+    if (searchParam && containsTriggerTerm(searchParam)) {
+        triggerApagonMode();
+    }
+});
+
+// Add this to your script.js file to enable El Yunque Mode
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Rain animation variables
+    let isRaining = false;
+    let raindrops = [];
+    let rainCanvas;
+    let rainCtx;
+    let yunqueTriggered = false;
+
+    // El Yunque facts - will randomly select one
+    const yunqueFacts = [
+        "Did you know El Yunque is the only tropical rainforest in the U.S. National Forest System?",
+        "El Yunque receives over 200 inches (500 cm) of rainfall per year!",
+        "El Yunque is home to the tiny coquí frog, Puerto Rico's unofficial national symbol.",
+        "El Yunque contains rare Puerto Rican parrots, one of the 10 most endangered birds in the world.",
+        "The ancient Taíno people considered El Yunque to be the throne of their chief god Yúcahu.",
+        "El Yunque's highest peak, El Toro, reaches 3,494 feet (1,065 meters) above sea level.",
+        "The forest contains over 240 species of trees and plants, with 23 only found in El Yunque!",
+        "El Yunque was originally named 'Luquillo Forest Reserve' when established in 1876.",
+        "A special type of cloud forest exists at El Yunque's highest elevations.",
+        "El Yunque's name comes from 'Yu-Ke' which means 'White Lands' in the Taíno language."
+    ];
+
+    // Get all search inputs on the site
+    const searchInputs = document.querySelectorAll('#sidebarSearch, #eventSearch, input[type="search"], input[type="text"][placeholder*="search" i]');
+
+    // Search terms that will trigger El Yunque mode
+    const triggerTerms = [
+        'El Yunque',
+        'Yunque',
+        'rainforest',
+        'coqui',
+        'tropical forest'
+    ];
+
+    // Function to check if search contains any trigger terms
+    function containsTriggerTerm(searchText) {
+        searchText = searchText.toLowerCase().trim();
+        return triggerTerms.some(term => searchText.toLowerCase().includes(term.toLowerCase()));
+    }
+
+    // Add event listeners to all search inputs
+    searchInputs.forEach(input => {
+        if (input) {
+            // Listen for Enter key
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (containsTriggerTerm(searchTerm)) {
+                        e.preventDefault(); // Prevent default search behavior
+                        triggerYunqueMode();
+                    }
+                }
+            });
+        }
+    });
+
+    // Also attach to search buttons
+    const searchButtons = document.querySelectorAll('#searchButton, button[aria-label*="search" i], button[type="submit"]');
+    searchButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function(e) {
+                // Find the input associated with this button
+                const searchInput = this.previousElementSibling ||
+                    this.closest('form')?.querySelector('input[type="text"], input[type="search"]');
+
+                if (searchInput && containsTriggerTerm(searchInput.value)) {
+                    e.preventDefault();
+                    triggerYunqueMode();
+                }
+            });
+        }
+    });
+
+    // Set timer to trigger Yunque mode after 3 minutes
+    // Only if it hasn't been triggered before in this session
+    if (!sessionStorage.getItem('yunqueTriggered')) {
+        setTimeout(() => {
+            if (!yunqueTriggered) {
+                triggerYunqueMode();
+            }
+        }, 3 * 60 * 1000); // 3 minutes in milliseconds
+    }
+
+    // Function to trigger El Yunque mode
+    function triggerYunqueMode() {
+        if (yunqueTriggered) return; // Prevent multiple triggers
+        yunqueTriggered = true;
+        sessionStorage.setItem('yunqueTriggered', 'true');
+
+        // 1. Create the darkening overlay
+        const yunqueOverlay = document.createElement('div');
+        yunqueOverlay.className = 'yunque-overlay';
+        yunqueOverlay.style.position = 'fixed';
+        yunqueOverlay.style.top = '0';
+        yunqueOverlay.style.left = '0';
+        yunqueOverlay.style.width = '100%';
+        yunqueOverlay.style.height = '100%';
+        yunqueOverlay.style.backgroundColor = 'rgba(0, 50, 80, 0.2)'; // Bluish dark tint
+        yunqueOverlay.style.zIndex = '9998';
+        yunqueOverlay.style.transition = 'background-color 2s ease';
+        yunqueOverlay.style.pointerEvents = 'none'; // Allow clicks to pass through
+        document.body.appendChild(yunqueOverlay);
+
+        // 2. Create rain canvas
+        rainCanvas = document.createElement('canvas');
+        rainCanvas.className = 'rain-canvas';
+        rainCanvas.style.position = 'fixed';
+        rainCanvas.style.top = '0';
+        rainCanvas.style.left = '0';
+        rainCanvas.style.width = '100%';
+        rainCanvas.style.height = '100%';
+        rainCanvas.style.zIndex = '9999';
+        rainCanvas.style.pointerEvents = 'none'; // Allow clicks to pass through
+        document.body.appendChild(rainCanvas);
+
+        // Set canvas size to match window
+        rainCanvas.width = window.innerWidth;
+        rainCanvas.height = window.innerHeight;
+        rainCtx = rainCanvas.getContext('2d');
+
+        // 3. Play coquí sound
+        const coquiSound = new Audio('coqui-sound.mp3'); // Make sure this file exists
+        coquiSound.volume = 0.3; // Not too loud
+        try {
+            coquiSound.play().catch(err => {
+                console.log('Audio play prevented by browser policy. User interaction needed first.');
+                // This is normal due to browser autoplay policies
+            });
+        } catch (e) {
+            console.log('Error playing sound:', e);
+        }
+
+        // 4. Show fact pop-up after a short delay
+        setTimeout(() => {
+            showYunqueFact();
+        }, 1500);
+
+        // Start rain animation
+        isRaining = true;
+        startRain();
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (rainCanvas) {
+                rainCanvas.width = window.innerWidth;
+                rainCanvas.height = window.innerHeight;
+            }
+        });
+    }
+
+    // Function to show random El Yunque fact
+    function showYunqueFact() {
+        // Get a random fact
+        const randomFact = yunqueFacts[Math.floor(Math.random() * yunqueFacts.length)];
+
+        // Create fact pop-up
+        const factPopup = document.createElement('div');
+        factPopup.className = 'yunque-fact';
+        factPopup.style.position = 'fixed';
+        factPopup.style.top = '20%';
+        factPopup.style.left = '50%';
+        factPopup.style.transform = 'translateX(-50%)';
+        factPopup.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+        factPopup.style.color = '#333';
+        factPopup.style.padding = '20px 30px';
+        factPopup.style.borderRadius = '10px';
+        factPopup.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+        factPopup.style.zIndex = '10000';
+        factPopup.style.maxWidth = '400px';
+        factPopup.style.textAlign = 'center';
+        factPopup.style.fontSize = '16px';
+        factPopup.style.opacity = '0';
+        factPopup.style.transition = 'opacity 1s ease';
+
+        // Add content to popup
+        factPopup.innerHTML = `
+            <p style="margin-bottom: 15px; line-height: 1.5;">${randomFact}</p>
+            <div class="rainbow-icon" style="cursor: pointer; font-size: 24px; margin-top: 15px;">🌈</div>
+            <p style="margin-top: 10px; font-size: 14px; color: #666;">Click the rainbow to clear the rain</p>
+        `;
+        document.body.appendChild(factPopup);
+
+        // Fade in the popup
+        setTimeout(() => {
+            factPopup.style.opacity = '1';
+        }, 100);
+
+        // Add click handler to rainbow icon
+        const rainbowIcon = factPopup.querySelector('.rainbow-icon');
+        rainbowIcon.addEventListener('click', function() {
+            stopRain();
+            factPopup.style.opacity = '0';
+
+            // Remove elements after transition
+            setTimeout(() => {
+                if (factPopup.parentNode) {
+                    document.body.removeChild(factPopup);
+                }
+            }, 1000);
+        });
+    }
+
+    // Rain animation functions
+    function startRain() {
+        // Create initial raindrops
+        createRaindrops();
+
+        // Start animation loop
+        animateRain();
+    }
+
+    function createRaindrops() {
+        // Clear existing raindrops
+        raindrops = [];
+
+        // Create new raindrops
+        const density = Math.floor(window.innerWidth / 10); // Adjust for desired density
+        for (let i = 0; i < density; i++) {
+            raindrops.push({
+                x: Math.random() * rainCanvas.width,
+                y: Math.random() * rainCanvas.height,
+                length: Math.random() * 20 + 10,
+                speed: Math.random() * 15 + 10,
+                thickness: Math.random() * 2 + 1
+            });
+        }
+    }
+
+    function animateRain() {
+        if (!isRaining) return;
+
+        // Clear canvas
+        rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
+
+        // Draw and update raindrops
+        rainCtx.strokeStyle = 'rgba(174, 194, 224, 0.5)';
+        rainCtx.lineCap = 'round';
+
+        for (let i = 0; i < raindrops.length; i++) {
+            const drop = raindrops[i];
+
+            // Draw raindrop
+            rainCtx.beginPath();
+            rainCtx.lineWidth = drop.thickness;
+            rainCtx.moveTo(drop.x, drop.y);
+            rainCtx.lineTo(drop.x, drop.y + drop.length);
+            rainCtx.stroke();
+
+            // Update raindrop position
+            drop.y += drop.speed;
+
+            // Reset raindrop if it goes off screen
+            if (drop.y > rainCanvas.height) {
+                drop.y = -drop.length;
+                drop.x = Math.random() * rainCanvas.width;
+            }
+        }
+
+        // Continue animation
+        requestAnimationFrame(animateRain);
+    }
+
+    function stopRain() {
+        isRaining = false;
+
+        // Get the overlay and fade it out
+        const yunqueOverlay = document.querySelector('.yunque-overlay');
+        if (yunqueOverlay) {
+            yunqueOverlay.style.backgroundColor = 'rgba(0, 50, 80, 0)';
+
+            // Remove overlay after transition
+            setTimeout(() => {
+                if (yunqueOverlay.parentNode) {
+                    document.body.removeChild(yunqueOverlay);
+                }
+            }, 2000);
+        }
+
+        // Fade out and remove rain canvas
+        if (rainCanvas) {
+            rainCanvas.style.opacity = '0';
+            rainCanvas.style.transition = 'opacity 2s ease';
+
+            setTimeout(() => {
+                if (rainCanvas.parentNode) {
+                    document.body.removeChild(rainCanvas);
+                }
+            }, 2000);
+        }
+
+        yunqueTriggered = false;
+    }
+
+    // Check URL params to see if we should trigger El Yunque mode
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search') || urlParams.get('q');
+    if (searchParam && containsTriggerTerm(searchParam)) {
+        triggerYunqueMode();
+    }
+});
+
+import React, { useState } from 'react';
+
+const LaBregaQuiz = () => {
+    const [showQuiz, setShowQuiz] = useState(false);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [answers, setAnswers] = useState([]);
+    const [showResults, setShowResults] = useState(false);
+
+    // Quiz questions
+    const questions = [
+        {
+            question: "What do you do if there's no water?",
+            options: [
+                "Call AAA",
+                "Fill buckets from the neighbor's hose",
+                "Use the emergency cistern"
+            ],
+            points: [0, 3, 5]
+        },
+        {
+            question: "How do you get power after a hurricane?",
+            options: [
+                "Wait for LUMA",
+                "Buy a generator",
+                "Connect extension cords to a nearby building with power"
+            ],
+            points: [0, 4, 5]
+        },
+        {
+            question: "Your flight to NYC was just canceled. What now?",
+            options: [
+                "Book an expensive hotel and wait",
+                "Call a family member in Bayamón for a ride",
+                "Sleep in the airport and make friends with other stranded travelers"
+            ],
+            points: [0, 3, 5]
+        },
+        {
+            question: "The line at the supermarket is two hours long. You:",
+            options: [
+                "Leave and come back another day",
+                "Ask someone to hold your spot while you shop",
+                "Make friends with the security guard who lets you cut the line"
+            ],
+            points: [0, 3, 5]
+        },
+        {
+            question: "You need to get government paperwork processed quickly. Your strategy?",
+            options: [
+                "Follow normal procedures and wait your turn",
+                "Go very early in the morning to be first in line",
+                "Find a friend who has a friend who works there"
+            ],
+            points: [0, 3, 5]
+        }
+    ];
+
+    // Handle starting the quiz
+    const startQuiz = () => {
+        setShowQuiz(true);
+    };
+
+    // Handle selecting an answer
+    const handleAnswer = (pointValue) => {
+        const newAnswers = [...answers, pointValue];
+        setAnswers(newAnswers);
+
+        if (currentQuestion < questions.length - 1) {
+            setCurrentQuestion(currentQuestion + 1);
+        } else {
+            setShowResults(true);
+        }
+    };
+
+    // Calculate quiz results
+    const calculateResults = () => {
+        const totalPoints = answers.reduce((sum, points) => sum + points, 0);
+        const maxPoints = questions.length * 5;
+
+        if (totalPoints <= maxPoints * 0.33) {
+            return {
+                rank: "Novato en La Brega",
+                description: "You're just beginning to learn the art of la brega. Keep practicing those survival skills!"
+            };
+        } else if (totalPoints <= maxPoints * 0.66) {
+            return {
+                rank: "Sobreviviente Boricua",
+                description: "You've got solid brega skills. You can navigate most of life's challenges with Puerto Rican resourcefulness."
+            };
+        } else {
+            return {
+                rank: "Maestro de La Brega",
+                description: "You're a true master of la brega! Your ingenious survival skills would make your ancestors proud."
+            };
+        }
+    };
+
+    // Reset quiz to start over
+    const resetQuiz = () => {
+        setCurrentQuestion(0);
+        setAnswers([]);
+        setShowResults(false);
+        setShowQuiz(false);
+    };
+
+    // If quiz hasn't started yet, show the trigger link
+    if (!showQuiz) {
+        return (
+            <div className="brega-quiz-container">
+                <a
+                    href="#"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        startQuiz();
+                    }}
+                    className="brega-link text-blue-500 underline hover:text-blue-700"
+                >
+                    ¿Sabes bregar?
+                </a>
+            </div>
+        );
+    }
+
+    // If showing results
+    if (showResults) {
+        const result = calculateResults();
+
+        return (
+            <div className="brega-results bg-slate-100 p-6 rounded-lg max-w-md mx-auto shadow-md">
+                <h3 className="text-xl font-bold mb-2">Your result:</h3>
+                <div className="result-rank text-2xl text-blue-600 font-bold mb-3">
+                    {result.rank}
+                </div>
+                <p className="mb-4">{result.description}</p>
+                <button
+                    onClick={resetQuiz}
+                    className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                >
+                    Take Again
+                </button>
+            </div>
+        );
+    }
+
+    // Show current question
+    return (
+        <div className="brega-quiz bg-slate-100 p-6 rounded-lg max-w-md mx-auto shadow-md">
+            <h3 className="text-xl font-bold mb-4">La Brega Survival Quiz</h3>
+            <div className="question-number text-sm text-gray-500 mb-2">
+                Question {currentQuestion + 1} of {questions.length}
+            </div>
+            <div className="question text-lg mb-4">
+                {questions[currentQuestion].question}
+            </div>
+            <div className="options space-y-2">
+                {questions[currentQuestion].options.map((option, index) => (
+                    <button
+                        key={index}
+                        onClick={() => handleAnswer(questions[currentQuestion].points[index])}
+                        className="w-full text-left p-3 border border-gray-300 rounded hover:bg-blue-100 transition duration-150"
+                    >
+                        {option}
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default LaBregaQuiz;

@@ -4482,3 +4482,171 @@ body.dark-mode .recipe-text {
         padding: 10px;
     }
 }
+
+/* Add these styles to your style.css file */
+
+/* Hidden quiz container styling */
+.hidden-quiz-container {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    position: relative;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+/* Style for the "¿Sabes bregar?" link */
+.brega-link {
+    display: inline-block;
+    font-style: italic;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: underline;
+    position: relative;
+    padding-left: 5px;
+}
+
+.brega-link:before {
+    content: "🇵🇷";
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+.brega-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Quiz question styling */
+.brega-quiz {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+    transition: all 0.3s ease;
+}
+
+.brega-quiz .question {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.brega-quiz .options button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.brega-quiz .options button:hover {
+    background-color: #e6f2ff;
+    border-color: #007bff;
+    transform: translateY(-2px);
+}
+
+/* Results styling */
+.brega-results {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.result-rank {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+    margin: 1rem 0;
+}
+
+/* Quiz explainer text */
+.quiz-explainer {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Attention-grabbing animation */
+@keyframes pulseAttention {
+    0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+.pulse-attention {
+    animation: pulseAttention 1s 1;
+}
+
+/* Dark mode support */
+body.dark-mode .hidden-quiz-container {
+    background-color: #333;
+}
+
+body.dark-mode .brega-link {
+    color: #4da6ff;
+}
+
+body.dark-mode .brega-link:hover {
+    color: #66b5ff;
+}
+
+body.dark-mode .brega-quiz,
+body.dark-mode .brega-results {
+    background-color: #222;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .brega-quiz .question {
+    color: #eee;
+}
+
+body.dark-mode .brega-quiz .options button {
+    background-color: #333;
+    border-color: #444;
+    color: #eee;
+}
+
+body.dark-mode .brega-quiz .options button:hover {
+    background-color: #444;
+    border-color: #4da6ff;
+}
+
+body.dark-mode .result-rank {
+    color: #4da6ff;
+}
+
+body.dark-mode .quiz-explainer {
+    color: #aaa;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .brega-quiz,
+    .brega-results {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .brega-quiz .question {
+        font-size: 1.1rem;
+    }
+
+    .result-rank {
+        font-size: 1.5rem;
+    }
+}
