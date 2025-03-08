@@ -1654,3 +1654,231 @@ function ensureVisibleInViewport(element) {
         element.style.left = `${window.innerWidth - rect.width - 10}px`;
     }
 }
+
+
+
+// Spanglish Mode with Konami Code Activation
+document.addEventListener('DOMContentLoaded', function() {
+    // Define the Konami Code sequence
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+    // Track the user's key presses
+    let konamiIndex = 0;
+
+    // Spanglish translation pairs (English -> Spanglish)
+    const spanglishTranslations = {
+        // Common website elements
+        "Home": "Home-ito",
+        "About": "About-ito",
+        "Syllabus": "El Syllabus",
+        "Collaborate": "Colabora",
+        "News": "Las News",
+        "Events": "Los Events",
+        "Gallery": "La Galería",
+        "Alumni": "Los Alumni",
+        "Merch": "El Merch",
+        "Learn More": "Learn Más",
+        "Sign Up": "Sign Up-ito",
+
+        // Content specific phrases
+        "Welcome to": "Bienvenidos to",
+        "Celebrating": "Celebrando",
+        "Puerto Rican": "Boricua",
+        "Identity": "Identidad",
+        "Resistance": "Resistencia",
+        "Education": "Educación",
+        "Community": "Comunidad",
+        "Culture": "Cultura",
+        "History": "Historia",
+        "Yale": "Yale-ito",
+        "Resources": "Recursos",
+        "Reading": "Reading-ito",
+        "Contact": "Contacta",
+        "Follow Us": "Follow Us-ito",
+        "Join": "Join-ito",
+        "Submit": "Submit-ito",
+        "Search": "Busca",
+        "Download": "Download-ito",
+
+        // Footer elements
+        "Newsletter": "El Newsletter",
+        "Stay updated": "Stay update-ado",
+        "Social Media": "Social Media-ito",
+        "Copyright": "Copyright-ito",
+
+        // Buttons and interactive elements
+        "Click here": "Click aquí",
+        "Back to top": "Back to top-ito",
+        "Close": "Cierra",
+        "Open": "Abre",
+        "Toggle": "Toggle-ito",
+        "More": "Más",
+        "Subscribe": "Subscribe-ito",
+        "Dark Mode": "Modo Oscuro",
+        "Light Mode": "Modo Bright-o"
+    };
+
+    // Spanglish greeting to show when activated
+    const spanglishGreeting = [
+        "¡Spanglish mode activated, mi gente!",
+        "Welcome to el modo Spanglish",
+        "Your website is now officially bilingual... kind of",
+        "Mezclando languages like a true Nuyorican",
+        "Press the Konami Code again to deactivate, or just enjoy el viaje"
+    ];
+
+    // Function to transform text to Spanglish
+    function transformToSpanglish(element) {
+        if (element.nodeType === Node.TEXT_NODE && element.nodeValue.trim() !== '') {
+            // Skip script and style tags
+            if (element.parentNode &&
+                (element.parentNode.tagName === 'SCRIPT' ||
+                    element.parentNode.tagName === 'STYLE')) {
+                return;
+            }
+
+            let content = element.nodeValue;
+
+            // Replace words with their Spanglish equivalents
+            for (const [english, spanglish] of Object.entries(spanglishTranslations)) {
+                // Use word boundary to avoid replacing parts of words
+                const regex = new RegExp(`\\b${english}\\b`, 'gi');
+                content = content.replace(regex, spanglish);
+            }
+
+            // Randomly sprinkle in Spanish words and expressions (10% chance per text node)
+            if (Math.random() < 0.1) {
+                const spanishPhrases = [
+                    " ¡Ay bendito! ",
+                    " ¡Wepa! ",
+                    " (¿tú sabes?) ",
+                    " (¡qué cool!) ",
+                    " ¡Dale! ",
+                    " (tremendo) "
+                ];
+                const randomPhrase = spanishPhrases[Math.floor(Math.random() * spanishPhrases.length)];
+
+                // Insert at a random position
+                const position = Math.floor(Math.random() * content.length);
+                content = content.slice(0, position) + randomPhrase + content.slice(position);
+            }
+
+            // Set the new content
+            element.nodeValue = content;
+        } else if (element.nodeType === Node.ELEMENT_NODE) {
+            // Process child elements recursively
+            Array.from(element.childNodes).forEach(child => transformToSpanglish(child));
+
+            // Also process placeholder text in inputs
+            if (element.tagName === 'INPUT' && element.placeholder) {
+                for (const [english, spanglish] of Object.entries(spanglishTranslations)) {
+                    const regex = new RegExp(`\\b${english}\\b`, 'gi');
+                    element.placeholder = element.placeholder.replace(regex, spanglish);
+                }
+            }
+        }
+    }
+
+    // Function to show a notification when Spanglish mode is toggled
+    function showSpanglishNotification(active) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.style.position = 'fixed';
+        notification.style.bottom = '20px';
+        notification.style.left = '20px';
+        notification.style.backgroundColor = active ? '#007bff' : '#6c757d';
+        notification.style.color = 'white';
+        notification.style.padding = '15px 25px';
+        notification.style.borderRadius = '10px';
+        notification.style.zIndex = '9999';
+        notification.style.fontWeight = 'bold';
+        notification.style.boxShadow = '0 4px 10px rgba(0,0,0,0.3)';
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateY(20px)';
+        notification.style.transition = 'opacity 0.3s, transform 0.3s';
+
+        // Set message
+        if (active) {
+            // Pick a random greeting
+            const greeting = spanglishGreeting[Math.floor(Math.random() * spanglishGreeting.length)];
+            notification.textContent = greeting;
+        } else {
+            notification.textContent = "Spanglish mode deactivated! Returning to boring monolingual mode.";
+        }
+
+        // Add to page
+        document.body.appendChild(notification);
+
+        // Trigger animation
+        setTimeout(() => {
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateY(0)';
+        }, 10);
+
+        // Remove after delay
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(20px)';
+            setTimeout(() => document.body.removeChild(notification), 300);
+        }, 4000);
+    }
+
+    // Toggle Spanglish mode
+    let spanglishActive = false;
+
+    function toggleSpanglishMode() {
+        spanglishActive = !spanglishActive;
+
+        if (spanglishActive) {
+            // Walk the DOM and replace text with Spanglish versions
+            transformToSpanglish(document.body);
+            // Show activation notification
+            showSpanglishNotification(true);
+            // Store state in localStorage
+            localStorage.setItem('spanglish-mode', 'enabled');
+        } else {
+            // Reload the page to restore original text
+            localStorage.setItem('spanglish-mode', 'disabled');
+            showSpanglishNotification(false);
+            setTimeout(() => window.location.reload(), 1500);
+        }
+    }
+
+    // Listen for keydown events to detect Konami Code
+    document.addEventListener('keydown', function(e) {
+        // Check if the pressed key matches the next key in the Konami sequence
+        if (e.key === konamiCode[konamiIndex]) {
+            // Move to the next key in the sequence
+            konamiIndex++;
+
+            // If the full sequence was entered, trigger Spanglish mode
+            if (konamiIndex === konamiCode.length) {
+                toggleSpanglishMode();
+                // Reset index to allow toggling off with another Konami code
+                konamiIndex = 0;
+            }
+        } else {
+            // Reset if the wrong key was pressed
+            konamiIndex = 0;
+        }
+    });
+
+    // Check if Spanglish mode was previously enabled
+    if (localStorage.getItem('spanglish-mode') === 'enabled') {
+        spanglishActive = true;
+        // Apply Spanglish transformations
+        transformToSpanglish(document.body);
+    }
+
+    // Optional: Add a very subtle indicator in the footer that a secret exists
+    const footer = document.querySelector('.license');
+    if (footer) {
+        const secretHint = document.createElement('span');
+        secretHint.textContent = ' 🎮';
+        secretHint.style.fontSize = '10px';
+        secretHint.style.opacity = '0.5';
+        secretHint.style.cursor = 'default';
+        secretHint.title = 'There might be a secret code...';
+        footer.appendChild(secretHint);
+    }
+});
