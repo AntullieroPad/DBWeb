@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSIFIED - DB Yale Archives</title>
+    <meta name="robots" content="noindex, nofollow"> <!-- Keep this page hidden from search engines -->
+    <link rel="icon" type="image/png" href="./DB Logo Outline.png">
+
+    <!-- Audio files -->
+    <audio id="bomba-drum" preload="auto">
+        <source src="bomba-drum.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="gunshot-sound" preload="auto">
+        <source src="gunshot-sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="lolita-speech" preload="auto">
+        <source src="lolita-speech.mp3" type="audio/mpeg">
+    </audio>
+
+    <style>
+        /* Base styles */
+        :root {
+            --main-bg-color: #0f0f0f;
+            --document-bg-color: #1a1a1a;
+            --text-color: #d9d9d9;
+            --highlight-color: #b30000;
+            --accent-color: #3d3d3d;
+            --stamp-color: rgba(179, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: var(--main-bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Main container styled like a declassified document */
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--document-bg-color);
+            background-image: url('declassified-bg.jpg');
+            background-blend-mode: overlay;
+            background-size: contain;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Declassified stamps and markings */
+        .document-container::before {
+            content: "DECLASSIFIED";
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-20deg);
+            font-size: 60px;
+            color: var(--stamp-color);
+            border: 8px solid var(--stamp-color);
+            padding: 10px 20px;
+            font-weight: bold;
+            z-index: 1;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .document-container::after {
+            content: "TOP SECRET";
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            font-size: 24px;
+            color: var(--stamp-color);
+            border: 4px solid var(--stamp-color);
+            padding: 5px 10px;
+            font-weight: bold;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        /* FBI file header */
+        .file-header {
+            border-bottom: 1px solid #444;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .file-header h1 {
+            font-size: 32px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .file-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .file-id {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: #888;
+        }
+
+        .file-header .subject {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        /* Hero quote */
+        .hero-quote {
+            font-size: 28px;
+            line-height: 1.4;
+            text-align: center;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 3s ease-in;
+            margin-bottom: 40px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .hero-quote::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            font-size: 120px;
+            opacity: 0.2;
+            color: var(--highlight-color);
+            line-height: 0;
+        }
+
+        .quote-attribution {
+            display: block;
+            text-align: right;
+            font-size: 18px;
+            margin-top: 20px;
+            color: var(--highlight-color);
+            animation: fadeIn 4s ease-in;
+        }
+
+        /* Content sections */
+        .content-section {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 60px;
+            padding: 30px;
+            background-color: rgba(26, 26, 26, 0.7);
+            border: 1px solid #333;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            color: var(--highlight-color);
+        }
+
+        .typewriter-text {
+            overflow: hidden;
+            white-space: pre-wrap;
+            opacity: 0;
+        }
+
+        .typewriter-visible {
+            animation: typing 3s steps(40, end) forwards;
+        }
+
+        /* Redaction styling */
+        .redacted {
+            background-color: #000;
+            color: transparent;
+            position: relative;
+            padding: 0 4px;
+            margin: 0 2px;
+            user-select: none;
+        }
+
+        /* Hover states */
+        .has-document {
+            position: relative;
+            color: var(--highlight-color);
+            cursor: pointer;
+            border-bottom: 1px dotted var(--highlight-color);
+        }
+
+        .has-document:hover {
+            font-weight: bold;
+        }
+
+        .document-popup {
+            position: absolute;
+            z-index: 10;
+            background-color: #333;
+            border: 1px solid #444;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 30px;
+            display: none;
+            max-width: 90vw;
+        }
+
+        .has-document:hover .document-popup {
+            display: block;
+        }
+
+        .document-popup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .document-popup-caption {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Hidden audio control */
+        .audio-trigger {
+            display: inline-block;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+            color: var(--text-color);
+            vertical-align: middle;
+        }
+
+        .audio-trigger:hover {
+            opacity: 1;
+        }
+
+        /* Flag background */
+        .flag-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('pr-flag.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Call to action */
+        .cta-section {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-top: 1px solid #444;
+        }
+
+        .cta-text {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 12px 25px;
+            background-color: var(--highlight-color);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+
+        .cta-btn:hover {
+            background-color: #900;
+            transform: translateY(-3px);
+        }
+
+        /* Footer return link */
+        .return-link {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        .return-link a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .return-link a:hover {
+            text-decoration: underline;
+            color: var(--highlight-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes typing {
+            0% { opacity: 0; width: 0; }
+            1% { opacity: 1; }
+            100% { opacity: 1; width: 100%; }
+        }
+
+        /* Hidden microphone icon */
+        .mic-icon {
+            opacity: 0.3;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: opacity 0.3s ease;
+            vertical-align: middle;
+        }
+
+        .mic-icon:hover {
+            opacity: 1;
+        }
+
+        /* Additional redaction effects */
+        .heavy-redaction {
+            position: relative;
+        }
+
+        .heavy-redaction::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('redaction-marks.png');
+            background-size: 300px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* Loading overlay for initial animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .loading-text {
+            color: var(--highlight-color);
+            font-size: 24px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: var(--highlight-color);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero-quote {
+                font-size: 22px;
+                padding: 40px 20px;
+            }
+
+            .document-container::before {
+                font-size: 40px;
+                top: 80px;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Loading overlay -->
+<div class="loading-overlay">
+    <div class="loading-spinner">
+        <svg width="50" height="50" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" fill="none" stroke="#b30000" stroke-width="2" stroke-dasharray="80 30">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+    <p class="loading-text">ACCESSING CLASSIFIED INFORMATION<span class="typewriter-cursor"></span></p>
+</div>
+
+<!-- Flag background -->
+<div class="flag-background"></div>
+
+<!-- Main document container -->
+<div class="document-container">
+    <!-- FBI file header -->
+    <div class="file-header">
+        <h1>Federal Bureau of Investigation</h1>
+        <p class="file-label">FILE NO.</p>
+        <p class="file-id">PR-100-3-1-954</p>
+        <p class="file-label">SUBJECT</p>
+        <p class="subject">LEBRÓN, LOLITA (1919-2010)</p>
+    </div>
+
+    <!-- Hero quote -->
+    <div class="hero-quote">
+        "I am a Puerto Rican. I love my country. I would never have brought my people to the United States as slaves."
+        <span class="quote-attribution">— Lolita Lebrón</span>
+    </div>
+
+    <!-- Section 1: Biography -->
+    <section class="content-section" id="section-bio">
+        <h2 class="section-title">WHO WAS LOLITA LEBRÓN?</h2>
+        <div class="typewriter-text">
+            Dolores "Lolita" Lebrón Sotomayor was born November 19, 1919, in Lares, Puerto Rico <span class="redacted">████</span> known for significant resistance to Spanish rule. Early life marked by poverty and labor exploitation characteristic of <span class="redacted">██████████████</span> economic conditions.
+
+            At age 21, immigrated to New York City during the Great Puerto Rican Migration. Worked in the garment industry under harsh conditions <span class="redacted">███████</span> radicalized by experiencing discrimination and witnessing <span class="has-document">colonial exploitation<div class="document-popup"><img src="lebron-young.jpg" alt="Young Lolita Lebrón"><p class="document-popup-caption">Lebrón's passport photo, circa 1940</p></div></span>.
+
+            Joined the Puerto Rican Nationalist Party under leadership of <span class="redacted">████████</span> becoming devoted to the cause of Puerto Rican independence through direct action tactics <span class="audio-trigger" onclick="playAudio('lolita-speech')">🎙️</span>.
+        </div>
+    </section>
+
+    <!-- Section 2: The Attack -->
+    <section class="content-section heavy-redaction" id="section-attack">
+        <h2 class="section-title">THE 1954 ATTACK ON THE U.S. CAPITOL</h2>
+        <div class="typewriter-text">
+            On March 1, 1954, Lebrón led a group of four Puerto Rican nationalists <span class="redacted">██████████████████████</span> in an armed attack on the U.S. House of Representatives. The group unfurled a Puerto Rican flag and began firing from the gallery, wounding five congressmen.
+
+            Before the attack, Lebrón reportedly wrote a note stating: <span class="has-document">"I give my life for the freedom of my country."<div class="document-popup"><img src="lebron-note.jpg" alt="Lebrón's note"><p class="document-popup-caption">Handwritten note found in Lebrón's purse, March 1, 1954</p></div></span>
+
+            When arrested, Lebrón famously declared: "I did not come to kill anyone, I came to die for Puerto Rico!" <span class="redacted">████████████████████████████████████</span> demonstrating her willingness to sacrifice herself for the cause.
+
+            SUBJECT sentenced to <span class="redacted">█████████████</span> years in prison for the attack. SUBJECT maintained that her actions were justified as an act of war against <span class="redacted">███████</span> colonial occupation.
+        </div>
+    </section>
+
+    <!-- Section 3: Legacy -->
+    <section class="content-section" id="section-legacy">
+        <h2 class="section-title">LATER LIFE & LEGACY</h2>
+        <div class="typewriter-text">
+            After serving 25 years, Lebrón was pardoned by President Jimmy Carter in 1979 <span class="redacted">██████████████████████████</span> alongside other nationalist prisoners.
+
+            Upon release, SUBJECT continued advocating for Puerto Rican independence and against <span class="has-document">U.S. military presence<div class="document-popup"><img src="vieques-protest.jpg" alt="Vieques protest"><p class="document-popup-caption">Lebrón at Vieques protest, circa 2000</p></div></span> in Vieques. Participated in civil disobedience and was arrested at age 81 during protests.
+
+            Despite controversial methods, Lebrón became an iconic figure in <span class="redacted">██████</span> Puerto Rican independence movement, representing unwavering commitment to decolonization. Her legacy remains complex - viewed as both <span class="redacted">████████</span> freedom fighter and <span class="redacted">████████</span> extremist.
+
+            Died on August 1, 2010, at age 90 in San Juan. Her funeral attended by thousands, with <span class="redacted">████████████</span> current political figures paying respects despite <span class="redacted">██████████████</span> controversial history.
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <p class="cta-text">If Lolita's fight meant something to you, learn about Puerto Rico's history and continue the legacy.</p>
+        <div class="cta-buttons">
+            <a href="syllabus.html" class="cta-btn">Learn More About Puerto Rican History</a>
+            <a href="collaborate.html" class="cta-btn">Join DB Yale's Activism Efforts</a>
+        </div>
+    </section>
+
+    <!-- Return link -->
+    <div class="return-link">
+        <a href="index.html">← Return to DB Yale Homepage</a>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Play bomba drum on page load
+        setTimeout(function() {
+            const bombaDrum = document.getElementById('bomba-drum');
+            if (bombaDrum) {
+                bombaDrum.volume = 0.4;
+                bombaDrum.play();
+            }
+        }, 1500);
+
+        // Handle loading animation
+        setTimeout(function() {
+            document.querySelector('.loading-overlay').style.opacity = 0;
+            setTimeout(function() {
+                document.querySelector('.loading-overlay').style.display = 'none';
+            }, 500);
+        }, 2500);
+
+        // Play gunshot sound on scroll
+        let gunshotPlayed = false;
+        window.addEventListener('scroll', function() {
+            if (!gunshotPlayed && window.scrollY > 300) {
+                const gunshotSound = document.getElementById('gunshot-sound');
+                if (gunshotSound) {
+                    gunshotSound.volume = 0.2;
+                    gunshotSound.play();
+                    gunshotPlayed = true;
+                }
+            }
+        });
+
+        // Audio trigger function
+        window.playAudio = function(audioId) {
+            const audio = document.getElementById(audioId);
+            if (audio) {
+                audio.volume = 0.7;
+                audio.play();
+            }
+        };
+
+        // Typewriter effect for sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const textElement = entry.target.querySelector('.typewriter-text');
+                    if (textElement) {
+                        textElement.classList.add('typewriter-visible');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Subtle flag animation
+        const flagBackground = document.querySelector('.flag-background');
+        if (flagBackground) {
+            let angle = 0;
+
+            function animateFlag() {
+                angle += 0.01;
+                const offsetX = Math.sin(angle) * 5;
+                const offsetY = Math.cos(angle) * 3;
+
+                flagBackground.style.backgroundPosition = `calc(50% + ${offsetX}px) calc(50% + ${offsetY}px)`;
+
+                requestAnimationFrame(animateFlag);
+            }
+
+            animateFlag();
+        }
+    });
+</script>
+</body>
+</html>
