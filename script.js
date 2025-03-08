@@ -1283,3 +1283,374 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.appendChild(script);
     }
 });
+
+// Cofresí Pirate Easter Egg
+document.addEventListener('DOMContentLoaded', function() {
+    const pirateTrigger = document.getElementById('pirate-trigger');
+    if (pirateTrigger) {
+        pirateTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'cofresi-secret.html';
+        });
+    }
+
+    // Search bar easter egg
+    const searchInputs = document.querySelectorAll('#sidebarSearch, #eventSearch');
+    searchInputs.forEach(input => {
+        if (input) {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.toLowerCase();
+                    if (searchTerm.includes('cofresi') || searchTerm.includes('cofresí')) {
+                        e.preventDefault();
+                        showPirateMessage();
+                    }
+                }
+            });
+        }
+    });
+
+    // Search button click handler
+    const searchButtons = document.querySelectorAll('#searchButton');
+    searchButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function() {
+                const searchInput = this.previousElementSibling;
+                if (searchInput && (searchInput.value.toLowerCase().includes('cofresi') ||
+                    searchInput.value.toLowerCase().includes('cofresí'))) {
+                    showPirateMessage();
+                }
+            });
+        }
+    });
+});
+
+function showPirateMessage() {
+    // Create modal overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'pirate-message-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
+    overlay.style.zIndex = '1000';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+
+    // Create message box
+    const messageBox = document.createElement('div');
+    messageBox.className = 'pirate-message';
+    messageBox.style.background = 'url("parchment-bg.jpg") no-repeat center center';
+    messageBox.style.backgroundColor = '#f9e4b7';
+    messageBox.style.backgroundSize = 'cover';
+    messageBox.style.padding = '30px';
+    messageBox.style.borderRadius = '8px';
+    messageBox.style.boxShadow = '0 0 20px rgba(0,0,0,0.5)';
+    messageBox.style.maxWidth = '500px';
+    messageBox.style.textAlign = 'center';
+    messageBox.style.position = 'relative';
+
+    messageBox.innerHTML = `
+        <h3 style="font-family: 'Pirata One', cursive; font-size: 28px; margin-bottom: 20px;">¡Lo siento, marinero!</h3>
+        <p style="font-family: serif; font-size: 18px; line-height: 1.5;">El tesoro ya fue saqueado.</p>
+        <p style="font-style: italic; margin-top: 20px;">Pero quizás el verdadero tesoro está escondido en otro lugar de este sitio...</p>
+        <button id="close-pirate-message" style="background: #8B4513; color: white; border: none; padding: 8px 16px; margin-top: 20px; cursor: pointer; border-radius: 4px;">Cerrar</button>
+    `;
+
+    overlay.appendChild(messageBox);
+    document.body.appendChild(overlay);
+
+    // Close button functionality
+    document.getElementById('close-pirate-message').addEventListener('click', function() {
+        document.body.removeChild(overlay);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get references to the piraguero cart
+    const piragueroCart = document.getElementById('piraguero-cart');
+
+    if (!piragueroCart) return; // Exit if cart element doesn't exist
+
+    piragueroCart.addEventListener('click', function() {
+        // Create the modal if it doesn't exist yet
+        let piragueraModal = document.querySelector('.piragua-modal');
+
+        if (!piragueraModal) {
+            // Create the modal container that will follow scroll
+            piragueraModal = document.createElement('div');
+            piragueraModal.className = 'piragua-modal';
+            piragueraModal.style.display = 'none';
+
+            // Create the content container
+            const modalContent = document.createElement('div');
+            modalContent.className = 'piragua-content';
+
+            // Piragua flavors with descriptions and colors
+            const flavors = [
+                {name: 'Tamarindo', color: '#8B4513', recipe: 'Tamarind pulp, water, sugar, and a hint of cinnamon.'},
+                {name: 'Frambuesa', color: '#E30B5C', recipe: 'Raspberry syrup, crushed ice, and a squeeze of lemon.'},
+                {name: 'Parcha', color: '#FFA500', recipe: 'Passion fruit juice, sugar, water, and a touch of lime.'},
+                {name: 'Limón', color: '#32CD32', recipe: 'Fresh lime juice, sugar, water, mint leaves.'},
+                {name: 'Coco', color: '#FFFFFF', recipe: 'Coconut milk, condensed milk, vanilla, and shaved ice.'},
+                {name: 'Melao', color: '#8B4513', recipe: 'Sugar cane syrup, cinnamon, and a splash of vanilla.'},
+                {name: 'Acerola', color: '#FF0000', recipe: 'West Indian cherry juice, sugar, and a pinch of salt.'}
+            ];
+
+            // Choose a random flavor
+            const randomFlavor = flavors[Math.floor(Math.random() * flavors.length)];
+
+            // Generate a discount code
+            const discountCode = 'PIRAGUA' + Math.random().toString(36).substring(2, 7).toUpperCase();
+
+            // Build the modal content
+            modalContent.innerHTML = `
+                <h2>¡Felicidades! ¡Encontraste el piragüero!</h2>
+                
+                <div class="piragua-flavor">
+                    <div class="piragua-flavor-circle" style="background-color: ${randomFlavor.color};"></div>
+                    <h3>Piragua de ${randomFlavor.name}</h3>
+                    <p class="recipe-text">${randomFlavor.recipe}</p>
+                </div>
+                
+                <div class="piragua-reward">
+                    <h3>¡Tu premio!</h3>
+                    <p>Usa este código para obtener un 15% de descuento en la tienda de DB Yale:</p>
+                    <div class="piragua-code">
+                        ${discountCode}
+                    </div>
+                    <p class="validity-text">Válido hasta el fin de este mes.</p>
+                </div>
+                
+                <button class="piragua-close">¡Gracias, piragüero!</button>
+            `;
+
+            piragueraModal.appendChild(modalContent);
+            document.body.appendChild(piragueraModal);
+
+            // Add click handler to close button
+            const closeButton = piragueraModal.querySelector('.piragua-close');
+            closeButton.addEventListener('click', function() {
+                piragueraModal.style.display = 'none';
+
+                // Store in localStorage that user found the piragüero
+                localStorage.setItem('foundPiraguero', 'true');
+                localStorage.setItem('piragueraCode', discountCode);
+            });
+        }
+
+        // Show the modal
+        piragueraModal.style.display = 'block';
+
+        // Position function to update modal position on scroll
+        function updateModalPosition() {
+            const modalContent = piragueraModal.querySelector('.piragua-content');
+
+            // Position the modal near the user's current view in bottom-right
+            const bottomPadding = 30;
+            const rightPadding = 30;
+
+            modalContent.style.position = 'fixed';
+            modalContent.style.bottom = `${bottomPadding}px`;
+            modalContent.style.right = `${rightPadding}px`;
+            modalContent.style.top = 'auto'; // Override any existing top value
+            modalContent.style.zIndex = '10000';
+
+            // Optional: Add a subtle float animation instead of scroll-based bounce
+            // This creates a more consistent visual effect regardless of scroll speed
+            modalContent.style.animation = 'floatAnimation 3s ease-in-out infinite';
+        }
+
+        // Update position immediately and on scroll
+        updateModalPosition();
+        window.addEventListener('scroll', updateModalPosition);
+        window.addEventListener('resize', updateModalPosition);
+
+        // Remove scroll listener when modal is closed
+        piragueraModal.querySelector('.piragua-close').addEventListener('click', function() {
+            window.removeEventListener('scroll', updateModalPosition);
+            window.removeEventListener('resize', updateModalPosition);
+        });
+    });
+});
+
+
+// Abuela's Advice Generator - Fixed to appear near the footer/trigger
+document.addEventListener('DOMContentLoaded', function() {
+    const abuelaTrigger = document.getElementById('abuela-trigger');
+
+    if (abuelaTrigger) {
+        abuelaTrigger.addEventListener('click', function(e) {
+            // Get the position of the trigger button
+            const buttonRect = abuelaTrigger.getBoundingClientRect();
+            const clickX = buttonRect.left + (buttonRect.width / 2);
+            const clickY = buttonRect.top;
+
+            // Show advice near the click position
+            showAbuelaAdvice(clickX, clickY);
+        });
+    }
+});
+
+function showAbuelaAdvice(clickX, clickY) {
+    // Array of classic Puerto Rican abuela sayings
+    const abuelaSayings = [
+        "No salgas con el pelo mojado o te da pulmonía.",
+        "Bebe agua, que eso es lo que te pasa.",
+        "Si te pones rojo, es que te gusta.",
+        "Mijo, ¡come! Que estás en los huesos.",
+        "Ay bendito, ponte una chaqueta que hace frío.",
+        "En mi época esto no pasaba.",
+        "Si sigues con esa cara se te va a quedar así.",
+        "Acuéstate temprano que mañana hay que madrugar.",
+        "Cuando yo tenía tu edad, ya trabajaba y ayudaba en la casa.",
+        "Esta juventud de hoy no sabe nada de sacrificio.",
+        "¿Te lavaste las manos? Ve y lávate otra vez.",
+        "Cuidado con ese novio/a, no me gusta como te mira.",
+        "Ponte chancletas en la casa, no camines descalzo.",
+        "Esto es por tu bien, ya me lo agradecerás.",
+        "No te sientes en el piso frío que te da dolor de espalda.",
+        "Cierra la nevera que no estamos pagando electricidad para refrescar al vecindario.",
+        "Échate Vicks VapoRub, eso lo cura todo."
+    ];
+
+    // Select a random saying
+    const randomSaying = abuelaSayings[Math.floor(Math.random() * abuelaSayings.length)];
+
+    // Create the semi-transparent backdrop
+    const modal = document.createElement('div');
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.backgroundColor = 'rgba(0,0,0,0.3)'; // Very transparent
+    modal.style.zIndex = '9999';
+    modal.style.pointerEvents = 'none'; // Allow clicks to pass through the overlay
+
+    // Create the advice box
+    const adviceBox = document.createElement('div');
+    adviceBox.id = 'abuela-advice-box';
+    adviceBox.style.position = 'absolute'; // Use absolute instead of fixed
+    adviceBox.style.maxWidth = '350px';
+    adviceBox.style.width = '90%';
+    adviceBox.style.padding = '25px';
+    adviceBox.style.backgroundColor = '#FFF8DC'; // Cornsilk color for warm feel
+    adviceBox.style.borderRadius = '10px';
+    adviceBox.style.boxShadow = '0 5px 25px rgba(0,0,0,0.3)';
+    adviceBox.style.fontFamily = 'Georgia, serif';
+    adviceBox.style.textAlign = 'center';
+    adviceBox.style.zIndex = '10000';
+    adviceBox.style.pointerEvents = 'auto'; // Make sure the advice box receives clicks
+
+    // Position above the trigger in the footer
+    // Calculate the position to be above the trigger element
+    // Add the scroll offset to position properly when page is scrolled
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+    // Position the box relative to the click position
+    adviceBox.style.left = `${clickX + scrollLeft - 175}px`; // Center horizontally (half of max-width)
+    adviceBox.style.top = `${clickY + scrollTop - 350}px`; // Position above the click
+
+    // Create a decorative border that looks like a doily or crocheted edge
+    adviceBox.style.border = '8px solid transparent';
+    adviceBox.style.backgroundClip = 'padding-box';
+    adviceBox.style.backgroundImage = 'radial-gradient(circle at 10px 10px, rgba(0,0,0,0.05) 1px, transparent 1px)';
+    adviceBox.style.backgroundSize = '20px 20px';
+
+    // Build the content HTML
+    adviceBox.innerHTML = `
+        <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%);">
+            <span style="font-size: 30px;">👵</span>
+        </div>
+        <h3 style="color: #8B4513; margin-top: 15px; font-size: 20px;">Consejo de Abuela</h3>
+        <p style="font-size: 16px; line-height: 1.6; margin: 15px 0; font-style: italic; color: #5D4037;">"${randomSaying}"</p>
+        <div style="margin-top: 15px; display: flex; justify-content: center;">
+            <button id="close-abuela-modal" style="background-color: #8B4513; color: white; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; font-family: inherit;">Gracias, Abuela</button>
+        </div>
+    `;
+
+    // Create and add animation style
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+        /* Dark mode support */
+        body.dark-mode #abuela-advice-box {
+            background-color: #3c3320;
+            color: #fff;
+        }
+        
+        body.dark-mode #abuela-advice-box h3 {
+            color: #ffa07a;
+        }
+        
+        body.dark-mode #abuela-advice-box p {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode #close-abuela-modal {
+            background-color: #8B4513;
+            color: white;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #abuela-advice-box {
+                width: 85%;
+                left: 50% !important;
+                transform: translateX(-50%);
+                margin-top: -100px;
+            }
+        }
+    `;
+    document.head.appendChild(styleElement);
+
+    // Add the box to the modal
+    modal.appendChild(adviceBox);
+
+    // Add the modal to the page
+    document.body.appendChild(modal);
+
+    // Ensure the box is visible in the viewport
+    ensureVisibleInViewport(adviceBox);
+
+    // Add close button functionality
+    document.getElementById('close-abuela-modal').addEventListener('click', function() {
+        modal.style.opacity = '0';
+        adviceBox.style.opacity = '0';
+        adviceBox.style.transition = 'opacity 0.3s';
+
+        // Remove after fade out
+        setTimeout(function() {
+            document.body.removeChild(modal);
+        }, 300);
+    });
+}
+
+// Helper function to ensure the advice box is fully visible in the viewport
+function ensureVisibleInViewport(element) {
+    const rect = element.getBoundingClientRect();
+
+    // Check if box is outside viewport
+    if (rect.top < 10) {
+        // If too high, move it down
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        element.style.top = `${scrollTop + 50}px`;
+    } else if (rect.bottom > window.innerHeight) {
+        // If too low, move it up
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        element.style.top = `${scrollTop + window.innerHeight - rect.height - 50}px`;
+    }
+
+    // Check horizontal positioning
+    if (rect.left < 10) {
+        // If too far left, move it right
+        element.style.left = '10px';
+    } else if (rect.right > window.innerWidth - 10) {
+        // If too far right, move it left
+        element.style.left = `${window.innerWidth - rect.width - 10}px`;
+    }
+}

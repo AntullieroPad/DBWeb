@@ -2508,12 +2508,14 @@ ul {
 
 /* CTA Box Section */
 .cta-box {
+    position: relative;
     background: #2c2c2c; /* Example dark background */
     color: #fff;
-    padding: 2rem 1rem;
     background: linear-gradient(45deg, #000, #333);
     animation: backgroundShift 5s infinite alternate;
-    margin-top: 2rem; /* Space above, so it sits below the carousel */
+    margin-top: 1rem; /* Space above, so it sits below the carousel */
+    padding: 30px 40px 40px 40px;  /* Less padding at top, more at bottom */
+    padding-top: 0 !important; /* Force override any other padding */
 }
 
 .cta-content {
@@ -2522,8 +2524,9 @@ ul {
     display: flex;
     flex-wrap: wrap;       /* Allows wrapping on small screens */
     justify-content: space-between;
-    align-items: center;
-    gap: 1rem;            /* Space between columns on bigger screens */
+    grid-template-columns: 1fr 1fr;  /* Create a two-column layout */
+    gap: 10px;  /* Add more space between sections */
+    align-items: start;  /* Align items to top */
 }
 
 /* Left column (Newsletter text) */
@@ -2539,6 +2542,10 @@ ul {
     line-height: 1.5;
 }
 
+.cta-text, .la-casa-link {
+    margin-bottom: 30px;  /* Add more bottom margin to these sections */
+}
+
 .cta-btn {
     display: inline-block;
     padding: 0.2rem 2rem;
@@ -2548,6 +2555,11 @@ ul {
     border-radius: 4px;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.donate-btn, .la-casa-btn {
+    display: inline-block;
+    margin-top: 15px;  /* Add space above buttons */
 }
 
 .cta-btn:hover {
@@ -2563,7 +2575,8 @@ ul {
 
 .cta-social-icons {
     display: flex;
-    gap: 1rem;
+    gap: 15px;  /* Add more space between social icons */
+    margin: 15px 0;
 }
 
 .cta-social-icons a {
@@ -2576,6 +2589,30 @@ ul {
     color: #007bff;
 }
 
+.cta-text, .la-casa-link {
+    padding-top: 15px;  /* Move content higher in the box */
+}
+
+cta-text h2, .la-casa-link h3 {
+    margin-top: 0;      /* Remove any default top margin */
+    padding-top: 10px;  /* Add some controlled padding at top */
+}
+
+
+
+/* Create more vertical space between the newsletter/La Casa sections and social section */
+.cta-socials {
+    margin-top: 10px;  /* Push Follow Us section down to create more space above */
+}
+
+.cta-socials h3, .follow-us-section h3 {
+    margin-top: 0;  /* Remove any default top margin */
+    margin-bottom: 10px;  /* Less space below the heading */
+}
+
+.cta-content > div {
+    margin-bottom: 20px;  /* Reduce bottom margins */
+}
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .cta-content {
@@ -4228,5 +4265,220 @@ body.dark-mode .map-info-window p {
 @media (max-width: 480px) {
     #board-member-map {
         height: 350px;
+    }
+}
+
+
+/* Additional styling for the hidden piraguero */
+.hidden-piraguero {
+    opacity: 0.6;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.hidden-piraguero:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Media query to ensure good placement on mobile */
+@media (max-width: 768px) {
+    .hidden-piraguero {
+        margin: 10px auto 0;
+    }
+}
+
+
+/* Add this to your style.css file */
+
+/* Modal background - semi-transparent overlay */
+.piragua-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    padding: 0;
+    pointer-events: none; /* Allow clicks to pass through the overlay */
+}
+
+/* Modal content styling */
+.piragua-content {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+    animation: popIn 0.4s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+    pointer-events: auto; /* Ensure the content receives clicks */
+}
+
+/* Animation for modal appearance */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animation for the floating effect */
+@keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Style for the close button */
+.piragua-close {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.piragua-close:hover {
+    background-color: #3d8b40;
+    transform: translateY(-2px);
+}
+
+/* Piragua flavor section */
+.piragua-flavor {
+    margin: 20px 0;
+    padding: 10px;
+}
+
+/* Flavor circle styling */
+.piragua-flavor-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+
+/* Recipe text styling */
+.recipe-text {
+    color: #666;
+    font-style: italic;
+    margin: 10px 0 20px;
+    line-height: 1.5;
+}
+
+/* Reward box styling */
+.piragua-reward {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Discount code styling */
+.piragua-code {
+    background-color: #FFD700;
+    color: #333;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    margin: 15px 0;
+    font-family: monospace;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Validity text */
+.validity-text {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Modal headings */
+.piragua-content h2 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.piragua-content h3 {
+    color: #333;
+    margin: 15px 0;
+}
+
+.piragua-content p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Dark mode support */
+body.dark-mode .piragua-content {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .piragua-content h2,
+body.dark-mode .piragua-content h3 {
+    color: #fff;
+}
+
+body.dark-mode .piragua-content p {
+    color: #ddd;
+}
+
+body.dark-mode .piragua-code {
+    background-color: #FFD700;
+    color: #333;
+}
+
+body.dark-mode .piragua-reward {
+    background-color: #222;
+}
+
+body.dark-mode .validity-text {
+    color: #aaa;
+}
+
+body.dark-mode .recipe-text {
+    color: #bbb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .piragua-content {
+        width: 280px;
+        padding: 20px;
+        max-height: 70vh;
+    }
+
+    .piragua-flavor-circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .piragua-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .piragua-code {
+        font-size: 16px;
+        padding: 10px;
     }
 }
