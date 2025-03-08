@@ -1980,3 +1980,144 @@ document.addEventListener('DOMContentLoaded', function() {
         redirectToLolitaPage();
     }
 });
+
+// Add this to your script.js file to enable the Antilles Federation search trigger
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all search inputs on the site
+    const searchInputs = document.querySelectorAll('#sidebarSearch, #eventSearch, input[type="search"], input[type="text"][placeholder*="search" i]');
+
+    // Search terms that will trigger the redirect to the Antilles Federation page
+    const triggerTerms = [
+        'antilles',
+        'antilles federation',
+        'federación de las antillas',
+        'caribbean federation',
+        'pan-caribbeanism',
+        'pan caribbean',
+        'betances',
+        'hostos',
+        'west indies federation',
+        'caribbean unity'
+    ];
+
+    // Function to check if search contains any trigger terms
+    function containsTriggerTerm(searchText) {
+        searchText = searchText.toLowerCase().trim();
+        return triggerTerms.some(term => searchText.includes(term.toLowerCase()));
+    }
+
+    // Add event listeners to all search inputs
+    searchInputs.forEach(input => {
+        if (input) {
+            // Listen for Enter key
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (containsTriggerTerm(searchTerm)) {
+                        e.preventDefault(); // Prevent default search behavior
+                        redirectToAntillesPage();
+                    }
+                }
+            });
+        }
+    });
+
+    // Also attach to search buttons
+    const searchButtons = document.querySelectorAll('#searchButton, button[aria-label*="search" i], button[type="submit"]');
+    searchButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function(e) {
+                // Find the input associated with this button
+                const searchInput = this.previousElementSibling ||
+                    this.closest('form')?.querySelector('input[type="text"], input[type="search"]');
+
+                if (searchInput && containsTriggerTerm(searchInput.value)) {
+                    e.preventDefault();
+                    redirectToAntillesPage();
+                }
+            });
+        }
+    });
+
+    // Function to redirect to the Antilles Federation page with a beautiful transition
+    function redirectToAntillesPage() {
+        // Create a portal-like transition effect
+        const portalOverlay = document.createElement('div');
+        portalOverlay.style.position = 'fixed';
+        portalOverlay.style.top = '0';
+        portalOverlay.style.left = '0';
+        portalOverlay.style.width = '100%';
+        portalOverlay.style.height = '100%';
+        portalOverlay.style.background = 'radial-gradient(circle at center, rgba(0,92,169,0) 0%, rgba(0,92,169,0.8) 100%)';
+        portalOverlay.style.opacity = '0';
+        portalOverlay.style.zIndex = '9999';
+        portalOverlay.style.transition = 'opacity 1.5s ease';
+        document.body.appendChild(portalOverlay);
+
+        // Add the map silhouette that fades in
+        const mapSilhouette = document.createElement('div');
+        mapSilhouette.style.position = 'fixed';
+        mapSilhouette.style.top = '50%';
+        mapSilhouette.style.left = '50%';
+        mapSilhouette.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        mapSilhouette.style.width = '300px';
+        mapSilhouette.style.height = '200px';
+        mapSilhouette.style.background = 'url("caribbean-map-silhouette.png") no-repeat center center';
+        mapSilhouette.style.backgroundSize = 'contain';
+        mapSilhouette.style.filter = 'brightness(0) invert(1)';
+        mapSilhouette.style.opacity = '0';
+        mapSilhouette.style.zIndex = '10000';
+        mapSilhouette.style.transition = 'opacity 1s ease, transform 1.5s ease';
+        document.body.appendChild(mapSilhouette);
+
+        // Portal text that appears before redirect
+        const portalText = document.createElement('div');
+        portalText.style.position = 'fixed';
+        portalText.style.top = '60%';
+        portalText.style.left = '50%';
+        portalText.style.transform = 'translate(-50%, -50%)';
+        portalText.style.color = 'white';
+        portalText.style.fontFamily = '"Times New Roman", serif';
+        portalText.style.fontSize = '28px';
+        portalText.style.fontStyle = 'italic';
+        portalText.style.opacity = '0';
+        portalText.style.zIndex = '10001';
+        portalText.style.transition = 'opacity 1s ease';
+        portalText.style.textAlign = 'center';
+        portalText.style.width = '80%';
+        portalText.textContent = 'Bienvenidos a la Federación de las Antillas...';
+        document.body.appendChild(portalText);
+
+        // Start the transition sequence
+        setTimeout(() => {
+            portalOverlay.style.opacity = '1';
+
+            // Show map silhouette after background starts to appear
+            setTimeout(() => {
+                mapSilhouette.style.opacity = '1';
+                mapSilhouette.style.transform = 'translate(-50%, -50%) scale(1)';
+
+                // Show portal text after map appears
+                setTimeout(() => {
+                    portalText.style.opacity = '1';
+
+                    // Store that we've discovered the page in localStorage
+                    localStorage.setItem('antilles-federation-discovered', 'true');
+
+                    // Redirect after transition completes
+                    setTimeout(() => {
+                        window.location.href = 'antilles-federation.html';
+                    }, 2000);
+                }, 800);
+            }, 500);
+        }, 100);
+    }
+
+    // Check URL params to see if we should trigger redirect
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search') || urlParams.get('q');
+    if (searchParam && containsTriggerTerm(searchParam)) {
+        redirectToAntillesPage();
+    }
+});

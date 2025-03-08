@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Federación de las Antillas</title>
+    <meta name="robots" content="noindex, nofollow"> <!-- Keep this page hidden from search engines -->
+    <link rel="icon" type="image/png" href="./DB Logo Outline.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <style>
+        /* Base styles */
+        :root {
+            --caribbean-blue: #005ca9;
+            --caribbean-gold: #ffd700;
+            --caribbean-green: #009b77;
+            --dark-blue: #003366;
+            --light-blue: #b3d9ff;
+            --cream: #fff8e7;
+            --dark-text: #333333;
+            --light-text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Georgia", serif;
+            background-color: var(--cream);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url('antilles-map-bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 248, 231, 0.85);
+            z-index: -1;
+        }
+
+        /* Main container */
+        .page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            background: linear-gradient(to bottom, rgba(0, 92, 169, 0.1), rgba(0, 92, 169, 0.0));
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-blue);
+            font-family: "Times New Roman", serif;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            animation: fadeIn 3s ease-in;
+        }
+
+        /* Floating islands animation */
+        .floating-islands {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .island {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: transform 3s ease-in-out;
+        }
+
+        .island-cuba {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 40px;
+            background-image: url('cuba-silhouette.png');
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .island-pr {
+            top: 20%;
+            right: 15%;
+            width: 60px;
+            height: 30px;
+            background-image: url('pr-silhouette.png');
+            animation: float 7s infinite ease-in-out 1s;
+        }
+
+        .island-dr {
+            bottom: 20%;
+            left: 25%;
+            width: 70px;
+            height: 40px;
+            background-image: url('dr-silhouette.png');
+            animation: float 9s infinite ease-in-out 0.5s;
+        }
+
+        .island-jamaica {
+            bottom: 15%;
+            right: 20%;
+            width: 50px;
+            height: 30px;
+            background-image: url('jamaica-silhouette.png');
+            animation: float 6s infinite ease-in-out 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        /* Content sections */
+        .content-section {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            border-left: 5px solid var(--caribbean-blue);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section h2 {
+            color: var(--caribbean-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 0.5rem;
+            font-family: "Times New Roman", serif;
+        }
+
+        .content-section h3 {
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Watermark effect for section backgrounds */
+        .watermark {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0.03;
+            transform: rotate(-5deg);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .watermark img {
+            width: 200px;
+            height: auto;
+        }
+
+        /* Historical figures section */
+        .historical-figures {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+            justify-content: center;
+        }
+
+        .figure-card {
+            width: 200px;
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .figure-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .figure-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--caribbean-blue);
+        }
+
+        .figure-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .figure-title {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        /* Timeline section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 4px;
+            background-color: var(--caribbean-blue);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -44px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--caribbean-gold);
+            border: 4px solid var(--caribbean-blue);
+        }
+
+        .timeline-year {
+            font-weight: bold;
+            color: var(--caribbean-blue);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Flag icons */
+        .flag-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .flag-icon {
+            font-size: 2rem;
+        }
+
+        /* Interactive hidden content */
+        .hidden-content {
+            background-color: #f9f7f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px dashed #ccc;
+            display: none;
+        }
+
+        .trigger-btn {
+            background-color: var(--caribbean-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Georgia", serif;
+            margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .trigger-btn:hover {
+            background-color: var(--dark-blue);
+        }
+
+        .quill-icon {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--caribbean-blue);
+            opacity: 0.6;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .quill-icon:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        /* Call to action section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 40px;
+            margin: 40px 0;
+            background: linear-gradient(135deg, rgba(0, 92, 169, 0.8), rgba(0, 155, 119, 0.8));
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-text {
+            font-size: 1.6rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            background-color: var(--caribbean-gold);
+            color: var(--dark-blue);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer return link */
+        .return-link {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .return-link a {
+            color: var(--dark-blue);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .return-link a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 92, 169, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(0, 92, 169, 0.6); }
+        }
+
+        /* Island hover effect on map */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 30px 0;
+            background-image: url('caribbean-map.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .map-hotspot {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 215, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .map-hotspot:hover {
+            background-color: rgba(255, 215, 0, 0.6);
+            transform: scale(1.2);
+        }
+
+        .map-tooltip {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            width: 150px;
+            text-align: center;
+            display: none;
+            z-index: 10;
+            font-size: 0.9rem;
+        }
+
+        .map-hotspot:hover .map-tooltip {
+            display: block;
+        }
+
+        .hotspot-cuba {
+            top: 30%;
+            left: 25%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .hotspot-pr {
+            top: 40%;
+            right: 30%;
+            width: 30px;
+            height: 30px;
+        }
+
+        .hotspot-dr {
+            top: 40%;
+            left: 40%;
+            width: 35px;
+            height: 35px;
+        }
+
+        .hotspot-jamaica {
+            bottom: 40%;
+            left: 35%;
+            width: 30px;
+            height: 30px;
+        }
+
+        .hotspot-trinidad {
+            bottom: 25%;
+            right: 25%;
+            width: 25px;
+            height: 25px;
+        }
+
+        /* Antilles transformation effect */
+        .antilles-mode {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 92, 169, 0.2);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+        }
+
+        .antilles-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 600px;
+            width: 80%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8);
+            transition: transform 1s ease;
+        }
+
+        .antilles-close-btn {
+            background-color: var(--caribbean-red);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+
+            .historical-figures {
+                justify-content: center;
+            }
+
+            .figure-card {
+                width: 45%;
+                min-width: 180px;
+            }
+
+            .timeline {
+                padding-left: 40px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Floating islands background -->
+<div class="floating-islands">
+    <div class="island island-cuba"></div>
+    <div class="island island-pr"></div>
+    <div class="island island-dr"></div>
+    <div class="island island-jamaica"></div>
+</div>
+
+<!-- Main page container -->
+<div class="page-container">
+    <!-- Hero section -->
+    <section class="hero">
+        <h1>La Federación de las Antillas</h1>
+        <p>"A united Caribbean, strong, independent, and thriving."</p>
+    </section>
+
+    <!-- Introduction -->
+    <section class="content-section">
+        <h2>The Dream of a United Caribbean</h2>
+        <p>The <em>Federación de las Antillas</em> (Federation of the Antilles) represents one of the most enduring political dreams in Caribbean history—a vision of unity among the Spanish-speaking islands and, ultimately, the entire Caribbean basin. Though it never fully materialized as a sovereign nation, this aspiration to unite Puerto Rico, Cuba, the Dominican Republic, and potentially other islands has echoed through generations of Caribbean intellectuals, revolutionaries, and political leaders.</p>
+
+        <p>This hidden page explores the historical attempts to create this Caribbean federation, the visionaries who championed the cause, and what a united Antilles might look like today if their dreams had been realized.</p>
+
+        <div class="watermark">
+            <img src="federation-logo.png" alt="">
+        </div>
+    </section>
+
+    <!-- Historical Visionaries -->
+    <section class="content-section">
+        <h2>Visionaries of Antillean Unity</h2>
+        <p>Throughout the 19th and early 20th centuries, prominent intellectuals and revolutionaries advocated for Caribbean federation as a means of achieving sovereignty, economic prosperity, and cultural solidarity in the face of colonial powers.</p>
+
+        <div class="historical-figures">
+            <div class="figure-card">
+                <img src="betances.jpg" alt="Ramón Emeterio Betances" class="figure-img">
+                <div class="figure-name">Ramón Emeterio Betances</div>
+                <div class="figure-title">1827-1898</div>
+                <p>Puerto Rican independence leader who envisioned a pan-Antillean confederation.</p>
+            </div>
+
+            <div class="figure-card">
+                <img src="hostos.jpg" alt="Eugenio María de Hostos" class="figure-img">
+                <div class="figure-name">Eugenio María de Hostos</div>
+                <div class="figure-title">1839-1903</div>
+                <p>Educator and philosopher who championed a united Antillean republic.</p>
+            </div>
+
+            <div class="figure-card">
+                <img src="marti.jpg" alt="José Martí" class="figure-img">
+                <div class="figure-name">José Martí</div>
+                <div class="figure-title">1853-1895</div>
+                <p>Cuban revolutionary who saw Caribbean unity as essential to resisting imperialism.</p>
+            </div>
+
+            <div class="figure-card">
+                <img src="garvey.jpg" alt="Marcus Garvey" class="figure-img">
+                <div class="figure-name">Marcus Garvey</div>
+                <div class="figure-title">1887-1940</div>
+                <p>Jamaican leader who incorporated the Caribbean in his vision of Pan-African unity.</p>
+            </div>
+        </div>
+
+        <h3>Betances & Hostos: The Original Dreamers</h3>
+        <p>Ramón Emeterio Betances and Eugenio María de Hostos, both Puerto Rican patriots, laid the intellectual foundations for Antillean federation. Betances, often called "the Father of the Puerto Rican Homeland," didn't limit his vision to Puerto Rico alone. He declared: <span class="has-document">"Las Antillas para los antillanos"<span class="quill-icon" onclick="showManifesto()"><i class="fas fa-feather"></i></span></span> ("The Antilles for the Antilleans"), advocating for a confederation that would unite Puerto Rico, Cuba, and the Dominican Republic against both Spanish colonialism and American expansionism.</p>
+
+        <p>Hostos expanded this vision through his educational philosophy, believing that a strong Antillean republic must be rooted in modern education, justice, and democratic values. He traveled extensively throughout the Caribbean and Latin America, establishing schools and promoting his federalist ideas.</p>
+
+        <h3>José Martí & the Cuban Dimension</h3>
+        <p>Cuba's national hero, José Martí, saw clearly that independence from Spain would be meaningless if it merely opened the door to U.S. imperialism. His writings emphasized the need for Caribbean unity as a bulwark against northern domination, famously warning about U.S. ambitions in his essay "Our America." Martí's vision of Cuba was inseparable from his vision for a united Antilles and Latin America as a whole.</p>
+
+        <h3>Marcus Garvey & the Pan-African Caribbean Movement</h3>
+        <p>Jamaica's Marcus Garvey brought a different dimension to Caribbean unity by connecting it to Pan-African aspirations. His Black Star Line shipping company aimed to create economic independence by connecting the Caribbean with Africa and Black communities worldwide. Though colonial powers suppressed his movement, Garvey's ideas about economic self-determination and racial solidarity influenced Caribbean nationalism for generations.</p>
+
+        <div id="hidden-manifesto" class="hidden-content">
+            <h4>The Lost Antillean Manifesto (Historical Reimagining)</h4>
+            <p><em>This document represents a historical reimagining of what an Antillean Federation declaration might have contained, based on the actual writings of Betances, Hostos, and Martí.</em></p>
+            <blockquote>
+                <p>"We, the representatives of Cuba, Puerto Rico, and the Dominican Republic, declare our intention to form a Confederation of the Antilles, united in purpose, governance, and destiny.</p>
+
+                <p>For too long, our islands have suffered under colonial rule, our peoples divided by artificial boundaries imposed by distant powers. Our shared history, culture, and aspirations call us to a higher union—one that recognizes the sovereignty of each nation while binding us together in mutual defense, prosperity, and brotherhood.</p>
+
+                <p>This Antillean Federation shall establish:</p>
+                <ul>
+                    <li>A joint governing council with equal representation from each member nation</li>
+                    <li>Common defense forces to protect our waters and shores</li>
+                    <li>Free movement of people and goods between our islands</li>
+                    <li>A unified diplomatic presence in international affairs</li>
+                    <li>Collaborative educational systems preserving our shared heritage</li>
+                </ul>
+
+                <p>We announce to the world that the Antilles shall no longer be pawns in the games of empires. The Caribbean Sea shall be a bridge uniting our peoples, not a moat dividing us.</p>
+
+                <p>Las Antillas para los antillanos. The Antilles for the Antilleans."</p>
+            </blockquote>
+        </div>
+
+        <div class="watermark">
+            <img src="antillean-seal.png" alt="">
+        </div>
+    </section>
+
+    <!-- Historical Attempts -->
+    <section class="content-section">
+        <h2>Historical Attempts at Caribbean Unity</h2>
+        <p>The dream of Caribbean federation has moved beyond theory to actual political attempts several times in history, each providing lessons for future unity efforts.</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1826</div>
+                <h3>Congress of Panama</h3>
+                <p>Though focused on Spanish America as a whole, Simón Bolívar's Congress of Panama included early discussions about the potential for Antillean federation within his broader vision of a united Latin America.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">1867</div>
+                <h3>Puerto Rican Revolutionary Committee</h3>
+                <p>Betances formed the Puerto Rican Revolutionary Committee in New York, which expanded to include representatives from Cuba and the Dominican Republic, working toward coordinated independence struggles and eventual federation.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">1895</div>
+                <h3>Cuban Revolutionary Party</h3>
+                <p>José Martí's Cuban Revolutionary Party explicitly declared in its program that Cuban independence would be the first step toward a broader Antillean federation.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">1958-1962</div>
+                <h3>West Indies Federation</h3>
+                <p>The most significant modern attempt at Caribbean federation united Jamaica, Trinidad & Tobago, Barbados, and several smaller islands into a political union. Though it collapsed after only four years due to internal tensions and external pressures, it demonstrated both the potential and challenges of Caribbean unity.</p>
+                <div class="flag-icons">
+                    <span class="flag-icon">🇯🇲</span>
+                    <span class="flag-icon">🇹🇹</span>
+                    <span class="flag-icon">🇧🇧</span>
+                    <span class="flag-icon">🇬🇩</span>
+                    <span class="flag-icon">🇱🇨</span>
+                    <span class="flag-icon">🇻🇨</span>
+                </div>
+            </div>
+        </div>
+
+        <p>Each of these attempts faced similar obstacles: economic disparities between islands, language and cultural differences, colonial interference, and national particularism. Yet each also demonstrated the enduring appeal of Caribbean unity as a path to greater sovereignty and regional power.</p>
+
+        <div class="watermark">
+            <img src="west-indies-federation-logo.png" alt="">
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="content-section">
+        <h2>The Geography of Caribbean Unity</h2>
+        <p>The Caribbean region's geography presents both challenges and opportunities for political and economic integration. While the sea divides the islands physically, it also provides a natural medium for trade, cultural exchange, and shared maritime resources.</p>
+
+        <div class="map-container">
+            <!-- Interactive hotspots -->
+            <div class="map-hotspot hotspot-cuba">
+                <div class="map-tooltip">Cuba: Largest island, key to any federation concept</div>
+            </div>
+
+            <div class="map-hotspot hotspot-pr">
+                <div class="map-tooltip">Puerto Rico: Birthplace of many federation advocates</div>
+            </div>
+
+            <div class="map-hotspot hotspot-dr">
+                <div class="map-tooltip">Dominican Republic: Essential partner in Antillean unity</div>
+            </div>
+
+            <div class="map-hotspot hotspot-jamaica">
+                <div class="map-tooltip">Jamaica: Central to West Indies Federation</div>
+            </div>
+
+            <div class="map-hotspot hotspot-trinidad">
+                <div class="map-tooltip">Trinidad & Tobago: Key economic driver in Caribbean integration</div>
+            </div>
+        </div>
+
+        <h3>Modern Realities</h3>
+        <p>Today, the Caribbean islands exist as a patchwork of sovereign nations, U.S. territories, and European dependencies. While political unity faces even greater obstacles in the modern context, economic, cultural, and diplomatic cooperation continue through organizations like CARICOM (Caribbean Community).</p>
+
+        <button class="trigger-btn" id="antilles-future-btn">Enter the Antillean Future</button>
+
+        <div class="watermark">
+            <img src="caribbean-map-outline.png" alt="">
+        </div>
+    </section>
+
+    <!-- Pan-Caribbeanism Today -->
+    <section class="content-section">
+        <h2>Pan-Caribbeanism Today: Is It Still Possible?</h2>
+        <p>While full political federation may seem distant, the dream of Caribbean unity continues in various forms of regional integration and cooperation.</p>
+
+        <h3>Economic Unity</h3>
+        <p>CARICOM (Caribbean Community) represents the most substantial attempt at regional economic integration, promoting free trade, coordinated foreign policies, and functional cooperation among its 15 member states. Some economists and political theorists have proposed deeper integration, including a common Caribbean currency similar to the Euro, which could strengthen the region's economic position globally.</p>
+
+        <h3>Cultural Unity</h3>
+        <p>Perhaps the most successful form of Caribbean integration has been cultural. Music genres like reggae, salsa, zouk, merengue, soca, bomba, and calypso demonstrate shared African roots while developing distinct island expressions. Caribbean carnivals throughout the region unite islands in celebration of their common heritage despite linguistic differences.</p>
+
+        <p>The interplay of languages—Spanish, English, French, Dutch, and various creoles and patois—creates a rich linguistic landscape. Far from barriers to communication, these languages increasingly overlap and influence each other, especially in literature, music, and digital media.</p>
+
+        <h3>Political Possibilities</h3>
+        <p>While complete political union seems unlikely, increasing regional cooperation on critical issues like climate change, disaster response, migration, and relations with global powers offers a pragmatic path forward. Some Caribbean scholars advocate for a more unified approach to Caribbean defense and security, reducing dependence on the United States, United Kingdom, or France for maritime security.</p>
+
+        <p>The Antillean Federation never happened... but Pan-Caribbeanism is still alive. Are we closer than we think?</p>
+
+        <div class="watermark">
+            <img src="caricom-logo.png" alt="">
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <p class="cta-text">"We may never see the Antilles Federation in our time. But the dream of unity still exists. Will you carry the torch?"</p>
+
+        <div class="cta-buttons">
+            <a href="about.html" class="cta-btn">Learn About Caribbean Solidarity Movements</a>
+            <a href="collaborate.html" class="cta-btn">Join the Conversation</a>
+        </div>
+    </section>
+
+    <!-- Return link -->
+    <div class="return-link">
+        <a href="index.html">← Return to DB Yale Homepage</a>
+    </div>
+</div>
+
+<!-- Antilles Mode Overlay -->
+<div class="antilles-mode" id="antilles-mode">
+    <div class="antilles-content">
+        <h2>Welcome to the United Federation of the Antilles</h2>
+        <p>In this alternate timeline, the Antillean Federation succeeded, becoming a maritime power, cultural beacon, and economic hub in the Americas.</p>
+        <p>Imagine a Caribbean with:</p>
+        <ul>
+            <li>A stable, democratic government representing all member islands</li>
+            <li>A unified currency (the Antillean Peso) rivaling regional currencies</li>
+            <li>World-class universities and research centers</li>
+            <li>A respected diplomatic presence in world affairs</li>
+            <li>Economic independence from former colonial powers</li>
+        </ul>
+        <p>This vision may be speculative, but it helps us imagine what could have been—and what might still be possible with greater Caribbean cooperation.</p>
+
+        <button class="trigger-btn" id="antilles-close-btn">Return to Reality</button>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle vision manifesto toggle
+        window.showManifesto = function() {
+            const manifesto = document.getElementById('hidden-manifesto');
+            manifesto.style.display = manifesto.style.display === 'block' ? 'none' : 'block';
+        };
+
+        // Handle the "Enter the Antillean Future" button
+        const futureBtn = document.getElementById('antilles-future-btn');
+        const antillesMode = document.getElementById('antilles-mode');
+        const closeBtn = document.getElementById('antilles-close-btn');
+
+        futureBtn.addEventListener('click', function() {
+            // Change the page color scheme temporarily
+            document.body.style.backgroundColor = '#005ca9';
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.borderLeftColor = '#ffd700';
+                section.style.animation = 'glowPulse 2s infinite';
+            });
+
+            // Show the Antilles mode overlay
+            antillesMode.style.opacity = '1';
+            antillesMode.style.pointerEvents = 'auto';
+            antillesMode.querySelector('.antilles-content').style.transform = 'scale(1)';
+
+            // Play a subtle "national anthem" sound if available
+            // const anthem = document.getElementById('antilles-anthem');
+            // if (anthem) anthem.play();
+        });
+
+        closeBtn.addEventListener('click', function() {
+            // Hide the overlay
+            antillesMode.style.opacity = '0';
+            antillesMode.style.pointerEvents = 'none';
+            antillesMode.querySelector('.antilles-content').style.transform = 'scale(0.8)';
+
+            // Restore original styling
+            setTimeout(() => {
+                document.body.style.backgroundColor = '';
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.style.borderLeftColor = '';
+                    section.style.animation = '';
+                });
+            }, 500);
+        });
+
+        // Add floating animation to islands
+        function animateIslands() {
+            const islands = document.querySelectorAll('.island');
+            islands.forEach(island => {
+                const randomOffset = Math.random() * 20 - 10;
+                island.style.transform = `translateY(${randomOffset}px) rotate(${randomOffset/2}deg)`;
+            });
+        }
+
+        // Initialize page with subtle animations
+        setTimeout(() => {
+            document.querySelectorAll('.content-section').forEach((section, index) => {
+                section.style.animation = `fadeIn 0.5s ease-in-out ${index * 0.2}s forwards`;
+                section.style.opacity = '0';
+            });
+        }, 500);
+
+        // Typewriter effect for specific elements using Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-in-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('h2, h3, .figure-card').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Subtle island animations
+        setInterval(animateIslands, 5000);
+    });
+</script>
+</body>
+</html>
