@@ -628,6 +628,130 @@
     }
 </style>
 
+<style>
+    /* Fix image height and text overlap issues for historical women section */
+    @media (max-width: 768px) {
+        /* Make all images in content rows have consistent, controlled height on mobile */
+        .content-row .img-col {
+            height: auto !important;
+            max-height: 300px;
+            overflow: hidden;
+        }
+
+        .content-row .img-col img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 300px;
+        }
+
+        /* Fix layout of content rows to stack properly on mobile */
+        .content-row {
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .content-row .img-col,
+        .content-row .text-col {
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+            width: 100%;
+        }
+
+        /* Add margin between the image and text */
+        .content-row .img-col {
+            margin-bottom: 1rem;
+        }
+
+        /* Fix the special case for Luisa Capetillo */
+        .content-row .img-col[style*="height: 250px"] {
+            height: auto !important;
+            max-height: 300px;
+        }
+
+        /* Fix for Contemporary Women Leaders section - eliminate gaps */
+        .founders-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+            gap: 1rem !important;
+            padding: 0 0.5rem;
+        }
+
+        .founder-card {
+            margin: 0 !important;
+            width: 100% !important;
+        }
+
+        .founder-image {
+            height: auto !important;
+        }
+
+        .founder-card h3 {
+            font-size: 1rem !important;
+            margin: 0.5rem 0 0.25rem !important;
+        }
+
+        .founder-card p {
+            font-size: 0.85rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        /* Fix resource cards layout on mobile */
+        .resource-cards {
+            display: grid;
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+        }
+
+        /* Compress spacing on mobile throughout the page */
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 0 0.5rem;
+        }
+
+        .section-header {
+            margin-bottom: 1rem;
+        }
+
+        /* Make sure event listings and resources are easy to read on mobile */
+        .event-list li,
+        .resources-list li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    /* Fix for text overflow outside the boxes in all screen sizes */
+    .content-row .text-col p,
+    .founder-card p,
+    .value-card p {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    /* Ensure all text in smaller components is completely visible */
+    .founder-card h3,
+    .value-card h3 {
+        font-size: 1rem;
+        line-height: 1.3;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Specific fix for really small screens */
+    @media (max-width: 380px) {
+        .founders-gallery {
+            grid-template-columns: 1fr !important;
+        }
+
+        .founder-card {
+            max-width: 100%;
+        }
+    }
+</style>
+
+
 
 <!-- External JavaScript file for functionality -->
 <script src="script.js"></script>
@@ -636,3 +760,5 @@
 
 </body>
 </html>
+
+<!-- For future ambitions:resource download, personal stories on inspo, media sect, educ infograph,call to act quiz, volunteer opportun -->
