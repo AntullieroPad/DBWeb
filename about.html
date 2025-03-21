@@ -39,6 +39,9 @@
         <a href="alumni.html" data-key="navAlumni">Alumni</a>
         <a href="merch.html" data-key="navMerch">Merch</a>
         <a href="gallery.html" data-key="navGallery">Gallery</a>
+        <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
+        </a>
     </nav>
     <button id="lang-toggle">Español</button>
     <button id="dark-mode-toggle" class="dark-mode-toggle">
@@ -145,6 +148,79 @@
         </section>
 
 
+    <!-- Julia de Burgos and Feminist Flag Section -->
+    <section class="content-section julia-flag-section">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-landmark"></i></div>
+            <h2 data-key="juliaBurgosTitle">Julia de Burgos & La Casa Cultural</h2>
+        </div>
+
+        <div class="content-row alt fade-in-section">
+            <div class="img-col">
+                <img src="./Women'sHistoryMonth/Julia_Burgos.jpg" alt="Julia de Burgos - Renowned poet and advocate for Puerto Rican identity" />
+                <div class="flag-container" style="margin-top: 15px; text-align: center;">
+                    <img src="./Women'sHistoryMonth/feminist-pr-flag.jpeg" alt="Purple Puerto Rican Flag - Symbol of Feminist Resistance"
+                         style="max-width: 100%; border-radius: 5px; box-shadow: 0 3px 10px rgba(0,0,0,0.2);" />
+                    <p style="font-size: 0.9rem; margin-top: 8px; font-style: italic; color: #666;">The purple flag symbolizes feminist resistance and honors Puerto Rican women's struggle</p>
+                </div>
+            </div>
+            <div class="text-col">
+                <h3 data-key="juliaSubtitle">Poet, Feminist, Revolutionary</h3>
+                <p data-key="juliaText1">
+                    Yale's La Casa Cultural center is dedicated to the legacy of Julia de Burgos (1914-1953), one of Puerto Rico's most celebrated poets and an enduring symbol of Puerto Rican identity and feminist thought. Her revolutionary voice continues to inspire movements for justice and equality.
+                </p>
+                <p data-key="juliaText2">
+                    Born in Carolina, Puerto Rico, Julia de Burgos broke boundaries through her poetry that explored themes of feminism, social justice, and national identity. She wrote boldly about women's liberation long before the feminist movements of the 1960s and 70s, making her a pioneer whose words resonate with contemporary struggles.
+                </p>
+                <p data-key="juliaText3">
+                    The purple Puerto Rican flag represents this ongoing feminist struggle. Just as Julia challenged patriarchal norms in her writing and life, the purple flag reimagines traditional national symbols to center women's experiences, particularly highlighting the crisis of gender-based violence in Puerto Rico.
+                </p>
+                <blockquote class="julia-quote" style="font-style: italic; margin: 20px 0; padding-left: 20px; border-left: 3px solid #8e44ad;">
+                    <p data-key="juliaQuote">"I wanted to be like men wanted me to be: an attempt at life; a game of hide and seek with my being. But I was made of nows."</p>
+                    <footer style="text-align: right;">— Julia de Burgos, "I Was My Own Route"</footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="la-casa-info" style="background: rgba(142, 68, 173, 0.05); padding: 20px; border-radius: 8px; margin-top: 20px;">
+            <h3 data-key="laCasaTitle">La Casa Cultural: A Home for Resistance and Celebration</h3>
+            <p data-key="laCasaText1">
+                Established in 1974, La Casa Cultural Julia de Burgos serves as both a cultural center and a space for activism. By naming our center after a feminist poet who challenged colonial and patriarchal power, Yale's Puerto Rican and Latino community affirms our commitment to the values she embodied.
+            </p>
+            <p data-key="laCasaText2">
+                Today, La Casa at 301 Crown Street continues Julia's legacy by fostering dialogue about gender justice, decolonization, and cultural identity. It stands as a space where the symbolism of the purple flag—women's resistance, dignity, and power—is honored through programming, community building, and artistic expression.
+            </p>
+            <div class="cta-buttons" style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="https://lacasa.yalecollege.yale.edu/" target="_blank" class="primary-btn" data-key="visitLaCasaBtn" style="background-color: #8e44ad; border-color: #8e44ad;">Visit La Casa Website</a>
+                <a href="womens-history-month.html" class="secondary-btn" data-key="learnMoreWomenBtn" style="border-color: #8e44ad; color: #8e44ad;">Women's History Month</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS for dark mode support -->
+    <style>
+        body.dark-mode .julia-flag-section .flag-container p {
+            color: #aaa;
+        }
+
+        body.dark-mode .julia-quote {
+            border-left-color: #9b59b6;
+        }
+
+        body.dark-mode .la-casa-info {
+            background: rgba(155, 89, 182, 0.1);
+        }
+
+        body.dark-mode .secondary-btn[data-key="learnMoreWomenBtn"] {
+            border-color: #9b59b6;
+            color: #d4a6e8;
+        }
+
+        body.dark-mode .primary-btn[data-key="visitLaCasaBtn"] {
+            background-color: #9b59b6;
+            border-color: #9b59b6;
+        }
+    </style>
 
     <!-- Founders gallery section -->
     <section class="content-section founders-section">

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Women's History Month - DB Yale</title>
+    <meta name="description" content="Celebrating Puerto Rican women's history, achievements, feminism, and providing resources for women in our community. Learn about influential Puerto Rican women and access support services.">
+    <meta name="keywords" content="puerto rican women, women's history month, feminism, puerto rican feminists, yale women resources">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://despiertaboricua-yale.org/womens-history-month.html">
+
+    <!-- Same CSS file as your index page -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
+
+    <!-- Favicon links for browser tab icons -->
+    <link rel="icon" type="image/png" href="./DB Logo Outline.png">
+    <link rel="icon" type="image/png" href="favicon.ico">
+</head>
+<body>
+
+<!-- The same fixed sidebar -->
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <a href="index.html">
+            <img
+                    src="DB Logo Outline.png"
+                    alt="DB Yale Logo"
+                    class="logo-img"/>
+        </a>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="index.html" data-key="navHome">Home</a>
+        <a href="about.html" data-key="navAbout">About</a>
+        <a href="syllabus.html" data-key="navSyllabus">Syllabus</a>
+        <a href="collaborate.html" data-key="navCollaborate">Collaborate</a>
+        <a href="news.html" data-key="navNews">News + Events</a>
+        <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
+        <a href="alumni.html" data-key="navAlumni">Alumni</a>
+        <a href="merch.html" data-key="navMerch">Merch</a>
+        <a href="gallery.html" data-key="navGallery">Gallery</a>
+        <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
+        </a>
+    </nav>
+    <button id="lang-toggle">Español</button>
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <span class="icon">🌙</span>
+        <span class="label">Dark Mode</span>
+    </button>
+
+    <div class="sidebar-footer">
+        <!-- Social links / license info as before -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:jaden.gonzalez@yale.edu" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        <div class="license">© 2025 DB Yale</div>
+    </div>
+</aside>
+
+<!-- Hamburger button for mobile -->
+<button class="hamburger-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<!-- MAIN CONTAINER -->
+<div class="main-container">
+
+    <!-- Hero Banner Section -->
+    <section class="black-hero" style="background: linear-gradient(135deg, #8e44ad 0%, #6a3093 40%, #5a2783 70%, #3a1c54 90%); position: relative; overflow: hidden;">
+        <!-- Decorative elements -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cmVjdCB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiBmaWxsPSIjZmZmZmZmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0yOCA2NkwwIDUwTDAgMTZMMjggMEw1NiAxNkw1NiA1MEwyOCA2NkwyOCAxMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIj48L3BhdGg+CjxwYXRoIGQ9Ik0yOCAwTDI4IDM0TDAgNTBMMCA4NEwyOCAxMDBMNTYgODRMNTYgNTBMMjggMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIj48L3BhdGg+Cjwvc3ZnPg==')"></div>
+
+        <div class="hero-content">
+            <h1 data-key="whmHeroTitle" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-size: 2.5rem; margin-bottom: 1.2rem;">Women's History Month</h1>
+            <p data-key="whmHeroSubtitle" style="max-width: 800px; margin: 0 auto 1.5rem; font-size: 1.2rem; line-height: 1.5;">Celebrating the strength, resilience, and contributions of Puerto Rican women throughout history and today</p>
+            <img src="./Women'sHistoryMonth/feminist-pr-flag.jpeg" alt="Purple Puerto Rican Flag - Symbol of Women's Resilience"
+                 style="max-width: 280px; margin: 1.5rem auto 0; display: block; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transform: rotate(-2deg);  transition: transform 0.5s ease-out;"
+                 onmouseover="this.style.transform='rotate(0deg) scale(1.05)'"
+                 onmouseout="this.style.transform='rotate(-2deg)'">
+
+            <div style="text-align: center; margin-top: 12px; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
+                <a href="https://www.instagram.com/katari_elvis/" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: underline; transition: color 0.3s ease;">Flag created by Elvis Katari (2018)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" style="position: relative; z-index: 1;">
+        <!-- Decorative corner element -->
+        <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px; z-index: -1; opacity: 0.1; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj4KPHBhdGggZD0iTTAgMCBDNTAgMCAxMDAgNTAgMTAwIDEwMCBMIDEwMCAwIFoiIGZpbGw9IiM4ZTQ0YWQiPjwvcGF0aD4KPC9zdmc+'); background-size: contain; background-position: top right; background-repeat: no-repeat;"></div>
+        <section class="content-section">
+            <div class="section-header">
+                <div class="section-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-flag"></i></div>
+                <h2 data-key="purpleFlagTitle">The Purple Puerto Rican Flag: A Symbol of Resistance</h2>
+            </div>
+
+            <div class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <img src="./Women'sHistoryMonth/feminist-pr-flag.jpeg" alt="Purple Puerto Rican Flag - Symbol of Women's Resilience and Fight Against Gender Violence" />
+                </div>
+                <div class="text-col">
+                    <h3 data-key="purpleFlagSubtitle">More Than Just a Symbol</h3>
+                    <p data-key="purpleFlagP1">
+                        The Purple Puerto Rican Flag is a powerful adaptation of the traditional flag, representing the struggle, pain, and triumph of Borikua women who have survived domestic violence. It serves as a declaration of royalty, power, and resilience.
+                    </p>
+                    <p data-key="purpleFlagP2">
+                        "It's a reminder to the world that our Borikua women are queens, deserving of respect, dignity, and reverence. For too long, our women have been marginalized, erased, and silenced. But we will not be ignored. We will rise, we will resist, and we will reclaim our rightful place as leaders, as warriors, and as guardians of our island's spirit."
+                    </p>
+                    <p data-key="purpleFlagP3">
+                        This emblem has become a beacon of hope, a symbol of solidarity, and a reminder that the voices of Puerto Rican women will no longer be silenced. The flag particularly highlights the crisis of gender-based violence in Puerto Rico, which was declared a state of emergency in 2021.
+                    </p>
+                    <p data-key="purpleFlagCredit"><em>Credit: Flag created by Elvis Katari (2018). Text adapted from the creator's description of the flag's meaning and purpose.</em></p>
+                </div>
+            </div>
+
+            <blockquote class="mission-quote" style="margin: 2rem 0; background: linear-gradient(to right, rgba(142, 68, 173, 0.1), rgba(142, 68, 173, 0.05)); border-left: 5px solid #8e44ad;">
+                <p data-key="purpleFlagQuote">"The purple flag also holds a deeper significance - it represents the struggle, the pain, and the triumph of our Borikua women who have survived domestic violence. The news may not cover it, but we know the truth. We will amplify their voices, we will hold space for their stories, and we will fight tirelessly for their justice. ¡Las mujeres Borikúas somos poderosas!"</p>
+                <footer style="text-align: right; font-style: italic; margin-top: 0.5rem; color: #666;">— <a href="https://www.instagram.com/katari_elvis/" target="_blank" style="color: #8e44ad;"> Elvis Katari (2018)</a>, creator of the Purple Puerto Rican Flag</footer>
+            </blockquote>
+        </section>
+
+        <section class="content-section">
+            <h2  data-key="whmIntroTitle">Puerto Rican Women: Fuerza y Resistencia</h2>
+            <p data-key="whmIntroText">
+                Women's History Month is a time to honor the countless contributions of Puerto Rican women who have shaped our history, culture, and ongoing struggles for justice. From indigenous Taíno cacicas to contemporary activists, Puerto Rican women have been at the forefront of resistance movements, cultural preservation, and community building both on the island and throughout the diaspora.
+            </p>
+            <p data-key="whmIntroP2">
+                As we celebrate their achievements, we also acknowledge the ongoing challenges faced by women in our communities and recommit ourselves to the fight for gender equity, reproductive justice, and liberation for all.
+            </p>
+        </section>
+
+        <!-- Women in Puerto Rican History Section -->
+        <section class="content-section">
+            <div class="section-header">
+                <div class="section-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-landmark"></i></div>
+                <h2 data-key="womenHistoryTitle">Women in Puerto Rican History</h2>
+            </div>
+
+
+            <div class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <img src= "./Women'sHistoryMonth/Lolita.jpg"
+                         alt="Lolita Lebrón - Puerto Rican nationalist and feminist who led the 1954 attack on the U.S. Capitol" />
+                </div>
+                <div class="text-col">
+                    <h3>Lolita Lebrón (1919-2010)</h3>
+                    <p data-key="lolitaDesc">
+                        A nationalist leader who led the 1954 armed attack on the U.S. Capitol to draw attention to Puerto Rico's colonial status. After serving 25 years in prison, she was pardoned by President Carter and continued her activism for Puerto Rican independence. She famously declared, "I did not come to kill anyone, I came to die for Puerto Rico!"
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-row alt fade-in-section">
+                <div class="img-col" style="height: 250px;">
+                    <img src="./Women'sHistoryMonth/Luisa_Capetillo.jpg"
+                         alt="Luisa Capetillo - Early feminist, labor organizer, and writer who challenged gender norms" />
+                </div>
+                <div class="text-col">
+                    <h3>Luisa Capetillo (1879-1922)</h3>
+                    <p data-key="luisaDesc">
+                        One of Puerto Rico's most famous labor organizers and women's rights activists. A fierce advocate for workers' rights and women's suffrage, she was also known for challenging gender norms by wearing men's clothing in public. Her 1910 book "Mi opinión sobre las libertades, derechos y deberes de la mujer" (My Opinion on the Liberties, Rights, and Duties of Women) is considered a feminist classic.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <img src="./Women'sHistoryMonth/Julia_Burgos.jpg"
+                         alt="Julia de Burgos - Renowned poet and advocate for Puerto Rican independence" />
+                </div>
+                <div class="text-col">
+                    <h3>Julia de Burgos (1914-1953)</h3>
+                    <p data-key="juliaDesc">
+                        A poet whose work explored themes of feminism, social justice, and Puerto Rican identity. Her poetry challenged colonial rule and patriarchal structures while celebrating the natural beauty of Puerto Rico. Despite her tragically short life, her work continues to inspire generations of writers and activists. Her most famous poems include "Río Grande de Loíza" and "A Julia de Burgos."
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <img src="./Women'sHistoryMonth/sylviarivera.jpg"
+                         alt="Sylvia Rivera - LGBTQ+ rights pioneer and street activist" />
+                </div>
+                <div class="text-col">
+                    <h3>Sylvia Rivera (1951-2002)</h3>
+                    <p data-key="sylviaDesc">
+                        A pioneering LGBTQ+ rights activist of Puerto Rican and Venezuelan descent who fought for transgender rights and was present at the 1969 Stonewall uprising. Co-founder of the Street Transvestite Action Revolutionaries (STAR) with Marsha P. Johnson, Rivera dedicated her life to helping homeless LGBTQ+ youth and advocating for those at the margins of society.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feminism and Women's Rights Section -->
+        <section class="content-section">
+            <div class="section-header">
+                <div class="section-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-fist-raised"></i></div>
+                <h2 data-key="feminismTitle">Feminism and Civil Rights</h2>
+            </div>
+
+            <p data-key="feminismIntro">
+                Puerto Rican feminism has a rich and complex history that intertwines with struggles against colonialism, economic exploitation, and racial discrimination. The movement has always been intersectional, addressing how gender oppression connects with other systems of power.
+            </p>
+
+            <h3 data-key="feminismHistoryTitle">Key Moments in Puerto Rican Feminist History:</h3>
+            <ul>
+                <li data-key="timeline1"><strong>1917:</strong> The Jones Act grants U.S. citizenship to Puerto Ricans, giving women the right to organize politically</li>
+                <li data-key="timeline2"><strong>1932:</strong> Puerto Rican women gain suffrage (limited to literate women initially)</li>
+                <li data-key="timeline3"><strong>1935:</strong> Universal suffrage for all Puerto Rican women</li>
+                <li data-key="timeline4"><strong>1956:</strong> Inauguration of the first women's rights organization in Puerto Rico, the Puerto Rican Association of Women Suffragists</li>
+                <li data-key="timeline5"><strong>1970s:</strong> Rise of feminist organizations addressing reproductive rights during the mass sterilization campaigns</li>
+                <li  data-key="timeline6"><strong>1990s-present:</strong> Growing focus on intersectionality, addressing violence against women, and LGBTQ+ rights</li>
+            </ul>
+
+            <h3 data-key="contemporaryIssuesTitle">Issues in Contemporary Puerto Rican Feminism:</h3>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-venus"></i></div>
+                    <h3 data-key="genderViolenceTitle">Gender-Based Violence</h3>
+                    <p data-key="genderViolenceDesc">Addressing the ongoing crisis of femicide and domestic violence in Puerto Rico, which was declared a state of emergency in 2021.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-hand-holding-medical"></i></div>
+                    <h3 data-key="reproductiveTitle">Reproductive Justice</h3>
+                    <p data-key="reproductiveDesc">Fighting for bodily autonomy and addressing the historical trauma of forced sterilization campaigns that targeted Puerto Rican women.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon"style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-globe-americas"></i></div>
+                    <h3 data-key="environmentalTitle">Environmental Justice</h3>
+                    <p data-key="environmentalDesc">Women-led grassroots organizing against environmental contamination and climate change impacts that disproportionately affect women.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-balance-scale"></i></div>
+                    <h3 data-key="economicTitle">Economic Justice</h3>
+                    <p data-key="economicDesc">Advocating for fair wages, labor protections, and policies that recognize women's unpaid domestic and care work.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contemporary Women Leaders Section -->
+        <section class="content-section">
+            <div class="section-header">
+                <div class="section-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-users"></i></div>
+                <h2 data-key="contemporaryLeadersTitle">Contemporary Women Leaders</h2>
+            </div>
+
+            <div class="founders-gallery">
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="./Women'sHistoryMonth/Elizabeth_Crespo.jpg" alt="Elizabeth Crespo Kebler">
+                    </div>
+                    <h3>Elizabeth Crespo Kebler</h3>
+                    <p data-key="elizabethDesc">Scholar and feminist whose work focuses on education and women's studies in Puerto Rico</p>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="./Women'sHistoryMonth/Carmen_Yulin.jpg"
+                             alt="Carmen Yulín Cruz">
+                    </div>
+                    <h3>Carmen Yulín Cruz</h3>
+                    <p data-key="carmenDesc">Former Mayor of San Juan who gained international recognition for her leadership after Hurricane Maria</p>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="./Women'sHistoryMonth/MayraSanotsFebres.jpg" alt="Mayra Santos-Febres">
+                    </div>
+                    <h3>Mayra Santos-Febres</h3>
+                    <p data-key="mayraDesc">Award-winning author and professor whose work explores gender, sexuality, and Afro-Puerto Rican identity</p>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="./Women'sHistoryMonth/Taller_Salud.png"
+                             alt="Taller Salud">
+                    </div>
+                    <h3>Taller Salud</h3>
+                    <p data-key="tallerDesc">Feminist community organization focused on women's health and violence prevention in Loíza</p>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="./Women'sHistoryMonth/AnaIrmaRivera.jpg"
+                             alt="Ana Irma Rivera Lassén">
+                    </div>
+                    <h3>Ana Irma Rivera Lassén</h3>
+                    <p data-key="anaDesc">Lawyer, activist, and politician who was the first Black woman to preside over the Puerto Rico Bar Association</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="content-section">
+        <div class="section-header">
+                <div class="section-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-hands-helping"></i></div>
+                <h2 data-key="resourcesTitle">Resources & Support</h2>
+            </div>
+
+            <h3 data-key="onCampusTitle">On-Campus Resources at Yale</h3>
+            <ul class="resources-list">
+                <li>
+                    <a href="https://smr.yale.edu/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-shield-alt" style="color: #8e44ad;"></i>
+                        <span data-key="shareCenter">SHARE Center (Sexual Harassment and Assault Response & Education)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wgss.yale.edu/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-book" style="color: #8e44ad;"></i>
+                        <span data-key="wgssCenter">Women's, Gender & Sexuality Studies Department</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wff.yale.edu/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-university" style="color: #8e44ad;"></i>
+                        <span data-key="wff">Women Faculty Forum</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://yalewocc.com/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-users" style="color: #8e44ad;"></i>
+                        <span data-key="wocc">Women of Color Collective at Yale</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://walden.sites.yale.edu/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-home" style="color: #8e44ad;"></i>
+                        <span data-key="walden">Walden Peer Counseling</span>
+                    </a>
+                </li>
+            </ul>
+
+            <h3 data-key="nationalResourcesTitle">National Resources</h3>
+            <ul class="resources-list">
+                <li>
+                    <a href="https://www.thehotline.org/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-phone" style="color: #8e44ad;"></i>
+                        <span data-key="dvHotline">National Domestic Violence Hotline: 1-800-799-7233</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.rainn.org/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-phone-alt" style="color: #8e44ad;"></i>
+                        <span data-key="saHotline">National Sexual Assault Hotline: 1-800-656-HOPE (4673)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://transequality.org/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-transgender-alt" style="color: #8e44ad;"></i>
+                        <span data-key="transgender">National Center for Transgender Equality</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.maldef.org/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-balance-scale" style="color: #8e44ad;"></i>
+                        <span data-key="maldef">Mexican American Legal Defense and Educational Fund (MALDEF)</span>
+                    </a>
+                </li>
+            </ul>
+
+            <h3 data-key="prResourcesTitle">Puerto Rico-Specific Resources</h3>
+            <ul class="resources-list">
+                <li>
+                    <a href="https://www.facebook.com/coordinadorapaz/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-heart" style="color: #8e44ad;"></i>
+                        <span data-key="coordinadora">Coordinadora Paz para las Mujeres</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tallersalud.com/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-medkit" style="color: #8e44ad;"></i>
+                        <span data-key="tallerSalud">Taller Salud</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.mujerescontralasviolencias.com/" target="_blank" style="color: #8e44ad; transition: color 0.3s ease;">
+                        <i class="fas fa-fist-raised" style="color: #8e44ad;" ></i>
+                        <span data-key="colectiva">Colectiva Feminista en Construcción</span>
+                    </a>
+                </li>
+            </ul>
+
+            <h3 data-key="ctResourcesTitle">Connecticut Resources for Survivors</h3>
+            <div class="resource-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-phone"></i></div>
+                    <h3 data-key="ctAllianceTitle">Connecticut Alliance to End Sexual Violence</h3>
+                    <p data-key="ctAllianceDesc1">24-hr hotline, free, confidential</p>
+                    <p data-key="ctAllianceDesc2"><strong>English:</strong> <a href="tel:18889995545">1-888-999-5545</a></p>
+                    <p data-key="ctAllianceDesc3"><strong>Español:</strong> <a href="tel:18885688332">1-888-568-8332</a></p>
+                    <a href="https://endsexualviolencect.org/" target="_blank" class="primary-btn" style="margin-top: 10px; display: inline-block; padding: 8px 16px; font-size: 0.9rem;" data-key="visitWebsite">Visit Website</a>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-home"></i></div>
+                    <h3 data-key="safeHavenTitle">Safe Haven of Greater Waterbury</h3>
+                    <p data-key="safeHavenDesc1">Offering counseling, support groups, and DOVE (8-week class about impacts of domestic violence)</p>
+                    <p data-key="safeHavenDesc2">Arts healing opportunities and resources available in Spanish and Portuguese</p>
+                    <a href="https://www.safehavengw.org/counseling---advocacy" target="_blank" class="primary-btn" style="margin-top: 10px; display: inline-block; padding: 8px 16px; font-size: 0.9rem;">Visit Website</a>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-heartbeat"></i></div>
+                    <h3 data-key="hhcTitle">Hispanic Health Council</h3>
+                    <p data-key="hhcDesc1">Comprehensive services including Behavior Healthcare for victims of intimate partner violence</p>
+                    <p data-key="hhcDesc2">Also offers community outreach, health protection, case management, and wellness services</p>
+                    <a href="https://hispanichealthcouncil.org/about-us/" target="_blank" class="primary-btn" style="margin-top: 10px; display: inline-block; padding: 8px 16px; font-size: 0.9rem;"> Visit Website</a>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-balance-scale"></i></div>
+                    <h3 data-key="ovaTitle">CT Office of the Victim Advocate</h3>
+                    <p data-key="ovaDesc">Independent, state-wide organization helping victims of sexual assault navigate the criminal justice system</p>
+                    <a href="https://portal.ct.gov/OVA" target="_blank" class="primary-btn" style="margin-top: 10px; display: inline-block; padding: 8px 16px; font-size: 0.9rem;">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="mission-quote" style="margin: 2rem 0;">
+                <p data-key="resourcesNotice">If you or someone you know is experiencing domestic violence or sexual assault, please reach out to one of these resources. Your safety matters, and help is available. All of these services offer confidential support.</p>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section class="content-section">
+            <div class="section-header">
+                <div class="section-icon" style="background: linear-gradient(to bottom right, #8e44ad, #9b59b6);"><i class="fas fa-calendar-alt"></i></div>
+                <h2 data-key="eventsTitle">Upcoming Events</h2>
+            </div>
+
+            <ul class="event-list">
+                <li data-category="social">
+                    <strong>Film Screening: "Lolita, la de los planos"</strong>
+                    <em>March 15, 2025 | 7:00 PM | La Casa Cultural</em>
+                    <p>Join us for a screening of this documentary about Lolita Lebrón followed by a discussion with the filmmaker.</p>
+                </li>
+
+                <li data-category="activism">
+                    <strong>Panel: "Puerto Rican Feminisms: Past, Present, and Future"</strong>
+                    <em>March 22, 2025 | 4:00 PM | WLH 208</em>
+                    <p>Faculty and student discussion on the evolution of feminist movements in Puerto Rico and the diaspora.</p>
+                </li>
+
+                <li data-category="social">
+                    <strong>Workshop: "Poetry and Resistance"</strong>
+                    <em>March 28, 2025 | 6:30 PM | La Casa Cultural</em>
+                    <p>Creative writing workshop inspired by the work of Julia de Burgos and other Puerto Rican feminist poets.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Call to Action / Get Involved -->
+        <section class="about-cta-section" style="background: linear-gradient(135deg, rgba(142, 68, 173, 0.1), rgba(142, 68, 173, 0.2)); border-radius: 12px; border-top: 4px solid #8e44ad; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h2 data-key="getInvolved" style="color: #8e44ad;">Get Involved</h2>
+            <p data-key="involvedText">Join Despierta Boricua in honoring the legacy of Puerto Rican women and supporting ongoing efforts for gender justice.</p>
+            <div class="cta-buttons">
+                <a href="collaborate.html" class="primary-btn" style="background-color: #8e44ad; border-color: #8e44ad;" data-key="attendBtn">Attend an Event</a>
+                <a href="mailto:jaden.gonzalez@yale.edu" class="secondary-btn" style="border-color: #8e44ad; color: #8e44ad;" data-key="shareBtn">Share Your Story</a>
+
+            </div>
+        </section>
+    </main>
+</div>
+
+
+<style>
+    /* Dark mode adaptations for Women's History Month page */
+    body.dark-mode .special-nav-link {
+        background: linear-gradient(to right, #9b59b6, #6c3483) !important;
+        color: white !important;
+    }
+
+    body.dark-mode .about-cta-section {
+        background: linear-gradient(135deg, rgba(155, 89, 182, 0.2), rgba(108, 52, 131, 0.3)) !important;
+    }
+
+    body.dark-mode .section-icon,
+    body.dark-mode .value-icon {
+        background: linear-gradient(to bottom right, #9b59b6, #6c3483) !important;
+    }
+
+    body.dark-mode .mission-quote {
+        background: linear-gradient(to right, rgba(155, 89, 182, 0.15), rgba(108, 52, 131, 0.1)) !important;
+        border-left-color: #9b59b6 !important;
+    }
+
+    body.dark-mode .mission-quote p {
+        color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .mission-quote footer {
+        color: #aaa !important;
+    }
+
+    body.dark-mode .value-card {
+        border-top-color: #9b59b6 !important;
+        background-color: #333 !important;
+        color: #fff !important;
+    }
+
+    body.dark-mode .value-card h3 {
+        color: #d4a6e8 !important;
+        margin-top: 0.5rem;
+    }
+
+
+    body.dark-mode .value-card p {
+        color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .resource-cards  .value-card a {
+        color: #9b59b6 !important;
+    }
+
+    body.dark-mode .resource-cards .value-card .primary-btn {
+        background-color: #9b59b6 !important;
+        color: #ffffff !important;
+        border: none;
+    }
+
+    body.dark-mode .resource-cards .value-card a.primary-btn:hover {
+        background-color: #8e44ad !important;
+    }
+
+    body.dark-mode .content-row.alt {
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    }
+
+    body.dark-mode .black-hero {
+        background: linear-gradient(135deg, #6c3483, #2c1338) !important;
+    }
+
+    body.dark-mode .resources-list a,
+    body.dark-mode .resources-list i {
+        color: #9b59b6 !important;
+    }
+
+    body.dark-mode .founder-card {
+        background-color: #333 !important;
+    }
+
+    body.dark-mode .founder-card h3 {
+        color: #fff !important;
+    }
+
+    body.dark-mode .founder-card p {
+        color: #ddd !important;
+    }
+
+    /* Light mode link color override */
+    .resources-list a:hover {
+        color: #6c3483 !important;
+    }
+
+    body.dark-mode .resources-list a:hover {
+        color: #bb8edd !important;
+        background-color: #333333;
+        transform: translateX(2px);
+    }
+
+    /* Fix for resource lists */
+    body.dark-mode .resources-list li {
+        background-color: #2a2a2a; /* Dark but not too dark background */
+        margin-bottom: 8px;
+        padding: 10px 15px;
+        border-radius: 6px;
+        border-left: 3px solid #9b59b6;
+        transition: all 0.3s ease;
+    }
+
+    /* Fix for resource cards */
+    body.dark-mode .resource-cards .value-card {
+        background-color: #2a2a2a !important;
+        border: none !important;
+        border-left: 3px solid #9b59b6 !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Fix for those white background highlights on some elements */
+    body.dark-mode .resources-list li,
+    body.dark-mode .value-card {
+        position: relative;
+        z-index: 1;
+    }
+
+    body.dark-mode .resources-list li::after,
+    body.dark-mode .value-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent !important;
+        z-index: -1;
+    }
+
+    /* Override any white backgrounds that might be applied inline */
+    body.dark-mode [style*="background-color: #fff"],
+    body.dark-mode [style*="background-color: white"],
+    body.dark-mode [style*="background-color: rgb(255, 255, 255)"],
+    body.dark-mode [style*="background: white"],
+    body.dark-mode [style*="background: #fff"] {
+        background-color: #2a2a2a !important;
+        background: #2a2a2a !important;
+    }
+
+    /* Section headers in dark mode */
+    body.dark-mode .content-section h3 {
+        color: #ffffff;
+        border-bottom: 1px solid #444;
+        padding-bottom: 8px;
+        margin-top: 25px;
+    }
+</style>
+
+
+<!-- External JavaScript file for functionality -->
+<script src="script.js"></script>
+<script src="lang.js"></script>
+<button id="backToTop" title="Back to top">&#8679;</button>
+
+</body>
+</html>

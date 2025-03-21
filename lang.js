@@ -279,7 +279,168 @@ const translations = {
         // Join Team section
         joinTeamTitle: "Want to Join Our Team?",
         joinTeamText: "DB Yale is always looking for passionate new members! Whether you're a first-year student or a senior, there are plenty of ways to get involved and make a difference.",
-        joinTeamBtn: "Get Involved"
+        joinTeamBtn: "Get Involved",
+
+        // Navigation and page structure
+        navWomensHistory: "Women's History",
+
+        // Hero section
+        whmHeroTitle: "Women's History Month",
+        whmHeroSubtitle: "Celebrating the strength, resilience, and contributions of Puerto Rican women throughout history and today",
+
+        // Purple Flag section
+        purpleFlagTitle: "The Purple Puerto Rican Flag: A Symbol of Resistance",
+        purpleFlagSubtitle: "More Than Just a Symbol",
+        purpleFlagP1: "The Purple Puerto Rican Flag is a powerful adaptation of the traditional flag, representing the struggle, pain, and triumph of Borikua women who have survived domestic violence. It serves as a declaration of royalty, power, and resilience.",
+        purpleFlagP2: "\"It's a reminder to the world that our Borikua women are queens, deserving of respect, dignity, and reverence. For too long, our women have been marginalized, erased, and silenced. But we will not be ignored. We will rise, we will resist, and we will reclaim our rightful place as leaders, as warriors, and as guardians of our island's spirit.\"",
+        purpleFlagP3: "This emblem has become a beacon of hope, a symbol of solidarity, and a reminder that the voices of Puerto Rican women will no longer be silenced. The flag particularly highlights the crisis of gender-based violence in Puerto Rico, which was declared a state of emergency in 2021.",
+        purpleFlagCredit: "Credit: Flag created by katari_elvis. Text adapted from the creator's description of the flag's meaning and purpose.",
+
+        // Flag Quote
+        purpleFlagQuote: "\"The purple flag also holds a deeper significance - it represents the struggle, the pain, and the triumph of our Borikua women who have survived domestic violence. The news may not cover it, but we know the truth. We will amplify their voices, we will hold space for their stories, and we will fight tirelessly for their justice. ¡Las mujeres Borikúas somos poderosas!\"",
+        purpleFlagQuoteCredit: "— katari_elvis, creator of the Purple Puerto Rican Flag",
+
+        // Introduction section
+        whmIntroTitle: "Puerto Rican Women: Fuerza y Resistencia",
+        whmIntroText: "Women's History Month is a time to honor the countless contributions of Puerto Rican women who have shaped our history, culture, and ongoing struggles for justice. From indigenous Taíno cacicas to contemporary activists, Puerto Rican women have been at the forefront of resistance movements, cultural preservation, and community building both on the island and throughout the diaspora.",
+        whmIntroP2: "As we celebrate their achievements, we also acknowledge the ongoing challenges faced by women in our communities and recommit ourselves to the fight for gender equity, reproductive justice, and liberation for all.",
+
+        // Historical figures section
+        womenHistoryTitle: "Women in Puerto Rican History",
+
+        // Lolita Lebrón
+        lolitaName: "Lolita Lebrón (1919-2010)",
+        lolitaDesc: "A nationalist leader who led the 1954 armed attack on the U.S. Capitol to draw attention to Puerto Rico's colonial status. After serving 25 years in prison, she was pardoned by President Carter and continued her activism for Puerto Rican independence. She famously declared, \"I did not come to kill anyone, I came to die for Puerto Rico!\"",
+
+        // Luisa Capetillo
+        luisaName: "Luisa Capetillo (1879-1922)",
+        luisaDesc: "One of Puerto Rico's most famous labor organizers and women's rights activists. A fierce advocate for workers' rights and women's suffrage, she was also known for challenging gender norms by wearing men's clothing in public. Her 1910 book \"Mi opinión sobre las libertades, derechos y deberes de la mujer\" (My Opinion on the Liberties, Rights, and Duties of Women) is considered a feminist classic.",
+
+        // Julia de Burgos
+        juliaName: "Julia de Burgos (1914-1953)",
+        juliaDesc: "A poet whose work explored themes of feminism, social justice, and Puerto Rican identity. Her poetry challenged colonial rule and patriarchal structures while celebrating the natural beauty of Puerto Rico. Despite her tragically short life, her work continues to inspire generations of writers and activists. Her most famous poems include \"Río Grande de Loíza\" and \"A Julia de Burgos.\"",
+
+        // Sylvia Rivera
+        sylviaName: "Sylvia Rivera (1951-2002)",
+        sylviaDesc: "A pioneering LGBTQ+ rights activist of Puerto Rican and Venezuelan descent who fought for transgender rights and was present at the 1969 Stonewall uprising. Co-founder of the Street Transvestite Action Revolutionaries (STAR) with Marsha P. Johnson, Rivera dedicated her life to helping homeless LGBTQ+ youth and advocating for those at the margins of society.",
+
+        // Feminism section
+        feminismTitle: "Feminism and Civil Rights",
+        feminismIntro: "Puerto Rican feminism has a rich and complex history that intertwines with struggles against colonialism, economic exploitation, and racial discrimination. The movement has always been intersectional, addressing how gender oppression connects with other systems of power.",
+        feminismHistoryTitle: "Key Moments in Puerto Rican Feminist History:",
+
+        // Feminist history timeline
+        timeline1: "<strong>1917:</strong> The Jones Act grants U.S. citizenship to Puerto Ricans, giving women the right to organize politically",
+        timeline2: "<strong>1932:</strong> Puerto Rican women gain suffrage (limited to literate women initially)",
+        timeline3: "<strong>1935:</strong> Universal suffrage for all Puerto Rican women",
+        timeline4: "<strong>1956:</strong> Inauguration of the first women's rights organization in Puerto Rico, the Puerto Rican Association of Women Suffragists",
+        timeline5: "<strong>1970s:</strong> Rise of feminist organizations addressing reproductive rights during the mass sterilization campaigns",
+        timeline6: "<strong>1990s-present:</strong> Growing focus on intersectionality, addressing violence against women, and LGBTQ+ rights",
+
+        // Contemporary issues
+        contemporaryIssuesTitle: "Issues in Contemporary Puerto Rican Feminism:",
+
+        // Issue cards
+        genderViolenceTitle: "Gender-Based Violence",
+        genderViolenceDesc: "Addressing the ongoing crisis of femicide and domestic violence in Puerto Rico, which was declared a state of emergency in 2021.",
+
+        reproductiveTitle: "Reproductive Justice",
+        reproductiveDesc: "Fighting for bodily autonomy and addressing the historical trauma of forced sterilization campaigns that targeted Puerto Rican women.",
+
+        environmentalTitle: "Environmental Justice",
+        environmentalDesc: "Women-led grassroots organizing against environmental contamination and climate change impacts that disproportionately affect women.",
+
+        economicTitle: "Economic Justice",
+        economicDesc: "Advocating for fair wages, labor protections, and policies that recognize women's unpaid domestic and care work.",
+
+        // Contemporary leaders section
+        contemporaryLeadersTitle: "Contemporary Women Leaders",
+
+        // Leaders
+        elizabethName: "Elizabeth Crespo Kebler",
+        elizabethDesc: "Scholar and feminist whose work focuses on education and women's studies in Puerto Rico",
+
+        carmenName: "Carmen Yulín Cruz",
+        carmenDesc: "Former Mayor of San Juan who gained international recognition for her leadership after Hurricane Maria",
+
+        mayraName: "Mayra Santos-Febres",
+        mayraDesc: "Award-winning author and professor whose work explores gender, sexuality, and Afro-Puerto Rican identity",
+
+        tallerName: "Taller Salud",
+        tallerDesc: "Feminist community organization focused on women's health and violence prevention in Loíza",
+
+        anaName: "Ana Irma Rivera Lassén",
+        anaDesc: "Lawyer, activist, and politician who was the first Black woman to preside over the Puerto Rico Bar Association",
+
+        // Resources section
+        onCampusTitle: "On-Campus Resources at Yale",
+        nationalResourcesTitle: "National Resources",
+        prResourcesTitle: "Puerto Rico-Specific Resources",
+        ctResourcesTitle: "Connecticut Resources for Survivors",
+
+        // Resources lists (keeping original links)
+        shareCenter: "SHARE Center (Sexual Harassment and Assault Response & Education)",
+        wgssCenter: "Women's, Gender & Sexuality Studies Department",
+        wff: "Women Faculty Forum",
+        wocc: "Women of Color Collective at Yale",
+        walden: "Walden Peer Counseling",
+
+        // National resources
+        dvHotline: "National Domestic Violence Hotline: 1-800-799-7233",
+        saHotline: "National Sexual Assault Hotline: 1-800-656-HOPE (4673)",
+        transgender: "National Center for Transgender Equality",
+        maldef: "Mexican American Legal Defense and Educational Fund (MALDEF)",
+
+        // PR Resources
+        coordinadora: "Coordinadora Paz para las Mujeres",
+        tallerSalud: "Taller Salud",
+        colectiva: "Colectiva Feminista en Construcción",
+
+        // CT Resources
+        ctAllianceTitle: "Connecticut Alliance to End Sexual Violence",
+        ctAllianceDesc1: "24-hr hotline, free, confidential",
+        ctAllianceDesc2: "<strong>English:</strong> 1-888-999-5545",
+        ctAllianceDesc3: "<strong>Español:</strong> 1-888-568-8332",
+
+        safeHavenTitle: "Safe Haven of Greater Waterbury",
+        safeHavenDesc1: "Offering counseling, support groups, and DOVE (8-week class about impacts of domestic violence)",
+        safeHavenDesc2: "Arts healing opportunities and resources available in Spanish and Portuguese",
+
+        hhcTitle: "Hispanic Health Council",
+        hhcDesc1: "Comprehensive services including Behavior Healthcare for victims of intimate partner violence",
+        hhcDesc2: "Also offers community outreach, health protection, case management, and wellness services",
+
+        ovaTitle: "CT Office of the Victim Advocate",
+        ovaDesc: "Independent, state-wide organization helping victims of sexual assault navigate the criminal justice system",
+
+        // Visit Website text
+        visitWebsite: "Visit Website",
+
+        // Resources notice
+        resourcesNotice: "If you or someone you know is experiencing domestic violence or sexual assault, please reach out to one of these resources. Your safety matters, and help is available. All of these services offer confidential support.",
+
+        // Events section
+        eventsTitle: "Upcoming Events",
+
+        // Events listings
+        event1Title: "Film Screening: \"Lolita, la de los planos\"",
+        event1Date: "March 15, 2025 | 7:00 PM | La Casa Cultural",
+        event1Desc: "Join us for a screening of this documentary about Lolita Lebrón followed by a discussion with the filmmaker.",
+
+        event2Title: "Panel: \"Puerto Rican Feminisms: Past, Present, and Future\"",
+        event2Date: "March 22, 2025 | 4:00 PM | WLH 208",
+        event2Desc: "Faculty and student discussion on the evolution of feminist movements in Puerto Rico and the diaspora.",
+
+        event3Title: "Workshop: \"Poetry and Resistance\"",
+        event3Date: "March 28, 2025 | 6:30 PM | La Casa Cultural",
+        event3Desc: "Creative writing workshop inspired by the work of Julia de Burgos and other Puerto Rican feminist poets.",
+
+        // CTA Section
+        getInvolved: "Get Involved",
+        involvedText: "Join Despierta Boricua in honoring the legacy of Puerto Rican women and supporting ongoing efforts for gender justice.",
+
+        attendBtn: "Attend an Event",
+        shareBtn: "Share Your Story"
 
     },
     es: {
@@ -429,9 +590,6 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
         workshopsExample2: "Talleres culturales",
         workshopsExample3: "Paneles de discusión",
 
-        resourcesTitle: "Compartir Recursos",
-        volunteer2: "Contribuye con lecturas, artículos o multimedia para enriquecer la base de conocimientos y el programa de estudios de DB Yale.",
-        resourcesExample1: "Artículos académicos",
         resourcesExample2: "Recursos multimedia",
         resourcesExample3: "Materiales didácticos",
 
@@ -564,6 +722,168 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
 
         joinTeamTitle: "¿Quieres Unirte a Nuestro Equipo?",
         joinTeamText: "¡DB Yale siempre está buscando nuevos miembros apasionados! Ya seas estudiante de primer año o de último año, hay muchas maneras de involucrarte y marcar la diferencia.",
-        joinTeamBtn: "Involúcrate"
-        }
+        joinTeamBtn: "Involúcrate",
+
+        // Navigation and page structure
+        navWomensHistory: "Historia de la Mujer",
+
+        // Hero section
+        whmHeroTitle: "Mes de la Historia de la Mujer",
+        whmHeroSubtitle: "Celebrando la fuerza, resistencia y contribuciones de las mujeres puertorriqueñas a lo largo de la historia y en la actualidad",
+
+        // Purple Flag section
+        purpleFlagTitle: "La Bandera Puertorriqueña Púrpura: Un Símbolo de Resistencia",
+        purpleFlagSubtitle: "Más que un Símbolo",
+        purpleFlagP1: "La Bandera Puertorriqueña Púrpura es una poderosa adaptación de la bandera tradicional, que representa la lucha, el dolor y el triunfo de las mujeres boricuas que han sobrevivido a la violencia doméstica. Sirve como una declaración de realeza, poder y resiliencia.",
+        purpleFlagP2: "\"Es un recordatorio al mundo de que nuestras mujeres boricuas son reinas, merecedoras de respeto, dignidad y reverencia. Durante demasiado tiempo, nuestras mujeres han sido marginadas, borradas y silenciadas. Pero no seremos ignoradas. Nos levantaremos, resistiremos y reclamaremos nuestro legítimo lugar como líderes, guerreras y guardianas del espíritu de nuestra isla.\"",
+        purpleFlagP3: "Este emblema se ha convertido en un faro de esperanza, un símbolo de solidaridad y un recordatorio de que las voces de las mujeres puertorriqueñas ya no serán silenciadas. La bandera destaca particularmente la crisis de violencia de género en Puerto Rico, que fue declarada estado de emergencia en 2021.",
+        purpleFlagCredit: "Crédito: Bandera creada por katari_elvis. Texto adaptado de la descripción del creador sobre el significado y propósito de la bandera.",
+
+        // Flag Quote
+        purpleFlagQuote: "\"La bandera púrpura también tiene un significado más profundo: representa la lucha, el dolor y el triunfo de nuestras mujeres boricuas que han sobrevivido a la violencia doméstica. Las noticias pueden no cubrirlo, pero conocemos la verdad. Amplificaremos sus voces, mantendremos espacio para sus historias y lucharemos incansablemente por su justicia. ¡Las mujeres Borikúas somos poderosas!\"",
+        purpleFlagQuoteCredit: "— katari_elvis, creador de la Bandera Puertorriqueña Púrpura",
+
+        // Introduction section
+        whmIntroTitle: "Mujeres Puertorriqueñas: Fuerza y Resistencia",
+        whmIntroText: "El Mes de la Historia de la Mujer es un momento para honrar las innumerables contribuciones de las mujeres puertorriqueñas que han dado forma a nuestra historia, cultura y luchas continuas por la justicia. Desde las cacicas indígenas taínas hasta las activistas contemporáneas, las mujeres puertorriqueñas han estado a la vanguardia de los movimientos de resistencia, la preservación cultural y la construcción comunitaria tanto en la isla como en toda la diáspora.",
+        whmIntroP2: "Al celebrar sus logros, también reconocemos los desafíos continuos que enfrentan las mujeres en nuestras comunidades y nos comprometemos nuevamente con la lucha por la equidad de género, la justicia reproductiva y la liberación para todas.",
+
+        // Historical figures section
+        womenHistoryTitle: "Mujeres en la Historia Puertorriqueña",
+
+        // Lolita Lebrón
+        lolitaName: "Lolita Lebrón (1919-2010)",
+        lolitaDesc: "Una líder nacionalista que dirigió el ataque armado al Capitolio de EE.UU. en 1954 para llamar la atención sobre el estatus colonial de Puerto Rico. Después de cumplir 25 años de prisión, fue indultada por el presidente Carter y continuó su activismo por la independencia de Puerto Rico. Declaró famosamente: \"¡No vine a matar a nadie, vine a morir por Puerto Rico!\"",
+
+        // Luisa Capetillo
+        luisaName: "Luisa Capetillo (1879-1922)",
+        luisaDesc: "Una de las organizadoras laborales y activistas por los derechos de las mujeres más famosas de Puerto Rico. Defensora feroz de los derechos de los trabajadores y del sufragio femenino, también fue conocida por desafiar las normas de género al vestir ropa de hombre en público. Su libro de 1910 \"Mi opinión sobre las libertades, derechos y deberes de la mujer\" es considerado un clásico feminista.",
+
+        // Julia de Burgos
+        juliaName: "Julia de Burgos (1914-1953)",
+        juliaDesc: "Poeta cuya obra exploró temas de feminismo, justicia social e identidad puertorriqueña. Su poesía desafió el dominio colonial y las estructuras patriarcales mientras celebraba la belleza natural de Puerto Rico. A pesar de su trágica y corta vida, su obra continúa inspirando a generaciones de escritores y activistas. Sus poemas más famosos incluyen \"Río Grande de Loíza\" y \"A Julia de Burgos\".",
+
+        // Sylvia Rivera
+        sylviaName: "Sylvia Rivera (1951-2002)",
+        sylviaDesc: "Una pionera activista por los derechos LGBTQ+ de ascendencia puertorriqueña y venezolana que luchó por los derechos transgénero y estuvo presente en el levantamiento de Stonewall en 1969. Cofundadora de Street Transvestite Action Revolutionaries (STAR) con Marsha P. Johnson, Rivera dedicó su vida a ayudar a jóvenes LGBTQ+ sin hogar y a abogar por aquellos en los márgenes de la sociedad.",
+
+        // Feminism section
+        feminismTitle: "Feminismo y Derechos Civiles",
+        feminismIntro: "El feminismo puertorriqueño tiene una historia rica y compleja que se entrelaza con las luchas contra el colonialismo, la explotación económica y la discriminación racial. El movimiento siempre ha sido interseccional, abordando cómo la opresión de género se conecta con otros sistemas de poder.",
+        feminismHistoryTitle: "Momentos Clave en la Historia del Feminismo Puertorriqueño:",
+
+        // Feminist history timeline
+        timeline1: "<strong>1917:</strong> La Ley Jones otorga la ciudadanía estadounidense a los puertorriqueños, dando a las mujeres el derecho a organizarse políticamente",
+        timeline2: "<strong>1932:</strong> Las mujeres puertorriqueñas obtienen el sufragio (inicialmente limitado a mujeres alfabetizadas)",
+        timeline3: "<strong>1935:</strong> Sufragio universal para todas las mujeres puertorriqueñas",
+        timeline4: "<strong>1956:</strong> Inauguración de la primera organización de derechos de las mujeres en Puerto Rico, la Asociación Puertorriqueña de Mujeres Sufragistas",
+        timeline5: "<strong>1970s:</strong> Surgimiento de organizaciones feministas que abordan los derechos reproductivos durante las campañas de esterilización masiva",
+        timeline6: "<strong>1990s-presente:</strong> Creciente enfoque en la interseccionalidad, abordando la violencia contra las mujeres y los derechos LGBTQ+",
+
+        // Contemporary issues
+        contemporaryIssuesTitle: "Temas en el Feminismo Puertorriqueño Contemporáneo:",
+
+        // Issue cards
+        genderViolenceTitle: "Violencia de Género",
+        genderViolenceDesc: "Abordar la crisis continua de feminicidio y violencia doméstica en Puerto Rico, que fue declarada estado de emergencia en 2021.",
+
+        reproductiveTitle: "Justicia Reproductiva",
+        reproductiveDesc: "Luchar por la autonomía corporal y abordar el trauma histórico de las campañas de esterilización forzada que se dirigieron a las mujeres puertorriqueñas.",
+
+        environmentalTitle: "Justicia Ambiental",
+        environmentalDesc: "Organización de base liderada por mujeres contra la contaminación ambiental y los impactos del cambio climático que afectan desproporcionadamente a las mujeres.",
+
+        economicTitle: "Justicia Económica",
+        economicDesc: "Abogar por salarios justos, protecciones laborales y políticas que reconozcan el trabajo doméstico y de cuidado no remunerado de las mujeres.",
+
+        // Contemporary leaders section
+        contemporaryLeadersTitle: "Líderes Contemporáneas",
+
+        // Leaders
+        elizabethName: "Elizabeth Crespo Kebler",
+        elizabethDesc: "Académica y feminista cuyo trabajo se centra en la educación y los estudios de la mujer en Puerto Rico",
+
+        carmenName: "Carmen Yulín Cruz",
+        carmenDesc: "Ex alcaldesa de San Juan que ganó reconocimiento internacional por su liderazgo después del huracán María",
+
+        mayraName: "Mayra Santos-Febres",
+        mayraDesc: "Autora y profesora premiada cuyo trabajo explora el género, la sexualidad y la identidad afropuertorriqueña",
+
+        tallerName: "Taller Salud",
+        tallerDesc: "Organización comunitaria feminista enfocada en la salud de las mujeres y la prevención de la violencia en Loíza",
+
+        anaName: "Ana Irma Rivera Lassén",
+        anaDesc: "Abogada, activista y política que fue la primera mujer negra en presidir el Colegio de Abogados de Puerto Rico",
+
+        // Resources section
+        resourcesTitle: "Recursos y Apoyo",
+        onCampusTitle: "Recursos en el Campus de Yale",
+        nationalResourcesTitle: "Recursos Nacionales",
+        prResourcesTitle: "Recursos Específicos de Puerto Rico",
+        ctResourcesTitle: "Recursos de Connecticut para Sobrevivientes",
+
+        // Resources lists (keeping original links)
+        shareCenter: "Centro SHARE (Respuesta y Educación sobre Acoso y Agresión Sexual)",
+        wgssCenter: "Departamento de Estudios de Mujeres, Género y Sexualidad",
+        wff: "Foro de Mujeres Académicas",
+        wocc: "Colectivo de Mujeres de Color en Yale",
+        walden: "Consejería entre Pares Walden",
+
+        // National resources
+        dvHotline: "Línea Nacional contra la Violencia Doméstica: 1-800-799-7233",
+        saHotline: "Línea Nacional contra la Agresión Sexual: 1-800-656-HOPE (4673)",
+        transgender: "Centro Nacional para la Igualdad Transgénero",
+        maldef: "Fondo Mexicoamericano para la Defensa Legal y la Educación (MALDEF)",
+
+        // PR Resources
+        coordinadora: "Coordinadora Paz para las Mujeres",
+        tallerSalud: "Taller Salud",
+        colectiva: "Colectiva Feminista en Construcción",
+
+        // CT Resources
+        ctAllianceTitle: "Alianza de Connecticut para Terminar con la Violencia Sexual",
+        ctAllianceDesc1: "Línea directa 24 horas, gratuita, confidencial",
+        ctAllianceDesc2: "<strong>Inglés:</strong> 1-888-999-5545",
+        ctAllianceDesc3: "<strong>Español:</strong> 1-888-568-8332",
+
+        safeHavenTitle: "Safe Haven del Área Metropolitana de Waterbury",
+        safeHavenDesc1: "Ofrece consejería, grupos de apoyo y DOVE (clase de 8 semanas sobre los impactos de la violencia doméstica)",
+        safeHavenDesc2: "Oportunidades de sanación a través del arte y recursos disponibles en español y portugués",
+
+        hhcTitle: "Consejo de Salud Hispano",
+        hhcDesc1: "Servicios integrales que incluyen atención de salud conductual para víctimas de violencia de pareja",
+        hhcDesc2: "También ofrece alcance comunitario, protección de la salud, gestión de casos y servicios de bienestar",
+
+        ovaTitle: "Oficina del Defensor de Víctimas de CT",
+        ovaDesc: "Organización independiente a nivel estatal que ayuda a las víctimas de agresión sexual a navegar por el sistema de justicia penal",
+
+        // Visit Website text
+        visitWebsite: "Visitar Sitio Web",
+
+        // Resources notice
+        resourcesNotice: "Si tú o alguien que conoces está experimentando violencia doméstica o agresión sexual, comunícate con uno de estos recursos. Tu seguridad es importante, y hay ayuda disponible. Todos estos servicios ofrecen apoyo confidencial.",
+
+        // Events section
+        eventsTitle: "Próximos Eventos",
+
+        // Events listings
+        event1Title: "Proyección de Película: \"Lolita, la de los planos\"",
+        event1Date: "15 de marzo, 2025 | 7:00 PM | La Casa Cultural",
+        event1Desc: "Únete a nosotros para una proyección de este documental sobre Lolita Lebrón seguida de una discusión con el cineasta.",
+
+        event2Title: "Panel: \"Feminismos Puertorriqueños: Pasado, Presente y Futuro\"",
+        event2Date: "22 de marzo, 2025 | 4:00 PM | WLH 208",
+        event2Desc: "Discusión entre profesores y estudiantes sobre la evolución de los movimientos feministas en Puerto Rico y la diáspora.",
+
+        event3Title: "Taller: \"Poesía y Resistencia\"",
+        event3Date: "28 de marzo, 2025 | 6:30 PM | La Casa Cultural",
+        event3Desc: "Taller de escritura creativa inspirado en la obra de Julia de Burgos y otras poetas feministas puertorriqueñas.",
+
+        // CTA Section
+        getInvolved: "Involúcrate",
+        involvedText: "Únete a Despierta Boricua para honrar el legado de las mujeres puertorriqueñas y apoyar los esfuerzos continuos por la justicia de género.",
+
+        attendBtn: "Asistir a un Evento",
+        shareBtn: "Comparte Tu Historia"
+    }
 };
