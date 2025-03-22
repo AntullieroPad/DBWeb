@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata and character encoding -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Exploring the rich Afro-Boricua heritage and contributions to Puerto Rican culture, history, and identity.">
+    <meta name="keywords" content="afro-boricua, afro puerto rican, bomba, plena, loiza, afro caribbean, puerto rican diaspora">
+
+    <!-- Page Title -->
+    <title>Afro-Boricua Heritage | DB Yale</title>
+
+    <!-- Font Awesome Kit for icons -->
+    <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
+
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Fonts: Preconnect for performance, then load the Roboto font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+    <!-- Additional fonts for special styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <style>
+        /* Custom colors for Afro-Boricua page */
+        :root {
+            --primary-color: #C62828; /* Deeper red */
+            --secondary-color: #F9A825; /* Gold/yellow */
+            --tertiary-color: #2E7D32; /* Green */
+            --accent-color: #4527A0; /* Deep purple */
+            --text-color: #212121;
+            --light-text: #FAFAFA;
+            --dark-bg: #212121;
+            --pattern-bg: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Hero section styling */
+        .afro-hero {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("afro-boricua-hero.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Fallback background if image doesn't load */
+        .afro-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--dark-bg));
+            z-index: -1;
+        }
+
+        .afro-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .afro-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+            line-height: 1.6;
+        }
+
+        /* Decorative elements */
+        .pattern-divider {
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color), var(--accent-color));
+            margin: 3rem 0;
+            border-radius: 4px;
+        }
+
+        /* Culture section styling */
+        .culture-section {
+            background-color: #FFF;
+            background-image: var(--pattern-bg);
+            padding: 3rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        /* Topic card styling */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .topic-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .topic-card-header {
+            padding: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            position: relative;
+        }
+
+        .topic-card:nth-child(2n) .topic-card-header {
+            background-color: var(--secondary-color);
+        }
+
+        .topic-card:nth-child(3n) .topic-card-header {
+            background-color: var(--tertiary-color);
+        }
+
+        .topic-card:nth-child(4n) .topic-card-header {
+            background-color: var(--accent-color);
+        }
+
+        .topic-card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .topic-card-body {
+            padding: 1.5rem;
+        }
+
+        .topic-card-body p {
+            margin: 0 0 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .topic-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Quote section styling */
+        .quote-section {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            font-style: italic;
+            position: relative;
+            padding: 0 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .quote-text::before,
+        .quote-text::after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            color: var(--secondary-color);
+            opacity: 0.7;
+            line-height: 1;
+        }
+
+        .quote-text::before {
+            left: 0;
+            top: -1rem;
+        }
+
+        .quote-text::after {
+            right: 0;
+            bottom: -2rem;
+        }
+
+        .quote-author {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Image gallery styling */
+        .gallery-section {
+            padding: 3rem 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Timeline section */
+        .timeline-section {
+            padding: 3rem 2rem;
+            background-color: #fff;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(var(--primary-color), var(--secondary-color), var(--tertiary-color));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+            padding-right: 2rem;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-right: 0;
+            padding-left: 2rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .timeline-content p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            top: 20px;
+            right: -10px;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+            right: auto;
+        }
+
+        .timeline-item:nth-child(2n)::after {
+            background-color: var(--secondary-color);
+        }
+
+        .timeline-item:nth-child(3n)::after {
+            background-color: var(--tertiary-color);
+        }
+
+        /* Interactive elements */
+        .interactive-section {
+            background-color: #f5f5f5;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .interactive-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .interactive-quiz {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 600px;
+            display: none; /* Hidden initially, shown with JavaScript */
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .quiz-option {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            background-color: white;
+        }
+
+        .quiz-option:hover {
+            background-color: #f5f5f5;
+        }
+
+        .quiz-result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .correct-answer {
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
+        }
+
+        .wrong-answer {
+            background-color: #ffebee;
+            border: 1px solid #f44336;
+        }
+
+        .toggle-quiz-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .toggle-quiz-btn:hover {
+            background-color: #b71c1c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Resources section */
+        .resources-section {
+            padding: 3rem 2rem;
+            background-color: #f5f5f5;
+        }
+
+        .resources-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .resource-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-item a {
+            display: block;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .resource-category {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .resource-item h4 {
+            margin: 0 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        .resource-item p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Footer CTA section */
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("afro-boricua-cta.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        /* Fallback background if image doesn't load */
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--dark-bg), var(--primary-color));
+            z-index: -1;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .primary-cta {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .secondary-cta {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .primary-cta:hover {
+            background-color: #B71C1C;
+            transform: translateY(-3px);
+        }
+
+        .secondary-cta:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Floating music player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .music-player.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .player-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .player-controls button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .player-controls button:hover {
+            color: var(--secondary-color);
+        }
+
+        .track-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .track-title {
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .track-artist {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* "How did you find this page?" section */
+        .discovery-section {
+            padding: 2rem;
+            background-color: #f9f9f9;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .discovery-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .discovery-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .discovery-option {
+            padding: 0.75rem 1.5rem;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .discovery-option:hover {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+        }
+
+        .discovery-option.selected {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        .discovery-feedback {
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        /* Hidden "Easter Egg" badge */
+        .easter-egg-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transform: rotate(-15deg);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            cursor: pointer;
+            opacity: 0.3;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .easter-egg-badge:hover {
+            opacity: 1;
+            transform: rotate(0);
+        }
+
+        /* Bomba rhythm visualizer */
+        .rhythm-visualizer {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: center;
+            color: white;
+        }
+
+        .rhythm-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .beat {
+            aspect-ratio: 1/1;
+            background-color: #333;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .beat.active {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .beat.current {
+            border: 2px solid white;
+        }
+
+        .rhythm-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .rhythm-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .rhythm-btn:hover {
+            background-color: #555;
+        }
+
+        .rhythm-btn.primary {
+            background-color: var(--primary-color);
+        }
+
+        .rhythm-btn.primary:hover {
+            background-color: #b71c1c;
+        }
+
+        .rhythm-patterns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .pattern-btn {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .pattern-btn:hover {
+            background-color: #666;
+        }
+
+        /* Glossary section */
+        .glossary-section {
+            padding: 3rem 2rem;
+            background-color: #fff;
+        }
+
+        .glossary-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .glossary-list {
+            margin-top: 2rem;
+        }
+
+        .glossary-term {
+            margin-bottom: 1.5rem;
+        }
+
+        .term-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .term-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .term-pronunciation {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .term-definition {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 110px; /* Positioned to not overlap with Easter Egg badge */
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 99;
+            opacity: 0;
+            transition: opacity 0.3s, background-color 0.3s;
+            border: none;
+            font-size: 24px;
+        }
+
+        #backToTop.show {
+            opacity: 0.7;
+        }
+
+        #backToTop:hover {
+            opacity: 1;
+            background-color: #b71c1c;
+        }
+
+        /* Secret unlocked notification */
+        .secret-notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            text-align: center;
+        }
+
+        .secret-notification.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Dark mode overrides */
+        body.dark-mode .culture-section,
+        body.dark-mode .timeline-section,
+        body.dark-mode .glossary-section {
+            background-color: #121212;
+            background-image: none;
+        }
+
+        body.dark-mode .section-heading {
+            color: var(--secondary-color);
+        }
+
+        body.dark-mode .topic-card,
+        body.dark-mode .timeline-content,
+        body.dark-mode .resource-item,
+        body.dark-mode .interactive-quiz,
+        body.dark-mode .glossary-term {
+            background-color: #1E1E1E;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .timeline-content h3,
+        body.dark-mode .resource-item h4,
+        body.dark-mode .topic-card-body p,
+        body.dark-mode .term-name {
+            color: #FAFAFA;
+        }
+
+        body.dark-mode .resource-item p,
+        body.dark-mode .term-pronunciation,
+        body.dark-mode .term-definition {
+            color: #BBB;
+        }
+
+        body.dark-mode .gallery-section,
+        body.dark-mode .resources-section,
+        body.dark-mode .discovery-section,
+        body.dark-mode .interactive-section {
+            background-color: #121212;
+        }
+
+        body.dark-mode .discovery-option {
+            background-color: #2a2a2a;
+            border-color: #444;
+            color: #eee;
+        }
+
+        body.dark-mode .discovery-option:hover {
+            background-color: #333;
+        }
+
+        body.dark-mode .discovery-option.selected {
+            background-color: var(--secondary-color);
+            color: #111;
+        }
+
+        body.dark-mode .quiz-option {
+            background-color: #2a2a2a;
+            border-color: #444;
+            color: #eee;
+        }
+
+        body.dark-mode .quiz-option:hover {
+            background-color: #333;
+        }
+
+        body.dark-mode .correct-answer {
+            background-color: rgba(76, 175, 80, 0.2);
+            border-color: #4caf50;
+        }
+
+        body.dark-mode .wrong-answer {
+            background-color: rgba(244, 67, 54, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .afro-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-heading {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .section-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .quote-text {
+                font-size: 1.4rem;
+                padding: 0 1rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                padding-left: 2rem;
+                padding-right: 0;
+                margin-left: 0;
+            }
+
+            .timeline-item::after,
+            .timeline-item:nth-child(even)::after {
+                left: -10px;
+                right: auto;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-btn {
+                display: block;
+                width: 100%;
+            }
+
+            .music-player {
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                border-radius: 0;
+                padding: 0.5rem 1rem;
+            }
+
+            .discovery-options {
+                flex-direction: column;
+            }
+
+            .discovery-option {
+                width: 100%;
+            }
+
+            .rhythm-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .rhythm-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Fixed SIDEBAR (copied from your existing HTML) -->
+<aside class="sidebar">
+    <!-- Sidebar content copied from index.html -->
+    <div class="sidebar-logo">
+        <a href="index.html" id="homepageLogoLink">
+            <img src="./DB Logo Outline.png" alt="DB Yale Logo" class="logo-img" />
+        </a>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="index.html" data-key="navHome">Home</a>
+        <a href="about.html" data-key="navAbout">About</a>
+        <a href="syllabus.html" data-key="navSyllabus">Syllabus</a>
+        <a href="collaborate.html" data-key="navCollaborate">Collaborate</a>
+        <a href="news.html" data-key="navNews">News + Events</a>
+        <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
+        <a href="alumni.html" data-key="navAlumni">Alumni</a>
+        <a href="merch.html" data-key="navMerch">Merch</a>
+        <a href="gallery.html" data-key="navGallery">Gallery</a>
+        <a href="afro-boricua.html" class="special-nav-link" style="background: linear-gradient(to right, #C62828, #F9A825); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-drum" style="margin-right: 8px;"></i> Afro-Boricua
+        </a>
+    </nav>
+
+    <button id="lang-toggle">Español</button>
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <span class="icon">🌙</span>
+        <span class="label">Dark Mode</span>
+    </button>
+
+    <div class="sidebar-footer">
+        <div class="sidebar-search">
+            <input type="text" id="sidebarSearch" placeholder="Search...">
+            <button id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:jaden.gonzalez@yale.edu" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        <div class="license">© 2025 DB Yale</div>
+    </div>
+</aside>
+
+<!-- Hamburger button for mobile -->
+<button class="hamburger-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<!-- MAIN CONTAINER -->
+<div class="main-container">
+    <!-- Hero Section -->
+    <section class="afro-hero">
+        <h1>Afro-Boricua Heritage</h1>
+        <p>Exploring the rich cultural legacy, historical contributions, and ongoing influence of African heritage in Puerto Rican identity and diaspora.</p>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="culture-section">
+        <div class="section-container">
+            <h2 class="section-heading">Afro-Boricua Identity</h2>
+            <p>The Afro-Boricua identity represents the vibrant intersection of African, Indigenous Taíno, and European cultural elements that have shaped Puerto Rico's history and society. Dating back to the 16th century when enslaved Africans were brought to the island, this heritage has profoundly influenced every aspect of Puerto Rican life—from music and dance to religion, language, cuisine, and political movements.</p>
+
+            <p>Often marginalized in official histories, the African influence on Puerto Rican culture is undeniable and remains a cornerstone of Boricua identity both on the island and throughout the diaspora. This page celebrates that rich heritage and explores its ongoing significance.</p>
+
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1513-1530s</div>
+                        <h3>First Africans Arrive</h3>
+                        <p>The first enslaved Africans were brought to Puerto Rico, primarily from West Africa. Many were Yoruba, Igbo, and Bakongo people who brought their cultural traditions, religious practices, and knowledge systems that would profoundly influence Puerto Rican society.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1527</div>
+                        <h3>First Major Slave Rebellion</h3>
+                        <p>One of the earliest documented slave rebellions in Puerto Rico occurred at the Toa gold mines, setting a precedent for resistance that would continue throughout Puerto Rico's history.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1812</div>
+                        <h3>Marcos Xiorro's Rebellion</h3>
+                        <p>Marcos Xiorro planned one of the largest slave rebellions in Puerto Rico's history, aiming to take over the city of Bayamón and establish a free Black republic. Though the plot was discovered and thwarted, Xiorro became a symbol of resistance and the ongoing struggle for freedom.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1848</div>
+                        <h3>Promulgation of "Bando Negro"</h3>
+                        <p>Following slave uprisings in other Caribbean islands, Governor Juan Prim instituted harsh restrictions on free and enslaved Black people in Puerto Rico through the infamous "Black Code" (Bando Negro), reflecting the authorities' fears of rebellion.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1868</div>
+                        <h3>El Grito de Lares</h3>
+                        <p>This uprising against Spanish colonial rule included a demand for the abolition of slavery, highlighting how the anti-slavery and independence movements were interconnected in Puerto Rico.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">March 22, 1873</div>
+                        <h3>Abolition of Slavery</h3>
+                        <p>Slavery was officially abolished in Puerto Rico. However, formerly enslaved people were required to continue working for their former masters for three more years under the "contratos" system.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 7 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1920s-1930s</div>
+                        <h3>Negrismo Literary Movement</h3>
+                        <p>Puerto Rican writers like Luis Palés Matos pioneered the Negrismo literary movement, which celebrated African cultural elements and addressed racial themes in Caribbean literature.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 8 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1950s</div>
+                        <h3>Recognition of Bomba and Plena</h3>
+                        <p>Rafael Cepeda and his family played a crucial role in preserving and promoting Bomba and Plena, earning him the title "Patriarch of Bomba and Plena" and helping to elevate these Afro-Puerto Rican musical forms to national cultural symbols.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 9 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1960s-1970s</div>
+                        <h3>Civil Rights Era Activism</h3>
+                        <p>Afro-Puerto Ricans in the diaspora formed connections with the broader Civil Rights Movement in the United States, addressing both racial and cultural identity in their activism.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 10 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1980s-Present</div>
+                        <h3>Cultural Renaissance</h3>
+                        <p>Organizations like the Taller Tambuyé and the Fundación Nacional de Cultura Popular have worked to document, preserve, and promote Afro-Puerto Rican cultural expressions, leading to increased recognition and celebration of this heritage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Bomba Rhythm Section -->
+    <section class="interactive-section">
+        <div class="interactive-container">
+            <h2 class="section-heading" style="color: white;">Experience Bomba Rhythm</h2>
+            <p style="color: #ddd;">Bomba is one of Puerto Rico's oldest musical traditions with direct African roots. Create your own bomba rhythm pattern below by clicking on the beats to activate them.</p>
+
+            <div class="rhythm-visualizer">
+                <h3>Bomba Rhythm Creator</h3>
+
+                <div class="rhythm-patterns">
+                    <button class="pattern-btn" data-pattern="sicá">Sicá Pattern</button>
+                    <button class="pattern-btn" data-pattern="yubá">Yubá Pattern</button>
+                    <button class="pattern-btn" data-pattern="holandés">Holandés Pattern</button>
+                    <button class="pattern-btn" data-pattern="cuembé">Cuembé Pattern</button>
+                </div>
+
+                <div class="rhythm-grid" id="bombaGrid">
+                    <!-- Beats will be generated with JavaScript -->
+                </div>
+
+                <div class="rhythm-controls">
+                    <button class="rhythm-btn" id="clearBeats">Clear</button>
+                    <button class="rhythm-btn primary" id="playBomba">
+                        <i class="fas fa-play"></i> Play Rhythm
+                    </button>
+                    <button class="rhythm-btn" id="stopBomba">
+                        <i class="fas fa-stop"></i> Stop
+                    </button>
+                </div>
+
+                <p style="font-size: 0.9rem; margin-top: 1.5rem; color: #999;">
+                    Tip: Click on circles to create your pattern. Different patterns represent traditional bomba styles.
+                </p>
+            </div>
+
+            <!-- Toggle Quiz Button -->
+            <button class="toggle-quiz-btn" id="toggleQuiz">Test Your Knowledge</button>
+
+            <!-- Quiz Section (Hidden by default) -->
+            <div class="interactive-quiz" id="afroQuiz">
+                <div class="quiz-question">
+                    Which of these is a traditional Afro-Puerto Rican percussion instrument used in Bomba?
+                </div>
+                <div class="quiz-options">
+                    <button class="quiz-option" data-correct="true">Barril de Bomba</button>
+                    <button class="quiz-option" data-correct="false">Marimba</button>
+                    <button class="quiz-option" data-correct="false">Accordion</button>
+                    <button class="quiz-option" data-correct="false">Charango</button>
+                </div>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-container">
+            <p class="quote-text">Lo negro, presente en todo lo puertorriqueño, desde la música hasta las palabras cotidianas, es parte central de nuestra identidad nacional.</p>
+            <p class="quote-author">— Isabelo Zenón Cruz</p>
+        </div>
+    </section>
+
+    <!-- Topics Grid Section -->
+    <section class="culture-section">
+        <div class="section-container">
+            <h2 class="section-heading">Exploring Our Heritage</h2>
+            <div class="topics-grid">
+                <!-- Topic 1: History & Resistance -->
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3><i class="fas fa-fist-raised topic-icon"></i><br>History & Resistance</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>From the earliest days of Spanish colonization, Africans in Puerto Rico organized rebellions, formed maroon communities, and fought for freedom. Learn about key historical figures like Marcos Xiorro, who planned one of the largest slave rebellions in Puerto Rico's history, and how Afro-Boricuas played crucial roles in movements for abolition and independence.</p>
+                    </div>
+                </div>
+
+                <!-- Topic 2: Music & Dance -->
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3><i class="fas fa-drum topic-icon"></i><br>Music & Dance</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Bomba and Plena, two of Puerto Rico's most distinctive musical traditions, have deep African roots. Bomba emerged directly from enslaved communities as a form of expression, communication, and resistance. These rhythms and dances continue to evolve while maintaining their connection to collective memory and community empowerment.</p>
+                    </div>
+                </div>
+
+                <!-- Topic 3: Language & Expressions -->
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3><i class="fas fa-comments topic-icon"></i><br>Language & Expressions</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Puerto Rican Spanish contains numerous words of African origin, particularly from Yoruba and Bantu languages. Terms like "chévere" (excellent), "bemba" (thick lips), and "guineo" (banana) reflect this linguistic influence. Explore how these language patterns symbolize the cultural synthesis at the heart of Puerto Rican identity.</p>
+                    </div>
+                </div>
+
+                <!-- Topic 4: Religion & Spirituality -->
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3><i class="fas fa-pray topic-icon"></i><br>Religion & Spirituality</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>African spiritual traditions have blended with Catholic practices to create unique religious expressions in Puerto Rico. From Santería to Espiritismo, these spiritual systems reflect the resilience and adaptability of African cosmologies and their continued importance in Puerto Rican communities today.</p>
+                    </div>
+                </div>
+
+                <!-- Topic 5: Fashion & Aesthetics -->
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3><i class="fas fa-tshirt topic-icon"></i><br>Fashion & Aesthetics</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Traditional Afro-Boricua styles encompass vibrant colors, headwraps, and distinctive jewelry that trace their origins to African aesthetic sensibilities. Modern Afro-Boricua fashion continues to celebrate these elements while reinterpreting them in contemporary contexts, particularly as expressions of cultural pride and reclamation.</p>
+                    </div>
+                </div>
+
+                <!-- Topic 6: Literature, Poetry & Art -->
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3><i class="fas fa-book-open topic-icon"></i><br>Literature, Poetry & Art</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>From poet Luis Palés Matos and his groundbreaking work "Tuntún de pasa y grifería" to contemporary writers and visual artists, Afro-Boricua perspectives have enriched Puerto Rican literary and artistic traditions. These works often challenge colonial narratives and celebrate the African contributions to Puerto Rico's cultural identity.</p>
+                    </div>
+                </div>
+
+                <!-- Topic 7: Food & Culinary Contributions -->
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3><i class="fas fa-utensils topic-icon"></i><br>Food & Culinary Traditions</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Many staples of Puerto Rican cuisine have African roots, including mofongo (mashed plantains with garlic), pasteles (similar to tamales), and the use of coconut in various dishes. These culinary traditions reflect adaptation and innovation with ingredients available on the island, creating distinctive flavors that define Puerto Rican food.</p>
+                    </div>
+                </div>
+
+                <!-- Topic 8: Modern Movements & Activism -->
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3><i class="fas fa-bullhorn topic-icon"></i><br>Modern Movements & Activism</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Contemporary Afro-Boricua activists are addressing issues of racial justice, cultural recognition, and anti-blackness within and beyond Puerto Rican communities. Organizations like Colectivo Ilé work to educate about Afro-Puerto Rican heritage while fighting racism and promoting inclusive understandings of Puerto Rican identity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="section-container">
+            <h2 class="section-heading">Visual Legacy</h2>
+            <p>The visual heritage of Afro-Boricua culture demonstrates its profound impact on Puerto Rican society, arts, and identity. Explore these images that showcase important elements of this rich tradition.</p>
+
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Bomba dancers in traditional attire performing at a cultural festival in Loíza">
+                    <div class="gallery-caption">
+                        <p>Bomba dancers in traditional attire, Loíza</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Traditional Bomba drums - barriles used in Afro-Puerto Rican music">
+                    <div class="gallery-caption">
+                        <p>Traditional Bomba drums (barriles)</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Colorful buildings in Loíza, a center of Afro-Puerto Rican culture">
+                    <div class="gallery-caption">
+                        <p>Colorful buildings in Loíza, a center of Afro-Boricua culture</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Traditional Vejigante masks used in cultural festivals and celebrations">
+                    <div class="gallery-caption">
+                        <p>Vejigante masks, synthesis of African, Spanish, and Taíno traditions</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Artwork depicting Yoruba orishas that influenced Puerto Rican spiritual practices">
+                    <div class="gallery-caption">
+                        <p>Contemporary artwork depicting syncretized spiritual traditions</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Modern Afro-Puerto Rican youth celebrating their heritage in New York">
+                    <div class="gallery-caption">
+                        <p>Afro-Boricua diaspora youth celebrating their heritage</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Preparation of traditional Afro-Puerto Rican food like mofongo">
+                    <div class="gallery-caption">
+                        <p>Preparation of mofongo, a dish with African roots</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Fiestas de Santiago Apóstol in Loíza showcasing Afro-Puerto Rican traditions">
+                    <div class="gallery-caption">
+                        <p>Fiestas de Santiago Apóstol in Loíza</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glossary Section -->
+    <section class="glossary-section">
+        <div class="glossary-container">
+            <h2 class="section-heading">Key Terms & Concepts</h2>
+            <p>Understanding Afro-Boricua culture often requires familiarity with specific terms and concepts. This glossary provides definitions for important words related to Afro-Puerto Rican heritage.</p>
+
+            <div class="glossary-list">
+                <!-- Term 1 -->
+                <div class="glossary-term">
+                    <div class="term-header">
+                        <h3 class="term-name">Bomba</h3>
+                        <span class="term-pronunciation">(BOHM-bah)</span>
+                    </div>
+                    <p class="term-definition">A traditional Afro-Puerto Rican music and dance style that emerged from enslaved communities. Characterized by call-and-response singing, distinctive drum patterns, and improvised dance movements that interact with the drummer.</p>
+                </div>
+
+                <!-- Term 2 -->
+                <div class="glossary-term">
+                    <div class="term-header">
+                        <h3 class="term-name">Plena</h3>
+                        <span class="term-pronunciation">(PLEH-nah)</span>
+                    </div>
+                    <p class="term-definition">Often called "el periódico cantado" (the sung newspaper), plena is a musical form that developed in early 20th century Puerto Rico with African rhythmic influences. It traditionally conveyed news and social commentary through narrative lyrics.</p>
+                </div>
+
+                <!-- Term 3 -->
+                <div class="glossary-term">
+                    <div class="term-header">
+                        <h3 class="term-name">Barril de Bomba</h3>
+                        <span class="term-pronunciation">(bah-REEL deh BOHM-bah)</span>
+                    </div>
+                    <p class="term-definition">The primary drum used in bomba music, traditionally made from rum barrels with goatskin heads. Different sized barriles produce distinct tones, with the larger primo barrel leading the ensemble.</p>
+                </div>
+
+                <!-- Term 4 -->
+                <div class="glossary-term">
+                    <div class="term-header">
+                        <h3 class="term-name">Loíza</h3>
+                        <span class="term-pronunciation">(loh-EE-sah)</span>
+                    </div>
+                    <p class="term-definition">A municipality on Puerto Rico's northeastern coast with the island's highest concentration of Afro-descendants. Recognized as the center of Afro-Puerto Rican culture and home to important traditions like the Festival of Santiago Apóstol.</p>
+                </div>
+
+                <!-- Term 5 -->
+                <div class="glossary-term">
+                    <div class="term-header">
+                        <h3 class="term-name">Vejigante</h3>
+                        <span class="term-pronunciation">(veh-hee-GAHN-teh)</span>
+                    </div>
+                    <p class="term-definition">A folkloric character represented by colorful masks and costumes, combining African, Spanish, and Taíno influences. Originally associated with Santiago Apóstol festivals, these masquerade figures represent the triumph of good over evil.</p>
+                </div>
+
+                <!-- Term 6 -->
+                <div class="glossary-term">
+                    <div class="term-header">
+                        <h3 class="term-name">Cimarrón</h3>
+                        <span class="term-pronunciation">(see-mah-ROHN)</span>
+                    </div>
+                    <p class="term-definition">Enslaved people who escaped and established free communities in remote mountains and forests. These maroon communities maintained African cultural practices and often engaged in resistance against colonial authorities.</p>
+                </div>
+
+                <!-- Term 7 -->
+                <div class="glossary-term">
+                    <div class="term-header">
+                        <h3 class="term-name">Baquiné</h3>
+                        <span class="term-pronunciation">(bah-kee-NEH)</span>
+                    </div>
+                    <p class="term-definition">A traditional wake celebration for a child's passing, believed to have African origins. Combines Catholic prayers with music, dance, and communal celebration, reflecting the belief that the child's spirit returns directly to heaven.</p>
+                </div>
+
+                <!-- Term 8 -->
+                <div class="glossary-term">
+                    <div class="term-header">
+                        <h3 class="term-name">Negrismo</h3>
+                        <span class="term-pronunciation">(neh-GREES-moh)</span>
+                    </div>
+                    <p class="term-definition">A literary and artistic movement in the Caribbean that emerged in the 1920s-30s, focused on celebrating African cultural elements and addressing racial themes. Luis Palés Matos was a pioneering figure in Puerto Rico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="section-container">
+            <h2 class="section-heading">Learning Resources</h2>
+            <p>Deepen your understanding of Afro-Boricua heritage through these carefully selected resources, spanning books, documentaries, music, and organizations dedicated to preserving and promoting this rich cultural legacy.</p>
+
+            <ul class="resources-list">
+                <!-- Resource 1 -->
+                <li class="resource-item">
+                    <a href="#" target="_blank">
+                        <div class="resource-category">Book</div>
+                        <h4>El país de cuatro pisos</h4>
+                        <p>By José Luis González, this influential essay reframes Puerto Rican identity by establishing the African foundation as the "first floor" of Puerto Rican society and culture.</p>
+                    </a>
+                </li>
+
+                <!-- Resource 2 -->
+                <li class="resource-item">
+                    <a href="#" target="_blank">
+                        <div class="resource-category">Documentary</div>
+                        <h4>Raíces: Bomba y Plena</h4>
+                        <p>This documentary explores the African roots of Puerto Rico's most distinctive musical traditions, featuring interviews with master musicians and cultural preservationists.</p>
+                    </a>
+                </li>
+
+                <!-- Resource 3 -->
+                <li class="resource-item">
+                    <a href="#" target="_blank">
+                        <div class="resource-category">Organization</div>
+                        <h4>Colectivo Ilé</h4>
+                        <p>A non-profit organization dedicated to combating racism and promoting awareness of Afro-Puerto Rican heritage through education, activism, and community engagement.</p>
+                    </a>
+                </li>
+
+                <!-- Resource 4 -->
+                <li class="resource-item">
+                    <a href="#" target="_blank">
+                        <div class="resource-category">Music</div>
+                        <h4>Familia Cepeda: Bomba Sinfónica</h4>
+                        <p>A groundbreaking album that combines traditional Bomba rhythms with symphonic arrangements, demonstrating the versatility and sophistication of Afro-Puerto Rican musical traditions.</p>
+                    </a>
+                </li>
+
+                <!-- Resource 5 -->
+                <li class="resource-item">
+                    <a href="#" target="_blank">
+                        <div class="resource-category">Book</div>
+                        <h4>Tuntún de pasa y grifería</h4>
+                        <p>Luis Palés Matos's pioneering collection of poetry celebrating African cultural elements in Puerto Rico, a cornerstone of the Negrismo literary movement.</p>
+                    </a>
+                </li>
+
+                <!-- Resource 6 -->
+                <li class="resource-item">
+                    <a href="#" target="_blank">
+                        <div class="resource-category">Virtual Archive</div>
+                        <h4>Digital Library of the Caribbean</h4>
+                        <p>A comprehensive online repository of historical documents, photographs, and academic resources related to Afro-Caribbean heritage, including Puerto Rico.</p>
+                    </a>
+                </li>
+
+                <!-- Resource 7 -->
+                <li class="resource-item">
+                    <a href="#" target="_blank">
+                        <div class="resource-category">Academic Journal</div>
+                        <h4>Centro Journal</h4>
+                        <p>Published by the Center for Puerto Rican Studies, this journal features scholarly articles on various aspects of Afro-Puerto Rican history, culture, and contemporary issues.</p>
+                    </a>
+                </li>
+
+                <!-- Resource 8 -->
+                <li class="resource-item">
+                    <a href="#" target="_blank">
+                        <div class="resource-category">Community Center</div>
+                        <h4>Casa Pueblo</h4>
+                        <p>A community-based organization in Adjuntas that integrates Afro-Boricua cultural elements into its educational and environmental initiatives.</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Discovery Section -->
+    <section class="discovery-section">
+        <div class="discovery-container">
+            <h2>How did you find this secret page?</h2>
+            <p>We're curious to know how you discovered this hidden celebration of Afro-Boricua heritage!</p>
+
+            <div class="discovery-options">
+                <button class="discovery-option" data-option="search">Searched for "Afro-Boricua"</button>
+                <button class="discovery-option" data-option="bomba">Searched for "Bomba"</button>
+                <button class="discovery-option" data-option="recommend">Someone recommended it</button>
+                <button class="discovery-option" data-option="accident">Found it by accident</button>
+                <button class="discovery-option" data-option="secret">I know the secret trigger word</button>
+            </div>
+
+            <div class="discovery-feedback">
+                <p id="discoveryResponse">Thanks for sharing! We're glad you found this page celebrating our Afro-Boricua heritage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Join the Movement</h2>
+            <p>Connect with initiatives that celebrate and advance Afro-Boricua culture, history, and social justice. Be part of preserving and promoting this vital heritage for future generations.</p>
+
+            <div class="cta-buttons">
+                <a href="#" class="cta-btn primary-cta">Get Involved</a>
+                <a href="#" class="cta-btn secondary-cta">Share Your Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Player (initially hidden, shown with JavaScript) -->
+    <div class="music-player" id="bombaPlayer">
+        <div class="player-controls">
+            <button id="playMusic"><i class="fas fa-play"></i></button>
+            <button id="pauseMusic"><i class="fas fa-pause"></i></button>
+        </div>
+        <div class="track-info">
+            <span class="track-title">Bomba Rhythm</span>
+            <span class="track-artist">Traditional</span>
+        </div>
+    </div>
+
+    <!-- Secret Easter Egg Badge -->
+    <div class="easter-egg-badge">
+        <span>SECRET PAGE FOUND!</span>
+    </div>
+
+    <!-- Secret Notification (hidden initially) -->
+    <div class="secret-notification" id="secretNotification">
+        <p>¡Felicidades! You've discovered the secret Afro-Boricua heritage page!</p>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top">&#8679;</button>
+</div>
+
+<!-- JavaScript for interactive elements -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show secret notification on page load
+        const secretNotification = document.getElementById('secretNotification');
+        setTimeout(() => {
+            secretNotification.classList.add('show');
+            setTimeout(() => {
+                secretNotification.classList.remove('show');
+            }, 5000);
+        }, 1000);
+
+        // Store that user has found this page in localStorage
+        localStorage.setItem('foundAfroBoricuaPage', 'true');
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Discovery Section
+        const discoveryOptions = document.querySelectorAll('.discovery-option');
+        const discoveryFeedback = document.querySelector('.discovery-feedback');
+        const discoveryResponse = document.getElementById('discoveryResponse');
+
+        discoveryOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                discoveryOptions.forEach(btn => btn.classList.remove('selected'));
+
+                // Add selected class to clicked option
+                this.classList.add('selected');
+
+                // Show feedback
+                discoveryFeedback.style.display = 'block';
+
+                // Customize response based on selection
+                const optionType = this.getAttribute('data-option');
+                let responseText = "Thanks for sharing! We're glad you found this page celebrating our Afro-Boricua heritage.";
+
+                if (optionType === 'search') {
+                    responseText = "Great! We're glad the search function helped you discover this content about Afro-Boricua culture.";
+                } else if (optionType === 'bomba') {
+                    responseText = "¡Wepa! A true lover of our Afro-Boricua musical traditions. Thanks for your interest in Bomba!";
+                } else if (optionType === 'recommend') {
+                    responseText = "Word of mouth is powerful! Thanks to whoever shared this hidden resource with you.";
+                } else if (optionType === 'accident') {
+                    responseText = "Sometimes the best discoveries happen by accident! We're glad you stumbled upon this celebration of Afro-Boricua heritage.";
+                } else if (optionType === 'secret') {
+                    responseText = "¡Eso es! You know the secret trigger word. You've truly earned your secret page discovery badge!";
+                }
+
+                discoveryResponse.textContent = responseText;
+            });
+        });
+
+        // Quiz Functionality
+        const toggleQuizBtn = document.getElementById('toggleQuiz');
+        const quizSection = document.getElementById('afroQuiz');
+        const quizOptions = document.querySelectorAll('.quiz-option');
+        const quizResult = document.querySelector('.quiz-result');
+
+        toggleQuizBtn.addEventListener('click', function() {
+            if (quizSection.style.display === 'block') {
+                quizSection.style.display = 'none';
+                toggleQuizBtn.textContent = 'Test Your Knowledge';
+            } else {
+                quizSection.style.display = 'block';
+                toggleQuizBtn.textContent = 'Hide Quiz';
+            }
+        });
+
+        quizOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+
+                // Reset all options
+                quizOptions.forEach(opt => {
+                    opt.style.backgroundColor = '';
+                    opt.style.borderColor = '';
+                });
+
+                // Style selected option
+                if (isCorrect) {
+                    this.style.backgroundColor = '#e8f5e9';
+                    this.style.borderColor = '#4caf50';
+                    quizResult.textContent = '¡Correcto! The Barril de Bomba is the primary drum used in traditional Bomba music.';
+                    quizResult.className = 'quiz-result correct-answer';
+                } else {
+                    this.style.backgroundColor = '#ffebee';
+                    this.style.borderColor = '#f44336';
+                    quizResult.textContent = 'Not quite. The Barril de Bomba is the traditional drum used in Bomba music.';
+                    quizResult.className = 'quiz-result wrong-answer';
+                }
+
+                quizResult.style.display = 'block';
+            });
+        });
+
+        // Bomba Rhythm Generator
+        const bombaGrid = document.getElementById('bombaGrid');
+        const playBombaBtn = document.getElementById('playBomba');
+        const stopBombaBtn = document.getElementById('stopBomba');
+        const clearBeatsBtn = document.getElementById('clearBeats');
+        const patternBtns = document.querySelectorAll('.pattern-btn');
+
+        // Create grid cells (8x4 grid for drums)
+        const gridSize = { rows: 4, cols: 8 };
+        let activeBeats = new Array(gridSize.rows).fill().map(() => new Array(gridSize.cols).fill(false));
+        let isPlaying = false;
+        let currentBeat = -1;
+        let rhythmInterval;
+
+        // Create grid
+        for (let row = 0; row < gridSize.rows; row++) {
+            for (let col = 0; col < gridSize.cols; col++) {
+                const beat = document.createElement('div');
+                beat.className = 'beat';
+                beat.dataset.row = row;
+                beat.dataset.col = col;
+
+                // Add drum type label for first column
+                if (col === 0) {
+                    const drumTypes = ['Primo', 'Segundo', 'Buleador', 'Cuá'];
+                    beat.innerHTML = `<small>${drumTypes[row]}</small>`;
+                }
+
+                // Toggle active state on click
+                beat.addEventListener('click', function() {
+                    const r = parseInt(this.dataset.row);
+                    const c = parseInt(this.dataset.col);
+                    activeBeats[r][c] = !activeBeats[r][c];
+                    this.classList.toggle('active');
+                });
+
+                bombaGrid.appendChild(beat);
+            }
+        }
+
+        // Play rhythm
+        playBombaBtn.addEventListener('click', function() {
+            if (isPlaying) return;
+
+            isPlaying = true;
+            currentBeat = -1;
+
+            // Show music player
+            document.getElementById('bombaPlayer').classList.add('show');
+
+            rhythmInterval = setInterval(() => {
+                // Clear current beat indicators
+                document.querySelectorAll('.beat.current').forEach(el => el.classList.remove('current'));
+
+                // Move to next beat
+                currentBeat = (currentBeat + 1) % gridSize.cols;
+
+                // Update visual indicators
+                for (let row = 0; row < gridSize.rows; row++) {
+                    const currentBeatEl = document.querySelector(`.beat[data-row="${row}"][data-col="${currentBeat}"]`);
+                    currentBeatEl.classList.add('current');
+
+                    if (activeBeats[row][currentBeat]) {
+                        // This would play the sound in a real implementation
+                        // For now, just add an animation flash
+                        currentBeatEl.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            currentBeatEl.style.transform = '';
+                        }, 100);
+                    }
+                }
+            }, 300); // 300ms between beats (120 BPM approximately)
+        });
+
+        // Stop rhythm
+        stopBombaBtn.addEventListener('click', function() {
+            if (!isPlaying) return;
+
+            clearInterval(rhythmInterval);
+            isPlaying = false;
+
+            // Remove current beat indicators
+            document.querySelectorAll('.beat.current').forEach(el => el.classList.remove('current'));
+
+            // Hide music player
+            document.getElementById('bombaPlayer').classList.remove('show');
+        });
+
+        // Clear all beats
+        clearBeatsBtn.addEventListener('click', function() {
+            // Reset active beats array
+            activeBeats = new Array(gridSize.rows).fill().map(() => new Array(gridSize.cols).fill(false));
+
+            // Clear UI
+            document.querySelectorAll('.beat.active').forEach(el => el.classList.remove('active'));
+        });
+
+        // Load preset patterns
+        patternBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Clear current pattern
+                clearBeatsBtn.click();
+
+                const pattern = this.getAttribute('data-pattern');
+
+                // Different preset patterns
+                if (pattern === 'sicá') {
+                    // Simple Sicá pattern
+                    activeBeats[0][0] = true;
+                    activeBeats[1][2] = true;
+                    activeBeats[2][0] = true;
+                    activeBeats[2][4] = true;
+                    activeBeats[3][2] = true;
+                    activeBeats[3][6] = true;
+                } else if (pattern === 'yubá') {
+                    // Yubá pattern
+                    activeBeats[0][0] = true;
+                    activeBeats[0][3] = true;
+                    activeBeats[1][1] = true;
+                    activeBeats[2][0] = true;
+                    activeBeats[2][2] = true;
+                    activeBeats[2][4] = true;
+                    activeBeats[2][6] = true;
+                    activeBeats[3][2] = true;
+                } else if (pattern === 'holandés') {
+                    // Holandés pattern
+                    activeBeats[0][0] = true;
+                    activeBeats[0][4] = true;
+                    activeBeats[1][2] = true;
+                    activeBeats[1][6] = true;
+                    activeBeats[2][0] = true;
+                    activeBeats[2][2] = true;
+                    activeBeats[2][4] = true;
+                    activeBeats[2][6] = true;
+                    activeBeats[3][1] = true;
+                    activeBeats[3][5] = true;
+                } else if (pattern === 'cuembé') {
+                    // Cuembé pattern
+                    activeBeats[0][0] = true;
+                    activeBeats[0][4] = true;
+                    activeBeats[1][2] = true;
+                    activeBeats[2][0] = true;
+                    activeBeats[2][3] = true;
+                    activeBeats[2][6] = true;
+                    activeBeats[3][1] = true;
+                    activeBeats[3][5] = true;
+                }
+
+                // Update UI
+                for (let row = 0; row < gridSize.rows; row++) {
+                    for (let col = 0; col < gridSize.cols; col++) {
+                        if (activeBeats[row][col]) {
+                            const beatEl = document.querySelector(`.beat[data-row="${row}"][data-col="${col}"]`);
+                            beatEl.classList.add('active');
+                        }
+                    }
+                }
+            });
+        });
+
+        // Music Player Controls
+        const playMusicBtn = document.getElementById('playMusic');
+        const pauseMusicBtn = document.getElementById('pauseMusic');
+
+        playMusicBtn.addEventListener('click', function() {
+            // In a real implementation, this would play audio
+            this.style.display = 'none';
+            pauseMusicBtn.style.display = 'inline-block';
+        });
+
+        pauseMusicBtn.addEventListener('click', function() {
+            // In a real implementation, this would pause audio
+            this.style.display = 'none';
+            playMusicBtn.style.display = 'inline-block';
+        });
+
+        // Initially hide pause button
+        pauseMusicBtn.style.display = 'none';
+
+        // Add secret page detection to search bar
+        const searchInput = document.getElementById('sidebarSearch');
+        const searchButton = document.getElementById('searchButton');
+
+        // Array of secret trigger words that lead to this page
+        const secretTriggers = [
+            'afro-boricua',
+            'afroboricua',
+            'bomba',
+            'plena',
+            'loiza',
+            'african heritage',
+            'afro puerto rican',
+            'afro-puerto rican',
+            'afro caribbean',
+            'black puerto rican'
+        ];
+
+        function checkForSecretTrigger(searchText) {
+            searchText = searchText.toLowerCase().trim();
+            return secretTriggers.some(trigger => searchText.includes(trigger));
+        }
+
+        // Listen for Enter key in search input
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (checkForSecretTrigger(searchTerm)) {
+                        e.preventDefault(); // Prevent default search behavior
+                        // If we're already on the page, just show a notification
+                        const secretNotification = document.getElementById('secretNotification');
+                        secretNotification.innerHTML = "<p>You've already discovered the secret page! Explore and enjoy!</p>";
+                        secretNotification.classList.add('show');
+                        setTimeout(() => {
+                            secretNotification.classList.remove('show');
+                        }, 3000);
+                    }
+                }
+            });
+        }
+
+        // Also attach to search button
+        if (searchButton) {
+            searchButton.addEventListener('click', function() {
+                const searchTerm = searchInput.value.trim();
+                if (checkForSecretTrigger(searchTerm)) {
+                    // If we're already on the page, just show a notification
+                    const secretNotification = document.getElementById('secretNotification');
+                    secretNotification.innerHTML = "<p>You've already discovered the secret page! Explore and enjoy!</p>";
+                    secretNotification.classList.add('show');
+                    setTimeout(() => {
+                        secretNotification.classList.remove('show');
+                    }, 3000);
+                }
+            });
+        }
+    });
+</script>
+
+<!-- External JavaScript files -->
+<script src="script.js"></script>
+<script src="lang.js"></script>
+
+</body>
+</html>

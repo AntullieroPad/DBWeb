@@ -2767,3 +2767,107 @@ document.addEventListener('DOMContentLoaded', function() {
         redirectTo80sPage();
     }
 });
+
+
+
+function initAfroBoricuaTrigger() {
+    // Get all search inputs on the site
+    const searchInputs = document.querySelectorAll('#sidebarSearch, #eventSearch, input[type="search"], input[type="text"][placeholder*="search" i]');
+
+    // Search terms that will trigger the redirect to the Afro-Boricua page
+    const triggerTerms = [
+        'afro-boricua',
+        'afroboricua',
+        'bomba',
+        'plena',
+        'loiza',
+        'african heritage',
+        'afro puerto rican',
+        'afro-puerto rican',
+        'afro caribbean',
+        'black puerto rican'
+    ];
+
+    // Function to check if search contains any trigger terms
+    function containsTriggerTerm(searchText) {
+        searchText = searchText.toLowerCase().trim();
+        return triggerTerms.some(term => searchText.includes(term.toLowerCase()));
+    }
+
+    // Add event listeners to all search inputs
+    searchInputs.forEach(input => {
+        if (input) {
+            // Listen for Enter key
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (containsTriggerTerm(searchTerm)) {
+                        e.preventDefault(); // Prevent default search behavior
+                        redirectToAfroBoricuaPage();
+                    }
+                }
+            });
+        }
+    });
+
+    // Also attach to search buttons
+    const searchButtons = document.querySelectorAll('#searchButton, button[aria-label*="search" i], button[type="submit"]');
+    searchButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function(e) {
+                // Find the input associated with this button
+                const searchInput = this.previousElementSibling ||
+                    this.closest('form')?.querySelector('input[type="text"], input[type="search"]');
+
+                if (searchInput && containsTriggerTerm(searchInput.value)) {
+                    e.preventDefault();
+                    redirectToAfroBoricuaPage();
+                }
+            });
+        }
+    });
+
+    // Function to redirect to the Afro-Boricua page with a visual transition
+    function redirectToAfroBoricuaPage() {
+        // Create a transition effect
+        const transitionOverlay = document.createElement('div');
+        transitionOverlay.style.position = 'fixed';
+        transitionOverlay.style.top = '0';
+        transitionOverlay.style.left = '0';
+        transitionOverlay.style.width = '100%';
+        transitionOverlay.style.height = '100%';
+        transitionOverlay.style.backgroundColor = 'black';
+        transitionOverlay.style.opacity = '0';
+        transitionOverlay.style.zIndex = '9999';
+        transitionOverlay.style.transition = 'opacity 1s ease';
+        document.body.appendChild(transitionOverlay);
+
+        // Fade to black
+        setTimeout(() => {
+            transitionOverlay.style.opacity = '1';
+
+            // Play a drumbeat sound here (in a real implementation)
+
+            // After fade completes, redirect
+            setTimeout(() => {
+                // Store that we've discovered the page in localStorage
+                localStorage.setItem('foundAfroBoricuaPage', 'true');
+
+                // Redirect to the hidden page
+                window.location.href = 'afro-boricua.html';
+            }, 1000);
+        }, 50);
+    }
+
+    // Check URL params to see if we should trigger redirect
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search') || urlParams.get('q');
+    if (searchParam && containsTriggerTerm(searchParam)) {
+        redirectToAfroBoricuaPage();
+    }
+}
+
+// Call the function when the DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    initAfroBoricuaTrigger();
+});
