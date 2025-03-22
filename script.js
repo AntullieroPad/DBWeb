@@ -2631,3 +2631,139 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all search inputs on the site
+    const searchInputs = document.querySelectorAll('#sidebarSearch, #eventSearch, input[type="search"], input[type="text"][placeholder*="search" i]');
+
+    // Search terms that will trigger the redirect to the 80s Puerto Rico page
+    const triggerTerms = [
+        '80s',
+        '80s puerto rico',
+        'puerto rico 80s',
+        'eighties',
+        'los ochenta',
+        'década 80',
+        'década de los 80',
+        'menudo',
+        'salsa 80s',
+        'iris chacon',
+        'culture 80s',
+        'puerto rico 1980s',
+        'boricua 80s'
+    ];
+
+    // Function to check if search contains any trigger terms
+    function containsTriggerTerm(searchText) {
+        searchText = searchText.toLowerCase().trim();
+        return triggerTerms.some(term => searchText.includes(term.toLowerCase()));
+    }
+
+    // Add event listeners to all search inputs
+    searchInputs.forEach(input => {
+        if (input) {
+            // Listen for Enter key
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (containsTriggerTerm(searchTerm)) {
+                        e.preventDefault(); // Prevent default search behavior
+                        redirectTo80sPage();
+                    }
+                }
+            });
+        }
+    });
+
+    // Also attach to search buttons
+    const searchButtons = document.querySelectorAll('#searchButton, button[aria-label*="search" i], button[type="submit"]');
+    searchButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function(e) {
+                // Find the input associated with this button
+                const searchInput = this.previousElementSibling ||
+                    this.closest('form')?.querySelector('input[type="text"], input[type="search"]');
+
+                if (searchInput && containsTriggerTerm(searchInput.value)) {
+                    e.preventDefault();
+                    redirectTo80sPage();
+                }
+            });
+        }
+    });
+
+    // Function to redirect to the 80s Puerto Rico page with a retro transition
+    function redirectTo80sPage() {
+        // Create a 80s TV static effect transition
+        const tvStaticOverlay = document.createElement('div');
+        tvStaticOverlay.style.position = 'fixed';
+        tvStaticOverlay.style.top = '0';
+        tvStaticOverlay.style.left = '0';
+        tvStaticOverlay.style.width = '100%';
+        tvStaticOverlay.style.height = '100%';
+        tvStaticOverlay.style.backgroundImage = 'url("tv-static.gif")'; // You'll need this GIF image or use a CSS animation
+        tvStaticOverlay.style.backgroundSize = 'cover';
+        tvStaticOverlay.style.opacity = '0';
+        tvStaticOverlay.style.zIndex = '9999';
+        tvStaticOverlay.style.transition = 'opacity 1s ease';
+        document.body.appendChild(tvStaticOverlay);
+
+        // VHS tracking lines effect
+        const trackingLines = document.createElement('div');
+        trackingLines.style.position = 'fixed';
+        trackingLines.style.top = '0';
+        trackingLines.style.left = '0';
+        trackingLines.style.width = '100%';
+        trackingLines.style.height = '100%';
+        trackingLines.style.background = 'repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 4px)';
+        trackingLines.style.zIndex = '10000';
+        trackingLines.style.opacity = '0';
+        trackingLines.style.transition = 'opacity 0.5s ease';
+        document.body.appendChild(trackingLines);
+
+        // 80s text that appears during transition
+        const retroText = document.createElement('div');
+        retroText.style.position = 'fixed';
+        retroText.style.top = '50%';
+        retroText.style.left = '50%';
+        retroText.style.transform = 'translate(-50%, -50%)';
+        retroText.style.color = '#ff71ce';
+        retroText.style.fontFamily = 'VT323, monospace';
+        retroText.style.fontSize = '40px';
+        retroText.style.textShadow = '0 0 10px #ff71ce, 0 0 20px #ff71ce';
+        retroText.style.opacity = '0';
+        retroText.style.zIndex = '10001';
+        retroText.style.transition = 'opacity 0.5s ease';
+        retroText.textContent = 'PUERTO RICO EN LOS 80s...';
+        document.body.appendChild(retroText);
+
+        // Start the transition sequence
+        setTimeout(() => {
+            tvStaticOverlay.style.opacity = '0.8';
+
+            // Show tracking lines
+            setTimeout(() => {
+                trackingLines.style.opacity = '1';
+
+                // Show retro text
+                setTimeout(() => {
+                    retroText.style.opacity = '1';
+
+                    // Store that we've discovered the page in localStorage
+                    localStorage.setItem('eighties-puerto-rico-discovered', 'true');
+
+                    // Redirect after transition
+                    setTimeout(() => {
+                        window.location.href = 'eighties-boricua.html';
+                    }, 2000);
+                }, 800);
+            }, 500);
+        }, 100);
+    }
+
+    // Check URL params to see if we should trigger redirect
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search') || urlParams.get('q');
+    if (searchParam && containsTriggerTerm(searchParam)) {
+        redirectTo80sPage();
+    }
+});
