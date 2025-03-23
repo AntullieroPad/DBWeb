@@ -2349,7 +2349,7 @@ body, p, a, li, h2, h3 {
         filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
         transition: transform 0.3s ease;
     }
-    
+
 
     .hero-mascot:hover {
         transform: scale(1.05);
@@ -2845,69 +2845,754 @@ body {
     }
 }
 
-/* Password section styling */
-.password-section {
-    max-width: 500px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #f9f9f9;
+
+/* Additional styles specific to the alumni page */
+.alumni-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("puerto-rico-landscape.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 1rem;
+    position: relative;
+}
+
+.alumni-banner {
+    background: #007bff;
+    color: white;
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.alumni-sections {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.section-heading::after {
+    content: "";
+    flex-grow: 1;
+    height: 2px;
+    background: #e0e0e0;
+    margin-left: 15px;
+}
+
+.section-heading i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.alumni-card {
+    background: white;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.alumni-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.alumni-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid #007bff;
+}
+
+.alumni-info {
+    padding: 1.5rem;
+}
+
+.alumni-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.alumni-year {
+    font-size: 0.9rem;
+    color: #007bff;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.alumni-bio {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.alumni-contact {
+    display: flex;
+    gap: 10px;
+}
+
+.alumni-contact a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.alumni-contact a:hover {
+    background: #007bff;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.upcoming-events {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.upcoming-events .event-list li {
+    padding: 1.5rem;
+    background: white;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.upcoming-events .event-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resources-section {
+    margin-bottom: 3rem;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.resource-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    transition: all 0.3s ease;
+    min-height: 200px;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.resource-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.resource-card h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.resource-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.resource-card a {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.resource-card a:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Enhanced password protection section */
+.password-section {
+    background: linear-gradient(135deg, #f6f6f6, #ffffff);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    margin: 3rem auto;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.password-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+}
+
+.password-section h3 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.5rem;
 }
 
 .password-form {
     display: flex;
     margin: 1.5rem 0;
-    gap: 10px;
+    gap: 15px;
+    position: relative;
 }
 
 .password-form input {
     flex: 1;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
 }
 
 .password-form input:focus {
-    outline: none;
     border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    background: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 .password-form button {
-    padding: 0 20px;
-    background-color: #007bff;
+    min-width: 140px;
+    padding: 15px;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.2);
 }
 
 .password-form button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #0056b3, #0097c9);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
 }
 
 .password-error {
-    color: #dc3545;
+    background: #fff5f5;
+    color: #e53935;
+    padding: 12px;
+    border-radius: 8px;
     margin-top: 1rem;
     font-size: 0.9rem;
     display: none;
+    border-left: 4px solid #e53935;
+    text-align: left;
 }
 
+/* Animation for password section */
+.shake {
+    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+}
 
-/* Protected content */
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+    40%, 60% { transform: translate3d(3px, 0, 0); }
+}
+
+/* Bomba animation */
+.animation-container {
+    display: none;
+    margin: 3rem auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+.bomba-animation {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(180deg, #f9f9f9, #e9e9e9);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bomba-dancer {
+    position: absolute;
+    bottom: 20px;
+    left: 25%;
+    width: 50px;
+    height: 100px;
+    background: url("bomba-dancer.png") no-repeat;
+    background-size: contain;
+    animation: dance 2s infinite alternate;
+}
+
+.bomba-drummer {
+    position: absolute;
+    bottom: 20px;
+    right: 25%;
+    width: 50px;
+    height: 100px;
+    background: url("bomba-drummer.png") no-repeat;
+    background-size: contain;
+    animation: drum 0.5s infinite alternate;
+}
+
+@keyframes dance {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes drum {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+.loading-text {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #007bff;
+    font-weight: 500;
+}
+
+/* Enhanced protected content */
 .protected-content {
     display: none;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 2rem auto;
-    animation: fadeIn 0.5s ease-in;
+    padding: 0 1rem;
+    animation: fadeIn 0.6s ease-in;
 }
 
+.success-message {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2e7d32;
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.1);
+}
+
+.success-message i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: #4caf50;
+}
+
+.success-message h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #2e7d32;
+}
+
+.success-message p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #1b5e20;
+    line-height: 1.6;
+}
+
+.alumni-resources {
+    margin-bottom: 3rem;
+}
+
+.alumni-resources h3 {
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #007bff;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+/* Enhanced mentor cards */
+.mentors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.mentor-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mentor-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+}
+
+.mentor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.mentor-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.mentor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.mentor-card:hover .mentor-image img {
+    transform: scale(1.1);
+}
+
+.mentor-card h4 {
+    font-size: 1.3rem;
+    margin: 1.2rem 0 0.5rem;
+    padding: 0 1.5rem;
+    color: #333;
+}
+
+.mentor-role {
+    color: #007bff !important;
+    font-weight: 500;
+    font-size: 1rem !important;
+}
+
+.mentor-class {
+    font-style: italic;
+    color: #777 !important;
+}
+
+.mentor-card p {
+    padding: 0 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.connect-btn {
+    display: block;
+    margin: 1.5rem;
+    padding: 0.75rem 0;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white !important;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.2);
+}
+
+.connect-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #0097c9);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Enhanced alumni events */
+.alumni-events {
+    list-style: none;
+    padding: 0;
+}
+
+.alumni-events li {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #007bff;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.alumni-events li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(to bottom, #007bff, #00c6ff);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.alumni-events li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.alumni-events li:hover::before {
+    opacity: 1;
+}
+
+.alumni-events li strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.alumni-events li .event-date {
+    display: inline-block;
+    padding: 0.35rem 0.8rem;
+    background: #f0f7ff;
+    color: #007bff;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Enhanced resources list */
+.resources-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.resources-list li {
+    margin-bottom: 0;
+}
+
+.resources-list a {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.resources-list a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    color: #007bff;
+}
+
+.resources-list i {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.resources-list a:hover i {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Dark mode support */
+body.dark-mode .alumni-banner {
+    background: #0056b3;
+}
+
+body.dark-mode .section-heading::after {
+    background: #444;
+}
+
+body.dark-mode .alumni-card,
+body.dark-mode .mentor-card,
+body.dark-mode .resource-card,
+body.dark-mode .upcoming-events .event-list li,
+body.dark-mode .alumni-events li,
+body.dark-mode .resources-list a {
+    background: #2a2a2a;
+    color: #eee;
+}
+
+body.dark-mode .alumni-name,
+body.dark-mode .mentor-card h4,
+body.dark-mode .resource-card h3,
+body.dark-mode .alumni-resources h3,
+body.dark-mode .alumni-events li strong {
+    color: #eee;
+}
+
+body.dark-mode .alumni-bio,
+body.dark-mode .resource-card p,
+body.dark-mode .mentor-bio {
+    color: #bbb;
+}
+
+body.dark-mode .alumni-contact a {
+    background: #333;
+    color: #bbb;
+}
+
+body.dark-mode .password-section {
+    background: linear-gradient(135deg, #333, #222);
+}
+
+body.dark-mode .password-section h3 {
+    color: #eee;
+}
+
+body.dark-mode .password-form input {
+    border-color: #444;
+    background: #333;
+    color: #eee;
+}
+
+body.dark-mode .password-form input:focus {
+    border-color: #007bff;
+    background: #2a2a2a;
+}
+
+body.dark-mode .password-error {
+    background: #3a2222;
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+body.dark-mode .success-message {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    color: #e8f5e9;
+}
+
+body.dark-mode .success-message h3,
+body.dark-mode .success-message p {
+    color: #e8f5e9;
+}
+
+body.dark-mode .upcoming-events {
+    background: #222;
+}
+
+body.dark-mode .alumni-events li .event-date {
+    background: #333;
+    color: #4da6ff;
+}
+
+body.dark-mode .bomba-animation {
+    background: linear-gradient(180deg, #222, #333);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 992px) {
+    .alumni-grid,
+    .mentors-grid,
+    .resources-grid,
+    .resources-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .alumni-grid,
+    .mentors-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .resources-grid,
+    .resources-list {
+        grid-template-columns: 1fr;
+    }
+
+    .alumni-banner {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .password-form {
+        flex-direction: column;
+    }
+
+    .password-form button {
+        width: 100%;
+    }
+
+    .alumni-hero {
+        padding: 3rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-heading {
+        font-size: 1.3rem;
+    }
+
+    .upcoming-events,
+    .password-section {
+        padding: 1.5rem;
+    }
+
+    .success-message {
+        padding: 1.5rem;
+    }
+
+    .success-message h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -2919,175 +3604,31 @@ body {
     }
 }
 
-.success-message {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background-color: #d4edda;
-    border-radius: 8px;
-    color: #155724;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.success-message i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #28a745;
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
-.success-message h3 {
-    margin-bottom: 0.5rem;
-    color: #155724;
+.staggered {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
-.alumni-resources {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin-bottom: 2rem;
-}
-
-.alumni-resources h3 {
-    margin: 1.5rem 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #007bff;
-    color: #333;
-}
-
-.alumni-resources h3:first-child {
-    margin-top: 0;
-}
-
-/* Mentor grid */
-.mentors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 1.5rem 0;
-}
-
-.mentor-card {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mentor-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.mentor-image {
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-}
-
-.mentor-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.mentor-card h4 {
-    margin: 1rem 0 0.25rem;
-    padding: 0 1rem;
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.mentor-card p {
-    margin: 0.25rem 0;
-    padding: 0 1rem;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.mentor-role {
-    font-weight: 500;
-    color: #007bff !important;
-}
-
-.mentor-class {
-    font-style: italic;
-    margin-bottom: 0.5rem !important;
-}
-
-.mentor-bio {
-    margin-bottom: 1rem !important;
-}
-
-.connect-btn {
-    display: block;
-    margin: 1rem;
-    padding: 0.5rem 0;
-    background-color: #007bff;
-    color: white !important;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.connect-btn:hover {
-    background-color: #0056b3;
-}
-
-
-/* Alumni events list */
-.alumni-events {
-    list-style: none;
-    padding: 0;
-}
-
-.alumni-events li {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    border-left: 4px solid #007bff;
-}
-
-.alumni-events li strong {
-    display: block;
-    margin-bottom: 0.25rem;
-    color: #333;
-}
-
-/* Resources list */
-.resources-list {
-    list-style: none;
-    padding: 0;
-}
-
-.resources-list li {
-    margin-bottom: 0.75rem;
-}
-
-.resources-list a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.75rem 1rem;
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #007bff;
-    transition: background-color 0.3s;
-}
-
-.resources-list a:hover {
-    background-color: #e9f2ff;
-}
-
-.resources-list i {
-    font-size: 1.2rem;
-    color: #666;
-}
-
+.staggered:nth-child(2) { animation-delay: 0.2s; }
+.staggered:nth-child(3) { animation-delay: 0.4s; }
+.staggered:nth-child(4) { animation-delay: 0.6s; }
+.staggered:nth-child(5) { animation-delay: 0.8s; }
+.staggered:nth-child(6) { animation-delay: 1s; }
 
 #lang-toggle {
     margin: 0.5rem auto;
@@ -3654,90 +4195,6 @@ body {
 }
 
 /* Additional Mobile Fixes for Alumni Page */
-@media (max-width: 768px) {
-    /* Fix password section */
-    .password-section {
-        width: 90%;
-        max-width: 90%;
-        margin: 1rem 0;
-        box-sizing: border-box;
-    }
-
-    /* More precise targeting for the password input */
-    #alumni-password {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        padding: 10px;
-        font-size: 16px; /* Better size for mobile */
-        box-sizing: border-box;
-        margin: 0;
-    }
-
-    .password-form {
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        gap: 10px;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .password-form input {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .password-form button {
-        width: 100%;
-        padding: 12px;
-        box-sizing: border-box;
-        white-space: normal;
-    }
-
-    .password-section p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
-
-    /* Fix Access Resources button showing vertically */
-    #submit-password {
-        width: 100%;
-        position: static !important;
-        writing-mode: horizontal-tb !important;
-        text-orientation: mixed !important;
-        transform: none !important;
-        right: auto !important;
-        height: auto !important;
-        display: block !important;
-        margin-top: 10px;
-    }
-
-    /* Fix protected content */
-    .protected-content {
-        width: 100%;
-        padding: 1rem;
-        box-sizing: border-box;
-    }
-
-    /* Fix resources lists */
-    .resources-list li a {
-        display: flex;
-        align-items: center;
-        padding: 0.75rem;
-        word-break: break-word;
-    }
-
-    /* Fix alumni events */
-    .alumni-events li {
-        padding: 1rem;
-        word-break: break-word;
-    }
-
-    /* Fix alumni sections */
-    .alumni-sections {
-        padding: 0 1rem;
-    }
 
     /* Fix hero section text */
     .black-hero .hero-content p {

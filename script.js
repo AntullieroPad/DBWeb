@@ -606,8 +606,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-// Alumni password protection functionality
+// Password protection functionality
 document.addEventListener('DOMContentLoaded', function() {
     const passwordSection = document.getElementById('password-section');
     const animationContainer = document.getElementById('animation-container');
@@ -615,9 +614,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('alumni-password');
     const submitButton = document.getElementById('submit-password');
     const errorMessage = document.getElementById('password-error');
+    const logoutBtn = document.getElementById('logout-btn');
 
-    // The password you want to use (you should store and verify this securely in a production environment)
-    const correctPassword = 'bomba2025'; // Change this to your desired password
+    // The password you want to use (in production, store and verify this securely)
+    const correctPassword = 'bomba2025';
 
     // Check if we're already logged in (using sessionStorage)
     if (sessionStorage.getItem('alumniAuthenticated') === 'true') {
@@ -640,9 +640,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function validatePassword() {
         const password = passwordInput.value;
-
         if (password === correctPassword) {
-            // Password is correct
+            // Password is correct: hide the password section and error message
             passwordSection.style.display = 'none';
             errorMessage.style.display = 'none';
 
@@ -658,7 +657,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showProtectedContent();
             }, 3000);
         } else {
-            // Password is incorrect
+            // Password is incorrect: show error and clear input
             errorMessage.style.display = 'block';
             passwordInput.value = '';
             passwordInput.focus();
@@ -677,48 +676,77 @@ document.addEventListener('DOMContentLoaded', function() {
         protectedContent.style.display = 'block';
     }
 
-    // Add shake animation for error feedback
-    const shakeKeyframes = `
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-      20%, 40%, 60%, 80% { transform: translateX(5px); }
-    }
-    .shake {
-      animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
-    }
-  `;
-
-    // Add the keyframes to the page
-    const style = document.createElement('style');
-    style.type = 'text/css';
-    style.appendChild(document.createTextNode(shakeKeyframes));
-    document.head.appendChild(style);
-
-    // Optional: Add a logout button functionality
-    const logoutBtn = document.createElement('button');
-    logoutBtn.textContent = 'Log Out';
-    logoutBtn.className = 'logout-btn';
-    logoutBtn.style.marginTop = '1rem';
-    logoutBtn.style.padding = '8px 15px';
-    logoutBtn.style.backgroundColor = '#f8f9fa';
-    logoutBtn.style.border = '1px solid #ddd';
-    logoutBtn.style.borderRadius = '4px';
-    logoutBtn.style.cursor = 'pointer';
-
-    logoutBtn.addEventListener('click', function() {
-        sessionStorage.removeItem('alumniAuthenticated');
-        protectedContent.style.display = 'none';
-        passwordInput.value = '';
-        passwordSection.style.display = 'block';
-    });
-
-    // Append logout button to the protected content
-    if (protectedContent) {
-        protectedContent.appendChild(logoutBtn);
+    // Logout functionality
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            sessionStorage.removeItem('alumniAuthenticated');
+            protectedContent.style.display = 'none';
+            passwordInput.value = '';
+            passwordSection.style.display = 'block';
+        });
     }
 });
 
+// Back to Top button functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show the button when the user scrolls down 300px
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    // Smooth scroll to top when clicked
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Adding dot animation to loading text
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingText = document.querySelector('.dot-animation');
+
+    if (loadingText) {
+        setInterval(function() {
+            if (loadingText.textContent === '.') {
+                loadingText.textContent = '..';
+            } else if (loadingText.textContent === '..') {
+                loadingText.textContent = '...';
+            } else {
+                loadingText.textContent = '.';
+            }
+        }, 500);
+    }
+});
+
+// Smooth scrolling for anchor links
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+
+            if (targetId !== '#') {
+                e.preventDefault();
+
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});
 
 // Scroll Animation JavaScript
 
