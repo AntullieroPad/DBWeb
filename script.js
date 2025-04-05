@@ -332,28 +332,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const backToTopBtn = document.getElementById("backToTop");
-
-    // Show the button when the user scrolls down 100px
-    window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 100) {
-            backToTopBtn.style.display = "block";
-        } else {
-            backToTopBtn.style.display = "none";
-        }
-    });
-
-    // Scroll smoothly back to the top when the button is clicked
-    backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-});
-
-
 // ------------------------------
 // Dark Mode Toggle
 // ------------------------------
@@ -688,26 +666,58 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Back to Top button functionality
-document.addEventListener('DOMContentLoaded', function() {
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('backToTop');
+    const scrollThreshold = 300;
 
-    // Show the button when the user scrolls down 300px
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.style.display = 'block';
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > scrollThreshold) {
+            backToTopBtn.classList.add('scrolled');
         } else {
-            backToTopBtn.style.display = 'none';
+            backToTopBtn.classList.remove('scrolled');
         }
     });
 
-    // Smooth scroll to top when clicked
-    backToTopBtn.addEventListener('click', function() {
+    backToTopBtn.addEventListener('click', () => {
+        if (window.pageYOffset > scrollThreshold) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            window.scrollBy({
+                top: window.innerHeight / 2,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const backToTopBtn = document.getElementById("backToTop");
+
+    // Show the button when the user scrolls down 100px
+    window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 100) {
+            backToTopBtn.style.display = "block";
+        } else {
+            backToTopBtn.style.display = "none";
+        }
+    });
+
+    // Scroll smoothly back to the top when the button is clicked
+    backToTopBtn.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: "smooth"
         });
     });
 });
+
+
 
 // Adding dot animation to loading text
 document.addEventListener('DOMContentLoaded', function() {
@@ -2438,7 +2448,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!yunqueTriggered) {
                 triggerYunqueMode();
             }
-        }, 3 * 60 * 1000); // 3 minutes in milliseconds
+        }, 5 * 60 * 1000); // 5 minutes in milliseconds
     }
 
     // Function to trigger El Yunque mode
@@ -2478,7 +2488,7 @@ document.addEventListener('DOMContentLoaded', function() {
         rainCanvas.height = window.innerHeight;
         rainCtx = rainCanvas.getContext('2d');
 
-        // 3. Play coquí sound
+        // 3. Play coquí sound - DOLater
         const coquiSound = new Audio('coqui-sound.mp3'); // Make sure this file exists
         coquiSound.volume = 0.3; // Not too loud
         try {
