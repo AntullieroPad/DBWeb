@@ -2780,36 +2780,34 @@ cta-text h2, .la-casa-link h3 {
 }
 
 #backToTop {
-     position: fixed;
-     bottom: 30px;
-     right: 30px;
-     width: 50px;
-     height: 50px;
-     font-size: 24px;
-     line-height: 46px;
-     text-align: center;
-     background-color: #007bff;
-     color: white;
-     border: none;
-     border-radius: 50%;
-     cursor: pointer;
-     opacity: 0.8;
-     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-     transform: rotate(0deg); /* Default: arrow points down */
-     transition: transform 0.3s ease, background-color 0.3s ease;
-     z-index: 9999;
- }
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 46px;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transform: rotate(0deg);
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    z-index: 9999;
+}
 
+/* After scrolling threshold */
 #backToTop.scrolled {
     transform: rotate(180deg);
     background-color: #0056b3;
 }
 
-
-/* Hover effect */
 #backToTop:hover {
     opacity: 1;
-    background-color: #0056b3;
 }
 
 /* Ensure no other styles interfere with our fixed positioning */

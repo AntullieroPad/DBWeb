@@ -671,6 +671,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('backToTop');
     const scrollThreshold = 300;
 
+    // Make it appear after a second (for effect at top)
+    setTimeout(() => {
+        backToTopBtn.classList.add('show');
+    }, 800);
+
+    // Change rotation based on scroll
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > scrollThreshold) {
             backToTopBtn.classList.add('scrolled');
@@ -679,13 +685,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Scroll behavior changes depending on scroll position
     backToTopBtn.addEventListener('click', () => {
         if (window.pageYOffset > scrollThreshold) {
+            // Scroll to top
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         } else {
+            // Scroll down some
             window.scrollBy({
                 top: window.innerHeight / 2,
                 behavior: 'smooth'
