@@ -4261,6 +4261,92 @@ body.dark-mode .bomba-animation {
     text-align: center !important;
 }
 
+.contact-method {
+    display: flex !important;
+    align-items: flex-start !important;
+    margin-bottom: 20px !important;
+}
+
+/* Method icon styling */
+.method-icon {
+    margin-right: 15px !important;
+    flex-shrink: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.method-icon i {
+    font-size: 20px !important;
+    color: #007bff !important;
+}
+
+/* Method details styling */
+.method-details {
+    flex: 1 !important;
+}
+
+.method-details h4 {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    font-size: 1.1rem !important;
+}
+
+/* Ensure icons are visible and properly aligned */
+.method-icon, .section-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Dark mode support */
+body.dark-mode .method-icon i {
+    color: #4da6ff !important;
+}
+
+/* Ensure the section headers align properly */
+.section-header {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.section-header .section-icon {
+    margin-right: 15px !important;
+    margin-top: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+/* Fix for any nested section headers */
+.section-header .section-header {
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .contact-method {
+        margin-bottom: 15px !important;
+    }
+
+    .method-icon {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .method-icon i {
+        font-size: 18px !important;
+    }
+
+    .method-details h4 {
+        font-size: 1rem !important;
+    }
+}
+
 /* Set the specific icon for each heading type */
 h3[data-key="workshopsTitle"]:before {
     content: "\f51c" !important; /* fa-chalkboard-teacher */
@@ -4279,19 +4365,6 @@ h3[data-key="advocacyTitle"]:before {
 }
 
 
-/* Target all section headers with icons */
-.section-header {
-    display: flex !important;
-    align-items: center !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-}
-
-.section-header .section-icon {
-    margin-right: 15px !important;
-    margin-top: 0 !important;
-    flex-shrink: 0 !important;
-}
 
 
 /* ===== FIX 5: General Icon Fixes ===== */
