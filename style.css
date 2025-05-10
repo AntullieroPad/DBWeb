@@ -571,22 +571,33 @@ body.dark-mode #resetFilters:hover {
 ====================================================================== */
 /* === Fixed SIDEBAR === */
 .sidebar {
-    position: fixed  !important;
+    position: sticky; /* Use sticky positioning */
+    top: 0;
     background-color: #fff;
     top: 0;
     left: 0;
+    height: 100vh;
+    margin-top: 0; /* Explicitly set top margin to zero */
     width: 220px;
     display: flex;
     flex-direction: column;
     border-right: 1px solid #ccc;
     z-index: 999;
     overflow-y: auto;
-
     /* box-shadow here: */
     animation: metallicShine 4s linear infinite alternate;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); /* Softer shadow for depth */
     transition: all 0.3s ease;
+    float: left;
 }
+
+/* Ensure sidebar internal elements don't add spacing */
+.sidebar > *:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
 
 /* --- Sidebar Logo --- */
 .sidebar-logo {
@@ -594,6 +605,7 @@ body.dark-mode #resetFilters:hover {
     text-align: center;
     background: linear-gradient(to bottom, #f6f6f6, transparent); /* Fade out gradient */
     border-bottom: 2px solid rgba(0, 123, 255, 0.1); /* Subtle colored border */
+    margin-top: 0; /* But ensure no margin */
 }
 .sidebar-logo .logo-img {
     max-width: 130px; /* Limit the logo’s max width */
@@ -809,16 +821,53 @@ body.dark-mode #resetFilters:hover {
 ====================================================================== */
 .main-container {
     /* Move it right so it doesn't go under the sidebar */
-    margin-left: 240px;
+    margin-left: 230px;
     width: calc(100% - 240px); /* Match sidebar width */
     box-sizing: border-box;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    margin-top: 0; /* Add this line */!important
+    padding-top: 0; /* Add this line */!important
+}
+
+
+body {
+    cursor: auto;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative; /* Create positioning context */
+    min-height: 100vh; /* Ensure full height */
+}
+
+
+/* Fix for sidebar container */
+body > *:first-child {
+    /* Target what appears to be a container around the sidebar */
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Target the specific container I can see in the screenshot */
+body > div:first-child {
+    margin: 0;
+    padding: 0;
+}
+/* Force top margin to 0 on any container div */
+div {
+    margin-top: 0;
+}
+/* Force any possible parent container to start at top */
+html body > * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 /* === HERO WITH BACKGROUND IMAGE === */
 .hero-image {
     position: relative;
     /* no fixed height needed unless you want a specific hero size */
+    margin-top: 0; /* Add this line */!important
+    padding-top: 0; /* Add this line */ !important
 }
 .hero-overlay {
     /* if you want it centered or something, do so, or just let the image flow */
@@ -2781,7 +2830,7 @@ cta-text h2, .la-casa-link h3 {
 
 #backToTop {
     position: fixed;
-    bottom: 30px;
+    bottom: 30px;    /* Adjust distance from the bottom */
     right: 30px;
     width: 50px;
     height: 50px;
@@ -2793,29 +2842,42 @@ cta-text h2, .la-casa-link h3 {
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    opacity: 0.9;
+    opacity: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     transform: rotate(0deg);
-    transition: transform 0.4s ease, background-color 0.4s ease;
+    transition: transform 0.4s ease, background-color 0.4s ease, opacity 0.3s ease;
     z-index: 9999;
+    display: none;
+    opacity: 0; /* Start hidden using opacity */
 }
 
-/* After scrolling threshold */
+
+/* Scrolled state (visual indicator when far down the page) */
 #backToTop.scrolled {
     transform: rotate(180deg);
     background-color: #0056b3;
 }
 
+/* Hover state - no CSS variables since they're causing issues */
 #backToTop:hover {
     opacity: 1;
 }
 
-/* Ensure no other styles interfere with our fixed positioning */
+/* Add different hover effects depending on scroll state */
+#backToTop.scrolled:hover {
+    transform: scale(1.1) rotate(180deg);
+}
+
+#backToTop:not(.scrolled):hover {
+    transform: scale(1.1) rotate(0deg);
+}
+
+/* Ensure the button is visible in dark mode */
 body.dark-mode #backToTop {
     background-color: #0e5fc1 !important;
 }
 
-/* Make sure mobile styles don't override */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
     #backToTop {
         width: 40px !important;
@@ -2826,9 +2888,6 @@ body.dark-mode #backToTop {
         right: 20px !important;
     }
 }
-
-body {
-    cursor: auto;}
 
 
 
@@ -4197,7 +4256,6 @@ body.dark-mode .bomba-animation {
         overflow-wrap: break-word;
         max-width: 100%;
     }
-}
 
 /* Additional Mobile Fixes for Alumni Page */
 
@@ -4214,6 +4272,7 @@ body.dark-mode .bomba-animation {
         writing-mode: horizontal-tb !important;
         text-orientation: mixed !important;
     }
+
 }
 
 /* for the icons in collab*/

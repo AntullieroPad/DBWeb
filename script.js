@@ -667,63 +667,70 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Back to Top button functionality
 // script.js
-document.addEventListener('DOMContentLoaded', () => {
+// Back to Top button functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the back to top button element
     const backToTopBtn = document.getElementById('backToTop');
-    const scrollThreshold = 300;
 
-    // Make it appear after a second (for effect at top)
-    setTimeout(() => {
-        backToTopBtn.classList.add('show');
-    }, 800);
+    // If the button doesn't exist, stop here
+    if (!backToTopBtn) {
+        console.error("Back to top button not found in HTML.");
+        return;
+    }
 
-    // Change rotation based on scroll
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > scrollThreshold) {
-            backToTopBtn.classList.add('scrolled');
+    // Control visibility based on scroll
+    function toggleButtonVisibility() {
+        if (window.pageYOffset > 300) { // Show button after scrolling 300px
+            backToTopBtn.style.display = 'block';
+            backToTopBtn.style.opacity = '0.9'; // Use opacity for smooth fade
+
+            // Add 'scrolled' class for flip animation if far down
+            if (window.pageYOffset > window.innerHeight / 2) { // Adjust scroll point for flip if needed
+                backToTopBtn.classList.add('scrolled');
+            } else {
+                backToTopBtn.classList.remove('scrolled');
+            }
         } else {
-            backToTopBtn.classList.remove('scrolled');
+            backToTopBtn.style.display = 'none';
+            backToTopBtn.classList.remove('scrolled'); // Ensure 'scrolled' class is removed when hidden
         }
-    });
+    }
 
-    // Scroll behavior changes depending on scroll position
-    backToTopBtn.addEventListener('click', () => {
-        if (window.pageYOffset > scrollThreshold) {
-            // Scroll to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        } else {
-            // Scroll down some
-            window.scrollBy({
-                top: window.innerHeight / 2,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+    // Add scroll event listener
+    window.addEventListener('scroll', toggleButtonVisibility);
 
+    // Ensure the button starts hidden and with correct visibility on load
+    backToTopBtn.style.display = 'none';
+    backToTopBtn.style.opacity = '0'; // Start with opacity 0 for smooth fade-in
+    toggleButtonVisibility(); // Check initial position
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    const backToTopBtn = document.getElementById("backToTop");
-
-    // Show the button when the user scrolls down 100px
-    window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 100) {
-            backToTopBtn.style.display = "block";
-        } else {
-            backToTopBtn.style.display = "none";
-        }
-    });
-
-    // Scroll smoothly back to the top when the button is clicked
-    backToTopBtn.addEventListener("click", () => {
+    // Add click functionality for smooth scrolling
+    backToTopBtn.addEventListener('click', function() {
         window.scrollTo({
             top: 0,
-            behavior: "smooth"
+            behavior: 'smooth'
         });
     });
+
+    // Add hover effect (rely on CSS for transform)
+    backToTopBtn.addEventListener('mouseenter', function() {
+        this.style.opacity = '1';
+    });
+
+    backToTopBtn.addEventListener('mouseleave', function() {
+        this.style.opacity = '0.9';
+    });
+
+    // Watch for dark mode toggle to potentially update appearance
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'class') {
+                // CSS should handle dark mode styles based on body.dark-mode
+            }
+        });
+    });
+
+    observer.observe(document.body, { attributes: true });
 });
 
 

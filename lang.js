@@ -138,7 +138,7 @@ const translations = {
         collabResource: "Resource Sharing: Contribute readings, articles, or multimedia to enrich the DB Yale knowledge base.",
         collabResearch: "Joint Research: Team up with our scholars and partners on deeper investigative projects.",
         collabContactHeading: "Contact Us",
-        collabContactText: "Ready to discuss collaboration ideas? Reach out to us at <a href='mailto:jaden.gonzalez@yale.edu'>Jaden Gonzalez</a>, <a href='mailto:kristen.stlouis@yale.edu'>Kritsen St. Louis</a>, <a href='mailto:elyse.thomas@yale.edu'>Elyse Thomas</a> or fill out our quick <a href='https://forms.gle/mjVXqDP2F39yHg3q6' target='_blank' rel='noopener noreferrer'>proposal form</a>.",
+        collabContactText: "Ready to discuss collaboration ideas? Reach out to us directly to our <a href='mailto:despiertaboricua@yale.edu'>DB Email</a> or fill out our contact form. or fill out our quick <a href='https://forms.gle/mjVXqDP2F39yHg3q6' target='_blank' rel='noopener noreferrer'>proposal form</a>.",
         collabProposalLink: "proposal form",
 
         workshopsTitle: "Workshops & Events",
@@ -609,9 +609,6 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
         collabContactText: "¿Listo para discutir ideas de colaboración? Comunícate con nosotros directamente o completa nuestro formulario de contacto.",
 
         leadershipTitle: "Contactos de Liderazgo",
-        jadenContactRole: "Jaden Gonzalez, Co-Presidente",
-        kristenContactRole: "Kristen St. Louis, Co-Presidente",
-        elyseContactRole: "Elyse Thomas, Coordinadora de Eventos",
 
         proposalTitle: "Formulario de Propuesta",
         proposalText: "Envía una propuesta detallada de colaboración a través de nuestro formulario en línea.",
