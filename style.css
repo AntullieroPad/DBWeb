@@ -1409,6 +1409,80 @@ html body > * {
     font-weight: bold;
 }
 
+/* Collapsible section for news */
+.collapsible-section {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.collapsible-header span {
+    flex: 1;
+}
+
+.collapse-toggle {
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.collapse-toggle:hover {
+    background-color: #e0e0e0;
+}
+
+.collapse-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.collapse-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+/* When expanded */
+.collapsible-content.expanded {
+    max-height: 2000px; /* Arbitrary large height */
+}
+
+/* Status indicator (+ or -) */
+.collapsible-header::before {
+    content: "";
+    display: none; /* Hide the default marker */
+}
+
+/* Dark mode styling */
+body.dark-mode .collapse-toggle {
+    background-color: #333;
+    color: #eee;
+}
+
+body.dark-mode .collapse-toggle:hover {
+    background-color: #444;
+}
+
 /* ======================================================================
    7. OTHER COMPONENTS & EXTRA SECTIONS
 ====================================================================== */

@@ -2918,3 +2918,41 @@ function initAfroBoricuaTrigger() {
 document.addEventListener('DOMContentLoaded', function() {
     initAfroBoricuaTrigger();
 });
+
+// JavaScript for the collapsible section functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Find all collapsible headers
+    const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+
+    // Add click event to each header
+    collapsibleHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            // Toggle the expanded state
+            const toggleButton = this.querySelector('.collapse-toggle');
+            const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+
+            // Update the aria-expanded attribute
+            toggleButton.setAttribute('aria-expanded', !isExpanded);
+
+            // Find the related content section
+            const content = this.nextElementSibling;
+
+            // Toggle the expanded class
+            if (isExpanded) {
+                content.classList.remove('expanded');
+            } else {
+                content.classList.add('expanded');
+            }
+        });
+    });
+
+    // Initialize: Ensure all sections start collapsed
+    document.querySelectorAll('.collapsible-content').forEach(content => {
+        content.classList.remove('expanded');
+    });
+
+    // Initialize: Set all toggle buttons to collapsed state
+    document.querySelectorAll('.collapse-toggle').forEach(button => {
+        button.setAttribute('aria-expanded', 'false');
+    });
+});
