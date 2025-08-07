@@ -7,12 +7,207 @@
 
     <link rel="icon" type="image/png" href="./DB Logo Outline.png">
     <link rel="icon" type="image/png" href="favicon.ico">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+    <style>
+        /* Additional styles for the donation page */
+        .donate-hero {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .donate-hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .donate-hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .donation-summary {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .donate-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1rem;
+        }
+
+        .donation-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 0.5rem 0;
+        }
+
+        .donation-method {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .donation-method:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+
+        .donation-method h3 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .zelle-qr {
+            max-width: 150px;
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 0.5rem auto;
+            display: block;
+        }
+
+        .zelle-info {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 6px;
+            padding: 0.8rem;
+            margin: 0.8rem 0;
+            font-size: 0.85rem;
+        }
+
+        .tier-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .tier-buttons button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .tier-buttons button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .donate-btn {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 1rem 0;
+        }
+
+        .donate-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+        }
+
+        .our-story, .contact-donor {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .our-story h2, .contact-donor h2 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .donation-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-sections {
+                grid-template-columns: 1fr;
+            }
+
+            .tier-buttons {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+
 </head>
 <body>
 
 <!-- You could reuse your sidebar if you like -->
 <aside class="sidebar">
-    <!-- sidebar content -->
+    <div class="sidebar-logo">
+        <a href="index.html">
+            <img
+                    src="./DB Logo Outline.png"
+                    alt="DB Yale Logo"
+                    class="logo-img"/>
+        </a>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="index.html" data-key="navHome">Home</a>
+        <a href="about.html" data-key="navAbout">About</a>
+        <a href="syllabus.html" data-key="navSyllabus">Syllabus</a>
+        <a href="collaborate.html" data-key="navCollaborate">Collaborate</a>
+        <a href="news.html" data-key="navNews">News + Events</a>
+        <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
+        <a href="alumni.html" data-key="navAlumni">Alumni</a>
+        <a href="merch.html" data-key="navMerch">Merch</a>
+        <a href="gallery.html" data-key="navGallery">Gallery</a>
+        <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
+        </a> -->
+    </nav>
+    <button id="lang-toggle">Español</button>
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <span class="icon">🌙</span>
+        <span class="label">Dark Mode</span>
+    </button>
+
+    <div class="sidebar-footer">
+        <!-- Social Media Links -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:jaden.gonzalez@yale.edu" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div> <!-- Correctly closing social-icons div -->
+
+        <div class="license">© 2025 DB Yale</div>
+    </div>
 </aside>
 
 <!-- Hamburger button for mobile -->
@@ -38,57 +233,112 @@
 
     <!-- MAIN CONTENT -->
     <main class="donate-content">
-        <!-- Donation Tiers -->
-        <section class="donation-tiers">
-            <h2>Choose a Donation Amount</h2>
-            <div class="tier-buttons">
-                <button>$25</button>
-                <button>$50</button>
-                <button>$100</button>
-                <button>$250</button>
-                <button>$500</button>
-                <button>Other</button>
+
+        <!-- Donation Methods -->
+        <section class="donation-methods">
+            <!-- Zelle Method -->
+            <div class="donation-method">
+                <h3>💸 Donate via Zelle</h3>
+                <p><strong>Quick & Easy Mobile Payment</strong></p>
+
+                <!-- QR Code -->
+                <img src="./db-zelle-qr-code.png" alt="Zelle QR Code for DESPIERTA" class="zelle-qr">
+
+                <div class="zelle-info">
+                    <p><strong>Scan QR code with your banking app</strong></p>
+                    <p>Or send to: <strong>DESPIERTA</strong></p>
+                    <p>Phone: <strong>xxx-xxx-6846</strong></p>
+                </div>
+
+                <p class="note">Open your bank's mobile app and scan the QR code to send your donation instantly!</p>
             </div>
-            <p class="note">
-                You can also choose a custom amount when you proceed to donate.
-            </p>
-            <!-- Example: a "Donate Now" button that might link to PayPal or another form -->
-            <a href="https://www.paypal.com/..." class="donate-btn">Donate Now</a>
+
+            <!-- Traditional Online Method -->
+            <div class="donation-method">
+                <h3>💳 Online Donation</h3>
+                <p><strong>Credit Card & PayPal</strong></p>
+
+                <!-- Donation Tiers -->
+                <div class="tier-buttons">
+                    <button>$25</button>
+                    <button>$50</button>
+                    <button>$100</button>
+                    <button>$250</button>
+                    <button>Other</button>
+                </div>
+
+                <a href="https://www.paypal.com/..." class="donate-btn">Donate Now</a>
+                <p class="note">Secure payment processing via PayPal</p>
+            </div>
         </section>
 
         <!-- Our Story / Reason for Donation -->
         <section class="our-story">
             <h2>Our Story</h2>
             <p>
-                DB Yale’s mission is to empower Puerto Rican voices and foster community
+                DB Yale's mission is to empower Puerto Rican voices and foster community
                 through cultural events, workshops, and advocacy. Your generous contribution
                 helps us fund these initiatives, support student-led programs, and host
                 important dialogues on campus and beyond.
             </p>
+
+            <h3>Your donation helps us:</h3>
+            <ul style="text-align: left; margin: 1rem 0;">
+                <li>🎭 Fund cultural events and celebrations</li>
+                <li>📚 Support educational workshops and programs</li>
+                <li>🗣️ Advocate for Puerto Rican community issues</li>
+                <li>🤝 Build stronger campus community connections</li>
+                <li>🎤 Host important dialogues and discussions</li>
+            </ul>
         </section>
 
         <!-- Contact for Offline Donations -->
         <section class="contact-donor">
             <h2>Prefer to Donate Offline?</h2>
             <p>
-                If you’d rather arrange your donation in person or via check, please contact
-                <strong>Alanna Rivera</strong> at
-                <a href="mailto:alanna.rivera@yale.edu">alanna.rivera@yale.edu</a>
+                If you'd rather arrange your donation in person or via check, please contact
+                <strong>Daniel Torres</strong> at
+                <a href="mailto:daniel.torres.dft24@yale.edu">daniel.torres.dft24@yale.edu</a>
             </p>
         </section>
-
-        <!-- Optional: Recent Donors -->
-        <section class="recent-donors">
-            <h2>Recent Donors</h2>
-            <ul>
-
-            </ul>
-        </section>
-
     </main>
 </div>
+Whhwjubijecd
+
+
+
+
 
 <!-- Optional JS -->
 <script src="script.js"></script>
+<script>
+    // Generate QR code for Zelle payment
+    function generateZelleQR() {
+        const qrContainer = document.getElementById('qrcode-container');
+
+        // Create QR code with Zelle payment info
+        const qr = qrcode(0, 'M');
+
+        // The Zelle payment string - adjust phone number as needed
+        const zelleData = 'https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiREVTUElFUlRBIiwicGhvbmUiOiJ4eHgteHh4LTY4NDYifQ==';
+
+        qr.addData(zelleData);
+        qr.make();
+
+        // Create the QR code as an image
+        const qrImage = qr.createImgTag(4, 8); // size = 4, margin = 8
+        qrContainer.innerHTML = qrImage;
+
+        // Style the generated QR code
+        const img = qrContainer.querySelector('img');
+        if (img) {
+            img.className = 'zelle-qr';
+            img.alt = 'Zelle QR Code for DESPIERTA';
+        }
+    }
+
+    // Generate QR code when page loads
+    document.addEventListener('DOMContentLoaded', generateZelleQR);
+</script>
 </body>
 </html>
