@@ -1750,106 +1750,360 @@ body.dark-mode .about-logo {
     overflow: hidden; /* Ensures the text flows properly */
 
 }
-.merch-image {
-    max-width: 60%; /* Adjust percentage to control size */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensures proper alignment */
-    margin: 0 auto; /* Centers the image */
-}
 
-.merch-section {
-    padding: 1rem;
-    max-width: 1200px;
-    margin: 0 auto; /* Centers the section on larger screens */
-}
-
-.merch-section h1 {
-    text-align: center;       /* Center the main heading */
-    margin-bottom: 1rem;
-}
-
-.merch-section p {
+.merch-hero {
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD23F 100%);
+    color: white;
+    padding: 4rem 2rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.merch-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+            radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.merch-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.merch-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    line-height: 1.2;
+}
+
+.merch-hero p {
+    font-size: 1.3rem;
     margin-bottom: 2rem;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    opacity: 0.95;
 }
 
-/* The container that holds all merch items */
-.merch-gallery {
-    display: flex;            /* Use flex layout */
-    flex-wrap: wrap;          /* Allow items to wrap onto new lines */
-    gap: 1rem;                /* Space between items */
-    justify-content: center;  /* Center them horizontally */
+.merch-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
-.merch-intro {
+.stat-item {
     text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Product Grid */
+.merch-showcase {
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.showcase-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.showcase-header h2 {
+    font-size: 2.5rem;
+    color: #333;
     margin-bottom: 1rem;
 }
 
-
-.merch-items {
-    display: flex;         /* Use flex layout */
-    flex-wrap: wrap;       /* Allow wrapping if there's not enough space */
-    gap: 1rem;             /* Spacing between items */
-    justify-content: center; /* Center items horizontally */
+.showcase-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.merch-item {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    flex: 1 1 200px;       /* Grow/shrink, min 200px wide */
-    max-width: 300px;      /* So items don't stretch too wide on large screens */
-    text-align: center;
-    padding: 1rem;
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.merch-item img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto 1rem;
+.merch-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
 }
 
-/* Image styling for the merch item */
-.merch-image {
-    max-width: 100%;           /* Scale image to container width */
-    height: auto;
-    display: block;
-    margin: 0 auto 1rem;       /* Center image and add spacing below */
+.merch-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
-/* Make text visually appealing */
-.merch-item p {
+.merch-image-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+}
+
+.merch-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.merch-card:hover .merch-image-container img {
+    transform: scale(1.1);
+}
+
+.price-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #FF6B35;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #28a745;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.merch-details {
+    padding: 2rem;
+}
+
+.merch-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
     margin-bottom: 0.5rem;
 }
 
-.buy-link {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #007bff; /* Example button color */
-    color: #fff;
+.merch-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.merch-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.merch-features li {
+    padding: 0.3rem 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.merch-features li::before {
+    content: "✓";
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.buy-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #FF6B35, #F7931E);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-    padding: 0.5rem 1rem;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
 }
 
-.buy-link:hover {
-    background-color: #0056b3;
+.buy-button:hover {
+    background: linear-gradient(135deg, #E55A2B, #E8851A);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
 }
 
-/* Media Query for smaller screens */
+/* Coming Soon Section */
+.coming-soon {
+    background: #f8f9fa;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.coming-soon h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.preview-item {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    opacity: 0.8;
+    position: relative;
+}
+
+.preview-item::after {
+    content: "COMING SOON";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    background: #FF6B35;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Impact Section */
+.impact-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.impact-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.impact-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.impact-item {
+    text-align: center;
+}
+
+.impact-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.impact-number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Newsletter Signup */
+.newsletter-section {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    display: flex;
+    gap: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+.newsletter-form button {
+    padding: 1rem 2rem;
+    background: #FF6B35;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
-    .merch-items {
-        flex-direction: column; /* Stack items vertically on small screens */
-        align-items: center;    /* Center them */
+    .merch-hero h1 {
+        font-size: 2.5rem;
     }
-    .merch-item {
-        width: 100%;           /* Let each item fill the screen width */
-        max-width: 100%;       /* Let items fill the width on mobile */
+
+    .merch-stats {
+        gap: 2rem;
+    }
+
+    .merch-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
     }
 }
 
@@ -4203,62 +4457,111 @@ body.dark-mode .bomba-animation {
     color: #666;
 }
 
-/* Founders gallery styling */
 .founders-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns in the first row */
-    grid-template-rows: auto auto; /* Two rows */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
     gap: 2rem;
-    margin-top: 2rem;
+    margin: 2rem auto; /* Add auto margins for centering */
     width: 100%;
-    max-width: 1000px; /* Constrain max width for proper spacing */
+    max-width: 1000px; /* Constrain max width */
     padding: 0 1rem;
     box-sizing: border-box;
+    justify-content: center; /* Center grid items */
+    justify-items: center; /* Center items within grid cells */
 }
 
-
-/* Target the 4th and 5th elements specifically */
-.founders-gallery .founder-card:nth-child(4),
-.founders-gallery .founder-card:nth-child(5) {
-    grid-column: span 1; /* Takes 1 column space */
+/* Ensure founder cards are properly sized and centered */
+.founder-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1rem;
+    max-width: 100%;
+    width: 100%; /* Take full width of grid cell */
+    max-width: 280px; /* Limit maximum width */
 }
 
-/* Position 4th element to start in column 1 of second row */
+/* Target the 4th and 5th elements for better second row layout */
 .founders-gallery .founder-card:nth-child(4) {
-    grid-column: 1 / span 1; /* Start at column 1, end at column 2 */
-    grid-row: 2; /* Put in second row */
-    /* Push toward center from left */
-    margin-left: auto;
-    margin-right: 0;
-    /* Control the width */
-    width: 90%;
-    justify-self: end;
-}
-
-/* Position 5th element to start in column 3 of second row */
-.founders-gallery .founder-card:nth-child(5) {
-    grid-column: 3 / span 1; /* Start at column 3, end at column 4 */
-    grid-row: 2; /* Put in second row */
-    margin-right: auto;
-    margin-left: 0;
-    /* Control the width */
-    width: 90%;
-    justify-self: start;
-}
-
-
-/* Create a better bottom row balanced layout */
-.founders-gallery::after {
-    content: "";
-    grid-column: 2;
+    grid-column: 1 / span 1;
     grid-row: 2;
+    justify-self: end; /* Push toward center from left */
+    margin-right: 1rem;
 }
 
-/* For responsive design, adjust the layout for smaller screens */
+.founders-gallery .founder-card:nth-child(5) {
+    grid-column: 3 / span 1;
+    grid-row: 2;
+    justify-self: start; /* Push toward center from right */
+    margin-left: 1rem;
+}
+
+/* Fix values grid centering */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem auto; /* Center the grid */
+    max-width: 1000px; /* Constrain max width */
+    padding: 0 1rem;
+    justify-content: center; /* Center grid items */
+    justify-items: center; /* Center items within grid cells */
+}
+
+/* Ensure value cards are properly sized */
+.value-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 280px; /* Limit maximum width */
+}
+
+/* Fix the overall section containers */
+.mission-section,
+.founders-section,
+.values-section {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    max-width: 1200px; /* Wider container for full sections */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Center all content */
+}
+
+/* Ensure section headers are centered */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the header */
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.75rem;
+    text-align: center;
+}
+
+/* Override any conflicting margins on the main containers */
+.content-section {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive adjustments for founders gallery */
 @media (max-width: 768px) {
     .founders-gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+        max-width: 600px; /* Smaller max width on mobile */
     }
 
     /* Reset positioning for all cards on smaller screens */
@@ -4268,74 +4571,54 @@ body.dark-mode .bomba-animation {
         margin: 0;
         width: 100%;
         justify-self: center;
+        max-width: 250px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        max-width: 600px;
     }
 }
 
 @media (max-width: 480px) {
     .founders-gallery {
-        grid-template-columns: 1fr; /* Single column on smallest screens */
+        grid-template-columns: 1fr;
+        max-width: 300px; /* Even smaller on very small screens */
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+
+    .founder-card,
+    .value-card {
+        max-width: 100%;
     }
 }
 
-.founder-card {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 1rem; /* Add bottom margin */
-    max-width: 100%; /* Ensure cards don't overflow */
+/* Dark mode adjustments */
+body.dark-mode .founder-card,
+body.dark-mode .value-card {
+    background-color: #333;
+    color: #eee;
 }
 
-.founder-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+body.dark-mode .founder-card h3,
+body.dark-mode .value-card h3 {
+    color: #eee;
 }
 
-.founder-image {
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-    border-bottom: 3px solid #007bff;
-    object-fit: cover;
-    max-width: 100%;
+body.dark-mode .founder-card p,
+body.dark-mode .value-card p {
+    color: #bbb;
 }
 
-.founder-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.founder-card h3 {
-    font-size: 1.1rem;
-    margin: 1rem 0 0.25rem;
+/* Additional centering for any wrapper containers */
+.about-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 1rem;
-}
-
-.founder-card p {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-/* Values section styling */
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-    max-width: 1000px; /* Constrain max width for proper spacing */
-}
-
-.value-card {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.3s ease;
 }
 
 .value-card:hover {
