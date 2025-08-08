@@ -73,6 +73,18 @@ const translations = {
         historyText4: "DB is still active today and continues to advocate for the needs of Puerto Rican students at Yale and for the Puerto Rican community.",
         historyAttribution: "<b><i>- History brought to you by Amanda Rivera, Yale University, Dissertation in Progress, 2024</b></i>",
 
+        juliaBurgosTitle: "Julia de Burgos & La Casa Cultural",
+        juliaSubtitle: "Poet, Feminist, Revolutionary",
+        juliaText1: "Yale's La Casa Cultural center is dedicated to the legacy of Julia de Burgos (1914-1953), one of Puerto Rico's most celebrated poets and an enduring symbol of Puerto Rican identity and feminist thought. Her revolutionary voice continues to inspire movements for justice and equality.",
+        juliaText2: "Born in Carolina, Puerto Rico, Julia de Burgos broke boundaries through her poetry that explored themes of feminism, social justice, and national identity. She wrote boldly about women's liberation long before the feminist movements of the 1960s and 70s, making her a pioneer whose words resonate with contemporary struggles.",
+        juliaText3: "The purple Puerto Rican flag represents this ongoing feminist struggle. Just as Julia challenged patriarchal norms in her writing and life, the purple flag reimagines traditional national symbols to center women's experiences, particularly highlighting the crisis of gender-based violence in Puerto Rico.",
+        juliaQuote: "I wanted to be like men wanted me to be: an attempt at life; a game of hide and seek with my being. But I was made of nows.",
+
+        laCasaTitle: "La Casa Cultural: A Home for Resistance and Celebration",
+        laCasaText1: "Established in 1974, La Casa Cultural Julia de Burgos serves as both a cultural center and a space for activism. By naming our center after a feminist poet who challenged colonial and patriarchal power, Yale's Puerto Rican and Latino community affirms our commitment to the values she embodied.",
+        laCasaText2: "Today, La Casa at 301 Crown Street continues Julia's legacy by fostering dialogue about gender justice, decolonization, and cultural identity. It stands as a space where the symbolism of the purple flag—women's resistance, dignity, and power—is honored through programming, community building, and artistic expression.",
+        visitLaCasaBtn: "Visit La Casa Website",
+        learnMoreWomenBtn: "Feminism in Puerto Rico",
 
         pageTitle: "Syllabus – DB Yale",
         tocHeading: "Table of Contents",
@@ -516,6 +528,19 @@ const translations = {
         historyText4: "DB sigue activo hoy en día y continúa abogando por las necesidades de los estudiantes puertorriqueños en Yale y por la comunidad puertorriqueña.",
         historyAttribution: "<b><i>- Historia presentada por Amanda Rivera, Universidad de Yale, Disertación en Progreso, 2024</b></i>",
 
+        juliaBurgosTitle: "Julia de Burgos y La Casa Cultural",
+        juliaSubtitle: "Poeta, Feminista, Revolucionaria",
+        juliaText1: "El centro La Casa Cultural de Yale está dedicado al legado de Julia de Burgos (1914-1953), una de las poetas más celebradas de Puerto Rico y un símbolo perdurable de la identidad puertorriqueña y el pensamiento feminista. Su voz revolucionaria continúa inspirando movimientos por la justicia y la igualdad.",
+        juliaText2: "Nacida en Carolina, Puerto Rico, Julia de Burgos rompió barreras a través de su poesía que exploró temas de feminismo, justicia social e identidad nacional. Escribió con valentía sobre la liberación femenina mucho antes de los movimientos feministas de los años 60 y 70, convirtiéndola en una pionera cuyas palabras resuenan con las luchas contemporáneas.",
+        juliaText3: "La bandera puertorriqueña morada representa esta lucha feminista continua. Así como Julia desafió las normas patriarcales en su escritura y vida, la bandera morada reimagina los símbolos nacionales tradicionales para centrar las experiencias de las mujeres, particularmente destacando la crisis de violencia de género en Puerto Rico.",
+        juliaQuote: "Quería ser como los hombres querían que fuera: un intento de vida; un juego de escondite con mi ser. Pero yo estaba hecha de ahoras.",
+
+        // La Casa Cultural Info
+        laCasaTitle: "La Casa Cultural: Un Hogar para la Resistencia y la Celebración",
+        laCasaText1: "Establecida en 1974, La Casa Cultural Julia de Burgos sirve tanto como centro cultural como espacio para el activismo. Al nombrar nuestro centro en honor a una poeta feminista que desafió el poder colonial y patriarcal, la comunidad puertorriqueña y latina de Yale afirma nuestro compromiso con los valores que ella encarnó.",
+        laCasaText2: "Hoy, La Casa en 301 Crown Street continúa el legado de Julia fomentando el diálogo sobre justicia de género, descolonización e identidad cultural. Se erige como un espacio donde el simbolismo de la bandera morada—resistencia, dignidad y poder de las mujeres—se honra a través de programación, construcción comunitaria y expresión artística.",
+        isitLaCasaBtn: "Visitar Sitio Web de La Casa",
+        learnMoreWomenBtn: "Feminismo en Puerto Rico",
 
         pageTitle: "Programa – DB Yale",
         tocHeading: "Tabla de Contenidos",
