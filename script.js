@@ -666,66 +666,254 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Back to Top button functionality
-// script.js
-document.addEventListener('DOMContentLoaded', () => {
-    const backToTopBtn = document.getElementById('backToTop');
-    const scrollThreshold = 300;
+// Enhanced Back to Top Navigation Button - Follows User
+document.addEventListener('DOMContentLoaded', function() {
+    // Get or create the back to top button
+    let backToTopBtn = document.getElementById('backToTop');
 
-    // Make it appear after a second (for effect at top)
-    setTimeout(() => {
+    if (!backToTopBtn) {
+        // Create the button if it doesn't exist
+        backToTopBtn = document.createElement('button');
+        backToTopBtn.id = 'backToTop';
+        backToTopBtn.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(backToTopBtn);
+    }
+
+    // Set the button content
+    backToTopBtn.innerHTML = '<span class="arrow-icon">↑</span>';
+
+    // Configuration
+    const config = {
+        showAfter: 300,        // Show button after scrolling 300px
+        scrollDuration: 800,   // Smooth scroll duration in ms
+        followOffset: 100,     // Offset from bottom of viewport when following
+        pulseOnShow: true      // Add pulse animation when first shown
+    };
+
+    // State tracking
+    let isVisible = false;
+    let hasBeenShown = false;
+    let lastScrollY = 0;
+
+    // Position button to follow user as they scroll
+    function updateButtonPosition() {
+        if (!isVisible) return;
+
+        const viewportHeight = window.innerHeight;
+        const currentScrollY = window.pageYOffset;
+
+        // Calculate the position to place button in viewport
+        const buttonTop = currentScrollY + viewportHeight - config.followOffset;
+
+        // Update button position
+        backToTopBtn.style.top = `${buttonTop}px`;
+    }
+
+    // Update progress ring based on scroll position
+    function updateProgressRing() {
+        const currentScrollY = window.pageYOffset;
+        const documentHeight = document.documentElement.scrollHeight;
+        const windowHeight = window.innerHeight;
+        const maxScroll = documentHeight - windowHeight;
+
+        // Calculate scroll progress (0 to 1)
+        const scrollProgress = Math.min(currentScrollY / maxScroll, 1);
+
+        // Convert to percentage for CSS (0% to 100%)
+        const progressPercentage = scrollProgress * 100;
+
+        // Update CSS custom property for the progress ring
+        backToTopBtn.style.setProperty('--progress', `${progressPercentage}%`);
+
+        // Add class to show progress ring when there's actual progress
+        if (scrollProgress > 0.05) { // Show after 5% scroll to avoid flicker
+            backToTopBtn.classList.add('has-progress');
+        } else {
+            backToTopBtn.classList.remove('has-progress');
+        }
+
+        return scrollProgress;
+    }
+
+    // Show/hide button based on scroll position
+    function updateButtonVisibility() {
+        const currentScrollY = window.pageYOffset;
+
+        // Show button if scrolled enough
+        if (currentScrollY > config.showAfter && !isVisible) {
+            showButton();
+        } else if (currentScrollY <= config.showAfter && isVisible) {
+            hideButton();
+        }
+
+        // Update position and progress if visible
+        if (isVisible) {
+            updateButtonPosition();
+            updateProgressRing();
+        }
+
+        lastScrollY = currentScrollY;
+    }
+
+    // Show the button with animation
+    function showButton() {
+        isVisible = true;
         backToTopBtn.classList.add('show');
-    }, 800);
 
-    // Change rotation based on scroll
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > scrollThreshold) {
-            backToTopBtn.classList.add('scrolled');
-        } else {
-            backToTopBtn.classList.remove('scrolled');
+        // Set initial position
+        updateButtonPosition();
+
+        // Add pulse animation on first show
+        if (!hasBeenShown && config.pulseOnShow) {
+            backToTopBtn.classList.add('pulse');
+            hasBeenShown = true;
+
+            // Remove pulse class after animation
+            setTimeout(() => {
+                backToTopBtn.classList.remove('pulse');
+            }, 1000);
         }
-    });
+    }
 
-    // Scroll behavior changes depending on scroll position
-    backToTopBtn.addEventListener('click', () => {
-        if (window.pageYOffset > scrollThreshold) {
-            // Scroll to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+    // Hide the button
+    function hideButton() {
+        isVisible = false;
+        backToTopBtn.classList.remove('show', 'floating', 'has-progress');
+    }
+
+    // Add floating animation
+    function addFloatingAnimation() {
+        backToTopBtn.classList.add('floating');
+
+        // Remove floating after a few cycles
+        setTimeout(() => {
+            backToTopBtn.classList.remove('floating');
+        }, 9000); // 3 cycles of 3 seconds each
+    }
+
+    // Smooth scroll to top
+    function scrollToTop() {
+        const startTime = performance.now();
+        const startScrollY = window.pageYOffset;
+
+        function animateScroll(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / config.scrollDuration, 1);
+
+            // Easing function (ease-out cubic)
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+
+            window.scrollTo(0, startScrollY * (1 - easeOut));
+
+            if (progress < 1) {
+                requestAnimationFrame(animateScroll);
+            } else {
+                // Add a little bounce effect at the top
+                setTimeout(() => {
+                    if (window.pageYOffset === 0) {
+                        backToTopBtn.classList.add('pulse');
+                        setTimeout(() => {
+                            backToTopBtn.classList.remove('pulse');
+                        }, 600);
+                    }
+                }, 100);
+            }
+        }
+
+        requestAnimationFrame(animateScroll);
+    }
+
+    // Event listeners
+    backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Add transition class for smooth state changes
+        this.classList.add('transitioning');
+
+        // Remove floating animation if active
+        this.classList.remove('floating');
+
+        // Scroll to top
+        scrollToTop();
+
+        // Remove transition class after animation
+        setTimeout(() => {
+            this.classList.remove('transitioning');
+        }, config.scrollDuration);
+
+        // Analytics tracking (if you have analytics)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'click', {
+                event_category: 'Navigation',
+                event_label: 'Back to Top Button'
             });
-        } else {
-            // Scroll down some
-            window.scrollBy({
-                top: window.innerHeight / 2,
-                behavior: 'smooth'
+        }
+    });
+
+    // Keyboard accessibility
+    backToTopBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
+
+    // Mouse enter/leave events for enhanced UX
+    backToTopBtn.addEventListener('mouseenter', function() {
+        this.classList.remove('floating');
+    });
+
+    backToTopBtn.addEventListener('mouseleave', function() {
+        // Re-add floating if user has been idle
+        setTimeout(() => {
+            if (isVisible && !this.matches(':hover')) {
+                addFloatingAnimation();
+            }
+        }, 2000);
+    });
+
+    // Scroll event listener with throttling
+    let ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateButtonVisibility();
+                ticking = false;
             });
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        updateButtonVisibility();
+    });
+
+    // Handle visibility change (when user switches tabs)
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            updateButtonVisibility();
         }
     });
-});
 
+    // Initialize
+    updateButtonVisibility();
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    const backToTopBtn = document.getElementById("backToTop");
-
-    // Show the button when the user scrolls down 100px
-    window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 100) {
-            backToTopBtn.style.display = "block";
-        } else {
-            backToTopBtn.style.display = "none";
+    // Optional: Add keyboard shortcut (Ctrl/Cmd + ↑)
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (window.pageYOffset > 0) {
+                backToTopBtn.click();
+            }
         }
     });
 
-    // Scroll smoothly back to the top when the button is clicked
-    backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
+    // Smooth CSS transition when button moves
+    backToTopBtn.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), top 0.3s ease-out';
 });
-
 
 
 // Adding dot animation to loading text
