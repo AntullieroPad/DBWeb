@@ -422,11 +422,12 @@ function moveSlide(direction) {
 // Gallery Carousel
 // ------------------------------
 // Gallery Carousel functionality
+// Gallery Carousel functionality - FIXED VERSION
 document.addEventListener("DOMContentLoaded", function() {
     // Get all carousel containers
     const carousels = document.querySelectorAll('.gallery-carousel-container');
 
-    carousels.forEach(function(carousel) {
+    carousels.forEach(function(carousel, carouselIndex) {
         const track = carousel.querySelector('.carousel-track');
         const prevBtn = carousel.querySelector('.carousel-button.prev');
         const nextBtn = carousel.querySelector('.carousel-button.next');
@@ -436,51 +437,79 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Variables for tracking state
         let currentPosition = 0;
-        let itemWidth = items[0].offsetWidth + 20; // Add the gap value (20px)
-        let visibleItems = Math.floor(carousel.offsetWidth / itemWidth);
-        let maxPosition = Math.max(0, items.length - visibleItems);
+        let itemWidth = 0;
+        let visibleItems = 1;
+        let maxPosition = 0;
 
-        // Set initial position
-        track.style.transform = `translateX(0)`;
+        // Function to calculate dimensions
+        function calculateDimensions() {
+            // Get actual width of carousel window (excluding button padding)
+            const carouselRect = carousel.getBoundingClientRect();
+            const windowWidth = carouselRect.width - 120; // Subtract button space
+
+            if (items.length > 0) {
+                const firstItem = items[0];
+                itemWidth = firstItem.offsetWidth + 20; // Add gap
+                visibleItems = Math.floor(windowWidth / itemWidth);
+                if (visibleItems < 1) visibleItems = 1;
+                maxPosition = Math.max(0, items.length - visibleItems);
+            }
+
+            console.log(`Carousel ${carouselIndex}: ${items.length} items, ${visibleItems} visible, max position: ${maxPosition}`);
+        }
 
         // Function to update the carousel position
         function updatePosition() {
-            // Recalculate dimensions in case of window resize
-            itemWidth = items[0].offsetWidth + 20; // Adding gap
-            visibleItems = Math.floor(carousel.offsetWidth / itemWidth);
-            maxPosition = Math.max(0, items.length - visibleItems);
+            calculateDimensions();
 
-            // Ensure current position isn't beyond the max
+            // Ensure current position is valid
             if (currentPosition > maxPosition) {
                 currentPosition = maxPosition;
             }
+            if (currentPosition < 0) {
+                currentPosition = 0;
+            }
 
-            // Calculate the translation amount
+            // Calculate the translation
             const translateX = -currentPosition * itemWidth;
             track.style.transform = `translateX(${translateX}px)`;
 
-            // Update button states
-            prevBtn.disabled = currentPosition <= 0;
-            nextBtn.disabled = currentPosition >= maxPosition;
+            // Update button states - FIXED LOGIC
+            const canGoPrev = currentPosition > 0;
+            const canGoNext = currentPosition < maxPosition;
 
-            // Visual indication for disabled buttons
-            prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
-            nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
+            // Enable/disable buttons
+            prevBtn.disabled = !canGoPrev;
+            nextBtn.disabled = !canGoNext;
+
+            // Visual feedback
+            prevBtn.style.opacity = canGoPrev ? '1' : '0.5';
+            nextBtn.style.opacity = canGoNext ? '1' : '0.5';
+
+            console.log(`Position: ${currentPosition}, Can go prev: ${canGoPrev}, Can go next: ${canGoNext}`);
         }
 
-        // Handle click on prev button
-        prevBtn.addEventListener('click', function() {
+        // Handle prev button click
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log(`Prev clicked! Current position: ${currentPosition}`);
+
             if (currentPosition > 0) {
                 currentPosition--;
                 updatePosition();
+                console.log(`Moved to position: ${currentPosition}`);
             }
         });
 
-        // Handle click on next button
-        nextBtn.addEventListener('click', function() {
+        // Handle next button click
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log(`Next clicked! Current position: ${currentPosition}`);
+
             if (currentPosition < maxPosition) {
                 currentPosition++;
                 updatePosition();
+                console.log(`Moved to position: ${currentPosition}`);
             }
         });
 
@@ -489,10 +518,15 @@ document.addEventListener("DOMContentLoaded", function() {
             updatePosition();
         });
 
-        // Initial update
+        // IMPORTANT: Initialize everything
+        calculateDimensions();
         updatePosition();
+
+        console.log(`Carousel ${carouselIndex} initialized with ${items.length} items`);
     });
 });
+
+
 
 // Event search functionality
 document.addEventListener('DOMContentLoaded', function() {

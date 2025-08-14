@@ -1533,6 +1533,7 @@ body.dark-mode .collapse-toggle:hover {
     flex: 0 0 auto;
     width: 300px; /* Fixed width or adjust as needed */
     min-width: 300px;
+    max-width: 320px; /* Ensure maximum width */
     display: block; /* Ensure proper block display */
 }
 
@@ -1608,30 +1609,45 @@ body.dark-mode .collapse-toggle:hover {
 /* Enhanced hover effects */
 .carousel-button:hover {
     background: linear-gradient(135deg, #0056b3, #004494);
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.15); /* Bigger scale on hover */
     box-shadow:
-            0 6px 20px rgba(0, 123, 255, 0.4),
-            0 3px 12px rgba(0, 0, 0, 0.15);
+            0 8px 25px rgba(0, 123, 255, 0.5),
+            0 4px 15px rgba(0, 0, 0, 0.2);
+    border-color: #fff;
 }
 
 /* Active/pressed state */
 .carousel-button:active {
     transform: translateY(-50%) scale(0.95);
+    box-shadow:
+            0 2px 8px rgba(0, 123, 255, 0.4),
+            0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Disabled state for when there are no more items to scroll */
 .carousel-button:disabled {
-    background: #6c757d;
+    background: linear-gradient(135deg, #6c757d, #5a6268);
     cursor: not-allowed;
-    opacity: 0.6;
-    transform: translateY(-50%) scale(0.9);
-}
-
-.carousel-button:disabled:hover {
-    background: #6c757d;
+    opacity: 0.5;
     transform: translateY(-50%) scale(0.9);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+.carousel-button:disabled:hover {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    transform: translateY(-50%) scale(0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle glow effect on focus for accessibility */
+.carousel-button:focus {
+    outline: none;
+    box-shadow:
+            0 4px 15px rgba(0, 123, 255, 0.3),
+            0 2px 8px rgba(0, 0, 0, 0.1),
+            0 0 0 3px rgba(0, 123, 255, 0.2); /* Focus ring */
+}
+
 
 /* Add subtle animation when buttons appear */
 @keyframes buttonAppear {
@@ -1663,6 +1679,9 @@ body.dark-mode .carousel-button {
 
 body.dark-mode .carousel-button:hover {
     background: linear-gradient(135deg, #66b5ff, #0066cc);
+}
+body.dark-mode .carousel-button:disabled {
+    background: linear-gradient(135deg, #444, #333);
 }
 
 /* Mobile responsive adjustments */
@@ -1720,6 +1739,7 @@ body.dark-mode .carousel-button:hover {
     .carousel-item {
         width: 260px;
         min-width: 260px;
+        max-width: 260px;
     }
 
     .folder-preview {
@@ -1736,15 +1756,6 @@ body.dark-mode .carousel-button:hover {
 .carousel-container.has-overflow .carousel-button {
     opacity: 1;
     pointer-events: auto;
-}
-
-/* Additional visual enhancement - add subtle glow on focus for accessibility */
-.carousel-button:focus {
-    outline: none;
-    box-shadow:
-            0 4px 15px rgba(0, 123, 255, 0.3),
-            0 2px 8px rgba(0, 0, 0, 0.1),
-            0 0 0 3px rgba(0, 123, 255, 0.2); /* Focus ring */
 }
 
 /* Ensure buttons are always visible with high contrast */
