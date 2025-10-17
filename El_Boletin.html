@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Boletín - Despierta Boricua at Yale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Pacifico&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #E8DCC4 0%, #D4C5A9 100%);
+            color: #2B2D42;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #FFF8E7;
+            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* RAILROAD TRACKS with TROPICAL OVERGROWTH */
+        .railroad-track-left,
+        .railroad-track-right {
+            position: absolute;
+            width: 8px;
+            background: #6B4423;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(107, 68, 35, 0.3);
+        }
+
+        .railroad-track-left {
+            left: 60px;
+        }
+
+        .railroad-track-right {
+            right: 60px;
+        }
+
+        /* Railroad ties */
+        .railroad-track-left::before,
+        .railroad-track-right::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 100%;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 45px,
+                #4A3219 45px,
+                #4A3219 55px,
+                transparent 55px,
+                transparent 100px
+            );
+            left: -25%;
+            top: 0;
+        }
+
+        /* TROPICAL VINES growing on tracks */
+        .vine-left,
+        .vine-right {
+            position: absolute;
+            width: 40px;
+            top: 0;
+            bottom: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .vine-left {
+            left: 40px;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(45, 106, 79, 0.3) 10%,
+                transparent 20%,
+                rgba(64, 145, 108, 0.4) 30%,
+                transparent 40%,
+                rgba(45, 106, 79, 0.3) 50%,
+                transparent 60%,
+                rgba(64, 145, 108, 0.4) 70%,
+                transparent 80%,
+                rgba(45, 106, 79, 0.3) 90%,
+                transparent 100%
+            );
+        }
+
+        .vine-right {
+            right: 40px;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(64, 145, 108, 0.4) 15%,
+                transparent 25%,
+                rgba(45, 106, 79, 0.3) 35%,
+                transparent 45%,
+                rgba(64, 145, 108, 0.4) 55%,
+                transparent 65%,
+                rgba(45, 106, 79, 0.3) 75%,
+                transparent 85%,
+                rgba(64, 145, 108, 0.4) 95%,
+                transparent 100%
+            );
+        }
+
+        /* Tropical flowers scattered along tracks */
+        .flower-accent {
+            position: absolute;
+            font-size: 1.8em;
+            z-index: 3;
+            animation: sway 4s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-8deg); }
+            50% { transform: rotate(8deg); }
+        }
+
+        .flower-accent:nth-child(1) { left: 45px; top: 15%; animation-delay: 0s; }
+        .flower-accent:nth-child(2) { right: 45px; top: 25%; animation-delay: 0.5s; }
+        .flower-accent:nth-child(3) { left: 50px; top: 40%; animation-delay: 1s; }
+        .flower-accent:nth-child(4) { right: 50px; top: 55%; animation-delay: 1.5s; }
+        .flower-accent:nth-child(5) { left: 48px; top: 70%; animation-delay: 2s; }
+        .flower-accent:nth-child(6) { right: 48px; top: 85%; animation-delay: 2.5s; }
+
+        /* Content wrapper with padding for tracks and tropical growth */
+        .content-wrapper {
+            position: relative;
+            z-index: 4;
+            padding: 0 90px;
+        }
+
+        /* Vintage Railroad Header with TROPICAL OVERLAY */
+        .railroad-header {
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #1B1B1B 100%);
+            border-top: 12px solid #D4A574;
+            border-bottom: 12px solid #2D6A4F;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* Tropical pattern overlay on header */
+        .railroad-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(241, 168, 150, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(168, 218, 220, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(45, 106, 79, 0.2) 0%, transparent 40%);
+            opacity: 0.6;
+        }
+
+        .railroad-company-logo {
+            background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%);
+            border: 4px solid #D4A574;
+            padding: 20px 30px;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* Tropical leaf decorations on logo corners */
+        .railroad-company-logo::before,
+        .railroad-company-logo::after {
+            content: '🌿';
+            position: absolute;
+            font-size: 1.5em;
+            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.3));
+        }
+
+        .railroad-company-logo::before {
+            top: -10px;
+            left: -10px;
+            transform: rotate(-45deg);
+        }
+
+        .railroad-company-logo::after {
+            top: -10px;
+            right: -10px;
+            transform: rotate(45deg);
+        }
+
+        .company-name {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #6B4423;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .established {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.7em;
+            color: #2D6A4F;
+            letter-spacing: 2px;
+        }
+
+        .main-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4em;
+            font-weight: 800;
+            color: #D4A574;
+            margin: 25px 0;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.3), 0 0 30px rgba(45, 106, 79, 0.3);
+            letter-spacing: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .subtitle-box {
+            background: linear-gradient(135deg, #2D6A4F 0%, #40916C 100%);
+            padding: 15px 30px;
+            display: inline-block;
+            color: #FFF8E7;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 4px 10px rgba(45, 106, 79, 0.4);
+            margin: 15px 0;
+            border: 3px solid #D4A574;
+        }
+
+        .route-info {
+            font-family: 'Courier Prime', monospace;
+            color: #A8DADC;
+            font-size: 1em;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        .route-info strong {
+            color: #F1A896;
+        }
+
+        /* Train icon with tropical flair */
+        .train-icon {
+            font-size: 3em;
+            margin: 15px 0;
+            animation: train-cross 10s linear infinite;
+            filter: drop-shadow(0 0 20px rgba(45, 106, 79, 0.5));
+            position: relative;
+        }
+
+        @keyframes train-cross {
+            0% { 
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            1% {
+                opacity: 1;
+            }
+            49% {
+                opacity: 1;
+            }
+            50% { 
+                transform: translateX(0);
+                opacity: 1;
+            }
+            99% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateX(-120%);
+                opacity: 0;
+            }
+        }
+
+        /* Station Platform Headers with TROPICAL GROWTH */
+        .station-platform {
+            background: linear-gradient(135deg, #6B4423 0%, #4A3219 100%);
+            color: #FFF8E7;
+            padding: 25px 35px;
+            margin: 50px 0 30px 0;
+            position: relative;
+            border-left: 8px solid #2D6A4F;
+            border-right: 8px solid #2D6A4F;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            overflow: visible;
+        }
+
+        /* Tropical flowers on platform corners */
+        .station-platform::before {
+            content: '🌺';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5em;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        .station-platform::after {
+            content: '🌸';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5em;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+            animation: sway 3s ease-in-out infinite 1.5s;
+        }
+
+        .platform-number {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.9em;
+            letter-spacing: 3px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .platform-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2em;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        /* Content section */
+        .content {
+            padding: 40px 0;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        /* Ticket stub design with tropical corners */
+        .ticket-stub {
+            background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%);
+            border: 3px dashed #6B4423;
+            padding: 25px;
+            margin: 20px 0;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .ticket-stub::before {
+            content: '✂';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 1.5em;
+            color: #6B4423;
+        }
+
+        .ticket-stub::after {
+            content: '🍃';
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 1.2em;
+            opacity: 0.4;
+        }
+
+        .ticket-header {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.8em;
+            letter-spacing: 2px;
+            color: #6B4423;
+            border-bottom: 2px solid #D4A574;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .ticket-number {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.75em;
+            color: #8B6433;
+        }
+
+        /* Railway manifest with tropical flair */
+        .railway-manifest {
+            background: linear-gradient(135deg, #2B2B2B 0%, #1B4332 100%);
+            color: #FFF8E7;
+            padding: 30px;
+            border: 6px double #D4A574;
+            font-family: 'Courier Prime', monospace;
+            margin: 60px 0 25px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        /* Vine decoration on manifest */
+        .railway-manifest::before {
+            content: '🌿';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+            background: #2D6A4F;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 3px solid #D4A574;
+            z-index: 10;
+        }
+
+        /* Custom manifest decorations */
+        .railway-manifest.partnership::before {
+            content: '🌿';
+        }
+
+        .railway-manifest.collection::before {
+            content: '🔒';
+        }
+
+        .railway-manifest.communication::before {
+            content: '📡';
+        }
+
+        .manifest-header {
+            text-align: center;
+            font-size: 1.2em;
+            letter-spacing: 4px;
+            border-bottom: 3px solid #D4A574;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .manifest-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #D4A574;
+        }
+
+        .manifest-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Communication manifest without borders on items */
+        .railway-manifest.communication .manifest-item {
+            border-bottom: none;
+            padding: 8px 0 0 0;
+        }
+
+        .manifest-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Signal lights with tropical glow */
+        .signal-lights {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .signal-light {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid #2D6A4F;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        .signal-red { background: #E63946; animation-delay: 0s; }
+        .signal-yellow { background: #FFD60A; animation-delay: 0.6s; }
+        .signal-green { background: #2D6A4F; animation-delay: 1.2s; }
+
+        @keyframes blink {
+            0%, 45%, 100% { opacity: 0.3; box-shadow: none; }
+            50%, 95% { 
+                opacity: 1; 
+                box-shadow: 0 0 20px currentColor, 0 0 40px rgba(45, 106, 79, 0.3);
+            }
+        }
+
+        /* Train schedule board with tropical frame */
+        .schedule-board {
+            background: #1B1B1B;
+            color: #FFD60A;
+            padding: 30px;
+            border: 8px solid #2D6A4F;
+            font-family: 'Courier Prime', monospace;
+            margin: 30px 0;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 0 6px 20px rgba(45, 106, 79, 0.4);
+            position: relative;
+        }
+
+        /* Tropical corners on schedule board */
+        .schedule-board::before {
+            content: '🌴';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 2em;
+        }
+
+        .schedule-board::after {
+            content: '🌴';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 2em;
+        }
+
+        .schedule-header {
+            text-align: center;
+            font-size: 1.5em;
+            letter-spacing: 5px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px #FFD60A, 0 0 20px rgba(45, 106, 79, 0.5);
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            gap: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #6B4423;
+            transition: all 0.3s ease;
+        }
+
+        .schedule-row:hover {
+            background: rgba(45, 106, 79, 0.2);
+        }
+
+        /* Archival trunk with tropical overgrowth */
+        .archival-trunk {
+            background: linear-gradient(135deg, #8B6433 0%, #6B4423 100%);
+            border: 8px ridge #2D6A4F;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(45, 106, 79, 0.4);
+            color: #FFF8E7;
+            overflow: visible;
+        }
+
+        /* Flowers growing out of trunk */
+        .archival-trunk::before {
+            content: '🌺🌸🌿';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+            background: #2D6A4F;
+            padding: 10px 20px;
+            border: 4px solid #D4A574;
+            border-radius: 20px;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+
+        .trunk-label {
+            background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%);
+            color: #2B2B2B;
+            padding: 20px;
+            border: 3px solid #2D6A4F;
+            margin: 20px 0;
+            text-align: center;
+            font-family: 'Courier Prime', monospace;
+            box-shadow: inset 0 0 20px rgba(45, 106, 79, 0.1);
+        }
+
+        .trunk-label-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        /* Station board with lush tropical frame */
+        .station-board {
+            background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+            padding: 40px;
+            border: 10px solid #6B4423;
+            margin: 40px 0;
+            box-shadow: 0 8px 25px rgba(45, 106, 79, 0.4);
+            position: relative;
+        }
+
+        /* Tropical foliage around station board */
+        .station-board::before {
+            content: '🌴🌺🌿';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.3));
+        }
+
+        .station-board-header {
+            background: linear-gradient(135deg, #FFD60A 0%, #FFC300 100%);
+            color: #1B1B1B;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+            border: 4px solid #2D6A4F;
+            letter-spacing: 2px;
+            word-break: break-word;
+        }
+
+        .destination-card {
+            background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%);
+            border: 4px solid #2D6A4F;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #2B2B2B;
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destination-card::before {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #2D6A4F;
+            transition: all 0.3s ease;
+        }
+
+        .destination-card::after {
+            content: '🌿';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 1em;
+            opacity: 0.3;
+        }
+
+        .destination-card:hover {
+            background: linear-gradient(135deg, #2D6A4F 0%, #40916C 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .destination-card:hover::before {
+            right: 10px;
+            color: #FFD60A;
+        }
+
+        .destination-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        /* Railroad crossing with tropical caution */
+        .railroad-crossing {
+            background: linear-gradient(135deg, #E63946 0%, #C5303E 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8em;
+            margin: 40px 0;
+            border: 8px solid #2D6A4F;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+        }
+
+        .railroad-crossing::before {
+            content: '✕';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+        }
+
+        .railroad-crossing::after {
+            content: '✕';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+        }
+
+        /* Train tickets with tropical corners */
+        .event-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .train-ticket {
+            background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%);
+            border: 4px solid #6B4423;
+            border-left: 20px solid #D4A574;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 6px 15px rgba(45, 106, 79, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .train-ticket:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(45, 106, 79, 0.3);
+        }
+
+        .train-ticket::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 0;
+            bottom: 0;
+            width: 20px;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 10px,
+                #2D6A4F 10px,
+                #2D6A4F 15px
+            );
+        }
+
+        .train-ticket::after {
+            content: '⚡';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            opacity: 0.3;
+        }
+
+        .ticket-route {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.8em;
+            color: #2D6A4F;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .ticket-event-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2B2B2B;
+            margin: 10px 0;
+        }
+
+        .ticket-details {
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        .ticket-detail-line {
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ticket-detail-line strong {
+            color: #2D6A4F;
+        }
+
+        /* CTA Buttons - Railroad style with tropical shadow */
+        .railroad-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #E63946 0%, #C5303E 100%);
+            color: white;
+            padding: 18px 40px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 4px solid #2D6A4F;
+            box-shadow: 0 6px 0 #8B1A1A, 0 8px 20px rgba(45, 106, 79, 0.3);
+            transition: all 0.2s ease;
+            position: relative;
+            margin: 10px 5px;
+        }
+
+        .railroad-button:hover {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #8B1A1A, 0 5px 15px rgba(45, 106, 79, 0.3);
+        }
+
+        .railroad-button:active {
+            transform: translateY(6px);
+            box-shadow: 0 0px 0 #8B1A1A, 0 2px 10px rgba(45, 106, 79, 0.3);
+        }
+
+        .railroad-button-secondary {
+            background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+            box-shadow: 0 6px 0 #0F2619, 0 8px 20px rgba(230, 57, 70, 0.2);
+            border-color: #D4A574;
+        }
+
+        .railroad-button-secondary:hover {
+            box-shadow: 0 3px 0 #0F2619, 0 5px 15px rgba(230, 57, 70, 0.2);
+        }
+
+        .railroad-button-secondary:active {
+            box-shadow: 0 0px 0 #0F2619, 0 2px 10px rgba(230, 57, 70, 0.2);
+        }
+
+        /* Footer with tropical sunset vibes */
+        .train-depot-footer {
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #1B1B1B 100%);
+            border-top: 12px solid #D4A574;
+            color: #FFF8E7;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Tropical sunset overlay */
+        .train-depot-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 20%, rgba(241, 168, 150, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .depot-quote {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.2em;
+            color: #F1A896;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 30px rgba(45, 106, 79, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .depot-message {
+            font-size: 1.15em;
+            line-height: 2;
+            margin: 25px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-destination {
+            font-family: 'Courier Prime', monospace;
+            font-size: 1.3em;
+            color: #FFD60A;
+            letter-spacing: 3px;
+            margin: 30px 0;
+            padding: 20px;
+            border: 3px dashed #2D6A4F;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Track crossing divider with tropical flowers */
+        .track-crossing {
+            margin: 60px 0;
+            text-align: center;
+            position: relative;
+            height: 40px;
+        }
+
+        .track-crossing::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 6px;
+            background: linear-gradient(90deg, 
+                #6B4423 0%, 
+                #2D6A4F 25%,
+                #6B4423 50%,
+                #2D6A4F 75%,
+                #6B4423 100%
+            );
+        }
+
+        .track-crossing::after {
+            content: '🚂';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            background: #FFF8E7;
+            padding: 10px 20px;
+            border: 4px solid #2D6A4F;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .railroad-track-left { left: 20px; }
+            .railroad-track-right { right: 20px; }
+            .vine-left { left: 10px; }
+            .vine-right { right: 10px; }
+            .content-wrapper { padding: 0 50px; }
+            .main-title { font-size: 2.5em; letter-spacing: 6px; }
+            .platform-name { font-size: 1.5em; }
+            .event-cards { grid-template-columns: 1fr; }
+            .flower-accent { display: none; }
+        }
+
+        /* Typography helpers */
+        .drop-cap::first-letter {
+            font-size: 4.5em;
+            font-weight: 800;
+            float: left;
+            line-height: 0.8;
+            margin: 10px 15px 0 0;
+            color: #2D6A4F;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 2px 2px 0px #D4A574;
+        }
+
+        .emphasis-text {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.4em;
+            color: #E63946;
+            margin: 20px 0;
+        }
+
+        .vintage-stamp {
+            display: inline-block;
+            border: 3px double #2D6A4F;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #FFD60A 0%, #FFC300 100%);
+            color: #2B2B2B;
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            transform: rotate(-3deg);
+            box-shadow: 0 3px 10px rgba(45, 106, 79, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Railroad tracks running down both sides -->
+        <div class="railroad-track-left"></div>
+        <div class="railroad-track-right"></div>
+
+        <!-- Tropical vines growing on tracks -->
+        <div class="vine-left"></div>
+        <div class="vine-right"></div>
+
+        <!-- Scattered tropical flowers along the tracks -->
+        <div class="flower-accent">🌺</div>
+        <div class="flower-accent">🌸</div>
+        <div class="flower-accent">🌺</div>
+        <div class="flower-accent">🌿</div>
+        <div class="flower-accent">🌸</div>
+        <div class="flower-accent">🌺</div>
+
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+            <!-- Header with vintage railroad branding + tropical overlay -->
+            <div class="railroad-header">
+                <div class="railroad-company-logo">
+                    <div class="company-name">Puerto Rico Railroad & Transport Co.</div>
+                    <div class="established">EST. 1891 — DESPIERTA BORICUA LINE — 2025</div>
+                </div>
+
+                <div class="train-icon">🚂</div>
+
+                <h1 class="main-title">EL BOLETÍN</h1>
+
+                <div class="subtitle-box">
+                    THE DESPIERTA BORICUA RAILWAY GAZETTE
+                </div>
+
+                <p class="route-info">
+                    <strong>ROUTE:</strong> PAST ═🌿═ PRESENT ═🌺═ FUTURE<br>
+                    <strong>DEPARTURE:</strong> SEPTEMBER 2025 | VOLUME 1<br>
+                    <strong>DESTINATION:</strong> ¡PA'LANTE SIEMPRE!
+                </p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content">
+                
+                <!-- Station Platform 1: De La Directive -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 1</div>
+                    <div class="platform-name">DE LA DIRECTIVE</div>
+                </div>
+
+                <div class="section">
+                    <p class="emphasis-text">¡Wepa, familia!</p>
+
+                    <p class="drop-cap">September came in hot (literally and figuratively), and DB has been on FIRE. We've been building <em>comunidad</em>, celebrating <em>cultura</em>, and raising <em>conciencia</em> like it's our full-time job (porque basically lo es 😅).</p>
+
+                    <p style="margin: 20px 0;">These two months we hosted legends, marched with pride, screamed at screens for Bad Bunny, and dove deep into dusty archives looking for our roots. Whether you've been with us since day one or just found us last week: <strong>bienvenidos!</strong> You're home now.</p>
+
+                    <div class="ticket-stub">
+                        <div class="ticket-header">CONDUCTOR'S MESSAGE</div>
+                        <div class="ticket-number">No. 001</div>
+                        <p style="font-family: 'Open Sans', sans-serif; font-size: 1.1em; line-height: 1.8;">
+                            "Grab your cafecito and catch up on everything DB has been cooking up. Spoiler: <em>bien sabroso</em>."
+                        </p>
+                    </div>
+
+                    <p style="text-align: right; font-style: italic; color: #666; margin-top: 25px;">
+                        — La Directive 2025 ✊🏽<br>
+                        <em>(A.K.A. your hardworking, slightly caffeinated, always proud board)</em>
+                    </p>
+                </div>
+
+                <div class="track-crossing"></div>
+
+                <!-- Station Platform 2: Lo Que Pasó -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 2</div>
+                    <div class="platform-name">LO QUE PASÓ — FIRST ARRIVALS</div>
+                </div>
+
+                <div class="section">
+                    <p style="margin-bottom: 30px; font-size: 1.1em;">Here's a look at the stations we stopped at this month:</p>
+
+                    <div class="event-cards">
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: Brady Auditorium</div>
+                            <div class="ticket-event-name">🏥 Dr. Antonia Novello</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Thursday, Sept 18</strong> | 12:30-3pm | Yale School of Medicine</p>
+                                <p style="margin: 15px 0;">The first woman AND first Latina U.S. Surgeon General came through and blessed us. Dr. Novello shared her journey breaking barriers in medicine, serving as Surgeon General, working at the NIH, leading as NY Commissioner of Health during 9/11, and coordinating healthcare in PR after Hurricane María and during COVID.</p>
+                                <p style="margin: 15px 0;">Puerto Rican med students got a private trainee conversation with her afterward, and she even autographed books for DB!</p>
+                                <p style="margin: 20px 0 0 0; padding-top: 15px; border-top: 2px dashed #D4A574; color: #2D6A4F; font-weight: 600; font-size: 0.95em;">Status: STANDING ROOM ONLY ✓</p>
+                            </div>
+                        </div>
+
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: GRACE HOPPER</div>
+                            <div class="ticket-event-name">🐰 Bad Bunny LIVE Watch Party</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Saturday, Sept 20</strong> | 8:30pm | Hopper Buttery</p>
+                                <p style="margin: 15px 0;">When Bad Bunny announced he was livestreaming his FINAL <em>Debí Tirar Más Fotos</em> concert from Puerto Rico, we gathered to watch together. Antonio cooked fresh <strong>alcapurrias</strong> and <strong>arroz con gandules</strong> in the buttery, plus homemade <strong>limber</strong>.</p>
+                                <p style="margin: 15px 0;">A night of music, food, and feeling connected, even from thousands of miles away.</p>
+                                <p style="margin: 20px 0 0 0; padding-top: 15px; border-top: 2px dashed #D4A574; color: #2D6A4F; font-weight: 600; font-size: 0.95em;">Lesson Learned: Alcapurrias need to be frozen first before frying or they fall apart 😅</p>
+                            </div>
+                        </div>
+
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: HARTFORD</div>
+                            <div class="ticket-event-name">🇵🇷 Hartford Puerto Rican Parade</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Sunday, Sept 21</strong> | 12-3:30pm | Pope Park → Downtown Hartford</p>
+                                <p style="margin: 15px 0;">We marched as co-sponsors with <strong>Movimiento Cultural</strong> in the Hartford Puerto Rican Parade alongside thousands celebrating Boricua culture and community. We brought our instruments and made sure people heard us coming!</p>
+                                <p style="margin: 15px 0;"><strong>The energy, the flags, the pride, Boricua spirit.</strong> 🇵🇷</p>
+                                <p style="margin: 20px 0 0 0; padding-top: 15px; border-top: 2px dashed #D4A574; color: #2D6A4F; font-weight: 600; font-size: 0.95em;">Vibe: Pure Pride</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo Gallery Section -->
+                    <div style="background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 4px solid #2D6A4F; padding: 30px; margin: 40px 0; border-radius: 10px; box-shadow: 0 6px 20px rgba(45, 106, 79, 0.2);">
+                        <h3 style="font-family: 'Courier Prime', monospace; text-align: center; color: #2D6A4F; font-size: 1.5em; letter-spacing: 3px; margin-bottom: 25px; border-bottom: 3px solid #2D6A4F; padding-bottom: 15px;">📸 SEPTEMBER IN PHOTOS 📸</h3>
+                        
+                        <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; font-style: italic;">
+                            These moments? <strong>Priceless.</strong> From watching Bad Bunny together to marching through Hartford with thousands—this is what community looks like. 🇵🇷✨
+                        </p>
+
+                        <div style="background: #2D6A4F; color: #FFF8E7; padding: 20px; text-align: center; border-radius: 8px; margin: 20px 0;">
+                            <p style="font-size: 1.1em; margin: 10px 0;">
+                                <strong>🖼️ Want to see all the photos?</strong>
+                            </p>
+                            <p style="margin: 15px 0;">
+                                Check out our <strong>Instagram</strong> @DespiertaBoricuaYale for the full gallery, or visit our website's photo archive to relive every single moment.
+                            </p>
+                            <p style="margin-top: 20px; font-size: 0.95em; opacity: 0.9;">
+                                (Alumni: If YOU have photos from DB events—from this year or decades ago—we want them! See the <strong>Archivo Vivo</strong> section below.)
+                            </p>
+                        </div>
+
+                        <div style="border: 3px dashed #2D6A4F; padding: 20px; margin-top: 25px; background: rgba(45, 106, 79, 0.05); border-radius: 8px;">
+                            <p style="text-align: center; font-family: 'Courier Prime', monospace; font-size: 0.9em; color: #6B4423;">
+                                <strong>PHOTO ARCHIVE AVAILABLE AT:</strong><br>
+                                📱 Instagram: @DespiertaBoricuaYale<br>
+                                🌐 Website: despiertaboricua.yale.edu/gallery<br>
+                                📧 Want high-res? Email us: despiertaboricua@yale.edu
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-crossing"></div>
+
+                <!-- OCTOBER EVENTS SECTION -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 2.5</div>
+                    <div class="platform-name">OCTUBRE — THE MOMENTUM CONTINUES</div>
+                </div>
+
+                <div class="section">
+                    <p style="font-size: 1.15em; margin-bottom: 30px;">September was just the warm-up. October brought even MORE heat:</p>
+
+                    <div class="event-cards">
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: BEINECKE PLAZA</div>
+                            <div class="ticket-event-name">💃🏽 Día Nacional de la Salsa</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Sunday, Oct 5</strong> | 2-5pm | Beinecke Plaza</p>
+                                <p style="margin: 15px 0;">In honor of Puerto Rico's <strong>Día Nacional de la Zalsa</strong> (an annual festival celebrating our salsa legends) we teamed up with <strong>Sabro</strong> to bring the music outside.</p>
+                                <p style="margin: 15px 0;"><strong>Sabro</strong> led a salsa workshop, teaching choreography to anyone brave enough to learn, followed by social dancing with a salsa-only playlist echoing across campus.</p>
+                            </div>
+                        </div>
+
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: LUCE HALL</div>
+                            <div class="ticket-event-name">🎨 Antonio Martorell Fireside Chat</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Thursday, Oct 9</strong> | 6-8pm | Luce Hall</p>
+                                <p style="margin: 15px 0;"><strong>Legendary</strong> Puerto Rican multimedia artist <strong>Antonio (Toño) Martorell</strong> came through, and DB got to moderate a fireside chat with him about his work, his creative process, and the political messages woven into his art.</p>
+                                <p style="margin: 15px 0;">Martorell brought his painting materials and created art <em>live</em> while talking. The audience (full of students, faculty, and alumni) were captivated.</p>
+                            </div>
+                        </div>
+
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: Tobin Center</div>
+                            <div class="ticket-event-name">📊 Tobin Report 50th Anniversary</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Friday, Oct 10</strong> | 1-4pm | Yale SOM</p>
+                                <p style="margin: 15px 0;">The <strong>Center for a New Economy</strong> and Yale's <strong>Tobin Center for Economic Policy</strong> commemorated the 50th anniversary of the <strong>Tobin Report on Puerto Rico</strong>—a landmark 1975 assessment of PR's economic challenges commissioned by the governor and led by Nobel laureate James Tobin.</p>
+                                <p style="margin: 15px 0;">Leading economists, policymakers, and scholars reflected on the report's legacy and discussed what it means for Puerto Rico's future today.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="track-crossing"></div>
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 3</div>
+                    <div class="platform-name">COLABORACIONES — CONNECTING LINES</div>
+                </div>
+
+                <div class="section">
+                    <p style="font-size: 1.15em; margin-bottom: 30px;"><strong>We don't do this alone.</strong> This month, we linked up with some incredible orgs to create magic:</p>
+
+                    <div class="railway-manifest partnership">
+                        <div class="manifest-header">═══ PARTNERSHIP MANIFEST ═══</div>
+                        
+                        <div class="manifest-item">
+                            <span><strong>🇧🇷 Brasil Club x DB x LUL — Party</strong></span>
+                            <span style="color: #2D6A4F;">✓ DELIVERED</span>
+                        </div>
+                        <div style="padding-left: 30px; font-size: 0.9em; opacity: 0.9; margin-top: 5px; margin-bottom: 20px;">
+                            <strong>Sept 26, 10pm-1am</strong> | LUL House<br>
+                            A blend of Brazilian and Puerto Rican music, <strong>coquito</strong> meets <strong>caipirinha</strong>—celebrating our shared Latin American roots.
+                        </div>
+
+                        <div class="manifest-item">
+                            <span><strong>🏝️ Caribbean Students Mixer</strong></span>
+                            <span style="color: #2D6A4F;">✓ DELIVERED</span>
+                        </div>
+                        <div style="padding-left: 30px; font-size: 0.9em; opacity: 0.9; margin-top: 5px; margin-bottom: 20px;">
+                            <strong>Sept 27, 7-9pm</strong> | La Casa Cultural<br>
+                            Co-hosted with <strong>CSO, DSA, CAUSA</strong> (+ Sabro support)<br>
+                            The ANNUAL Caribbean mixer: <strong>dancing workshop</strong>, <strong>social dancing</strong>, <strong>dominoes</strong>, and incredible food. DB brought <strong>Pan del Cielo II pastries</strong> and homemade <strong>coquito</strong>. DSA made <strong>arroz con leche</strong>, CAUSA brought mocktails, and CSO/Sabro led the dance workshop.
+                        </div>
+                    </div>
+
+                    <!-- DSA Collabs -->
+                    <div style="background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 4px solid #2D6A4F; padding: 30px; margin: 40px 0; border-radius: 10px; box-shadow: 0 6px 20px rgba(45, 106, 79, 0.2);">
+                        <h3 style="font-family: 'Courier Prime', monospace; text-align: center; color: #2D6A4F; font-size: 1.4em; letter-spacing: 3px; margin-bottom: 20px;">🇵🇷🤝🇩🇴 DB x DSA COLLABS 🇩🇴🤝🇵🇷</h3>
+
+                        <div style="margin: 25px 0;">
+                            <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>☕ "Cafecito Estilo Domino"</strong></p>
+                            <p style="margin: 10px 0; padding-left: 20px;"><strong>Friday, Oct 10 (3-5pm)</strong> | DB Room + LWAY Room</p>
+                            <p style="margin: 10px 0; padding-left: 20px;">After <em>many</em> requests, we finally held a joint cafecito with DSA! DB brought 50 pastries from <strong>Pan Del Cielo II</strong>, connecting our Boricua and Dominican communities over coffee and conversation.</p>
+                        </div>
+
+                        <div style="border-top: 2px dashed #2D6A4F; padding-top: 25px; margin-top: 25px;">
+                            <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>🎶 Reggaeton y Dembow Party</strong></p>
+                            <p style="margin: 10px 0; padding-left: 20px;"><strong>Saturday, Oct 11 (10pm-1am)</strong> | GodQuad</p>
+                            <p style="margin: 10px 0; padding-left: 20px;">The collab people had been waiting for: <strong>DB x DSA party</strong> with the best Puerto Rican and Dominican music in one room.</p>
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); padding: 25px; border-radius: 10px; margin: 30px 0; border: 4px solid #D4A574; box-shadow: 0 6px 15px rgba(45, 106, 79, 0.3);">
+                        <p style="text-align: center; color: #FFF8E7; font-size: 1.2em; margin: 0; font-weight: 600;">
+                            🌟 When we come together, <em>magic</em> happens. Period. 🌟
+                        </p>
+                    </div>
+
+                    <p style="text-align: center; margin-top: 30px; font-size: 1.05em; font-style: italic;">
+                        <strong>We show up for each other.</strong> That's what community means. Solidarity, that's how we operate.
+                    </p>
+                </div>
+
+                <div class="track-crossing"></div>
+
+                <!-- Station Platform 4: Iniciativas -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 4</div>
+                    <div class="platform-name">INICIATIVAS — BUILDING NEW TRACKS</div>
+                </div>
+
+                <div class="section">
+                    <div class="ticket-stub">
+                        <div class="ticket-header">📜 LA CASA ARCHIVAL PROJECT</div>
+                        <div class="ticket-number">PRIORITY</div>
+                        
+                        <p style="font-size: 1.05em; margin: 15px 0;"><strong>Our history is RICH, y'all.</strong> But for too long, it's been gathering dust in attics and storage boxes. Not anymore.</p>
+
+                        <p style="margin: 15px 0;">We've officially launched our archival initiative to recover, preserve, and CELEBRATE the legacy of Despierta Boricua and La Casa's many student organizations. Huge shoutout to <strong>Kristen, Nina, Sonia, and Amanda</strong> who've been digging through decades of memories at the Beinecke and in La Casa's attic.</p>
+
+                        <div class="vintage-stamp" style="margin: 20px 0;">
+                            🎓 PHD DISSERTATION IN PROGRESS
+                        </div>
+
+                        <p style="margin: 15px 0;"><strong>This is bigger than us.</strong> One of our own is writing their PhD dissertation on DB's history. That's how deep this goes. While we're making history, we're <em>preserving</em> it, <em>studying</em> it, and making sure future generations know where they come from.</p>
+                    </div>
+
+                    <div class="ticket-stub" style="margin-top: 30px;">
+                        <div class="ticket-header">🗺️ NORTHEASTERN ALLIANCE</div>
+                        <div class="ticket-number">PRIORITY</div>
+                        
+                        <p style="margin: 15px 0;">A dream years in the making is finally happening: we're building a coalition of Puerto Rican student organizations across the entire Northeast. More voices, more power, more impact.</p>
+
+                        <p style="margin: 15px 0;"><strong>One big goal?</strong> Bringing back the Puerto Rican Conference. If you're an alum who remembers those days, you KNOW what's up. If you're new, just wait—you're about to be part of something legendary.</p>
+                    </div>
+
+                    <div class="ticket-stub" style="margin-top: 30px;">
+                        <div class="ticket-header">🎓 EDUCATIONAL OUTREACH TO THE ISLAND</div>
+                        <div class="ticket-number">PRIORITY</div>
+                        
+                        <p style="margin: 15px 0;">We're working to open doors for students on the island who dream of higher education but might not know where to start.</p>
+
+                        <p style="margin: 15px 0;">In partnership with Club Puerto Rico and the Latino Alumni Association, we're creating pathways, resources, and support systems. Because a Yale education shouldn't be a fantasy: it should be <em>accessible</em>.</p>
+                    </div>
+                </div>
+
+                <div class="track-crossing"></div>
+
+                <!-- Station Platform 5: Archive (Special) -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 5</div>
+                    <div class="platform-name">ARCHIVO VIVO — HISTORICAL PRESERVATION</div>
+                </div>
+
+                <div class="section">
+                    <div class="archival-trunk">
+                        <div class="trunk-label">
+                            <div class="trunk-label-title">¡AYÚDANOS A ESCRIBIR NUESTRA HISTORIA!</div>
+                            <p style="margin-top: 10px; font-size: 0.9em;">WE NEED YOUR MEMORIES & MEMORABILIA</p>
+                        </div>
+
+                        <p class="emphasis-text" style="color: #FFD60A; text-align: center;">
+                            "Cada foto es un tesoro. Cada historia es un riel que conecta el pasado con nuestro futuro."
+                        </p>
+
+                        <p style="text-align: center; font-size: 1.1em; margin: 25px 0;">
+                            Here's the thing: <strong>our history belongs to ALL of us</strong>, not just the people in the room right now, but everyone who came before.
+                        </p>
+
+                        <div class="railway-manifest collection" style="margin: 30px 0;">
+                            <div class="manifest-header">═══ COLLECTION MANIFEST ═══</div>
+                            
+                            <div class="manifest-item">
+                                <span>📖 STORIES & MEMORIES</span>
+                                <span style="color: #2D6A4F;">NEEDED</span>
+                            </div>
+                            
+                            <div class="manifest-item">
+                                <span>📸 PHOTOGRAPHS (even blurry!)</span>
+                                <span style="color: #2D6A4F;">NEEDED</span>
+                            </div>
+                            
+                            <div class="manifest-item">
+                                <span>🎟️ TICKETS, POSTERS, FLYERS</span>
+                                <span style="color: #2D6A4F;">NEEDED</span>
+                            </div>
+                            
+                            <div class="manifest-item">
+                                <span>✉️ LETTERS & DOCUMENTS</span>
+                                <span style="color: #2D6A4F;">NEEDED</span>
+                            </div>
+
+                            <div class="manifest-item">
+                                <span>👕 MERCHANDISE & ARTIFACTS</span>
+                                <span style="color: #2D6A4F;">NEEDED</span>
+                            </div>
+                        </div>
+
+                        <div class="ticket-stub" style="background: rgba(255,248,231,0.9);">
+                            <div class="ticket-header">📚 WHY THIS MATTERS</div>
+                            <p style="margin: 15px 0; color: #2B2D42;">Because right now, multiple students are working on archival research and one of our own (Amanda Rivera) is writing their <strong>PhD dissertation</strong> on DB's history.</p>
+                            <p style="margin: 15px 0; color: #2B2D42;">Your memories aren't just nostalgia; they're <em>scholarship</em>. They're proof of what we built and who we are.</p>
+                        </div>
+
+                        <div class="signal-lights">
+                            <div class="signal-light signal-red"></div>
+                            <div class="signal-light signal-yellow"></div>
+                            <div class="signal-light signal-green"></div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 30px;">
+                            <p style="margin-bottom: 25px; font-size: 1.1em;"><strong>Even if you think it's "not a big deal," it is. Every story matters. Every photo is a treasure.</strong></p>
+                            <a href="#" class="railroad-button">📧 SHARE YOUR STORY</a>
+                            <a href="#" class="railroad-button railroad-button-secondary">💬 CONTACT US</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-crossing"></div>
+
+                <!-- Station Platform 6: Website -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 6</div>
+                    <div class="platform-name">ESTACIÓN DIGITAL — YOUR ONLINE HUB</div>
+                </div>
+
+                <div class="section">
+                    <div class="station-board">
+                        <div class="station-board-header">
+                            🌐 DESPIERTABORICUA.YALE.EDU 🌐
+                        </div>
+
+                        <p style="text-align: center; color: #FFF8E7; font-size: 1.15em; margin-bottom: 30px;">
+                            If you haven't checked out our website yet, <em>¿qué estás esperando?</em>
+                        </p>
+
+                        <div class="schedule-board">
+                            <div class="schedule-header">═══ AVAILABLE DESTINATIONS ═══</div>
+                            
+                            <div class="schedule-row">
+                                <div>📅 CALENDARIO DE EVENTOS</div>
+                                <div>Never miss a gathering</div>
+                                <div><a href="#" style="color: #2D6A4F; font-weight: 700;">→</a></div>
+                            </div>
+
+                            <div class="schedule-row">
+                                <div>📚 RECURSOS</div>
+                                <div>Info & support</div>
+                                <div><a href="#" style="color: #2D6A4F; font-weight: 700;">→</a></div>
+                            </div>
+
+                            <div class="schedule-row">
+                                <div>🖼️ GALERÍA DE FOTOS</div>
+                                <div>Relive the moments</div>
+                                <div><a href="#" style="color: #2D6A4F; font-weight: 700;">→</a></div>
+                            </div>
+
+                            <div class="schedule-row">
+                                <div>📰 ARCHIVO DE BOLETINES</div>
+                                <div>Every edition preserved</div>
+                                <div><a href="#" style="color: #2D6A4F; font-weight: 700;">→</a></div>
+                            </div>
+
+                            <div class="schedule-row">
+                                <div>🤝 ÚNETE AL MOVIMIENTO</div>
+                                <div>Get involved today</div>
+                                <div><a href="#" style="color: #2D6A4F; font-weight: 700;">→</a></div>
+                            </div>
+
+                            <div class="schedule-row">
+                                <div>🎓 RINCÓN DE ALUMNI</div>
+                                <div>Stay connected forever</div>
+                                <div><a href="#" style="color: #2D6A4F; font-weight: 700;">→</a></div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 40px;">
+                            <div style="width: 200px; height: 200px; background: linear-gradient(135deg, white 0%, #F5E6D3 100%); margin: 0 auto; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 4em; border: 6px solid #2D6A4F; box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);">
+                                📱
+                            </div>
+                            <p style="color: #FFF8E7; margin-top: 20px; font-size: 1.1em;">
+                                <strong>Tu boleto digital al movimiento 🎫</strong><br>
+                                Scan, bookmark, share, use.
+                            </p>
+                        </div>
+
+                        <div class="ticket-stub" style="margin-top: 30px; background: rgba(255,248,231,0.95);">
+                            <div class="ticket-header">WHY IT'S IMPORTANT</div>
+                            <p style="margin: 15px 0;">This website is <em>our home online</em>, not just a page. It's where we will keep our history alive, where we organize, and where we make sure no one is ever left out of the loop.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-crossing"></div>
+
+                <!-- Station Platform 7: Upcoming Events -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 7</div>
+                    <div class="platform-name">PRÓXIMA PARADA — UPCOMING DEPARTURES</div>
+                </div>
+
+                <div class="section">
+                    <p style="font-size: 1.1em; margin-bottom: 30px;">The semester is just getting started, and we've got MORE fire events coming your way. Stay tuned for:</p>
+
+                    <div class="event-cards">
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: [TBD]</div>
+                            <div class="ticket-event-name">More Community Celebrations</div>
+                            <div class="ticket-details">
+                                <div class="ticket-detail-line">
+                                    <strong>FECHA:</strong>
+                                    <span>Coming Soon!</span>
+                                </div>
+                                <div class="ticket-detail-line">
+                                    <strong>DESTINO:</strong>
+                                    <span>Check Our Web</span>
+                                </div>
+                                <p style="margin: 15px 0;">We've got events in the works that will blow your mind. Cultural celebrations, educational workshops, community gatherings—all the good stuff. Follow us on Instagram and check the website calendar so you don't miss out!</p>
+                            </div>
+                            <div style="text-align: center; margin-top: 15px;">
+                                <a href="#" class="railroad-button">STAY UPDATED</a>
+                            </div>
+                        </div>
+
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: YOUR IDEAS</div>
+                            <div class="ticket-event-name">What Do YOU Want to See?</div>
+                            <div class="ticket-details">
+                                <div class="ticket-detail-line">
+                                    <strong>YOUR INPUT:</strong>
+                                    <span>Always Welcome</span>
+                                </div>
+                                <p style="margin: 15px 0;">Got an idea for an event? A speaker you'd love to hear from? A collaboration you want to see happen? A skill you want to teach?</p>
+                                <p style="margin: 15px 0;"><strong>We want to hear it.</strong> DB is built by ALL of us: your voice matters, whether you're a first-year or an alum from the '70s.</p>
+                            </div>
+                            <div style="text-align: center; margin-top: 15px;">
+                                <a href="mailto:despiertaboricua@yale.edu" class="railroad-button railroad-button-secondary">SHARE YOUR IDEAS</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="railroad-crossing" style="margin-top: 50px;">
+                        WANT TO VOLUNTEER? ALL ABOARD!
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <p style="margin-bottom: 20px; font-size: 1.1em;">We always need more hands (and ideas). Hit us up:</p>
+                        <p style="font-family: 'Courier Prime', monospace; font-size: 1.1em; line-height: 2;">
+                            📧 <a href="mailto:despiertaboricua@yale.edu" style="color: #2D6A4F; font-weight: 700;">despiertaboricua@yale.edu</a><br>
+                            📱 <a href="#" style="color: #2D6A4F; font-weight: 700;">@DespiertaBoricuaYale</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="track-crossing"></div>
+
+                <!-- Station Platform 8: Stay Connected -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 8</div>
+                    <div class="platform-name">MANTENTE CONECTADO — ALL LINES OPEN</div>
+                </div>
+
+                <div class="section">
+                    <p style="text-align: center; font-size: 1.15em; margin-bottom: 40px;">
+                        We're everywhere, and we want YOU in the mix:
+                    </p>
+
+                    <div class="railway-manifest communication">
+                        <div class="manifest-header">═══ COMMUNICATION LINES ═══</div>
+                        
+                        <div class="manifest-item">
+                            <span><strong>📷 INSTAGRAM</strong></span>
+                            <span><a href="#" style="color: #2D6A4F; text-decoration: none;">@DespiertaBoricuaYale →</a></span>
+                        </div>
+                        <div style="padding-left: 30px; font-size: 0.9em; opacity: 0.9; margin-top: 5px; margin-bottom: 15px; border-bottom: 1px solid #D4A574; padding-bottom: 12px;">
+                            Daily vibes, event updates, peak Boricua content
+                        </div>
+
+                        <div class="manifest-item">
+                            <span><strong>📘 FACEBOOK</strong></span>
+                            <span><a href="#" style="color: #2D6A4F; text-decoration: none;">[Facebook Page] →</a></span>
+                        </div>
+                        <div style="padding-left: 30px; font-size: 0.9em; opacity: 0.9; margin-top: 5px; margin-bottom: 15px; border-bottom: 1px solid #D4A574; padding-bottom: 12px;">
+                            Connect with our community
+                        </div>
+
+                        <div class="manifest-item">
+                            <span><strong>🔗 LINKTREE</strong></span>
+                            <span><a href="#" style="color: #2D6A4F; text-decoration: none;">[Your Link] →</a></span>
+                        </div>
+                        <div style="padding-left: 30px; font-size: 0.9em; opacity: 0.9; margin-top: 5px; padding-bottom: 0px;">
+                            One link, all the info
+                        </div>
+                    </div>
+
+                    <p style="text-align: center; margin-top: 40px; font-size: 1.1em;">
+                        Got questions? Wanna get involved? Just wanna talk about the latest Bad Bunny drop?<br>
+                        <strong>We're here. Always.</strong>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Footer with tropical sunset -->
+            <div class="train-depot-footer">
+                <p class="depot-quote">Juntos somos más fuertes</p>
+
+                <div class="depot-message">
+                    <p>But let's be real: we're not just stronger together;we're <strong>unstoppable</strong>.</p>
+                    <p style="margin-top: 25px;">Whether you graduated decades ago or you're a first-year trying to find your people, <em>you belong here</em>. Despierta Boricua isn't just an org: it's a legacy, a family, a home.</p>
+                    <p style="margin-top: 25px;">So keep showing up. Keep sharing your stories. Keep waving that flag with pride.</p>
+                </div>
+
+                <div class="final-destination">
+                    PORQUE ESTO ES PA'LANTE, SIEMPRE PA'LANTE 🌿
+                </div>
+
+                <div style="font-size: 4em; margin: 40px 0;">
+                    ¡WEPA!
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <div style="height: 4px; background: linear-gradient(90deg, #D4A574 0%, #2D6A4F 50%, #D4A574 100%); margin: 30px auto; max-width: 500px;"></div>
+                    <div style="font-family: 'Courier Prime', monospace; font-size: 0.9em; letter-spacing: 2px; color: #A8DADC;">
+                        PUERTO RICO RAILROAD & TRANSPORT CO.<br>
+                        DESPIERTA BORICUA LINE<br>
+                        SERVING COMUNIDAD SINCE 2025<br>
+                        <span style="color: #2D6A4F;">━━━ Reclaimed by Nature, Restored by Community ━━━</span>
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0; font-size: 0.95em; line-height: 2;">
+                    <a href="#" style="color: #A8DADC; text-decoration: none; margin: 0 15px;">Instagram</a>
+                    <a href="#" style="color: #A8DADC; text-decoration: none; margin: 0 15px;">Facebook</a>
+                    <a href="#" style="color: #A8DADC; text-decoration: none; margin: 0 15px;">Website</a>
+                    <a href="#" style="color: #A8DADC; text-decoration: none; margin: 0 15px;">Email</a>
+                </div>
+
+                <p style="font-size: 0.9em; opacity: 0.7; margin-top: 40px;">
+                    🌴 Made with love, cafecito, and way too many late-night group chats 🌴
+                </p>
+
+                <p style="margin-top: 30px; font-size: 1em;">
+                    <strong>P.S.</strong> — If you made it this far, you're officially part of the family.<br>
+                    Now go share this with someone who needs to see it. <em>¡Vamo'!</em>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
