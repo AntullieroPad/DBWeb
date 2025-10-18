@@ -1503,21 +1503,21 @@ body.dark-mode .collapse-toggle:hover {
     font-size: 1rem; /* Change sizes */
 }
 /* ===== FIXED GALLERY CAROUSEL BUTTON POSITIONING ===== */
-
 /* Gallery Carousel Container - Add padding to make room for buttons */
 .gallery-carousel-container {
     position: relative;
     width: 100%;
     margin: 2rem 0;
-    overflow: hidden;
-    padding: 0 60px; /* Add padding to make room for buttons outside the content area */
+    overflow: visible; /* Changed from hidden to visible */
+    padding: 0 70px; /* Increased padding for larger buttons */
 }
 
 /* Carousel Window - the visible area */
 .carousel-window {
     width: 100%;
     overflow: hidden;
-    padding: 0; /* Remove any internal padding */
+    padding: 0;
+    position: relative;
 }
 
 /* Fix the carousel track to display items horizontally */
@@ -1525,17 +1525,181 @@ body.dark-mode .collapse-toggle:hover {
     display: flex;
     transition: transform 0.4s ease-in-out;
     gap: 20px;
-    align-items: flex-start; /* Align items to the top */
+    align-items: flex-start;
+    will-change: transform; /* Performance optimization */
 }
 
 /* Ensure carousel items display side by side */
 .carousel-item {
     flex: 0 0 auto;
-    width: 300px; /* Fixed width or adjust as needed */
+    width: 300px;
     min-width: 300px;
-    max-width: 320px; /* Ensure maximum width */
-    display: block; /* Ensure proper block display */
+    max-width: 320px;
+    display: block;
 }
+
+/* Enhanced Carousel Buttons - FIXED VERSION */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100; /* Ensure buttons are always on top */
+    transition: all 0.3s ease;
+    box-shadow:
+            0 4px 15px rgba(0, 123, 255, 0.4),
+            0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid white;
+    pointer-events: auto; /* Ensure buttons receive clicks */
+}
+
+/* Position buttons outside the content area */
+.carousel-button.prev {
+    left: 5px;
+}
+
+.carousel-button.next {
+    right: 5px;
+}
+
+/* Enhanced hover effects - FIXED */
+.carousel-button:not(:disabled):hover {
+    background: linear-gradient(135deg, #0056b3, #004494);
+    transform: translateY(-50%) scale(1.2);
+    box-shadow:
+            0 8px 25px rgba(0, 123, 255, 0.6),
+            0 4px 15px rgba(0, 0, 0, 0.3);
+    border-color: #fff;
+}
+
+/* Active/pressed state */
+.carousel-button:not(:disabled):active {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow:
+            0 2px 8px rgba(0, 123, 255, 0.4),
+            0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled state - FIXED */
+.carousel-button:disabled {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    cursor: not-allowed;
+    opacity: 0.4;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+/* Add subtle glow effect on focus for accessibility */
+.carousel-button:focus {
+    outline: none;
+    box-shadow:
+            0 4px 15px rgba(0, 123, 255, 0.4),
+            0 2px 8px rgba(0, 0, 0, 0.2),
+            0 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Add pulsing animation to indicate interactivity */
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow:
+                0 4px 15px rgba(0, 123, 255, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        box-shadow:
+                0 6px 20px rgba(0, 123, 255, 0.6),
+                0 3px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.carousel-button:not(:disabled) {
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+/* Stop animation on hover */
+.carousel-button:not(:disabled):hover {
+    animation: none;
+}
+
+/* Dark mode support for carousel buttons */
+body.dark-mode .carousel-button {
+    background: linear-gradient(135deg, #4da6ff, #0056b3);
+    border-color: #333;
+}
+
+body.dark-mode .carousel-button:not(:disabled):hover {
+    background: linear-gradient(135deg, #66b5ff, #0066cc);
+}
+
+body.dark-mode .carousel-button:disabled {
+    background: linear-gradient(135deg, #444, #333);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .gallery-carousel-container {
+        padding: 0 55px;
+    }
+
+    .carousel-button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .carousel-button.prev {
+        left: 3px;
+    }
+
+    .carousel-button.next {
+        right: 3px;
+    }
+
+    .carousel-item {
+        width: 280px;
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-carousel-container {
+        padding: 0 50px;
+    }
+
+    .carousel-button {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        border-width: 2px;
+    }
+
+    .carousel-button.prev {
+        left: 2px;
+    }
+
+    .carousel-button.next {
+        right: 2px;
+    }
+
+    .carousel-item {
+        width: 260px;
+        min-width: 260px;
+        max-width: 260px;
+    }
+}
+
 
 /* Ensure event folders maintain proper structure */
 .event-folder {
@@ -1572,218 +1736,10 @@ body.dark-mode .collapse-toggle:hover {
     transform: scale(1.05);
 }
 
-/* Enhanced Carousel Buttons - Position them outside the content area */
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 15; /* Higher z-index to ensure they're always on top */
-    transition: all 0.3s ease;
-    box-shadow:
-            0 4px 15px rgba(0, 123, 255, 0.3),
-            0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 3px solid white; /* White border for better contrast */
-}
-
-/* Position buttons outside the content area */
-.carousel-button.prev {
-    left: 5px; /* Position outside the padded area */
-}
-
-.carousel-button.next {
-    right: 5px; /* Position outside the padded area */
-}
-
-/* Enhanced hover effects */
-.carousel-button:hover {
-    background: linear-gradient(135deg, #0056b3, #004494);
-    transform: translateY(-50%) scale(1.15); /* Bigger scale on hover */
-    box-shadow:
-            0 8px 25px rgba(0, 123, 255, 0.5),
-            0 4px 15px rgba(0, 0, 0, 0.2);
-    border-color: #fff;
-}
-
-/* Active/pressed state */
-.carousel-button:active {
-    transform: translateY(-50%) scale(0.95);
-    box-shadow:
-            0 2px 8px rgba(0, 123, 255, 0.4),
-            0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Disabled state for when there are no more items to scroll */
-.carousel-button:disabled {
-    background: linear-gradient(135deg, #6c757d, #5a6268);
-    cursor: not-allowed;
-    opacity: 0.5;
-    transform: translateY(-50%) scale(0.9);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.carousel-button:disabled:hover {
-    background: linear-gradient(135deg, #6c757d, #5a6268);
-    transform: translateY(-50%) scale(0.9);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Add subtle glow effect on focus for accessibility */
-.carousel-button:focus {
-    outline: none;
-    box-shadow:
-            0 4px 15px rgba(0, 123, 255, 0.3),
-            0 2px 8px rgba(0, 0, 0, 0.1),
-            0 0 0 3px rgba(0, 123, 255, 0.2); /* Focus ring */
-}
-
-
-/* Add subtle animation when buttons appear */
-@keyframes buttonAppear {
-    from {
-        opacity: 0;
-        transform: translateY(-50%) scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(-50%) scale(1);
-    }
-}
-
-.carousel-button {
-    animation: buttonAppear 0.3s ease-out;
-}
-
 /* Ensure folder previews don't interfere with buttons */
 .event-folder {
     position: relative;
     z-index: 1; /* Lower z-index than buttons */
-}
-
-/* Dark mode support for carousel buttons */
-body.dark-mode .carousel-button {
-    background: linear-gradient(135deg, #4da6ff, #0056b3);
-    border-color: #333; /* Darker border for dark mode */
-}
-
-body.dark-mode .carousel-button:hover {
-    background: linear-gradient(135deg, #66b5ff, #0066cc);
-}
-body.dark-mode .carousel-button:disabled {
-    background: linear-gradient(135deg, #444, #333);
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 768px) {
-    .gallery-carousel-container {
-        padding: 0 50px; /* Slightly less padding on mobile */
-    }
-
-    .carousel-button {
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
-    }
-
-    .carousel-button.prev {
-        left: 2px;
-    }
-
-    .carousel-button.next {
-        right: 2px;
-    }
-
-    /* Adjust carousel items for mobile */
-    .carousel-item {
-        width: 280px;
-        min-width: 280px;
-    }
-
-    .folder-preview {
-        height: 280px;
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery-carousel-container {
-        padding: 0 45px; /* Even less padding on very small screens */
-    }
-
-    .carousel-button {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-        border-width: 2px;
-    }
-
-    .carousel-button.prev {
-        left: 1px;
-    }
-
-    .carousel-button.next {
-        right: 1px;
-    }
-
-    /* Further adjust for very small screens */
-    .carousel-item {
-        width: 260px;
-        min-width: 260px;
-        max-width: 260px;
-    }
-
-    .folder-preview {
-        height: 260px;
-    }
-}
-
-/* Optional: Add fade effect to buttons when not needed */
-.carousel-container:not(.has-overflow) .carousel-button {
-    opacity: 0.3;
-    pointer-events: none;
-}
-
-.carousel-container.has-overflow .carousel-button {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Ensure buttons are always visible with high contrast */
-.carousel-button::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    z-index: -1;
-}
-
-/* Add a subtle backdrop blur effect for better visibility */
-.carousel-button::after {
-    content: "";
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    filter: blur(8px);
-    z-index: -2;
-    opacity: 0.5;
 }
 
 /* Folder Preview Styles */
