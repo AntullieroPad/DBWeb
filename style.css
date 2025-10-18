@@ -2301,6 +2301,273 @@ body.dark-mode .about-logo {
     }
 }
 
+
+/* Newsletter Showcase Section - PROMINENT */
+.newsletter-showcase-section {
+    background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
+    padding: 3rem 2rem;
+    margin: 0 -1rem 3rem -1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-showcase-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+            radial-gradient(circle at 20% 30%, rgba(241, 168, 150, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 80% 60%, rgba(168, 218, 220, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 40% 80%, rgba(45, 106, 79, 0.2) 0%, transparent 40%);
+    opacity: 0.6;
+}
+
+.newsletter-showcase-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.newsletter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #E63946 0%, #C5303E 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(230, 57, 70, 0.6);
+    }
+}
+
+.badge-icon {
+    font-size: 1.3rem;
+}
+
+.newsletter-showcase-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.newsletter-icon-large {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+}
+
+.newsletter-showcase-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.newsletter-showcase-subtitle {
+    font-size: 1.3rem;
+    color: #D4A574;
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-showcase-subtitle strong {
+    color: #FFD60A;
+}
+
+.newsletter-showcase-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.newsletter-showcase-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.feature-item i {
+    color: #2ECC71;
+    font-size: 1.2rem;
+}
+
+.newsletter-preview-card {
+    background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%);
+    border: 4px solid #D4A574;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-preview-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.latest-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #FFD60A 0%, #FFC300 100%);
+    color: #1B1B1B;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.preview-header h3 {
+    font-size: 1.5rem;
+    color: #1B4332;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.preview-date {
+    color: #2D6A4F;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.preview-highlights h4 {
+    font-size: 1.1rem;
+    color: #1B4332;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.preview-highlights ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.preview-highlights li {
+    padding: 0.5rem 0;
+    color: #555;
+    font-size: 0.95rem;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.preview-highlights li:last-child {
+    border-bottom: none;
+}
+
+.newsletter-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+}
+
+.newsletter-cta-btn:hover {
+    background: linear-gradient(135deg, #40916C 0%, #2D6A4F 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(45, 106, 79, 0.4);
+}
+
+.newsletter-cta-btn i {
+    transition: transform 0.3s ease;
+}
+
+.newsletter-cta-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Dark Mode Support */
+body.dark-mode .newsletter-preview-card {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+}
+
+body.dark-mode .preview-header h3,
+body.dark-mode .preview-highlights h4 {
+    color: #fff;
+}
+
+body.dark-mode .preview-date {
+    color: #4da6ff;
+}
+
+body.dark-mode .preview-highlights li {
+    color: #bbb;
+    border-bottom-color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .newsletter-showcase-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .newsletter-showcase-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter-showcase-section {
+        padding: 2rem 1rem;
+    }
+
+    .newsletter-showcase-title {
+        font-size: 2rem;
+    }
+
+    .newsletter-showcase-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .newsletter-showcase-description {
+        font-size: 1rem;
+    }
+
+    .newsletter-preview-card {
+        padding: 1.5rem;
+    }
+}
+
 /* ===== Board Page Styles ===== */
 
 /* Corkboard background for board page section */
@@ -3383,6 +3650,38 @@ cta-text h2, .la-casa-link h3 {
     }
 }
 
+
+.la-casa-link {
+    margin: 1rem 0;
+    text-align: center; /* or left, depending on your layout */
+}
+
+.la-casa-link h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.la-casa-link p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.la-casa-btn {
+    display: inline-block;
+    background-color: #007bff; /* Example brand color */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.la-casa-btn:hover {
+    background-color: #0056b3; /* Darken on hover */
+}
+
+/* ===== Donation page ===== */
+
 /* Donation Page Hero */
 .donate-hero {
     background: #4c4c4c; /* Example background color */
@@ -3507,37 +3806,6 @@ cta-text h2, .la-casa-link h3 {
         font-size: 2rem; /* Adjust to something smaller */
     }
 }
-
-.la-casa-link {
-    margin: 1rem 0;
-    text-align: center; /* or left, depending on your layout */
-}
-
-.la-casa-link h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-}
-
-.la-casa-link p {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.la-casa-btn {
-    display: inline-block;
-    background-color: #007bff; /* Example brand color */
-    color: #fff;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.la-casa-btn:hover {
-    background-color: #0056b3; /* Darken on hover */
-}
-
-/* ===== ENHANCED NAVIGATION BUTTON ===== */
 
 /* ===== ENHANCED NAVIGATION BUTTON ===== */
 

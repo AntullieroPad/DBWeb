@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>El Boletín – DB Yale Newsletter</title>
+    <meta name="description" content="Read the latest edition of El Boletín, Despierta Boricua at Yale's newsletter featuring community updates, events, and cultural celebrations.">
+    <meta name="keywords" content="despierta boricua newsletter, el boletin, puerto rican student news yale, db yale updates">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://despiertaboricua-yale.org/newsletter.html">
+
+    <!-- Global CSS file -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
+
+    <!-- Favicon links -->
+    <link rel="icon" type="image/png" href="./DB Logo Outline.png">
+
+    <style>
+        /* Newsletter-specific styles */
+        .newsletter-hero {
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                    radial-gradient(circle at 20% 30%, rgba(241, 168, 150, 0.15) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 60%, rgba(168, 218, 220, 0.15) 0%, transparent 40%);
+            opacity: 0.6;
+        }
+
+        .newsletter-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .newsletter-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-icon {
+            font-size: 3em;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px rgba(45, 106, 79, 0.5));
+        }
+
+        /* Featured Edition Section */
+        .featured-edition {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .featured-card {
+            background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%);
+            border: 4px solid #2D6A4F;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(45, 106, 79, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(45, 106, 79, 0.3);
+        }
+
+        .featured-badge {
+            background: linear-gradient(135deg, #E63946 0%, #C5303E 100%);
+            color: white;
+            padding: 8px 20px;
+            display: inline-block;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .featured-content {
+            padding: 2rem;
+        }
+
+        .featured-content h2 {
+            font-size: 2rem;
+            color: #1B4332;
+            margin-bottom: 1rem;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2D6A4F;
+            font-weight: 500;
+        }
+
+        .meta-item i {
+            font-size: 1.2rem;
+        }
+
+        .featured-preview {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .read-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+        }
+
+        .read-btn:hover {
+            background: linear-gradient(135deg, #40916C 0%, #2D6A4F 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(45, 106, 79, 0.4);
+        }
+
+        .read-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .read-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Archive Section */
+        .archive-section {
+            background: #f9f9f9;
+            padding: 4rem 2rem;
+        }
+
+        .archive-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1B4332;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .archive-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .archive-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-color: #2D6A4F;
+        }
+
+        .archive-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .archive-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                    radial-gradient(circle at 20% 30%, rgba(241, 168, 150, 0.2) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 60%, rgba(168, 218, 220, 0.2) 0%, transparent 40%);
+        }
+
+        .archive-thumbnail .train-icon {
+            font-size: 4rem;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+        }
+
+        .archive-info {
+            padding: 1.5rem;
+        }
+
+        .archive-date {
+            color: #2D6A4F;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .archive-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .archive-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .archive-highlights {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .archive-highlights li {
+            padding: 0.5rem 0;
+            color: #555;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: start;
+        }
+
+        .archive-highlights li::before {
+            content: "🌿";
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .archive-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2D6A4F;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .archive-link:hover {
+            color: #1B4332;
+            gap: 0.75rem;
+        }
+
+        /* Subscribe Section */
+        .subscribe-section {
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subscribe-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .subscribe-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .subscribe-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subscribe-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .subscribe-btn {
+            background: linear-gradient(135deg, #E63946 0%, #C5303E 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        .subscribe-btn:hover {
+            background: linear-gradient(135deg, #C5303E 0%, #A02A2A 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+        }
+
+        /* Dark Mode Support */
+        body.dark-mode .archive-section {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .section-title {
+            color: #fff;
+        }
+
+        body.dark-mode .section-subtitle {
+            color: #bbb;
+        }
+
+        body.dark-mode .archive-card {
+            background: #2a2a2a;
+        }
+
+        body.dark-mode .archive-title {
+            color: #fff;
+        }
+
+        body.dark-mode .archive-description,
+        body.dark-mode .archive-highlights li {
+            color: #bbb;
+        }
+
+        body.dark-mode .archive-link {
+            color: #4da6ff;
+        }
+
+        body.dark-mode .archive-link:hover {
+            color: #66b5ff;
+        }
+
+        body.dark-mode .featured-card {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+        }
+
+        body.dark-mode .featured-content h2 {
+            color: #fff;
+        }
+
+        body.dark-mode .meta-item {
+            color: #4da6ff;
+        }
+
+        body.dark-mode .featured-preview {
+            color: #bbb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .newsletter-hero h1 {
+                font-size: 2rem;
+            }
+
+            .newsletter-hero p {
+                font-size: 1rem;
+            }
+
+            .featured-edition {
+                padding: 0 1rem;
+            }
+
+            .featured-content {
+                padding: 1.5rem;
+            }
+
+            .featured-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .featured-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .archive-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+            }
+
+            .subscribe-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- FIXED SIDEBAR -->
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <a href="index.html">
+            <img src="DB Logo Outline.png" alt="DB Yale Logo" class="logo-img"/>
+        </a>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="index.html" data-key="navHome">Home</a>
+        <a href="about.html" data-key="navAbout">About</a>
+        <a href="syllabus.html" data-key="navSyllabus">Syllabus</a>
+        <a href="collaborate.html" data-key="navCollaborate">Collaborate</a>
+        <a href="news.html" data-key="navNews">News + Events</a>
+        <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
+        <a href="alumni.html" data-key="navAlumni">Alumni</a>
+        <a href="merch.html" data-key="navMerch">Merch</a>
+        <a href="gallery.html" data-key="navGallery">Gallery</a>
+        <a href="newsletter.html" class="active" data-key="navNewsletter">Newsletter</a>
+        <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
+        </a>
+    </nav>
+    <button id="lang-toggle">Español</button>
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <span class="icon">🌙</span>
+        <span class="label">Dark Mode</span>
+    </button>
+
+    <div class="sidebar-footer">
+        <!-- Social Media Links -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:despiertaboricua@yale.edu" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        <div class="license">© 2025 DB Yale</div>
+    </div>
+</aside>
+
+<!-- Hamburger button for mobile -->
+<button class="hamburger-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<!-- MAIN CONTAINER -->
+<div class="main-container">
+
+    <!-- HERO SECTION -->
+    <section class="newsletter-hero">
+        <div class="newsletter-hero-content">
+            <div class="newsletter-icon">🚂📰</div>
+            <h1 data-key="newsletterHeroTitle">El Boletín</h1>
+            <p data-key="newsletterHeroSubtitle">The Despierta Boricua Railway Gazette</p>
+            <p data-key="newsletterHeroText">
+                Your monthly journey through our community's stories, events, and celebrations.
+                All aboard for news from the Boricua family at Yale!
+            </p>
+        </div>
+    </section>
+
+    <!-- FEATURED LATEST EDITION -->
+    <section class="featured-edition">
+        <div class="featured-card">
+            <div class="featured-content">
+                <span class="featured-badge">🌟 Latest Edition</span>
+                <h2>Volume 1 – September 2025</h2>
+                <div class="featured-meta">
+                    <div class="meta-item">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>Published: September 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-train"></i>
+                        <span>Route: Past → Present → Future</span>
+                    </div>
+                </div>
+                <div class="featured-preview">
+                    <p>September came in hot (literally and figuratively), and DB has been on FIRE. We've been building <em>comunidad</em>, celebrating <em>cultura</em>, and raising <em>conciencia</em> like it's our full-time job.</p>
+                    <p>This edition takes you through our incredible month featuring Dr. Antonia Novello, the Hartford Puerto Rican Parade, Bad Bunny watch parties, archival initiatives, and so much more. Grab your cafecito and catch up on everything DB has been cooking up!</p>
+                </div>
+                <a href="El_Boletin.html" class="read-btn">
+                    Read Full Edition
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARCHIVE SECTION -->
+    <section class="archive-section">
+        <div class="archive-container">
+            <h2 class="section-title" data-key="archiveTitle">Newsletter Archive</h2>
+            <p class="section-subtitle" data-key="archiveSubtitle">
+                Explore past editions of El Boletín – our journey through time
+            </p>
+
+            <div class="archive-grid">
+                <!-- September 2025 Edition -->
+                <div class="archive-card">
+                    <div class="archive-thumbnail">
+                        <div class="train-icon">🚂</div>
+                    </div>
+                    <div class="archive-info">
+                        <div class="archive-date">September 2025</div>
+                        <h3 class="archive-title">Volume 1 – First Arrivals</h3>
+                        <p class="archive-description">
+                            Our inaugural edition featuring our first major events of the semester, community building, and launching new initiatives.
+                        </p>
+                        <ul class="archive-highlights">
+                            <li>Dr. Antonia Novello Visit</li>
+                            <li>Hartford Puerto Rican Parade</li>
+                            <li>Bad Bunny Watch Party</li>
+                            <li>Archival Project Launch</li>
+                            <li>Northeast Alliance Formation</li>
+                        </ul>
+                        <a href="El_Boletin.html" class="archive-link">
+                            Read Edition <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Placeholder for Future Editions -->
+                <div class="archive-card" style="opacity: 0.6;">
+                    <div class="archive-thumbnail">
+                        <div class="train-icon">🚂</div>
+                    </div>
+                    <div class="archive-info">
+                        <div class="archive-date">November 2025</div>
+                        <h3 class="archive-title">Volume 2 – Coming Soon</h3>
+                        <p class="archive-description">
+                            Our next edition will cover October and November events, collaborations, and community celebrations.
+                        </p>
+                        <ul class="archive-highlights">
+                            <li>Día Nacional de la Salsa</li>
+                            <li>Antonio Martorell Fireside Chat</li>
+                            <li>DB x DSA Collaborations</li>
+                            <li>And much more...</li>
+                        </ul>
+                        <a href="#" class="archive-link" style="pointer-events: none;">
+                            Coming Soon <i class="fas fa-clock"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Placeholder for Future Editions -->
+                <div class="archive-card" style="opacity: 0.4;">
+                    <div class="archive-thumbnail">
+                        <div class="train-icon">🚂</div>
+                    </div>
+                    <div class="archive-info">
+                        <div class="archive-date">Future Editions</div>
+                        <h3 class="archive-title">Stay Tuned!</h3>
+                        <p class="archive-description">
+                            Subscribe below to receive El Boletín directly in your inbox every month and a half.
+                        </p>
+                        <a href="#subscribe" class="archive-link">
+                            Subscribe Now <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUBSCRIBE SECTION -->
+    <section class="subscribe-section" id="subscribe">
+        <div class="subscribe-content">
+            <h2 data-key="subscribeTitle">Never Miss a Stop!</h2>
+            <p data-key="subscribeText">
+                Join our mailing list to receive El Boletín directly in your inbox.
+                Stay connected with our community, no matter where your journey takes you.
+            </p>
+            <form class="subscribe-form" action="#" method="post">
+                <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                        aria-label="Email address"
+                />
+                <button type="submit" class="subscribe-btn">
+                    Subscribe
+                </button>
+            </form>
+            <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">
+                ✉️ We respect your privacy. Unsubscribe anytime.
+            </p>
+        </div>
+    </section>
+
+</div>
+
+<!-- Scripts -->
+<script src="script.js"></script>
+<script src="lang.js"></script>
+<button id="backToTop" title="Back to top">&#8679;</button>
+</body>
+</html>
