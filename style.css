@@ -6358,6 +6358,8 @@ body.dark-mode .visual-cue {
 .legend-dot.treasurer { background-color: #2ECC71; }
 .legend-dot.alumni-relations { background-color: #F39C12; }
 .legend-dot.first-year-mentor { background-color: #1ABC9C; }
+.legend-dot.local-network { background-color: #F39C12;}
+.legend-dot.global-network { background-color: #1ABC9C;}
 
 /* Instructions */
 .map-instructions {

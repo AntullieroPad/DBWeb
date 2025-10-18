@@ -1359,199 +1359,195 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Board member locations - update these with actual locations
-const boardMembers = [
-    {
-        name: "Jaden Gonzalez",
-        role: "Co-President",
-        position: { lat: 18.2011, lng: -67.1399 }, // Mayagüez
-        description: "My family comes from Mayagüez on the west coast of Puerto Rico."
-    },
-    {
-        name: "Kristen St. Louis",
-        role: "Co-President",
-        position: { lat: 18.0111, lng: -66.6140 }, // Ponce
-        description: "My family's roots are in Ponce, known as 'La Perla del Sur'."
-    },
-    {
-        name: "Elyse Thomas",
-        role: "Event Coordinator",
-        position: { lat: 18.0356, lng: -66.8509 }, // Yauco
-        description: "My family is from Yauco, famous for its coffee production."
-    },
-    {
-        name: "Aryana Ramos-Vazquez",
-        role: "Social Media Manager",
-        position: { lat: 18.4655, lng: -66.1057 }, // San Juan
-        description: "My family comes from San Juan, the vibrant capital city."
-    },
-    {
-        name: "Alanna Rivera",
-        role: "Treasurer",
-        position: { lat: 17.9841, lng: -66.1132 }, // Guayama
-        description: "My roots are in Guayama on the southern coast."
-    },
-    {
-        name: "Sonia Rosa",
-        role: "Alumni Relations",
-        position: { lat: 18.3263, lng: -65.6525 }, // Fajardo
-        description: "My family is from Fajardo on the eastern tip of the island."
-    },
-    {
-        name: "Roberto Lopez",
-        role: "Social Media Manager",
-        position: { lat: 18.3031, lng: -65.3013 }, // Culebra
-        description: "My family comes from the beautiful island of Culebra."
-    },
-    {
-        name: "Antonio Padilla",
-        role: "First Year Mentor",
-        position: { lat: 18.4663, lng: -66.1057 }, // San Juan
-        description: "My family is from San Juan, where I learned to cook traditional Puerto Rican dishes."
+// ===== LEAFLET MAP FOR BOARD MEMBERS =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Only initialize if the map element exists
+    const mapElement = document.getElementById('board-member-map');
+    if (!mapElement) {
+        console.log('Map element not found on this page');
+        return;
     }
-];
 
-// Helper function to get pin color based on role
-function getPinColorForRole(role) {
+    console.log('Initializing Leaflet map...');
+
+    // Board member locations - UPDATED WITH CORRECT INFORMATION
+    const boardMembers = [
+        {
+            name: "Aryana Ramos-Vazquez",
+            role: "Co-President",
+            lat: 18.2011,
+            lng: -67.1399,
+            city: "Mayagüez",
+            description: "My family is from Mayagüez on the west coast of Puerto Rico."
+        },
+        {
+            name: "Antonio Padilla",
+            role: "Co-President",
+            lat: 18.4288,  // Manatí coordinates
+            lng: -66.4800,
+            city: "Manatí",
+            description: "My family is from Manatí."
+        },
+        {
+            name: "Gabriella Pollack",
+            role: "Event Coordinator",
+            lat: 18.4655,
+            lng: -66.1057,
+            city: "Condado",
+            description: "My mom is from Condado, San Juan."
+        },
+        {
+            name: "Olivia Catayong",
+            role: "Social Media Manager",
+            lat: 18.4726,
+            lng: -66.7199,
+            city: "Arecibo",
+            description: "My family is from Arecibo on the northern coast."
+        },
+        {
+            name: "Daniel Torres",
+            role: "Treasurer",
+            lat: 18.4450,
+            lng: -66.2541,
+            city: "Toa Baja",
+            description: "My family is from Toa Baja."
+        },
+        {
+            name: "Sonia Rosa",
+            role: "Local Network Chair",
+            lat: 18.4037,
+            lng: -66.0515,
+            city: "Río Piedras",
+            description: "My family is from Río Piedras, San Juan."
+        },
+        {
+            name: "Fabiola Andújar",
+            role: "Global Network Chair",
+            lat: 18.2656,  // Utuado coordinates
+            lng: -66.7004,
+            city: "Utuado",
+            description: "My family is from Utuado."
+        },
+        {
+            name: "Nina Feliciano-Bautista",
+            role: "First Year Mentor",
+            lat: 18.4655,
+            lng: -66.1057,
+            city: "San Juan & Bayamón",
+            description: "My family is from San Juan and Bayamón."
+        }
+    ];
+
+    // Role colors
     const roleColors = {
-        "Co-President": "#E74C3C",              // Red
-        "Event Coordinator": "#3498DB",         // Blue
-        "Social Media Manager": "#9B59B6",      // Purple
-        "Treasurer": "#2ECC71",                 // Green
-        "Alumni Relations": "#F39C12",          // Orange
-        "First Year Mentor": "#1ABC9C"          // Turquoise
+        "Co-President": "#E74C3C",
+        "Event Coordinator": "#3498DB",
+        "Social Media Manager": "#9B59B6",
+        "Treasurer": "#2ECC71",
+        "Local Network Chair": "#F39C12",
+        "Global Network Chair": "#1ABC9C",
+        "First Year Mentor": "#E67E22"
     };
 
-    return roleColors[role] || "#95A5A6"; // Default gray if role not found
-}
+    // Initialize the map centered on Puerto Rico
+    // scrollWheelZoom: false prevents zoom on scroll
+    // dragging: true allows panning
+    const map = L.map('board-member-map', {
+        scrollWheelZoom: false,  // Disable scroll zoom
+        doubleClickZoom: false   // Disable double-click zoom
+    }).setView([18.2208, -66.5901], 9);
 
-// Initialize the map
-function initMap() {
-    console.log("Map initialization started"); // Debug log
+    // Add map tiles (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(map);
 
-    // Center map on Puerto Rico
-    const puertoRico = { lat: 18.2208, lng: -66.5901 };
+    console.log('Adding markers for', boardMembers.length, 'board members');
 
-    // Create the map centered on Puerto Rico
-    const map = new google.maps.Map(document.getElementById("board-member-map"), {
-        zoom: 9,
-        center: puertoRico,
-        mapTypeId: "terrain",
-        mapTypeControl: true,
-        fullscreenControl: true,
-        streetViewControl: false,
-        mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-            mapTypeIds: ["roadmap", "terrain", "satellite"]
-        }
-    });
+    // Add markers for each board member
+    boardMembers.forEach((member, index) => {
+        console.log(`Adding marker ${index + 1}:`, member.name);
 
-    // Create an info window to share between markers
-    const infoWindow = new google.maps.InfoWindow();
+        // Create custom icon
+        const markerColor = roleColors[member.role] || "#95A5A6";
 
-    console.log("Adding markers for " + boardMembers.length + " board members"); // Debug log
+        const marker = L.circleMarker([member.lat, member.lng], {
+            radius: 12,
+            fillColor: markerColor,
+            color: "#FFFFFF",
+            weight: 3,
+            opacity: 1,
+            fillOpacity: 0.9
+        }).addTo(map);
 
-    // Create markers for each board member
-    boardMembers.forEach((member, i) => {
-        console.log(`Creating marker for ${member.name} at position:`, member.position); // Debug log
+        // Create popup content
+        const popupContent = `
+            <div style="padding: 10px; min-width: 200px;">
+                <h3 style="margin: 0 0 8px 0; color: #333; font-size: 16px;">${member.name}</h3>
+                <p style="margin: 4px 0; color: ${markerColor}; font-weight: bold; font-size: 14px;">${member.role}</p>
+                <p style="margin: 4px 0; color: #666; font-size: 13px;">📍 ${member.city}</p>
+                <p style="margin: 8px 0 0 0; color: #555; font-size: 13px; line-height: 1.4;">${member.description}</p>
+            </div>
+        `;
 
-        // Create the marker with standard pin first (more reliable)
-        const marker = new google.maps.Marker({
-            position: member.position,
-            map: map,
-            title: member.name,
-            animation: google.maps.Animation.DROP
+        // Bind popup without automatic pan
+        marker.bindPopup(popupContent, {
+            autoPan: false  // This prevents the map from panning/zooming when popup opens
         });
 
-        // Try to set custom pin style after marker is created
-        setTimeout(() => {
-            marker.setIcon({
-                path: google.maps.SymbolPath.CIRCLE,
-                fillColor: getPinColorForRole(member.role),
-                fillOpacity: 0.9,
-                strokeWeight: 2,
-                strokeColor: "#FFFFFF",
-                scale: 10
+        // Add click event to highlight board member card
+        marker.on('click', function(e) {
+            // Prevent default event behavior and stop propagation
+            L.DomEvent.stopPropagation(e);
+            highlightBoardMember(member.name);
+            // Open popup without changing zoom
+            this.openPopup();
+        });
+
+        // Add hover effect
+        marker.on('mouseover', function() {
+            this.setStyle({
+                radius: 15,
+                weight: 4
             });
-        }, 500); // Small delay to ensure marker is properly created first
+        });
 
-        // Add click listener to show info window with member details
-        marker.addListener("click", () => {
-            console.log("Marker clicked:", member.name); // Debug log
-
-            // Create content for info window
-            const contentString = `
-        <div class="map-info-window">
-          <h3>${member.name}</h3>
-          <p><strong>${member.role}</strong></p>
-          <p>${member.description}</p>
-        </div>
-      `;
-
-            // Open info window
-            infoWindow.setContent(contentString);
-            infoWindow.open(map, marker);
-
-            // Find and highlight the board member card
-            const boardMembers = document.querySelectorAll('.board-member');
-
-            boardMembers.forEach(element => {
-                const nameElement = element.querySelector('.person-name');
-                if (nameElement && nameElement.textContent.includes(member.name)) {
-                    // Scroll to the member and add a highlight effect
-                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    element.classList.add('highlight-member');
-                    setTimeout(() => {
-                        element.classList.remove('highlight-member');
-                    }, 2000);
-                }
+        marker.on('mouseout', function() {
+            this.setStyle({
+                radius: 12,
+                weight: 3
             });
         });
     });
 
-    console.log("Map initialization completed"); // Debug log
-}
+    console.log('Map initialized successfully with', boardMembers.length, 'markers');
 
-// Make sure the function is available globally
-window.initMap = initMap;
+    // Function to highlight board member card
+    function highlightBoardMember(name) {
+        const boardCards = document.querySelectorAll('.board-member');
 
-// Load the Google Maps script after the page is ready
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM loaded, setting up map");
+        boardCards.forEach(card => {
+            const nameElement = card.querySelector('.person-name');
+            if (nameElement && nameElement.textContent.trim() === name) {
+                // Don't scroll - just add highlight effect
+                // card.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    // Create the map div if it doesn't exist yet
-    if (!document.getElementById('board-member-map')) {
-        console.log("Creating map container");
-        const mapSection = document.querySelector('.family-roots-section');
-        if (mapSection) {
-            const mapContainer = document.createElement('div');
-            mapContainer.id = 'board-member-map';
-            mapSection.insertBefore(mapContainer, mapSection.querySelector('.map-legend'));
-        }
-    }
+                // Add highlight effect
+                card.classList.add('highlight-member');
 
-    // Add the Google Maps script if not already present
-    if (!document.getElementById('google-maps-script')) {
-        console.log("Loading Google Maps API");
-        const script = document.createElement('script');
-        script.id = 'google-maps-script';
-        // Replace YOUR_ACTUAL_API_KEY with your Google Maps API key
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWM0R4sG2HK8977Mtmi3WSvwY7u-5Sik&callback=initMap';
-        script.async = true;
-        script.defer = true;
-
-        // Error handling for script loading
-        script.onerror = function() {
-            console.error("Error loading Google Maps API");
-            const mapDiv = document.getElementById('board-member-map');
-            if (mapDiv) {
-                mapDiv.innerHTML = '<p style="color:red;">Error loading Google Maps. Please check your API key and internet connection.</p>';
+                // Remove highlight after 2 seconds
+                setTimeout(() => {
+                    card.classList.remove('highlight-member');
+                }, 2000);
             }
-        };
-
-        document.head.appendChild(script);
+        });
     }
 });
+
+
+
+
 
 // Cofresí Pirate Easter Egg
 document.addEventListener('DOMContentLoaded', function() {
