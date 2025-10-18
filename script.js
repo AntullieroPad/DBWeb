@@ -1397,6 +1397,14 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "My mom is from Condado, San Juan."
         },
         {
+            name: "Gabby Pollack",
+            role: "Event Coordinator",
+            lat: 18.4655,
+            lng: -66.1057,
+            city: "Condado",
+            description: "My family is from Condado, San Juan."
+        },
+        {
             name: "Olivia Catayong",
             role: "Social Media Manager",
             lat: 18.4726,
@@ -1431,10 +1439,10 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Nina Feliciano-Bautista",
             role: "First Year Mentor",
-            lat: 18.4655,
-            lng: -66.1057,
-            city: "San Juan & Bayamón",
-            description: "My family is from San Juan and Bayamón."
+            lat: 18.3833,  // Bayamón coordinates
+            lng: -66.1583,
+            city: "Bayamón",
+            description: "My family is from Bayamón."
         }
     ];
 
@@ -1544,8 +1552,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-
 
 
 
