@@ -1438,7 +1438,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: "Nina Feliciano-Bautista",
-            role: "First Year Mentor",
+            role: "Cafecito Coordinator",
             lat: 18.3833,  // Bayamón coordinates
             lng: -66.1583,
             city: "Bayamón",
@@ -1454,7 +1454,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Treasurer": "#2ECC71",
         "Local Network Chair": "#F39C12",
         "Global Network Chair": "#1ABC9C",
-        "First Year Mentor": "#E67E22"
+        "Cafecito Coordinator": "#E67E22"
     };
 
     // Initialize the map centered on Puerto Rico
