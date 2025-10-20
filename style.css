@@ -4108,6 +4108,59 @@ body.dark-mode .image-caption {
         font-size: 0.8rem;
     }
 }
+
+/* Single Image Styling (for images with captions like split images) */
+.single-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.single-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.single-image-container:hover img {
+    transform: scale(1.05);
+}
+
+/* Image caption for single images - same style as split images */
+.single-image-container .image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.single-image-container:hover .image-caption {
+    opacity: 1;
+}
+
+/* Dark mode support for single images */
+body.dark-mode .single-image-container .image-caption {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+/* Mobile responsive for single images */
+@media (max-width: 768px) {
+    .single-image-container .image-caption {
+        opacity: 1; /* Always show on mobile */
+        font-size: 0.8rem;
+    }
+}
 /* ===== ENHANCED NAVIGATION BUTTON ===== */
 
 /* Back to Top Navigation Button - Follows User */

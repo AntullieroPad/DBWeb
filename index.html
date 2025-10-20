@@ -59,363 +59,379 @@
 <body>
 
 <div class="page-wrapper">
-<!-- Fixed SIDEBAR -->
-<aside class="sidebar">
-    <div class="sidebar-logo">
-        <!-- Give the link an ID so we can target it in JS -->
-        <a href="index.html" id="homepageLogoLink">
-            <img
-                    src="./DB Logo Outline.png"
-                    alt="DB Yale Logo"
-                    class="logo-img"
-            />
-        </a>
-    </div>
-
-    <!-- Navigation Links within the sidebar -->
-    <nav class="sidebar-nav">
-        <a href="index.html" data-key="navHome">Home</a>
-        <a href="about.html" data-key="navAbout">About</a>
-        <a href="syllabus.html" data-key="navSyllabus">Syllabus</a>
-        <a href="collaborate.html" data-key="navCollaborate">Collaborate</a>
-        <a href="news.html" data-key="navNews">Upcoming Events</a>
-        <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
-        <a href="alumni.html" data-key="navAlumni">Alumni</a>
-        <a href="merch.html" data-key="navMerch">Merch</a>
-        <a href="gallery.html" data-key="navGallery">Gallery</a>
-        <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
-        </a> -->
-        <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
-        </a>
-    </nav>
-
-    <button id="lang-toggle">Español</button>
-    <button id="dark-mode-toggle" class="dark-mode-toggle">
-        <span class="icon">🌙</span>
-        <span class="label">Dark Mode</span>
-    </button>
-
-    <!-- Sidebar Footer: Includes search, social icons, and license info -->
-    <div class="sidebar-footer">
-        <!-- Search Bar inside the sidebar -->
-        <div class="sidebar-search">
-            <input type="text" id="sidebarSearch" placeholder="Search news/events...">
-            <button id="searchButton"><i class="fas fa-search"></i></button>
-            <!-- Font Awesome search icon -->
-        </div>
-
-        <!-- Social Media Links -->
-        <div class="social-icons">
-            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="mailto:despiertaboricua@yale.edu" class="social-link">
-                <i class="fas fa-envelope"></i>
+    <!-- Fixed SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <!-- Give the link an ID so we can target it in JS -->
+            <a href="index.html" id="homepageLogoLink">
+                <img
+                        src="./DB Logo Outline.png"
+                        alt="DB Yale Logo"
+                        class="logo-img"
+                />
             </a>
         </div>
 
-        <!-- Copyright / License Information -->
-        <div class="license">© 2025 DB Yale <span id="pirate-trigger" style="font-size: 13px; cursor: pointer; margin-left: 5px; vertical-align: middle;">🏴‍☠️</span></div>
-        <span id="abuela-trigger" style="font-size: 14px; cursor: pointer; margin-left: 10px; opacity: 0.7;" title="¿Qué diría mi abuela?">👡</span>
-    </div>
+        <!-- Navigation Links within the sidebar -->
+        <nav class="sidebar-nav">
+            <a href="index.html" data-key="navHome">Home</a>
+            <a href="about.html" data-key="navAbout">About</a>
+            <a href="syllabus.html" data-key="navSyllabus">Syllabus</a>
+            <a href="collaborate.html" data-key="navCollaborate">Collaborate</a>
+            <a href="news.html" data-key="navNews">Upcoming Events</a>
+            <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
+            <a href="alumni.html" data-key="navAlumni">Alumni</a>
+            <a href="merch.html" data-key="navMerch">Merch</a>
+            <a href="gallery.html" data-key="navGallery">Gallery</a>
+            <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
+            </a> -->
+            <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
+            </a>
+        </nav>
 
-</aside>
-
-<!-- Hamburger button for mobile -->
-<button class="hamburger-btn">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-
-<!-- Main Container: Contains the primary content (to the right of the fixed sidebar) -->
-<div class="main-container">
-
-    <!-- HERO SECTION: Large background image as a visual header -->
-    <section class="hero-image">
-        <!-- The .hero-overlay will hold your main hero text -->
-        <div class="hero-overlay">
-            <img
-                    src="./DbImages/Screenshot 2025-02-06 204053.png"
-                 alt="Despierta Boricua Yale student organization gathering - Puerto Rican cultural celebration at Yale University"
-                 class="full-hero-img"
-            >
-        </div>
-    </section>
-
-    <!-- Secondary Hero Section with the main title -->
-    <section class="hero">
-        <div class="hero-overlay">
-            <h1 id="fancy-title">Despierta Boricua</h1>
-        </div>
-    </section>
-
-    <!-- Black Hero Section: Emphasizes club's mission with a call-to-action button -->
-<section class="black-hero">
-    <div class="hero-content">
-        <h1 data-key="blackHeroHeading"> Celebrating Puerto Rican Identity & Resistance</h1>
-        <p data-key="blackHeroParagraph">
-            More than a club—Despierta Boricua is a movement.
-            We uplift, empower, and celebrate our culture, history,
-            and people.
-        </p>
-        <!-- Button to navigate to the About page -->
-        <button class="hero-btn" onclick="window.location.href='about.html'">
-            Learn More
+        <button id="lang-toggle">Español</button>
+        <button id="dark-mode-toggle" class="dark-mode-toggle">
+            <span class="icon">🌙</span>
+            <span class="label">Dark Mode</span>
         </button>
 
-    </div>
-</section>
-
-
-<!-- MAIN CONTENT -->
-<main class="main-content">
-
-    <!-- A sample "intro" section -->
-    <section class="content-section">
-        <h3 data-key="introTitle"> Welcome to DB Yale | Yale's Puerto Rican Student Organization</h3>
-        <p data-key="introSubtitle">
-            Explore our initiatives, engage with our community, and celebrate culture and activism.
-        </p>
-    </section>
-
-    <!-- ROWS: "WHAT DB STANDS FOR" content sections -->
-    <!-- Section 1: Education & Community Empowerment -->
-    <section class="content-row alt fade-in-section">
-        <div class="img-col split-images">
-            <!-- Split image container -->
-            <div class="split-image-container">
-                <div class="split-image-half">
-                    <img
-                            src="./PedroAlbPhoto.jpg"
-                            alt="Pedro Albizu Campos - influential Puerto Rican independence leader and political activist"
-                    />
-                    <div class="image-caption">Pedro Albizu Campos</div>
-                </div>
-                <div class="split-image-half">
-                    <img
-                            src="./EugenioMariaDeHostos.jpeg"
-                            alt="Eugenio María de Hostos - Puerto Rican educator and independence advocate"
-                    />
-                    <div class="image-caption">Eugenio María de Hostos</div>
-                </div>
+        <!-- Sidebar Footer: Includes search, social icons, and license info -->
+        <div class="sidebar-footer">
+            <!-- Search Bar inside the sidebar -->
+            <div class="sidebar-search">
+                <input type="text" id="sidebarSearch" placeholder="Search news/events...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+                <!-- Font Awesome search icon -->
             </div>
-        </div>
-        <div class="text-col">
-            <h3 class="section-tag" data-key="section1Tag">SECTION 1</h3>
-            <h2 data-key="section1Title">Education & Community Empowerment</h2>
-            <p data-key="section1Paragraph">
-                DB prioritizes knowledge-sharing at the
-                local level. By partnering with community
-                members and leaders, DB fosters an environment
-                where learning is co-created and everyone's voice is valued.
-            </p>
-        </div>
-    </section>
 
-    <!-- Section 2: Cultural Preservation & Representation -->
-    <section class="content-row alt fade-in-section">
-        <div class="img-col">
-            <img
-                    src="./Puerto-Sugar.webp"
-                    alt="Puerto Rican sugar plantation history - representing cultural heritage and economic history of Puerto Rico"
-            />
-        </div>
-        <div class="text-col">
-            <h3 class="section-tag" data-key="section2Tag">SECTION 2</h3>
-            <h2 data-key="section2Title">Cultural Preservation & Representation</h2>
-            <p data-key="section2Paragraph">
-                Celebrating the rich histories and traditions that
-                shape our identities. DB highlights underrepresented voices,
-                ensuring cultural narratives remain alive and vibrant in
-                academic and public discourse.
-            </p>
-        </div>
-    </section>
+            <!-- Social Media Links -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:despiertaboricua@yale.edu" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
 
-    <!-- Section 3: Critical Analysis of Sociopolitical Issues -->
-    <section  class="content-row alt fade-in-section">
-        <div class="img-col">
-            <img
-                    src="./Ponce_Massacre.jpg"
-                    alt="Ponce Massacre of 1937 - historical Puerto Rican resistance against colonial oppression studied at Yale"
-            />
+            <!-- Copyright / License Information -->
+            <div class="license">© 2025 DB Yale <span id="pirate-trigger" style="font-size: 13px; cursor: pointer; margin-left: 5px; vertical-align: middle;">🏴‍☠️</span></div>
+            <span id="abuela-trigger" style="font-size: 14px; cursor: pointer; margin-left: 10px; opacity: 0.7;" title="¿Qué diría mi abuela?">👡</span>
         </div>
-        <div class="text-col">
-            <h3 class="section-tag" data-key="section3Tag">SECTION 3</h3>
-            <h2 data-key="section3Title">Critical Analysis of Sociopolitical Issues</h2>
-            <p data-key="section3Paragraph">
-                DB pushes for discussions about pressing
-                social and political challenges,
-                inviting the community to question, analyze,
-                and propose solutions.
-            </p>
-        </div>
-    </section>
 
-    <!-- Section 4: Collaborative Action -->
-    <section  class="content-row alt fade-in-section">
-        <div class="img-col">
-            <img
-                    src="./PR_1963_NPS.jpeg" alt="Another example" />
-        </div>
-        <div class="text-col">
-            <h3 class="section-tag" data-key="section4Tag">SECTION 4</h3>
-            <h2 data-key="section4Title">Collaborative Action</h2>
-            <p data-key="section4Paragraph">
-                DB unites activists, educators, students,
-                and organizations under a shared mission.
-                We believe in collective efforts amplifying individual
-                strengths and forging new alliances to foster
-                meaningful social change.
-            </p>
-        </div>
-    </section>
+    </aside>
 
-    <!-- Section 5: Inclusivity -->
-    <section class="content-row alt fade-in-section">
-        <div class="img-col">
-            <img
-                    src="./SylviaRivera-Activ.jpg"
-                    alt="Sylvia Rivera - Puerto Rican LGBTQ+ activist and civil rights pioneer"
-            />
-        </div>
-        <div class="text-col">
-            <h3 class="section-tag" data-key="section5Tag">SECTION 5</h3>
-            <h2 data-key="section5Title">Inclusivity</h2>
-            <p data-key="section5Paragraph">
-                Progress demands that we consider overlapping
-                impacts of race, gender, class, ability, and more.
-                DB stands for an inclusive future where policies and
-                conversations respect every perspective.
-            </p>
-        </div>
-    </section>
+    <!-- Hamburger button for mobile -->
+    <button class="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-    <!-- Section 6: Activism & Resistance -->
-    <section  class="content-row alt fade-in-section">
-        <div class="img-col">
-            <img
-                    src="./The First Rainbow Coalition-1024-512.jpg"
-                    alt="The First Rainbow Coalition - multicultural activism alliance representing Puerto Rican solidarity movements"
-            />
-        </div>
-        <div class="text-col">
-            <h3 class="section-tag" data-key="section6Tag">SECTION 6</h3>
-            <h2 data-key="section6Title">Activism & Resistance</h2>
-            <p data-key="section6Paragraph">
-                Activism and resistance is central to
-                Puerto Rican identity and struggle, both on the
-                island and diaspora: environmental
-                justice, education reform, and decolonization. Puerto Ricans
-                have continually resisted oppression and fought for sovereignty,
-                dignity, and self-determination. </p>
+    <!-- Main Container: Contains the primary content (to the right of the fixed sidebar) -->
+    <div class="main-container">
 
-            <p data-key="section6ParagraphB">
-                    Movements such as the Grito de Lares (1868),
-                    student protests at the University of
-                Puerto Rico, and decades of struggle against the Navy’s
-                occupation of Vieques exemplify the resilience Puerto Rican people.
-                    Grassroots organizations, artists,
-                and activists continues to challenge injustices.
+        <!-- HERO SECTION: Large background image as a visual header -->
+        <section class="hero-image">
+            <!-- The .hero-overlay will hold your main hero text -->
+            <div class="hero-overlay">
+                <img
+                        src="./DbImages/Screenshot 2025-02-06 204053.png"
+                        alt="Despierta Boricua Yale student organization gathering - Puerto Rican cultural celebration at Yale University"
+                        class="full-hero-img"
+                >
+            </div>
+        </section>
+
+        <!-- Secondary Hero Section with the main title -->
+        <section class="hero">
+            <div class="hero-overlay">
+                <h1 id="fancy-title">Despierta Boricua</h1>
+            </div>
+        </section>
+
+        <!-- Black Hero Section: Emphasizes club's mission with a call-to-action button -->
+        <section class="black-hero">
+            <div class="hero-content">
+                <h1 data-key="blackHeroHeading"> Celebrating Puerto Rican Identity & Resistance</h1>
+                <p data-key="blackHeroParagraph">
+                    More than a club—Despierta Boricua is a movement.
+                    We uplift, empower, and celebrate our culture, history,
+                    and people.
                 </p>
-        </div>
-    </section>
+                <!-- Button to navigate to the About page -->
+                <button class="hero-btn" onclick="window.location.href='about.html'">
+                    Learn More
+                </button>
 
-    <!-- News & Current Events Section with a carousel -->
-    <section class="news-events">
-        <h2 data-key="newsEventsHeading">📰 News & Events</h2>
-        <!-- HOME carousel container with unique class -->
-        <div class="homepage-carousel">
-            <!-- The "track" for homepage slides -->
-            <div class="homepage-carousel-track">
+            </div>
+        </section>
 
 
-                <!-- Slide 1 -->
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
 
-                <!-- Slide 2 -->
-                <div class="news-item">
-                    <img src="./PRU_PRicanFest.jpeg" alt="PRU Festivals and Parade!">
-                    <p data-key="newsItem2Text">Join us for the future — you might find us on a parade float</p>
+            <!-- A sample "intro" section -->
+            <section class="content-section">
+                <h3 data-key="introTitle"> Welcome to DB Yale | Yale's Puerto Rican Student Organization</h3>
+                <p data-key="introSubtitle">
+                    Explore our initiatives, engage with our community, and celebrate culture and activism.
+                </p>
+            </section>
+
+            <!-- ROWS: "WHAT DB STANDS FOR" content sections -->
+            <!-- Section 1: Education & Community Empowerment -->
+            <section class="content-row alt fade-in-section">
+                <div class="img-col split-images">
+                    <!-- Split image container -->
+                    <div class="split-image-container">
+                        <div class="split-image-half">
+                            <img
+                                    src="./PedroAlbPhoto.jpg"
+                                    alt="Pedro Albizu Campos - influential Puerto Rican independence leader and political activist"
+                            />
+                            <div class="image-caption">Pedro Albizu Campos</div>
+                        </div>
+                        <div class="split-image-half">
+                            <img
+                                    src="./EugenioMariaDeHostos.jpeg"
+                                    alt="Eugenio María de Hostos - Puerto Rican educator and independence advocate"
+                            />
+                            <div class="image-caption">Eugenio María de Hostos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-col">
+                    <h3 class="section-tag" data-key="section1Tag">SECTION 1</h3>
+                    <h2 data-key="section1Title">Education & Community Empowerment</h2>
+                    <p data-key="section1Paragraph">
+                        DB prioritizes knowledge-sharing at the
+                        local level. By partnering with community
+                        members and leaders, DB fosters an environment
+                        where learning is co-created and everyone's voice is valued.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 2: Cultural Preservation & Representation -->
+            <section class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <div class="single-image-container">
+                        <img
+                                src="./Puerto-Sugar.webp"
+                                alt="Puerto Rican sugar plantation history - representing cultural heritage and economic history of Puerto Rico"
+                        />
+                        <div class="image-caption">Sugar Plantation History</div>
+                    </div>
+                </div>
+                <div class="text-col">
+                    <h3 class="section-tag" data-key="section2Tag">SECTION 2</h3>
+                    <h2 data-key="section2Title">Cultural Preservation & Representation</h2>
+                    <p data-key="section2Paragraph">
+                        Celebrating the rich histories and traditions that
+                        shape our identities. DB highlights underrepresented voices,
+                        ensuring cultural narratives remain alive and vibrant in
+                        academic and public discourse.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 3: Critical Analysis of Sociopolitical Issues -->
+            <section  class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <div class="single-image-container">
+                        <img
+                                src="./Ponce_Massacre.jpg"
+                                alt="Ponce Massacre of 1937 - historical Puerto Rican resistance against colonial oppression studied at Yale"
+                        />
+                        <div class="image-caption">Ponce Massacre (1937)</div>
+                    </div>
+                </div>
+                <div class="text-col">
+                    <h3 class="section-tag" data-key="section3Tag">SECTION 3</h3>
+                    <h2 data-key="section3Title">Critical Analysis of Sociopolitical Issues</h2>
+                    <p data-key="section3Paragraph">
+                        DB pushes for discussions about pressing
+                        social and political challenges,
+                        inviting the community to question, analyze,
+                        and propose solutions.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 4: Collaborative Action -->
+            <section  class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <div class="single-image-container">
+                        <img
+                                src="./PR_1963_NPS.jpeg"
+                                alt="Historic Puerto Rican civil rights demonstration" />
+                        <div class="image-caption">Puerto Rican Activism (1963)</div>
+                    </div>
+                </div>
+                <div class="text-col">
+                    <h3 class="section-tag" data-key="section4Tag">SECTION 4</h3>
+                    <h2 data-key="section4Title">Collaborative Action</h2>
+                    <p data-key="section4Paragraph">
+                        DB unites activists, educators, students,
+                        and organizations under a shared mission.
+                        We believe in collective efforts amplifying individual
+                        strengths and forging new alliances to foster
+                        meaningful social change.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 5: Inclusivity -->
+            <section class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <div class="single-image-container">
+                        <img
+                                src="./SylviaRivera-Activ.jpg"
+                                alt="Sylvia Rivera - Puerto Rican LGBTQ+ activist and civil rights pioneer"
+                        />
+                        <div class="image-caption">Sylvia Rivera</div>
+                    </div>
+                </div>
+                <div class="text-col">
+                    <h3 class="section-tag" data-key="section5Tag">SECTION 5</h3>
+                    <h2 data-key="section5Title">Inclusivity</h2>
+                    <p data-key="section5Paragraph">
+                        Progress demands that we consider overlapping
+                        impacts of race, gender, class, ability, and more.
+                        DB stands for an inclusive future where policies and
+                        conversations respect every perspective.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 6: Activism & Resistance -->
+            <section  class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <div class="single-image-container">
+                        <img
+                                src="./The First Rainbow Coalition-1024-512.jpg"
+                                alt="The First Rainbow Coalition - multicultural activism alliance representing Puerto Rican solidarity movements"
+                        />
+                        <div class="image-caption">The First Rainbow Coalition</div>
+                    </div>
+                </div>
+                <div class="text-col">
+                    <h3 class="section-tag" data-key="section6Tag">SECTION 6</h3>
+                    <h2 data-key="section6Title">Activism & Resistance</h2>
+                    <p data-key="section6Paragraph">
+                        Activism and resistance is central to
+                        Puerto Rican identity and struggle, both on the
+                        island and diaspora: environmental
+                        justice, education reform, and decolonization. Puerto Ricans
+                        have continually resisted oppression and fought for sovereignty,
+                        dignity, and self-determination. </p>
+
+                    <p data-key="section6ParagraphB">
+                        Movements such as the Grito de Lares (1868),
+                        student protests at the University of
+                        Puerto Rico, and decades of struggle against the Navy's
+                        occupation of Vieques exemplify the resilience Puerto Rican people.
+                        Grassroots organizations, artists,
+                        and activists continues to challenge injustices.
+                    </p>
+                </div>
+            </section>
+
+            <!-- News & Current Events Section with a carousel -->
+            <section class="news-events">
+                <h2 data-key="newsEventsHeading">📰 News & Events</h2>
+                <!-- HOME carousel container with unique class -->
+                <div class="homepage-carousel">
+                    <!-- The "track" for homepage slides -->
+                    <div class="homepage-carousel-track">
+
+
+                        <!-- Slide 1 -->
+
+                        <!-- Slide 2 -->
+                        <div class="news-item">
+                            <img src="./PRU_PRicanFest.jpeg" alt="PRU Festivals and Parade!">
+                            <p data-key="newsItem2Text">Join us for the future — you might find us on a parade float</p>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="news-item">
+                            <h3 data-key="newsItem1Title"><b>Incoming Features</b></h3>
+                            <p data-key="newsItem1Text">Exclusive alumni connections</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Carousel Navigation Buttons for homepage -->
+                    <button class="home-prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="home-next" onclick="moveSlide(1)">&#10095;</button>
+                </div>
+            </section>
+
+            <!-- CTA Box / Footer Section -->
+            <section class="cta-box">
+                <div class="cta-content">
+                    <!-- Newsletter Section -->
+                    <div class="cta-newsletter">
+                        <h3 data-key="ctaNewsletterHeading">Sign Up to Our Newsletter</h3>
+                        <p data-key="ctaNewsletterText">Stay updated on DB Yale happenings, events, and more!</p>
+                        <a href="newsletter.html" class="cta-btn" data-key="ctaNewsletterBtn">
+                            Read Newsletter
+                        </a>
+                    </div>
+
+                    <!-- Vertical Divider -->
+                    <div class="cta-divider"></div>
+
+                    <!-- La Casa Link Section -->
+                    <div class="la-casa-link">
+                        <h3 data-key="laCasaHeading">La Casa Cultural</h3>
+                        <p data-key="laCasaText">Learn more about events and resources at Yale's La Casa Cultural.</p>
+                        <a href="https://lacasa.yalecollege.yale.edu/" class="la-casa-btn" target="_blank" rel="noopener noreferrer" data-key="laCasaBtn">
+                            Visit La Casa
+                        </a>
+                    </div>
+
+                    <!-- Vertical Divider -->
+                    <div class="cta-divider"></div>
+
+                    <!-- Follow Us Section -->
+                    <div class="cta-socials">
+                        <h3 data-key="ctaFollowHeading">Follow Us</h3>
+                        <div class="cta-social-icons">
+                            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="mailto:jaden.gonzalez@yale.edu" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                        <a href="donate.html" class="cta-btn" data-key="ctaDonateBtn">Donate</a>
+                    </div>
+
                 </div>
 
-                <!-- Slide 3 -->
-                <div class="news-item">
-                    <h3 data-key="newsItem1Title"><b>Incoming Features</b></h3>
-                    <p data-key="newsItem1Text">Exclusive alumni connections</p>
+                <!-- Piragüero Cart (Bottom Right Corner) -->
+                <div id="piraguero-cart" class="hidden-piraguero" title="¿Tienes sed?">
+                    <img src="piraguero-cart.png" alt="Piragüero Cart" width="60" height="60">
+                    <p style="font-size: 0.7rem; margin-top: 5px; opacity: 0.8;">🧊 Tap me!</p>
                 </div>
 
-            </div>
-
-            <!-- Carousel Navigation Buttons for homepage -->
-            <button class="home-prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="home-next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-    </section>
-
-    <!-- CTA Box / Footer Section -->
-    <section class="cta-box">
-        <div class="cta-content">
-            <!-- Newsletter Section -->
-            <div class="cta-newsletter">
-                <h3 data-key="ctaNewsletterHeading">Sign Up to Our Newsletter</h3>
-                <p data-key="ctaNewsletterText">Stay updated on DB Yale happenings, events, and more!</p>
-                <a href="newsletter.html" class="cta-btn" data-key="ctaNewsletterBtn">
-                    Read Newsletter
-                </a>
-            </div>
-
-            <!-- Vertical Divider -->
-            <div class="cta-divider"></div>
-
-            <!-- La Casa Link Section -->
-            <div class="la-casa-link">
-                <h3 data-key="laCasaHeading">La Casa Cultural</h3>
-                <p data-key="laCasaText">Learn more about events and resources at Yale's La Casa Cultural.</p>
-                <a href="https://lacasa.yalecollege.yale.edu/" class="la-casa-btn" target="_blank" rel="noopener noreferrer" data-key="laCasaBtn">
-                    Visit La Casa
-                </a>
-            </div>
-
-            <!-- Vertical Divider -->
-            <div class="cta-divider"></div>
-
-            <!-- Follow Us Section -->
-            <div class="cta-socials">
-                <h3 data-key="ctaFollowHeading">Follow Us</h3>
-                <div class="cta-social-icons">
-                    <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="mailto:jaden.gonzalez@yale.edu" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-                <a href="donate.html" class="cta-btn" data-key="ctaDonateBtn">Donate</a>
-            </div>
-
-        </div>
-
-        <!-- Piragüero Cart (Bottom Right Corner) -->
-        <div id="piraguero-cart" class="hidden-piraguero" title="¿Tienes sed?">
-            <img src="piraguero-cart.png" alt="Piragüero Cart" width="60" height="60">
-            <p style="font-size: 0.7rem; margin-top: 5px; opacity: 0.8;">🧊 Tap me!</p>
-        </div>
-
-            </div>
-        </div>
-    </section>
+    </div>
+</div>
+</section>
 
 </main>
 
