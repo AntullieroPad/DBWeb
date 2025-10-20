@@ -4034,6 +4034,80 @@ body.dark-mode .la-casa-btn:hover {
     }
 }
 
+
+/* Split Images Styling */
+.split-images {
+    width: 100%;
+}
+
+.split-image-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 4px; /* Small gap between images */
+    position: relative;
+}
+
+.split-image-half {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.split-image-half img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.split-image-half:hover img {
+    transform: scale(1.05);
+}
+
+/* Optional: Image captions */
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.split-image-half:hover .image-caption {
+    opacity: 1;
+}
+
+/* Dark mode support */
+body.dark-mode .image-caption {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .split-image-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .split-image-half {
+        height: 200px;
+    }
+
+    .image-caption {
+        opacity: 1; /* Always show on mobile */
+        font-size: 0.8rem;
+    }
+}
 /* ===== ENHANCED NAVIGATION BUTTON ===== */
 
 /* Back to Top Navigation Button - Follows User */
