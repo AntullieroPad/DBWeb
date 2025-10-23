@@ -82,7 +82,7 @@ const translations = {
 
         laCasaTitle: "La Casa Cultural: A Home for Resistance and Celebration",
         laCasaText1: "Established in 1974, La Casa Cultural Julia de Burgos serves as both a cultural center and a space for activism. By naming our center after a feminist poet who challenged colonial and patriarchal power, Yale's Puerto Rican and Latino community affirms our commitment to the values she embodied.",
-        laCasaText2: "Today, La Casa at 301 Crown Street continues Julia's legacy by fostering dialogue about gender justice, decolonization, and cultural identity. It stands as a space where the symbolism of the purple flag—women's resistance, dignity, and power—is honored through programming, community building, and artistic expression.",
+        laCasaText2: "Today, La Casa at 301 Crown Street continues Julia's legacy by fostering dialogue about gender justice and cultural identity. It stands as a space where women's resistance, dignity, and power is honored through programming, community building, and artistic expression."
         visitLaCasaBtn: "Visit La Casa Website",
         learnMoreWomenBtn: "Feminism in Puerto Rico",
 
