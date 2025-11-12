@@ -5677,6 +5677,29 @@ body.dark-mode .bomba-animation {
     margin-left: 1rem;
 }
 
+/* Fix for founder images in the Our Founders section */
+.founders-section img,
+.founder-card img,
+.founders-grid img {
+    width: 100%;
+    height: 400px; /* Set consistent height */
+    object-fit: cover; /* This ensures the image covers the area while maintaining aspect ratio */
+    object-position: center top; /* Position to show faces from the top */
+    border-radius: 8px; /* Optional: adds rounded corners */
+}
+
+/* Alternative: If you want to show full images without cropping
+.founders-section img,
+.founder-card img,
+.founders-grid img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    object-position: center;
+}
+*/
+
 /* Fix values grid centering */
 .values-grid {
     display: grid;
