@@ -202,7 +202,7 @@ const translations = {
         soniaText: "Sonia connects current members with alumni, bridging generations of Bori‑buddies.",
         FabiRole: "Global Network Chair & Graduate Liaison",
         textoFabiola: "Fabiola, our Graduate Liaison & Networking Chair, bridges graduate and undergraduate communities while connecting and amplifying Puerto Rican voices.",
-        antonioRole: "First Year Mentor",
+        antonioRole: "Cafecito Coordinator",
         antonioText: "Nina connects incoming Yalies with the DB community with her weekly cafecitos.",
 
         constitutionHeading: "Our Constitution",
