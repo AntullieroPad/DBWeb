@@ -9,12 +9,518 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://despiertaboricua-yale.org/gallery.html">
 
-    <!-- Same global CSS -->
     <link rel="stylesheet" href="style.css"/>
     <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
-    <!-- Favicon links for browser tab icons -->
     <link rel="icon" type="image/png" href="./DB Logo Outline.png">
     <link rel="icon" type="DB Logo Outline.png" href="favicon.ico">
+
+    <style>
+        /* ===== GALLERY NAVIGATION ===== */
+        .gallery-nav {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .gallery-nav.scrolled {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .gallery-nav {
+            background: #1a1a1a;
+            border-bottom-color: #333;
+        }
+
+        .gallery-nav-inner {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .gallery-nav-label {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        body.dark-mode .gallery-nav-label {
+            color: #aaa;
+        }
+
+        .year-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .year-tab {
+            padding: 0.5rem 1.25rem;
+            border: 2px solid #007bff;
+            background: transparent;
+            color: #007bff;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .year-tab:hover {
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        .year-tab.active {
+            background: #007bff;
+            color: white;
+        }
+
+        body.dark-mode .year-tab {
+            border-color: #4da6ff;
+            color: #4da6ff;
+        }
+
+        body.dark-mode .year-tab:hover {
+            background: rgba(77, 166, 255, 0.15);
+        }
+
+        body.dark-mode .year-tab.active {
+            background: #4da6ff;
+            color: #1a1a1a;
+        }
+
+        /* ===== PERMANENT SECTIONS ===== */
+        .permanent-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        body.dark-mode .permanent-section {
+            border-bottom-color: #333;
+        }
+
+        .permanent-section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .permanent-section-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .permanent-section-header h2 {
+            margin: 0;
+            font-size: 1.75rem;
+            color: #333;
+        }
+
+        body.dark-mode .permanent-section-header h2 {
+            color: #fff;
+        }
+
+        .permanent-section-desc {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            max-width: 700px;
+        }
+
+        body.dark-mode .permanent-section-desc {
+            color: #bbb;
+        }
+
+        /* ===== YEAR SECTIONS ===== */
+        .year-section {
+            margin-bottom: 2rem;
+        }
+
+        .year-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .year-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        body.dark-mode .year-header {
+            background: linear-gradient(135deg, #4da6ff, #0056b3);
+        }
+
+        .year-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .year-header .year-icon {
+            font-size: 1.25rem;
+        }
+
+        .year-header .toggle-icon {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .year-section.collapsed .year-header .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .year-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
+            padding-top: 1.5rem;
+        }
+
+        .year-section.collapsed .year-content {
+            max-height: 0 !important;
+            opacity: 0;
+            padding-top: 0;
+        }
+
+        /* ===== CATEGORY SECTIONS WITHIN YEAR ===== */
+        .category-section {
+            margin-bottom: 2rem;
+            margin-left: 1rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid #007bff;
+        }
+
+        body.dark-mode .category-section {
+            border-left-color: #4da6ff;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            transition: color 0.2s ease;
+        }
+
+        .category-header:hover {
+            color: #007bff;
+        }
+
+        body.dark-mode .category-header:hover {
+            color: #4da6ff;
+        }
+
+        .category-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #333;
+        }
+
+        body.dark-mode .category-header h3 {
+            color: #fff;
+        }
+
+        .category-header .category-toggle {
+            font-size: 0.875rem;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+        body.dark-mode .category-header .category-toggle {
+            color: #aaa;
+        }
+
+        .category-section.collapsed .category-toggle {
+            transform: rotate(-90deg);
+        }
+
+        .category-content {
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+        }
+
+        .category-section.collapsed .category-content {
+            max-height: 0 !important;
+            opacity: 0;
+        }
+
+        .category-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        body.dark-mode .category-description {
+            color: #bbb;
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .gallery-scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .gallery-scroll-top:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+        }
+
+        /* ===== DB ROOM SHOWCASE CAROUSEL ===== */
+        .db-room-showcase {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .showcase-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .showcase-slider {
+            position: relative;
+            width: 100%;
+            height: 450px;
+        }
+
+        .showcase-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .showcase-slide.active {
+            opacity: 1;
+        }
+
+        .showcase-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f5f5f5;
+        }
+
+        body.dark-mode .showcase-slide img {
+            background: #2a2a2a;
+        }
+
+        /* Navigation Buttons */
+        .showcase-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .showcase-btn:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .showcase-prev {
+            left: 15px;
+        }
+
+        .showcase-next {
+            right: 15px;
+        }
+
+        /* Dots Indicator */
+        .showcase-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .showcase-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .showcase-dot:hover {
+            background: #999;
+        }
+
+        .showcase-dot.active {
+            background: #007bff;
+            transform: scale(1.2);
+        }
+
+        body.dark-mode .showcase-dot {
+            background: #555;
+        }
+
+        body.dark-mode .showcase-dot.active {
+            background: #4da6ff;
+        }
+
+        /* Caption */
+        .showcase-caption {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        body.dark-mode .showcase-caption {
+            color: #bbb;
+        }
+
+        body.dark-mode .showcase-btn {
+            background: rgba(50, 50, 50, 0.9);
+            color: #fff;
+        }
+
+        body.dark-mode .showcase-btn:hover {
+            background: #4da6ff;
+            color: #1a1a1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .showcase-slider {
+                height: 300px;
+            }
+
+            .showcase-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+
+            .showcase-prev {
+                left: 10px;
+            }
+
+            .showcase-next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .showcase-slider {
+                height: 220px;
+            }
+
+            .showcase-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .gallery-nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .year-tabs {
+                width: 100%;
+            }
+
+            .year-tab {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .year-header {
+                padding: 0.875rem 1rem;
+            }
+
+            .year-header h2 {
+                font-size: 1.25rem;
+            }
+
+            .category-section {
+                margin-left: 0.5rem;
+                padding-left: 1rem;
+            }
+
+            .gallery-scroll-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -22,10 +528,7 @@
 <aside class="sidebar">
     <div class="sidebar-logo">
         <a href="index.html">
-            <img
-                    src="DB Logo Outline.png"
-                    alt="DB Yale Logo"
-                    class="logo-img"/>
+            <img src="DB Logo Outline.png" alt="DB Yale Logo" class="logo-img"/>
         </a>
     </div>
     <nav class="sidebar-nav">
@@ -41,9 +544,6 @@
         <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
             <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
         </a>
-        <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
-        </a> -->
     </nav>
     <button id="lang-toggle">Español</button>
     <button id="dark-mode-toggle" class="dark-mode-toggle">
@@ -52,7 +552,6 @@
     </button>
 
     <div class="sidebar-footer">
-        <!-- Social Media Links -->
         <div class="social-icons">
             <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
                 <i class="fab fa-facebook-f"></i>
@@ -60,11 +559,10 @@
             <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="mailto:jaden.gonzalez@yale.edu" class="social-link">
+            <a href="mailto:despiertaboricua@yale.edu" class="social-link">
                 <i class="fas fa-envelope"></i>
             </a>
-        </div> <!-- Correctly closing social-icons div -->
-
+        </div>
         <div class="license">© 2025 DB Yale</div>
     </div>
 </aside>
@@ -79,415 +577,620 @@
 <!-- MAIN CONTAINER -->
 <div class="main-container">
 
-    <!-- Optional hero or banner -->
+    <!-- Hero Section -->
     <section class="black-hero">
         <div class="hero-content">
             <h1 style="text-align:center;" data-key="galleryHeroTitle">DB Yale Photo Gallery</h1>
-            <p data-key="galleryHeroText">Browse our events and gatherings—snapshots
-                of our community spirit.</p>
+            <p data-key="galleryHeroText">Browse our events and gatherings—snapshots of our community spirit.</p>
+            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">2024 – Present</p>
         </div>
     </section>
 
     <main class="main-content">
 
-        <!-- 1) BAD BUNNY ALBUM LISTENING EVENT -->
-        <section class="gallery-section" data-category="MajorEvents">
-            <h2 data-key="majorEventsTitle">Major / Annual Events</h2>
-            <p data-key="majorEventsDesc">
-                Once-in-a-lifetime or rare celebrations and parties.
+        <!-- ===== STICKY YEAR NAVIGATION ===== -->
+        <nav class="gallery-nav" id="galleryNav">
+            <div class="gallery-nav-inner">
+                <span class="gallery-nav-label"><i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i>Jump to year:</span>
+                <div class="year-tabs" id="yearTabs">
+                    <button class="year-tab active" data-year="2025">2025</button>
+                    <button class="year-tab" data-year="2024">2024</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ========================================== -->
+        <!-- PERMANENT SECTIONS (Outside of Years)     -->
+        <!-- ========================================== -->
+
+        <!-- DB Room - Auto-Rotating Showcase -->
+        <section class="permanent-section gallery-section" data-category="CommunitySpaces">
+            <div class="permanent-section-header">
+                <div class="permanent-section-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h2>DB Room</h2>
+            </div>
+            <p class="permanent-section-desc">
+                Our home base, featuring a mural by Danielle De Jesus.
             </p>
-            <div class="carousel-container gallery-carousel-container">
-                <button class="carousel-button prev" data-key="carouselPrevBtn">‹</button>
-                <div class="carousel-window">
-                    <div class="carousel-track">
-                        <!-- Example: DTMF Party (Rare event) -->
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="dtmf-party.html">
-                                    <div class="folder-preview">
-                                        <img src="./DTMF_Party_Photos/DMTF-24.jpeg" alt="DTMF Party 1">
-                                        <img src="./DTMF_Party_Photos/DMTF-23.jpeg" alt="DTMF Party 2">
-                                        <img src="./DTMF_Party_Photos/DMTF-17.jpeg" alt="DTMF Party 3">
-                                        <img src="./DTMF_Party_Photos/DMTF-9.jpeg"  alt="DTMF Party 4">
-                                    </div>
 
-                                    <div class="folder-text">
-                                    <h3 data-key="dtmfPartyTitle">Bad Bunny Listening Album</h3>
-                                    <p data-key="dtmfPartyDesc">
-                                        We jammed out to the latest hits! Check out the vibes from this unforgettable night.
-                                    </p>
-                                    </div>
-                                </a>
-                            </div>
+            <!-- Auto-Rotating Image Carousel -->
+            <div class="db-room-showcase">
+                <div class="showcase-container">
+                    <button class="showcase-btn showcase-prev" onclick="changeDBRoomSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="showcase-slider">
+                        <div class="showcase-slide active">
+                            <img src="./DB Room/DBRoom1.jpg" alt="DB Room - Mural View 1">
                         </div>
-
-                        <!-- Add more .carousel-item blocks here for other rare/annual events -->
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="LaBrega.html">
-                                    <div class="folder-preview">
-                                        <img src="./LaBregaPodcast/LaBregaPhoto6.jpg" alt="DTMF Party 1">
-                                        <img src="./LaBregaPodcast/LaBregaPhoto8.jpg" alt="DTMF Party 1">
-                                        <img src="./LaBregaPodcast/LaBregaPhoto7.jpg" alt="DTMF Party 1">
-                                        <img src="./LaBregaPodcast/LaBregaPhoto11.jpg" alt="DTMF Party 1">
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3 >Speaker Event: La Brega - Alana Casanova-Burgess</h3>
-                                        <p data-key="dtmfPartyDesc">
-                                            We jammed out to the latest hits! Check out the vibes from this unforgettable night.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="showcase-slide">
+                            <img src="./DB Room/DBRoom2.jpg" alt="DB Room - Mural View 2">
                         </div>
-
-                        <!-- Bad Bunny Watch Party -->
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="BadBunnyConcert.html">
-                                    <div class="folder-preview">
-                                        <img src="./Sept-Oct/BB1.jpg" alt="Bad Bunny Watch Party 1">
-                                        <img src="./Sept-Oct/BB2.jpg" alt="Bad Bunny Watch Party 2">
-                                        <img src="./Sept-Oct/BB3.jpg" alt="Bad Bunny Watch Party 3">
-                                        <img src="./Sept-Oct/BB4.jpg" alt="Bad Bunny Watch Party 4">
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3 data-key="badBunnyWatchTitle">Bad Bunny Concert Watch Party</h3>
-                                        <p data-key="badBunnyWatchDesc">
-                                            Livestream watch party of Bad Bunny's final Debí Tirar Más Fotos concert with authentic PR food!
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="showcase-slide">
+                            <img src="./DB Room/DBRoom3.jpg" alt="DB Room - Mural View 3">
                         </div>
-
-                        <!-- Antonio Martorell Fireside Chat -->
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="Martorell.html">
-                                    <div class="folder-preview">
-                                        <img src="./Sept-Oct/Martor1.jpg"  alt="Antonio Martorell 4">
-                                        <img src="./Sept-Oct/Martor2.jpg"  alt="Antonio Martorell 4">
-                                        <img src="./Sept-Oct/Martor3.jpg"  alt="Antonio Martorell 4">
-                                        <img src="./Sept-Oct/Martor4.jpg"  alt="Antonio Martorell 4">
-
-
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3 data-key="martorellTitle">Antonio Martorell Fireside Chat</h3>
-                                        <p data-key="martorellDesc">
-                                            Intimate conversation with renowned PR multi-media artist, featuring live painting demonstration.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="showcase-slide">
+                            <img src="./DB Room/DBRoom4.jpg" alt="DB Room - Mural View 4">
                         </div>
-
-                        <!-- Antonio Martorell Fireside Chat -->
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="HSCVisit.html">
-                                    <div class="folder-preview">
-                                        <img src="./Sept-Oct/HSC1.jpg"  alt="Antonio Martorell 4">
-                                        <img src="./Sept-Oct/HSC4.jpg"  alt="Antonio Martorell 4">
-                                        <img src="./Sept-Oct/HSC5.jpg"  alt="Antonio Martorell 4">
-                                        <img src="./Sept-Oct/HSC6.png"  alt="Antonio Martorell 4">
-
-
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3 data-key="HSCVisit">High School in Community Visit</h3>
-                                        <p data-key="HSCDesc">
-                                           Helping underserved local high schools in New Haven.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-
-
                     </div>
+
+                    <button class="showcase-btn showcase-next" onclick="changeDBRoomSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
 
-                <button class="carousel-button next" data-key="carouselNextBtn">›</button>
+                <!-- Dots indicator -->
+                <div class="showcase-dots">
+                    <span class="showcase-dot active" onclick="goToDBRoomSlide(0)"></span>
+                    <span class="showcase-dot" onclick="goToDBRoomSlide(1)"></span>
+                    <span class="showcase-dot" onclick="goToDBRoomSlide(2)"></span>
+                    <span class="showcase-dot" onclick="goToDBRoomSlide(3)"></span>
+                </div>
+
+                <p class="showcase-caption">Mural by <strong>Danielle De Jesus</strong></p>
             </div>
         </section>
 
-        <!-- CATEGORY 2: CULTURAL MIXERS & Retreats (Recurring, but not weekly) -->
-        <section class="gallery-section" data-category="CulturalMixers">
-            <h2 data-key="culturalMixersTitle"> Mixers & Retreats</h2>
-            <p data-key="culturalMixersDesc">
-                These gatherings happen multiple times a semester of various themes and goals.
+        <!-- Weekly Cafecitos -->
+        <section class="permanent-section gallery-section" data-category="WeeklyGatherings">
+            <div class="permanent-section-header">
+                <div class="permanent-section-icon">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <h2 data-key="cafecitosTitle">Weekly Cafecitos</h2>
+            </div>
+            <p class="permanent-section-desc" data-key="cafecitosDesc">
+                Our regular gatherings for coffee, conversation, and community building—happening every week.
             </p>
             <div class="carousel-container gallery-carousel-container">
-                <button class="carousel-button prev" data-key="carouselPrevBtn">‹</button>
+                <button class="carousel-button prev">‹</button>
                 <div class="carousel-window">
                     <div class="carousel-track">
-                        <!-- Example: Brazilian Mixer -->
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="brazil-mixer.html">
-                                    <div class="folder-preview">
-                                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (1).jpeg" alt="Brazilian Mixer 1">
-                                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (2).jpeg" alt="Brazilian Mixer 2">
-                                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (3).jpeg" alt="Brazilian Mixer 3">
-                                        <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (4).jpeg" alt="Brazilian Mixer 4">
-                                    </div>
-
-                                    <div class="folder-text">
-
-                                    <h3 data-key="brazilMixerTitle">Brazilian Mixer</h3>
-                                    <p data-key="brazilMixerDesc">
-                                        A lively night of samba, feijoada, and cross-cultural exchange with our Brazilian friends.
-                                    </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Add more .carousel-item blocks here for other rare/annual events -->
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="NewHavenRetreat.html">
-                                    <div class="folder-preview">
-                                        <img src="./NewHavenRetreat-BregaTheater/BregaTheater1.jpeg" alt="DTMF Party 1">
-                                        <img src="./NewHavenRetreat-BregaTheater/BregaTheater2.jpeg" alt="DTMF Party 1">
-                                        <img src="./NewHavenRetreat-BregaTheater/BregaTheater4.jpeg" alt="DTMF Party 1">
-                                        <img src="./NewHavenRetreat-BregaTheater/BregaTheater5.jpeg" alt="DTMF Party 1">
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3 >New Haven Retreat</h3>
-                                        <p data-key="dtmfPartyDesc">
-
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Hartford Puerto Rican Parade -->
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="HartfordParade.html">
-                                    <div class="folder-preview">
-                                        <img src="./Sept-Oct/parade1.jpg" alt="Hartford Parade 1">
-                                        <img src="./Sept-Oct/parade7.jpg" alt="Hartford Parade 2">
-                                        <img src="./Sept-Oct/parade3.jpg" alt="Hartford Parade 3">
-                                        <img src="./Sept-Oct/parade4.jpg" alt="Hartford Parade 4">
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3 data-key="hartfordParadeTitle">Hartford Puerto Rican Parade</h3>
-                                        <p data-key="hartfordParadeDesc">
-                                            DB joined the Hartford PR Parade procession with Movimiento Cultural - instruments, flags, and pride!
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Caribbean Students Mixer
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="caribbean-mixer.html">
-                                    <div class="folder-preview">
-                                        <img src="./CaribbeanMixer/mixer1.jpg" alt="Caribbean Mixer 1">
-                                        <img src="./CaribbeanMixer/mixer2.jpg" alt="Caribbean Mixer 2">
-                                        <img src="./CaribbeanMixer/mixer3.jpg" alt="Caribbean Mixer 3">
-                                        <img src="./CaribbeanMixer/mixer4.jpg" alt="Caribbean Mixer 4">
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3 data-key="caribbeanMixerTitle">Caribbean Students Mixer</h3>
-                                        <p data-key="caribbeanMixerDesc">
-                                            Annual mixer with DB, CSO, DSA, and CAUSA featuring dancing, dominoes, and dessert!
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
--->
-                        <!-- Día Nacional de la Salsa -->
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="DiaNacionalSalsa.html">
-                                    <div class="folder-preview">
-                                        <img src="./Sept-Oct/salsa1.jpg" alt="Salsa Day 1">
-                                        <img src="./Sept-Oct/salsa2.jpg" alt="Salsa Day 2">
-                                        <img src="./Sept-Oct/salsa3.jpg" alt="Salsa Day 3">
-                                        <img src="./Sept-Oct/salsa4.jpg" alt="Salsa Day 4">
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3 data-key="salsaDayTitle">Día Nacional de la Salsa</h3>
-                                        <p data-key="salsaDayDesc">
-                                            Outdoor salsa workshop and social dancing at Beinecke Plaza celebrating PR's salsa musicians.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- DSA x DB Cafecito
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="dsa-db-cafecito.html">
-                                    <div class="folder-preview">
-                                        <img src="./DSAxDB_Cafecito/cafecito1.jpg" alt="DSA DB Cafecito 1">
-                                        <img src="./DSAxDB_Cafecito/cafecito2.jpg" alt="DSA DB Cafecito 2">
-                                        <img src="./DSAxDB_Cafecito/cafecito3.jpg" alt="DSA DB Cafecito 3">
-                                        <img src="./DSAxDB_Cafecito/cafecito4.jpg" alt="DSA DB Cafecito 4">
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3 data-key="dsaCafecitoTitle">DSA x DB Cafecito</h3>
-                                        <p data-key="dsaCafecitoDesc">
-                                            Joint "Cafecito Estilo Domino" bringing together Dominican and Puerto Rican students.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                       -->
-
-                        <!--  <div class="carousel-item">
-                             <div class="event-folder">
-                                 <a href="Bazaars.html">
-                                     <div class="folder-preview">
-                                         <img src="./NewHavenRetreat-BregaTheater/BregaTheater1.jpeg" alt="DTMF Party 1">
-                                         <img src="./NewHavenRetreat-BregaTheater/BregaTheater2.jpeg" alt="DTMF Party 1">
-                                         <img src="./NewHavenRetreat-BregaTheater/BregaTheater4.jpeg" alt="DTMF Party 1">
-                                         <img src="./NewHavenRetreat-BregaTheater/BregaTheater5.jpeg" alt="DTMF Party 1">
-                                     </div>
-
-                                     <div class="folder-text">
-                                         <h3 >New Haven Retreat</h3>
-                                         <p data-key="dtmfPartyDesc">
-                                             We jammed out to the latest hits! Check out the vibes from this unforgettable night.
-                                         </p>
-                                     </div>
-                                 </a>
-                             </div>
-                         </div>
-
- --->
-                     </div>
-                 </div>
-                 <button class="carousel-button next" data-key="carouselNextBtn">›</button>
-             </div>
-         </section>
-
-         <!-- CATEGORY 3: WEEKLY GATHERINGS -> Turn into Extras  -->
-
-        <section class="gallery-section" data-category="WeeklyGatherings">
-            <h2 data-key="cafecitosTitle">Weekly Cafecitos</h2>
-            <p data-key="cafecitosDesc">
-                Our regular events that happen every week or very frequently.
-            </p>
-            <div class="carousel-container gallery-carousel-container">
-                <button class="carousel-button prev" data-key="carouselPrevBtn">‹</button>
-                <div class="carousel-window">
-                    <div class="carousel-track">
-
-                        <!-- Example: Weekly Cafecitos -->
                         <div class="carousel-item">
                             <div class="event-folder">
                                 <a href="weekly-cafecitos.html">
                                     <div class="folder-preview">
                                         <img src="./Cafecitos/Cafecito_img13.jpg" alt="Weekly Cafecitos 1">
                                         <img src="./Cafecitos/Cafecito_img10.jpg" alt="Weekly Cafecitos 2">
-                                        <img src="./Cafecitos/Cafecito_img8.jpg"  alt="Weekly Cafecitos 3">
-                                        <img src="./Cafecitos/Cafecito_img3.jpg"  alt="Weekly Cafecitos 4">
+                                        <img src="./Cafecitos/Cafecito_img8.jpg" alt="Weekly Cafecitos 3">
+                                        <img src="./Cafecitos/Cafecito_img3.jpg" alt="Weekly Cafecitos 4">
                                     </div>
-
                                     <div class="folder-text">
-                                    <h3 data-key="cafecitosTitle">Weekly Cafecitos</h3>
-                                    <p data-key="cafecitosDesc">
-                                        Our ongoing gatherings for coffee, conversation, and community building.
-                                    </p>
+                                        <h3 data-key="cafecitosTitle">Weekly Cafecitos</h3>
+                                        <p data-key="cafecitosDesc">Our ongoing gatherings for coffee, conversation, and community building.</p>
                                     </div>
                                 </a>
                             </div>
                         </div>
-
-                        <!-- Add more .carousel-item blocks for other weekly events if needed -->
-        <!-- DB ROOM -->
-
-        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="DBRoom.html">
-                                    <div class="folder-preview">
-                                        <img src="./DB Room/DBRoom1.jpg" alt="Weekly Cafecitos 1">
-                                        <img src="./DB Room/DBRoom2.jpg" alt="Weekly Cafecitos 1">
-                                        <img src="./DB Room/DBRoom3.jpg" alt="Weekly Cafecitos 1">
-                                        <img src="./DB Room/DBRoom4.jpg" alt="Weekly Cafecitos 1">
-                                    </div>
-
-                                    <div class="folder-text">
-                                        <h3>DB Room</h3>
-                                        <p>
-                                            Room Mural brought to you by Danielle De Jesus
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-
                     </div>
                 </div>
-                <button class="carousel-button next" data-key="carouselNextBtn">›</button>
+                <button class="carousel-button next">›</button>
             </div>
         </section>
 
 
-        <!-- CATEGORY 4: The extras (Recurring, but not weekly)
-        <section class="gallery-section">
-            <h2>Flyers & Extras</h2>
-            <div class="carousel-container gallery-carousel-container">
-                <button class="carousel-button prev" data-key="carouselPrevBtn">‹</button>
-                <div class="carousel-window">
-                    <div class="carousel-track">
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="Flyers.html">
-                                    <div class="folder-preview">
-                                        <img src="./FlyersPosters/BrazilPoster1.jpeg" alt="Brazilian Mixer 1">
-                                        <img src="./FlyersPosters/DinnerPoster-Caldero Dorado 1.png" alt="Brazilian Mixer 2">
-                                        <img src="./FlyersPosters/CafecitoPoster.jpg" alt="Brazilian Mixer 3">
-                                        <img src="./FlyersPosters/DTMFPoster.jpeg" alt="Brazilian Mixer 4">
+
+        <!-- ========================================== -->
+        <!-- YEAR SECTIONS (Collapsible)               -->
+        <!-- ========================================== -->
+
+        <!-- ==================== 2025 ==================== -->
+        <section class="year-section collapsed" id="year-2025" data-year="2025">
+            <div class="year-header" onclick="toggleYear(this)">
+                <h2><span class="year-icon"><i class="fas fa-calendar"></i></span> 2025</h2>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="year-content">
+
+                <!-- Major Events 2025 -->
+                <div class="category-section gallery-section" data-category="MajorEvents2025">
+                    <div class="category-header" onclick="toggleCategory(this)">
+                        <span class="category-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <h3><i class="fas fa-star" style="margin-right: 0.5rem; color: #007bff;"></i>Major Events</h3>
+                    </div>
+                    <div class="category-content">
+                        <p class="category-description">Speaker events, formal programming, community outreach, and annual cultural events.</p>
+                        <div class="carousel-container gallery-carousel-container">
+                            <button class="carousel-button prev">‹</button>
+                            <div class="carousel-window">
+                                <div class="carousel-track">
+
+                                    <!-- Antonio Martorell -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="Martorell.html">
+                                                <div class="folder-preview">
+                                                    <img src="./Sept-Oct/Martor1.jpg" alt="Antonio Martorell 1">
+                                                    <img src="./Sept-Oct/Martor2.jpg" alt="Antonio Martorell 2">
+                                                    <img src="./Sept-Oct/Martor3.jpg" alt="Antonio Martorell 3">
+                                                    <img src="./Sept-Oct/Martor4.jpg" alt="Antonio Martorell 4">
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3 data-key="martorellTitle">Antonio Martorell Fireside Chat</h3>
+                                                    <p data-key="martorellDesc">Intimate conversation with renowned PR multi-media artist, featuring live painting demonstration.</p>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
 
-                                    <div class="folder-text">
-
-                                        <h3 > Album Extras</h3>
+                                    <!-- Hartford Puerto Rican Parade -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="HartfordParade.html">
+                                                <div class="folder-preview">
+                                                    <img src="./Sept-Oct/parade1.jpg" alt="Hartford Parade 1">
+                                                    <img src="./Sept-Oct/parade7.jpg" alt="Hartford Parade 2">
+                                                    <img src="./Sept-Oct/parade3.jpg" alt="Hartford Parade 3">
+                                                    <img src="./Sept-Oct/parade4.jpg" alt="Hartford Parade 4">
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3 data-key="hartfordParadeTitle">Hartford Puerto Rican Parade</h3>
+                                                    <p data-key="hartfordParadeDesc">DB joined the Hartford PR Parade procession with Movimiento Cultural.</p>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
-                                </a>
+
+                                    <!-- HSC Visit -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="HSCVisit.html">
+                                                <div class="folder-preview">
+                                                    <img src="./Sept-Oct/HSC1.jpg" alt="HSC Visit 1">
+                                                    <img src="./Sept-Oct/HSC4.jpg" alt="HSC Visit 2">
+                                                    <img src="./Sept-Oct/HSC5.jpg" alt="HSC Visit 3">
+                                                    <img src="./Sept-Oct/HSC6.png" alt="HSC Visit 4">
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3 data-key="HSCVisit">High School in Community Visit</h3>
+                                                    <p data-key="HSCDesc">Helping underserved local high schools in New Haven.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Placeholder for 2025 Major Events
+                                    <div class="carousel-item">
+                                        <div class="event-folder" style="opacity: 0.6;">
+                                            <div class="folder-preview" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                                                <p style="color: #666; text-align: center; padding: 2rem;">More events coming soon...</p>
+                                            </div>
+                                            <div class="folder-text">
+
+                                                <h3>Stay Tuned</h3>
+                                                <p>2025 major events will appear here.</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div> -->
+                                </div>
                             </div>
+                            <button class="carousel-button next">›</button>
                         </div>
-                         Add more .carousel-item blocks for other cultural mixers if needed
-
-                        </div>
-
                     </div>
                 </div>
-                <button class="carousel-button next" data-key="carouselNextBtn">›</button>
+
+                <!-- Social Events 2025 -->
+                <div class="category-section gallery-section" data-category="SocialEvents2025">
+                    <div class="category-header" onclick="toggleCategory(this)">
+                        <span class="category-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <h3><i class="fas fa-users" style="margin-right: 0.5rem; color: #007bff;"></i>Social Events: Mixers, Retreats, Parties</h3>
+                    </div>
+                    <div class="category-content">
+                        <p class="category-description">Informal gatherings, celebrations, watch parties, and cross-cultural exchanges.</p>
+                        <div class="carousel-container gallery-carousel-container">
+                            <button class="carousel-button prev">‹</button>
+                            <div class="carousel-window">
+                                <div class="carousel-track">
+
+                                    <!-- Bad Bunny Concert Watch Party -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="BadBunnyConcert.html">
+                                                <div class="folder-preview">
+                                                    <img src="./Sept-Oct/BB1.jpg" alt="Bad Bunny Watch Party 1">
+                                                    <img src="./Sept-Oct/BB2.jpg" alt="Bad Bunny Watch Party 2">
+                                                    <img src="./Sept-Oct/BB3.jpg" alt="Bad Bunny Watch Party 3">
+                                                    <img src="./Sept-Oct/BB4.jpg" alt="Bad Bunny Watch Party 4">
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3 data-key="badBunnyWatchTitle">Bad Bunny Concert Watch Party</h3>
+                                                    <p data-key="badBunnyWatchDesc">Livestream watch party of Bad Bunny's final Debí Tirar Más Fotos concert with authentic PR food!</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Día Nacional de la Salsa -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="DiaNacionalSalsa.html">
+                                                <div class="folder-preview">
+                                                    <img src="./Sept-Oct/salsa1.jpg" alt="Salsa Day 1">
+                                                    <img src="./Sept-Oct/salsa2.jpg" alt="Salsa Day 2">
+                                                    <img src="./Sept-Oct/salsa3.jpg" alt="Salsa Day 3">
+                                                    <img src="./Sept-Oct/salsa4.jpg" alt="Salsa Day 4">
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3 data-key="salsaDayTitle">Día Nacional de la Salsa</h3>
+                                                    <p data-key="salsaDayDesc">Outdoor salsa workshop and social dancing at Beinecke Plaza celebrating PR's salsa musicians.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button class="carousel-button next">›</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
--->
+
+        <!-- ==================== 2024 ==================== -->
+        <section class="year-section collapsed" id="year-2024" data-year="2024">
+            <div class="year-header" onclick="toggleYear(this)">
+                <h2><span class="year-icon"><i class="fas fa-calendar"></i></span> 2024</h2>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="year-content">
+
+                <!-- Major Events 2024 -->
+                <div class="category-section gallery-section" data-category="MajorEvents2024">
+                    <div class="category-header" onclick="toggleCategory(this)">
+                        <span class="category-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <h3><i class="fas fa-star" style="margin-right: 0.5rem; color: #007bff;"></i>Major Events</h3>
+                    </div>
+                    <div class="category-content">
+                        <p class="category-description">Speaker events, formal programming, community outreach, and annual cultural events.</p>
+                        <div class="carousel-container gallery-carousel-container">
+                            <button class="carousel-button prev">‹</button>
+                            <div class="carousel-window">
+                                <div class="carousel-track">
+
+                                    <!-- La Brega Podcast -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="LaBrega.html">
+                                                <div class="folder-preview">
+                                                    <img src="./LaBregaPodcast/LaBregaPhoto6.jpg" alt="La Brega 1">
+                                                    <img src="./LaBregaPodcast/LaBregaPhoto8.jpg" alt="La Brega 2">
+                                                    <img src="./LaBregaPodcast/LaBregaPhoto7.jpg" alt="La Brega 3">
+                                                    <img src="./LaBregaPodcast/LaBregaPhoto11.jpg" alt="La Brega 4">
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3>Speaker Event: La Brega - Alana Casanova-Burgess</h3>
+                                                    <p>An engaging discussion with the host of the acclaimed podcast.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button class="carousel-button next">›</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Events 2024 -->
+                <div class="category-section gallery-section" data-category="SocialEvents2024">
+                    <div class="category-header" onclick="toggleCategory(this)">
+                        <span class="category-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <h3><i class="fas fa-users" style="margin-right: 0.5rem; color: #007bff;"></i>Social Events: Mixers, Retreats, Parties</h3>
+                    </div>
+                    <div class="category-content">
+                        <p class="category-description">Informal gatherings, celebrations, watch parties, and cross-cultural exchanges.</p>
+                        <div class="carousel-container gallery-carousel-container">
+                            <button class="carousel-button prev">‹</button>
+                            <div class="carousel-window">
+                                <div class="carousel-track">
+
+                                    <!-- Brazilian Mixer -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="brazil-mixer.html">
+                                                <div class="folder-preview">
+                                                    <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (1).jpeg" alt="Brazilian Mixer 1">
+                                                    <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (2).jpeg" alt="Brazilian Mixer 2">
+                                                    <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (3).jpeg" alt="Brazilian Mixer 3">
+                                                    <img src="./brazil-mixer/WhatsApp Image 2025-01-26 at 9.12.55 PM (4).jpeg" alt="Brazilian Mixer 4">
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3 data-key="brazilMixerTitle">Brazilian Mixer</h3>
+                                                    <p data-key="brazilMixerDesc">A lively night of samba, feijoada, and cross-cultural exchange with our Brazilian friends.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bad Bunny Listening Album (DTMF) -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="dtmf-party.html">
+                                                <div class="folder-preview">
+                                                    <img src="./DTMF_Party_Photos/DMTF-24.jpeg" alt="DTMF Party 1">
+                                                    <img src="./DTMF_Party_Photos/DMTF-23.jpeg" alt="DTMF Party 2">
+                                                    <img src="./DTMF_Party_Photos/DMTF-17.jpeg" alt="DTMF Party 3">
+                                                    <img src="./DTMF_Party_Photos/DMTF-9.jpeg" alt="DTMF Party 4">
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3 data-key="dtmfPartyTitle">Bad Bunny Listening Album</h3>
+                                                    <p data-key="dtmfPartyDesc">We jammed out to the latest hits! Check out the vibes from this unforgettable night.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- New Haven Retreat -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="NewHavenRetreat.html">
+                                                <div class="folder-preview">
+                                                    <img src="./NewHavenRetreat-BregaTheater/BregaTheater1.jpeg" alt="Retreat 1">
+                                                    <img src="./NewHavenRetreat-BregaTheater/BregaTheater2.jpeg" alt="Retreat 2">
+                                                    <img src="./NewHavenRetreat-BregaTheater/BregaTheater4.jpeg" alt="Retreat 3">
+                                                    <img src="./NewHavenRetreat-BregaTheater/BregaTheater5.jpeg" alt="Retreat 4">
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3>New Haven Retreat</h3>
+                                                    <p>Community bonding and exploration in New Haven.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <button class="carousel-button next">›</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
     </main>
 </div>
 
+<!-- Scroll to top button -->
+<button class="gallery-scroll-top" id="galleryScrollTop" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+</button>
 
-
-<!-- Script for icons or mobile menu if needed -->
+<!-- Scripts -->
 <script src="script.js"></script>
-<script src="lang.js"></script>
-<button id="backToTop" title="Back to top">&#8679;</button>
+
+<script>
+    // ===== DB ROOM SHOWCASE CAROUSEL =====
+    let dbRoomCurrentSlide = 0;
+    let dbRoomSlides;
+    let dbRoomDots;
+    let dbRoomAutoRotate;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        dbRoomSlides = document.querySelectorAll('.showcase-slide');
+        dbRoomDots = document.querySelectorAll('.showcase-dot');
+
+        if (dbRoomSlides.length > 0) {
+            // Start auto-rotation
+            startDBRoomAutoRotate();
+
+            // Pause on hover
+            const showcase = document.querySelector('.db-room-showcase');
+            if (showcase) {
+                showcase.addEventListener('mouseenter', stopDBRoomAutoRotate);
+                showcase.addEventListener('mouseleave', startDBRoomAutoRotate);
+            }
+        }
+    });
+
+    function startDBRoomAutoRotate() {
+        stopDBRoomAutoRotate(); // Clear any existing interval
+        dbRoomAutoRotate = setInterval(() => {
+            changeDBRoomSlide(1);
+        }, 4000); // Change every 4 seconds
+    }
+
+    function stopDBRoomAutoRotate() {
+        if (dbRoomAutoRotate) {
+            clearInterval(dbRoomAutoRotate);
+        }
+    }
+
+    function changeDBRoomSlide(direction) {
+        dbRoomSlides[dbRoomCurrentSlide].classList.remove('active');
+        dbRoomDots[dbRoomCurrentSlide].classList.remove('active');
+
+        dbRoomCurrentSlide += direction;
+
+        if (dbRoomCurrentSlide >= dbRoomSlides.length) {
+            dbRoomCurrentSlide = 0;
+        } else if (dbRoomCurrentSlide < 0) {
+            dbRoomCurrentSlide = dbRoomSlides.length - 1;
+        }
+
+        dbRoomSlides[dbRoomCurrentSlide].classList.add('active');
+        dbRoomDots[dbRoomCurrentSlide].classList.add('active');
+    }
+
+    function goToDBRoomSlide(index) {
+        dbRoomSlides[dbRoomCurrentSlide].classList.remove('active');
+        dbRoomDots[dbRoomCurrentSlide].classList.remove('active');
+
+        dbRoomCurrentSlide = index;
+
+        dbRoomSlides[dbRoomCurrentSlide].classList.add('active');
+        dbRoomDots[dbRoomCurrentSlide].classList.add('active');
+
+        // Reset auto-rotate timer when manually navigating
+        startDBRoomAutoRotate();
+    }
+
+    // ===== Toggle Year Sections =====
+    function toggleYear(header) {
+        const section = header.closest('.year-section');
+        const content = section.querySelector('.year-content');
+
+        if (section.classList.contains('collapsed')) {
+            // Expanding
+            section.classList.remove('collapsed');
+            // First, set all nested category contents to their proper heights
+            content.querySelectorAll('.category-section:not(.collapsed) .category-content').forEach(catContent => {
+                catContent.style.maxHeight = catContent.scrollHeight + 'px';
+            });
+            // Then set the year content height
+            content.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+            // Collapsing
+            section.classList.add('collapsed');
+            content.style.maxHeight = '0';
+        }
+    }
+
+    // ===== Toggle Category Sections =====
+    function toggleCategory(header) {
+        const section = header.closest('.category-section');
+        const content = section.querySelector('.category-content');
+        const yearContent = section.closest('.year-content');
+
+        if (section.classList.contains('collapsed')) {
+            // Expanding
+            section.classList.remove('collapsed');
+            content.style.maxHeight = content.scrollHeight + 'px';
+
+            // Update parent year content height
+            if (yearContent) {
+                setTimeout(() => {
+                    yearContent.style.maxHeight = yearContent.scrollHeight + 'px';
+                }, 50);
+            }
+        } else {
+            // Collapsing
+            section.classList.add('collapsed');
+            content.style.maxHeight = '0';
+
+            // Update parent year content height
+            if (yearContent) {
+                setTimeout(() => {
+                    yearContent.style.maxHeight = yearContent.scrollHeight + 'px';
+                }, 400);
+            }
+        }
+    }
+
+    // ===== Initialize Content Heights =====
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set max-height to 0 for collapsed sections (they start collapsed)
+        document.querySelectorAll('.year-section.collapsed .year-content').forEach(content => {
+            content.style.maxHeight = '0';
+        });
+
+        // For any sections that are NOT collapsed, set their height
+        document.querySelectorAll('.year-section:not(.collapsed) .year-content').forEach(content => {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        });
+
+        // Same for category sections within expanded years
+        document.querySelectorAll('.category-section:not(.collapsed) .category-content').forEach(content => {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        });
+
+        document.querySelectorAll('.category-section.collapsed .category-content').forEach(content => {
+            content.style.maxHeight = '0';
+        });
+    });
+
+    // ===== Year Tab Navigation =====
+    document.querySelectorAll('.year-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            const year = this.dataset.year;
+            const section = document.getElementById('year-' + year);
+
+            // Update active tab
+            document.querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            // Expand the target year if collapsed
+            if (section.classList.contains('collapsed')) {
+                toggleYear(section.querySelector('.year-header'));
+            }
+
+            // Smooth scroll to section
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // ===== Update Active Tab on Scroll =====
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('.year-section');
+        const nav = document.querySelector('.gallery-nav');
+        const navHeight = nav ? nav.offsetHeight : 0;
+
+        // Add shadow to nav when scrolled
+        if (nav) {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }
+
+        // Update active year tab based on scroll position
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= navHeight + 150 && rect.bottom > navHeight + 150) {
+                const year = section.dataset.year;
+                document.querySelectorAll('.year-tab').forEach(tab => {
+                    tab.classList.toggle('active', tab.dataset.year === year);
+                });
+            }
+        });
+
+        // Show/hide scroll to top button
+        const scrollBtn = document.getElementById('galleryScrollTop');
+        if (scrollBtn) {
+            if (window.scrollY > 400) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        }
+    });
+
+    // ===== Scroll to Top =====
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
 </body>
 </html>
