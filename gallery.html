@@ -519,6 +519,82 @@
                 width: 45px;
                 height: 45px;
             }
+
+            @media (max-width: 768px) {
+                /* Event folder mobile adjustments */
+                .event-folder {
+                    min-width: 280px;
+                    max-width: 300px;
+                }
+
+                .folder-preview {
+                    height: 200px;
+                }
+
+                .folder-text {
+                    padding: 0.875rem;
+                }
+
+                .folder-text h3 {
+                    font-size: 1rem;
+                }
+
+                .folder-text p {
+                    font-size: 0.85rem;
+                    -webkit-line-clamp: 3;
+                }
+
+                .carousel-button {
+                    width: 36px;
+                    height: 36px;
+                    font-size: 1.25rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .event-folder {
+                    min-width: 260px;
+                    max-width: 280px;
+                }
+
+                .folder-preview {
+                    height: 180px;
+                    gap: 2px;
+                    padding: 2px;
+                }
+
+                .folder-text {
+                    padding: 0.75rem;
+                }
+
+                .folder-text h3 {
+                    font-size: 0.95rem;
+                }
+
+                .folder-text p {
+                    font-size: 0.8rem;
+                    line-height: 1.4;
+                    -webkit-line-clamp: 4;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                .carousel-container {
+                    padding: 0 35px;
+                }
+            }
+
+            @media (max-width: 360px) {
+                .event-folder {
+                    min-width: 240px;
+                    max-width: 260px;
+                }
+
+                .folder-preview {
+                    height: 160px;
+                }
+            }
         }
     </style>
 </head>
