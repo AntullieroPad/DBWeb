@@ -385,6 +385,156 @@
             60%, 100% { content: '...'; }
         }
 
+        /* Yale Alumni Networks Section Styles */
+        .yale-alumni-networks {
+            background: linear-gradient(135deg, #00356b 0%, #286dc0 100%);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .yale-alumni-networks::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .yale-alumni-networks .section-heading {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+
+        .yale-alumni-networks .section-heading::after {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .yale-alumni-networks .section-heading i {
+            color: #FFD700;
+        }
+
+        .networks-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .networks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .network-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .network-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .network-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #00356b, #286dc0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .network-card h3 {
+            color: #00356b;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .network-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .network-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .network-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, #00356b, #286dc0);
+            color: white !important;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .network-link:hover {
+            background: linear-gradient(135deg, #286dc0, #4a90d9);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 53, 107, 0.3);
+        }
+
+        .network-link.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .network-link.instagram:hover {
+            background: linear-gradient(45deg, #e6683c, #dc2743, #cc2366, #bc1888, #f09433);
+        }
+
+        .network-link.facebook {
+            background: #1877f2;
+        }
+
+        .network-link.facebook:hover {
+            background: #166fe5;
+        }
+
+        /* Dark mode support for networks section */
+        body.dark-mode .network-card {
+            background: rgba(40, 40, 40, 0.95);
+        }
+
+        body.dark-mode .network-card h3 {
+            color: #4da6ff;
+        }
+
+        body.dark-mode .network-card p {
+            color: #ccc;
+        }
+
         /* Media queries */
         @media (max-width: 768px) {
             .gallery-tab-container {
@@ -406,12 +556,283 @@
             .alumni-login-form button {
                 width: 100%;
             }
+
+            .yale-alumni-networks {
+                padding: 2rem 1.5rem;
+            }
+
+            .networks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .network-links {
+                flex-direction: column;
+            }
+
+            .network-link {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         /* Dark mode overrides */
         body.dark-mode .gallery-tab {
             background: #333;
             color: #eee;
+        }
+
+        /* Alumni Directory Styles */
+        .alumni-directory-section {
+            padding: 3rem 0;
+        }
+
+        .directory-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        body.dark-mode .directory-intro {
+            color: #ccc;
+        }
+
+        .featured-contributor-cta {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-left: 4px solid #007bff;
+        }
+
+        body.dark-mode .featured-contributor-cta {
+            background: linear-gradient(135deg, #2a2a2a 0%, #333 100%);
+        }
+
+        .featured-contributor-cta h3 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .featured-contributor-cta h3 i {
+            color: #ffc107;
+            margin-right: 0.5rem;
+        }
+
+        .featured-contributor-cta p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        body.dark-mode .featured-contributor-cta p {
+            color: #ccc;
+        }
+
+        .contribution-ways {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contribution-ways span {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .contribution-ways span {
+            background: #444;
+            color: #eee;
+        }
+
+        .contribution-ways span i {
+            color: #007bff;
+            margin-right: 0.5rem;
+        }
+
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .directory-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.dark-mode .directory-card {
+            background: #2a2a2a;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .directory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .directory-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .directory-photo {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        body.dark-mode .directory-photo {
+            background: #333;
+        }
+
+        .directory-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.5s ease;
+        }
+
+        .directory-card:hover .directory-photo img {
+            transform: scale(1.05);
+        }
+
+        .directory-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .directory-info h3 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        body.dark-mode .directory-info h3 {
+            color: #eee;
+        }
+
+        .directory-year {
+            color: #007bff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .directory-title {
+            color: #666;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        body.dark-mode .directory-title {
+            color: #aaa;
+        }
+
+        .directory-bio {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        body.dark-mode .directory-bio {
+            color: #bbb;
+        }
+
+        .directory-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        .directory-links a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .directory-links a {
+            background: #444;
+            color: #eee;
+        }
+
+        .directory-links a:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .directory-note {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        body.dark-mode .directory-note {
+            background: #2a2a2a;
+        }
+
+        .directory-note p {
+            color: #555;
+            margin: 0;
+        }
+
+        body.dark-mode .directory-note p {
+            color: #ccc;
+        }
+
+        .directory-note i {
+            color: #007bff;
+            margin-right: 0.5rem;
+        }
+
+        .directory-note a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .directory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contribution-ways {
+                flex-direction: column;
+            }
+
+            .contribution-ways span {
+                text-align: center;
+            }
         }
 
         body.dark-mode .gallery-tab:hover:not(.active) {
@@ -499,9 +920,9 @@
         <a href="alumni.html" data-key="navAlumni">Alumni</a>
         <a href="merch.html" data-key="navMerch">Merch</a>
         <a href="gallery.html" data-key="navGallery">Gallery</a>
-      <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
-        </a> -->
+        <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
+          </a> -->
         <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
             <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
         </a>
@@ -520,8 +941,8 @@
             <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
                 <i class="fab fa-instagram"></i>
             </a>
-            
-            <a href="mailto:despiertaboricua@yale.edu" class="social-link">
+
+            <a href="/cdn-cgi/l/email-protection#01656472716864737560636e73686274604178606d642f646574" class="social-link">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
@@ -601,381 +1022,493 @@
         </div>
         -->
 
-        <!-- Alumni Registration & Mentorship Section -->
-        <section id="mentorship-program" class="mentorship-intro">
-            <div class="mentorship-container">
+        <!-- Join Our Alumni Network - Consolidated Section -->
+        <section id="join-network" class="join-network-section" style="padding: 3rem 0;">
+            <h2 class="section-heading">
+                <i class="fas fa-user-plus"></i>
+                Join Our Alumni Network
+            </h2>
+
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem; font-size: 1.1rem; line-height: 1.7; color: #555;">
+                Stay connected with the DB Yale community! Register as an alumnus, contribute to our legacy, and get featured in our directory.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+
+                <!-- Register Card -->
+                <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #007bff;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #007bff, #0056b3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-id-card" style="font-size: 1.8rem; color: white;"></i>
+                    </div>
+                    <h3 style="color: #333; margin-bottom: 1rem; font-size: 1.3rem;">Alumni Registration</h3>
+                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">Register as a DB Yale alumnus or community contact to access our directory and stay connected.</p>
+                    <a href="https://forms.gle/rGD5XfXouCDDdcjF8" target="_blank" class="primary-btn">Register Now</a>
+                </div>
+
+                <!-- Become Featured Card -->
+                <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); border-radius: 12px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #ffc107;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #ffc107, #e0a800); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-star" style="font-size: 1.8rem; color: white;"></i>
+                    </div>
+                    <h3 style="color: #333; margin-bottom: 1rem; font-size: 1.3rem;">Become a Featured Alumnus</h3>
+                    <p style="color: #666; margin-bottom: 1rem; line-height: 1.6;">Get recognized in our directory with a spotlight profile by contributing to DB Yale's mission.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem;">
+                        <span style="background: white; padding: 0.4rem 0.8rem; border-radius: 15px; font-size: 0.8rem; color: #555; box-shadow: 0 1px 3px rgba(0,0,0,0.1);"><i class="fas fa-donate" style="color: #007bff; margin-right: 0.3rem;"></i> Donate</span>
+                        <span style="background: white; padding: 0.4rem 0.8rem; border-radius: 15px; font-size: 0.8rem; color: #555; box-shadow: 0 1px 3px rgba(0,0,0,0.1);"><i class="fas fa-images" style="color: #007bff; margin-right: 0.3rem;"></i> Share photos</span>
+                        <span style="background: white; padding: 0.4rem 0.8rem; border-radius: 15px; font-size: 0.8rem; color: #555; box-shadow: 0 1px 3px rgba(0,0,0,0.1);"><i class="fas fa-microphone" style="color: #007bff; margin-right: 0.3rem;"></i> Oral history</span>
+                        <span style="background: white; padding: 0.4rem 0.8rem; border-radius: 15px; font-size: 0.8rem; color: #555; box-shadow: 0 1px 3px rgba(0,0,0,0.1);"><i class="fas fa-hands-helping" style="color: #007bff; margin-right: 0.3rem;"></i> Mentor</span>
+                    </div>
+                    <a href="donate.html" class="primary-btn" style="background: linear-gradient(135deg, #ffc107, #e0a800); border-color: #ffc107;">Learn More</a>
+                </div>
+
+                <!-- Mentorship Card -->
+                <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #28a745;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #28a745, #1e7e34); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-hands-helping" style="font-size: 1.8rem; color: white;"></i>
+                    </div>
+                    <h3 style="color: #333; margin-bottom: 1rem; font-size: 1.3rem;">Mentorship Program</h3>
+                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">Guide current students and recent graduates. Share your experiences and help shape future Boricua leaders.</p>
+                    <a href="#" target="_blank" class="primary-btn" style="background: linear-gradient(135deg, #28a745, #1e7e34); border-color: #28a745;">Become a Mentor</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Yale Alumni Networks Section -->
+        <section id="yale-networks" class="yale-alumni-networks">
+            <h2 class="section-heading">
+                <i class="fas fa-network-wired"></i>
+                Connect with Yale Alumni Organizations
+            </h2>
+
+            <p class="networks-intro">
+                Looking to expand your Yale alumni network? Connect with these established Yale alumni organizations
+                that serve the Puerto Rican and Latino communities. These groups offer additional opportunities
+                for networking, mentorship, and community engagement.
+            </p>
+
+            <div class="networks-grid">
+                <!-- Yale Club de Puerto Rico -->
+                <div class="network-card">
+                    <div class="network-logo">
+                        <i class="fas fa-island-tropical"></i>
+                    </div>
+                    <h3>Yale Club de Puerto Rico</h3>
+                    <p>
+                        The official Yale alumni club serving Puerto Rico. Connect with fellow Yalies on the island
+                        for networking events, community service opportunities, and social gatherings that celebrate
+                        our shared Yale experience and Puerto Rican heritage.
+                    </p>
+                    <div class="network-links">
+                        <a href="https://alumni.yale.edu/groups/regional-clubs/yale-club-puerto-rico" target="_blank" class="network-link">
+                            <i class="fas fa-external-link-alt"></i> Yale Alumni Site
+                        </a>
+                        <a href="https://www.instagram.com/yaleclubpr/" target="_blank" class="network-link instagram">
+                            <i class="fab fa-instagram"></i> @yaleclubpr
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Yale Latino Alumni Network -->
+                <div class="network-card">
+                    <div class="network-logo">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Yale Latino Alumni Network (YLAN)</h3>
+                    <p>
+                        A Shared Interest Group (SIG) that connects Latino alumni across all Yale schools.
+                        YLAN provides professional development, mentorship opportunities, and community events
+                        that celebrate and support Latino excellence within the Yale alumni community.
+                    </p>
+                    <div class="network-links">
+                        <a href="https://yalelatinoalumninetwork.org/" target="_blank" class="network-link">
+                            <i class="fas fa-globe"></i> Official Website
+                        </a>
+                        <a href="https://alumni.yale.edu/news/meet-sigs-yale-latino-alumni-network-ylan" target="_blank" class="network-link">
+                            <i class="fas fa-info-circle"></i> About YLAN
+                        </a>
+                        <a href="https://www.facebook.com/groups/yalelatinoalumninetwork/" target="_blank" class="network-link facebook">
+                            <i class="fab fa-facebook-f"></i> Facebook Group
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Password-protected section -->
+        <div id="password-section" class="password-section">
+            <h3>Access Alumni Directory & Resources</h3>
+            <p>To access our alumni directory and exclusive resources including the mentorship directory, networking events, and career development materials, please enter the alumni password:</p>
+            <div class="password-form">
+                <input type="password" id="alumni-password" placeholder="Enter password" />
+                <button id="submit-password"><i class="fas fa-unlock-alt"></i> Access Resources</button>
+            </div>
+            <p class="password-error" id="password-error"><i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again or contact an administrator.</p>
+            <p class="note">Don't have the password? <a href="mailto:despierta.boricua@yale.edu">Contact the Alumni Relations team</a></p>
+        </div>
+
+        <!-- Bomba animation container (hidden by default) -->
+        <div id="animation-container" class="animation-container">
+            <div class="bomba-animation">
+                <div class="bomba-dancer"></div>
+                <div class="bomba-drummer"></div>
+            </div>
+            <div class="loading-text">Loading alumni resources<span class="dot-animation">...</span></div>
+        </div>
+
+        <!-- Protected content (hidden by default) -->
+        <div id="protected-content" class="protected-content">
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h3>Welcome to the DB Yale Alumni Network!</h3>
+                <p>You now have access to the alumni directory and exclusive resources. Connect with fellow Boricua alumni and make a difference in our community.</p>
+            </div>
+
+            <!-- Alumni Directory Section - PROTECTED -->
+            <section id="alumni-directory" class="alumni-directory-section">
                 <h2 class="section-heading">
-                    <i class="fas fa-user-friends"></i>
-                    Connect with DB Alumni
+                    <i class="fas fa-address-book"></i>
+                    Alumni Directory
                 </h2>
 
-                <div class="mentorship-description">
-                    <p>
-                        Stay connected with the DB Yale community! Register as an alumnus or community contact,
-                        and consider joining our mentorship program to guide current students and share your experiences.
-                    </p>
+                <p class="directory-intro">
+                    Our alumni have gone on to become leaders in law, medicine, education, the arts, public service, and beyond.
+                    Browse our directory to learn about the incredible achievements of DB Yale alumni.
+                </p>
 
-                    <div class="dual-cta">
-                        <div class="cta-option">
-                            <h3><i class="fas fa-id-card"></i> Alumni Registration</h3>
-                            <p>Register as a DB Yale alumnus or community contact to stay connected.</p>
-                            <a href="https://forms.gle/rGD5XfXouCDDdcjF8" target="_blank" class="primary-btn">
-                                Register Now
-                            </a>
+                <!-- Alumni Directory Grid -->
+                <div class="directory-grid">
+
+                    <!-- Oxiris Barbot -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/oxi2.jpg" alt="Dr. Oxiris Barbot">
                         </div>
-
-                        <div class="cta-option">
-                            <h3><i class="fas fa-hands-helping"></i> Mentorship Program</h3>
-                            <p>Sign up to mentor current students and recent graduates.</p>
-                            <a href="#" target="_blank" class="primary-btn">
-                                Become a Mentor
-                            </a>
-                        </div>
-                    </div>
-
-                    <p class="note">Open to all DB Yale alumni and community members</p>
-                </div>
-            </div>
-        </section>
-
-            <!-- Password-protected section -->
-            <div id="password-section" class="password-section">
-                <h3>Access Alumni Resources</h3>
-                <p>To access our exclusive alumni resources including the mentorship directory, networking events, and career development materials, please enter the alumni password:</p>
-                <div class="password-form">
-                    <input type="password" id="alumni-password" placeholder="Enter password" />
-                    <button id="submit-password"><i class="fas fa-unlock-alt"></i> Access Resources</button>
-                </div>
-                <p class="password-error" id="password-error"><i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again or contact an administrator.</p>
-                <p class="note">Don't have the password? <a href="mailto:alumni@dbyale.org">Contact the Alumni Relations team</a></p>
-            </div>
-
-            <!-- Bomba animation container (hidden by default) -->
-            <div id="animation-container" class="animation-container">
-                <div class="bomba-animation">
-                    <div class="bomba-dancer"></div>
-                    <div class="bomba-drummer"></div>
-                </div>
-                <div class="loading-text">Loading alumni resources<span class="dot-animation">...</span></div>
-            </div>
-
-            <!-- Protected content (hidden by default) -->
-            <div id="protected-content" class="protected-content">
-                <div class="success-message">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Welcome to the DB Yale Alumni Network!</h3>
-                    <p>You now have access to exclusive alumni resources and mentorship opportunities. Connect with fellow Boricua alumni and make a difference in our community.</p>
-                </div>
-
-                <div class="alumni-resources">
-                    <h3><i class="fas fa-user-friends"></i> Mentorship Directory</h3>
-                    <div class="mentors-grid">
-                        <div class="mentor-card">
-                            <div class="mentor-image">
-                                <img src="./Founding Members-20251112T191711Z-1-001/Founding Members/Eduardo Padro/EduardoP2.jpeg" alt="Eduardo Padró" />
+                        <div class="directory-info">
+                            <h3>Dr. Oxiris Barbot</h3>
+                            <p class="directory-year">Class of 1987</p>
+                            <p class="directory-title">President & CEO, United Hospital Fund</p>
+                            <p class="directory-bio">Former NYC Health Commissioner who led the city's response to COVID-19. First Latina to head NYC's Health Department. Pediatrician and public health leader dedicated to health equity.</p>
+                            <div class="directory-links">
+                                <a href="https://www.linkedin.com/in/oxiris-barbot-a741a2a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             </div>
-                            <h4>Eduardo Padró</h4>
-                            <p class="mentor-role">Judge, New York State Supreme Court</p>
-                            <p class="mentor-class">Class of 1975</p>
-                            <p class="mentor-bio">Co-founder of DB Yale. Specializes in mentoring students interested in law and public service.</p>
-                            <a href="mailto:alumni@dbyale.org" class="connect-btn">Connect <i class="fas fa-arrow-right"></i></a>
-                        </div>
-
-                        <div class="mentor-card">
-                            <div class="mentor-image">
-                                <img src="/api/placeholder/150/150" alt="Sofia Rodriguez" />
-                            </div>
-                            <h4>Sofia Rodriguez</h4>
-                            <p class="mentor-role">Healthcare Executive</p>
-                            <p class="mentor-class">Class of 2010</p>
-                            <p class="mentor-bio">Passionate about increasing Latino representation in healthcare leadership.</p>
-                            <a href="mailto:alumni@dbyale.org" class="connect-btn">Connect <i class="fas fa-arrow-right"></i></a>
-                        </div>
-
-                        <div class="mentor-card">
-                            <div class="mentor-image">
-                                <img src="/api/placeholder/150/150" alt="Manuel Rivera" />
-                            </div>
-                            <h4>Manuel Rivera</h4>
-                            <p class="mentor-role">Nonprofit Director</p>
-                            <p class="mentor-class">Class of 1998</p>
-                            <p class="mentor-bio">Focused on community development and education equity in Puerto Rican communities.</p>
-                            <a href="mailto:alumni@dbyale.org" class="connect-btn">Connect <i class="fas fa-arrow-right"></i></a>
-                        </div>
-
-                        <div class="mentor-card">
-                            <div class="mentor-image">
-                                <img src="/api/placeholder/150/150" alt="Carmen Diaz" />
-                            </div>
-                            <h4>Carmen Diaz</h4>
-                            <p class="mentor-role">Tech Entrepreneur</p>
-                            <p class="mentor-class">Class of 2008</p>
-                            <p class="mentor-bio">Founded two successful tech startups. Mentors students interested in entrepreneurship and technology.</p>
-                            <a href="mailto:alumni@dbyale.org" class="connect-btn">Connect <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
 
-                    <div class="text-center" style="margin: 2rem 0;">
-                        <a href="#" class="primary-btn">View Full Directory</a>
+                    <!-- Martín-José Sepúlveda -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/martin-sepulveda.jpg" alt="Dr. Martín-José Sepúlveda">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Dr. Martín-José Sepúlveda</h3>
+                            <p class="directory-year">Class of 1974</p>
+                            <p class="directory-title">IBM Fellow (Retired), National Academy of Medicine Member</p>
+                            <p class="directory-bio">Pioneer in corporate health and wellness programs. Served as VP of Global Well-Being Services at IBM. Elected member of the National Academy of Medicine.</p>
+                            <div class="directory-links">
+                                <a href="https://www.linkedin.com/in/martinsepulvedamd/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
                     </div>
 
-                    <h3><i class="fas fa-calendar-alt"></i> Upcoming Networking Events</h3>
-                    <ul class="alumni-events">
-                        <li>
-                            <span class="event-date"><i class="far fa-calendar"></i> June 15, 2025</span>
-                            <strong>Summer Alumni Mixer</strong>
-                            <p>Virtual networking event connecting current students with alumni across industries. An opportunity to build relationships and discuss career paths in a casual setting.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="primary-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Register Now</a>
+                    <!-- David Antonio Cruz -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/david-antonio-cruz.jpg" alt="David Antonio Cruz">
+                        </div>
+                        <div class="directory-info">
+                            <h3>David Antonio Cruz</h3>
+                            <p class="directory-year">Yale MFA</p>
+                            <p class="directory-title">Artist & Assistant Professor, Columbia University</p>
+                            <p class="directory-bio">Interdisciplinary artist whose figurative paintings center Black, brown, and queer communities. Work exhibited at ICA Philadelphia, Brooklyn Museum, and El Museo del Barrio.</p>
+                            <div class="directory-links">
+                                <a href="https://www.moniquemeloche.com/artists/30-david-antonio-cruz/biography/" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
                             </div>
-                        </li>
-                        <li>
-                            <span class="event-date"><i class="far fa-calendar"></i> July 20, 2025</span>
-                            <strong>Career Development Workshop</strong>
-                            Resume review and interview preparation specifically for Latino students entering the job market. Learn from experienced professionals how to highlight your unique skills and background.
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="primary-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Register Now</a>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="event-date"><i class="far fa-calendar"></i> August 5, 2025</span>
-                            <strong>Puerto Rican Heritage Panel</strong>
-                            Join us for a discussion on preserving and celebrating Puerto Rican culture in professional and academic settings. Learn how successful alumni have navigated identity and heritage throughout their careers.
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="primary-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Register Now</a>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
 
-                    <h3><i class="fas fa-file-alt"></i> Resources & Documents</h3>
-                    <ul class="resources-list">
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-file-pdf"></i>
-                                <span>DB Yale Alumni Directory (PDF)</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-file-alt"></i>
-                                <span>Mentorship Program Guidelines</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-linkedin"></i>
-                                <span>Alumni LinkedIn Group</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Career Development Resources</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-briefcase"></i>
-                                <span>Job Board & Opportunities</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-handshake"></i>
-                                <span>Volunteer Opportunities</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <!-- José Carlos Montes -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/Jose-Carlos-Montes.jpg" alt="José Carlos Montes">
+                        </div>
+                        <div class="directory-info">
+                            <h3>José Carlos Montes</h3>
+                            <p class="directory-year">Class of 1993</p>
+                            <p class="directory-title">CEO, Puerto Rican Action Board (PRAB)</p>
+                            <p class="directory-bio">Over 30 years in community and faith-based institutions focused on social services and youth development. Ordained minister and author serving families in Central New Jersey.</p>
+                            <div class="directory-links">
+                                <a href="https://alumni.yale.edu/people/jose-carlos-montes" target="_blank" title="Yale Alumni"><i class="fas fa-university"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Billie Gastic Rosado -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/billie-gastic-rosado.jpg" alt="Dr. Billie Gastic Rosado">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Dr. Billie Gastic Rosado</h3>
+                            <p class="directory-year">Yale B.A. (Economics)</p>
+                            <p class="directory-title">Provost & SVP Academic Affairs, LaGuardia Community College</p>
+                            <p class="directory-bio">First-generation college graduate and Queens native. Former Associate Dean at NYU. Ph.D. from Stanford in Sociology of Education. Champion of educational equity.</p>
+                            <div class="directory-links">
+                                <a href="https://www.linkedin.com/in/gasticrosado" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Araceli Campos -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/CamposAracali.jpg" alt="Araceli Campos">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Araceli Campos</h3>
+                            <p class="directory-year">Yale College</p>
+                            <p class="directory-title">Executive Director, Miguel Contreras Foundation</p>
+                            <p class="directory-bio">Former Corporate Counsel at MALDEF. First-generation American and LA public school product. Stanford Law graduate. Youngest President of LA's Commission on the Status of Women.</p>
+                            <div class="directory-links">
+                                <a href="https://ceo.lacounty.gov/wp-content/uploads/WGI/Araceli-Campos.pdf" target="_blank" title="Bio"><i class="fas fa-file-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arlene Burgos -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/Arlene-Burgos.jpg" alt="Arlene Burgos">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Arlene Burgos</h3>
+                            <p class="directory-year">Class of 1993</p>
+                            <p class="directory-title">Partner, Loeb Block LLP (NYC)</p>
+                            <p class="directory-bio">Harvard Law graduate advising ultra-high net worth individuals and families on corporate, tax, and estate planning matters. Fluent in Spanish, English, and Portuguese.</p>
+                            <div class="directory-links">
+                                <a href="https://www.loebblock.com/arlene-burgos/" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gladys Idelis Nieves -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/Gladys_Idelis_Nieves2.jpg" alt="Hon. Gladys Idelis Nieves">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Hon. Gladys Idelis Nieves</h3>
+                            <p class="directory-year">Class of 1994</p>
+                            <p class="directory-title">Connecticut Superior Court Judge</p>
+                            <p class="directory-bio">Appointed to the bench in 2021. NYU Law graduate specializing in family and children's law. Former Family Support Magistrate. Honored by Puerto Ricans United for service to families.</p>
+                            <div class="directory-links">
+                                <a href="https://www.linkedin.com/in/gladys-idelis-nieves/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Priscilla Morales -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/priscilla-morales.jpg" alt="Priscilla Morales">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Priscilla Morales</h3>
+                            <p class="directory-year">Yale B.A. (History)</p>
+                            <p class="directory-title">Associate Head of School, The Park School of Baltimore</p>
+                            <p class="directory-bio">Career dedicated to Pre-K-12 independent schools. Columbia University M.A. in Independent School Leadership. Secretary for the YaleWomen Council.</p>
+                            <div class="directory-links">
+                                <a href="https://parkschool.net/faculty-staff/priscilla-morales/" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Salvador Gómez-Colón -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/salvadorGC2.jpeg" alt="Salvador Gómez-Colón">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Salvador Gómez-Colón</h3>
+                            <p class="directory-year">Class of 2025</p>
+                            <p class="directory-title">Author & Humanitarian Advocate</p>
+                            <p class="directory-bio">Founded "Light and Hope for Puerto Rico" after Hurricane Maria at age 15. Named one of TIME's Most Influential Teens. Author of "Hurricane: My Story of Resilience." Featured on Marvel's Hero Project.</p>
+                            <div class="directory-links">
+                                <a href="https://en.wikipedia.org/wiki/Salvador_G%C3%B3mez-Col%C3%B3n" target="_blank" title="Wikipedia"><i class="fab fa-wikipedia-w"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fabian Rosado -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/FabianRosado.jpg" alt="Fabian Rosado">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Fabian Rosado</h3>
+                            <p class="directory-year">Yale B.A.</p>
+                            <p class="directory-title">Co-Founder & Chairman, Origent Data Sciences</p>
+                            <p class="directory-bio">Harvard Business School MBA. Over 25 years leading for-profit and nonprofit organizations. President of Right Start Group. Angel investor and advisor to early-stage companies.</p>
+                            <div class="directory-links">
+                                <a href="https://www.origent.com/about-us/our-team/fabian-rosado/" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nicole de Paz -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/nicole-de-paz.jpg" alt="Dr. Nicole de Paz">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Dr. Nicole de Paz</h3>
+                            <p class="directory-year">Yale B.A.</p>
+                            <p class="directory-title">Pediatrician, Atrius Health</p>
+                            <p class="directory-bio">Harvard Medical School graduate with MPH from Harvard School of Public Health. Specializes in early childhood development and asthma. Bilingual English/Spanish.</p>
+                            <div class="directory-links">
+                                <a href="https://www.atriushealth.org/clinicians/nicole-de-paz-13713" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maria del Carmen Ramos -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/MariaCR2.jpg" alt="Maria del Carmen Ramos">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Maria del Carmen Ramos</h3>
+                            <p class="directory-year">Yale</p>
+                            <p class="directory-title">Partner, Shumaker, Loop & Kendrick, LLP</p>
+                            <p class="directory-bio">Six-time Tampa Top Immigration Lawyer. Nearly two decades helping employers navigate U.S. immigration law. Puerto Rico native specializing in business visas and permanent residence.</p>
+                            <div class="directory-links">
+                                <a href="https://www.tampabaychamber.com/staff/speaker/maria-del-carmen-ramos/" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Graciela Trill -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/GracielaTrill.jpeg" alt="Graciela Trill">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Graciela Trill</h3>
+                            <p class="directory-year">Yale</p>
+                            <p class="directory-title">Title TBD</p>
+                            <p class="directory-bio">Bio coming soon.</p>
+                            <div class="directory-links">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kate Scorza Ingraham -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/Kate_Scorza_Ingrahm.jpg" alt="Kate Scorza Ingraham">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Kate Scorza Ingraham</h3>
+                            <p class="directory-year">Yale</p>
+                            <p class="directory-title">Title TBD</p>
+                            <p class="directory-bio">Bio coming soon.</p>
+                            <div class="directory-links">
+                                <a href="https://www.linkedin.com/in/kate-scorza-ingram/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carol Luttati -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/CarolL.jpeg" alt="Carol Luttati">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Carol Luttati</h3>
+                            <p class="directory-year">Yale</p>
+                            <p class="directory-title">Title TBD</p>
+                            <p class="directory-bio">Bio coming soon.</p>
+                            <div class="directory-links">
+                                <a href="https://www.linkedin.com/in/carol-luttati-58b60414/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Constantino Argimon -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/ConstantinoA.jpeg" alt="Constantino Argimon">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Constantino "Tino" Argimon</h3>
+                            <p class="directory-year">Yale</p>
+                            <p class="directory-title">Title TBD</p>
+                            <p class="directory-bio">Bio coming soon.</p>
+                            <div class="directory-links">
+                                <a href="https://www.linkedin.com/in/tino-argimon/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shiara -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/Shiara_MOP.webp" alt="Shiara">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Shiara</h3>
+                            <p class="directory-year">Yale</p>
+                            <p class="directory-title">Title TBD</p>
+                            <p class="directory-bio">Bio coming soon.</p>
+                            <div class="directory-links">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Magda -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/magda2.jpg" alt="Magda">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Magda</h3>
+                            <p class="directory-year">Yale</p>
+                            <p class="directory-title">Title TBD</p>
+                            <p class="directory-bio">Bio coming soon.</p>
+                            <div class="directory-links">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ariana Kourepenos -->
+                    <div class="directory-card">
+                        <div class="directory-photo">
+                            <img src="./alumni-photos/ArianaK.jpeg" alt="Ariana Kourepenos">
+                        </div>
+                        <div class="directory-info">
+                            <h3>Ariana Kourepenos</h3>
+                            <p class="directory-year">Yale</p>
+                            <p class="directory-title">Title TBD</p>
+                            <p class="directory-bio">Bio coming soon.</p>
+                            <div class="directory-links">
+                                <a href="https://www.linkedin.com/in/ariana-kourepenos-430b70257" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Alumni exclusive galleries -->
-                <div class="alumni-categories">
-                    <!-- Behind the Scenes Category -->
-                    <h3><i class="fas fa-eye"></i> Behind the Scenes</h3>
-                    <div class="carousel-container gallery-carousel-container">
-                        <button class="carousel-button prev">‹</button>
-                        <div class="carousel-window">
-                            <div class="carousel-track">
-
-                                <!-- Bad Bunny Prep Gallery -->
-                                <div class="carousel-item">
-                                    <div class="event-folder">
-                                        <span class="exclusive-tag">Alumni Exclusive</span>
-                                        <a href="behind-scenes-bad-bunny.html">
-                                            <div class="folder-preview">
-                                                <img src="/api/placeholder/150/150" alt="Bad Bunny Setup 1">
-                                                <img src="/api/placeholder/150/150" alt="Bad Bunny Setup 2">
-                                                <img src="/api/placeholder/150/150" alt="Bad Bunny Setup 3">
-                                                <img src="/api/placeholder/150/150" alt="Bad Bunny Setup 4">
-                                            </div>
-                                            <div class="folder-text">
-                                                <h3>Bad Bunny Event Setup</h3>
-                                                <p>Behind-the-scenes photos of our team preparing for the listening party.</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- La Brega Speaker Prep -->
-                                <div class="carousel-item">
-                                    <div class="event-folder">
-                                        <span class="exclusive-tag">Alumni Exclusive</span>
-                                        <a href="behind-scenes-la-brega.html">
-                                            <div class="folder-preview">
-                                                <img src="/api/placeholder/150/150" alt="La Brega Prep 1">
-                                                <img src="/api/placeholder/150/150" alt="La Brega Prep 2">
-                                                <img src="/api/placeholder/150/150" alt="La Brega Prep 3">
-                                                <img src="/api/placeholder/150/150" alt="La Brega Prep 4">
-                                            </div>
-                                            <div class="folder-text">
-                                                <h3>La Brega Podcast Event Prep</h3>
-                                                <p>Exclusive photos from the planning and setup of our speaker event.</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-button next">›</button>
-                    </div>
-
-                    <!-- Alumni Reunions Category -->
-                    <h3><i class="fas fa-users"></i> Alumni Reunions</h3>
-                    <div class="carousel-container gallery-carousel-container">
-                        <button class="carousel-button prev">‹</button>
-                        <div class="carousel-window">
-                            <div class="carousel-track">
-                                <!-- Summer 2024 Reunion -->
-                                <div class="carousel-item">
-                                    <div class="event-folder">
-                                        <span class="exclusive-tag">Alumni Exclusive</span>
-                                        <a href="alumni-reunion-2024.html">
-                                            <div class="folder-preview">
-                                                <img src="/api/placeholder/150/150" alt="Alumni Reunion 1">
-                                                <img src="/api/placeholder/150/150" alt="Alumni Reunion 2">
-                                                <img src="/api/placeholder/150/150" alt="Alumni Reunion 3">
-                                                <img src="/api/placeholder/150/150" alt="Alumni Reunion 4">
-                                            </div>
-                                            <div class="folder-text">
-                                                <h3>Summer 2024 Alumni Reunion</h3>
-                                                <p>Photos from our annual alumni gathering at La Casa Cultural.</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- DB 50th Anniversary Planning -->
-                                <div class="carousel-item">
-                                    <div class="event-folder">
-                                        <span class="exclusive-tag">Alumni Exclusive</span>
-                                        <a href="50th-anniversary-planning.html">
-                                            <div class="folder-preview">
-                                                <img src="/api/placeholder/150/150" alt="50th Anniversary 1">
-                                                <img src="/api/placeholder/150/150" alt="50th Anniversary 2">
-                                                <img src="/api/placeholder/150/150" alt="50th Anniversary 3">
-                                                <img src="/api/placeholder/150/150" alt="50th Anniversary 4">
-                                            </div>
-                                            <div class="folder-text">
-                                                <h3>50th Anniversary Planning</h3>
-                                                <p>Behind-the-scenes look at planning our upcoming 50th anniversary celebration.</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-button next">›</button>
-                    </div>
-
-                    <!-- Historical Archives Category -->
-                    <h3><i class="fas fa-history"></i> Historical Archives</h3>
-                    <div class="carousel-container gallery-carousel-container">
-                        <button class="carousel-button prev">‹</button>
-                        <div class="carousel-window">
-                            <div class="carousel-track">
-                                <!-- Founding Members -->
-                                <div class="carousel-item">
-                                    <div class="event-folder">
-                                        <span class="exclusive-tag">Alumni Exclusive</span>
-                                        <a href="founding-members.html">
-                                            <div class="folder-preview">
-                                                <img src="/api/placeholder/150/150" alt="Founding Members 1">
-                                                <img src="/api/placeholder/150/150" alt="Founding Members 2">
-                                                <img src="/api/placeholder/150/150" alt="Founding Members 3">
-                                                <img src="/api/placeholder/150/150" alt="Founding Members 4">
-                                            </div>
-                                            <div class="folder-text">
-                                                <h3>Founding Members (1974-1980)</h3>
-                                                <p>Digitized photos from our early years, showcasing DB Yale's founding members.</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- Legacy Events -->
-                                <div class="carousel-item">
-                                    <div class="event-folder">
-                                        <span class="exclusive-tag">Alumni Exclusive</span>
-                                        <a href="legacy-events.html">
-                                            <div class="folder-preview">
-                                                <img src="/api/placeholder/150/150" alt="Legacy Events 1">
-                                                <img src="/api/placeholder/150/150" alt="Legacy Events 2">
-                                                <img src="/api/placeholder/150/150" alt="Legacy Events 3">
-                                                <img src="/api/placeholder/150/150" alt="Legacy Events 4">
-                                            </div>
-                                            <div class="folder-text">
-                                                <h3>Legacy Events Archive</h3>
-                                                <p>A collection of historical photos from signature DB Yale events over the decades.</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-button next">›</button>
-                    </div>
-                </div> <!-- Properly close alumni-categories div -->
-
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button id="logout-btn" class="secondary-btn">
-                        <i class="fas fa-sign-out-alt"></i> Log Out
-                    </button>
+                <div class="directory-note">
+                    <p><i class="fas fa-info-circle"></i> Are you a DB Yale alumnus? <a href="https://forms.gle/rGD5XfXouCDDdcjF8" target="_blank">Register with us</a> to be included in our directory and stay connected with the community.</p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-
-        <!-- Upcoming Alumni Events Section -->
-        <section id="events" class="upcoming-events">
-            <h2 class="section-heading">
-                <i class="fas fa-calendar-week"></i>
-
-                Public Alumni Events
-            </h2>
-            <p data-key="eventsText">
-                Join our upcoming reunions, panels, and networking events open to all DB members and alumni. Stay connected with the community and build valuable relationships.
-            </p>
-            <ul class="event-list">
-                <li data-category="reunion">
-                    <strong>Annual DB Reunion Dinner</strong>
-                    <em>September 30, 2025 | 6:00 PM | La Casa Cultural</em>
-                    <p>Join us for our yearly reunion celebration with food, music, and reconnection. Special guest speaker to be announced.</p>
-                </li>
-                <li data-category="panel">
-                    <strong>Puerto Rican Professionals Panel</strong>
-                    <em>October 15, 2025 | 5:30 PM | Virtual Event</em>
-                    <p>Alumni panelists discuss navigating careers while honoring and representing Puerto Rican heritage.</p>
-                </li>
-                <li data-category="networking">
-                    <strong>NYC Alumni Networking Night</strong>
-                    <em>November 10, 2025 | 7:00 PM | Manhattan, NY</em>
-                    <p>Meet and connect with DB alumni based in the greater New York area. Casual setting with light refreshments.</p>
-                </li>
-            </ul>
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="news.html" class="primary-btn">View All Events</a>
+                <button id="logout-btn" class="secondary-btn">
+                    <i class="fas fa-sign-out-alt"></i> Log Out
+                </button>
             </div>
-        </section>
+        </div>
 
         <!-- Resources Section -->
         <section id="resources" class="resources-section">
@@ -1050,14 +1583,111 @@
                 Keep your information current to stay connected with the DB Yale community. Receive event invitations, mentorship opportunities, and alumni updates.
             </p>
             <a href="#" class="primary-btn" style="background: white; color: #007bff; border: none; padding: 0.8rem 2rem; font-size: 1.1rem; margin-right: 1rem;">Update Profile</a>
-            <a href="#" class="secondary-btn" style="background: transparent; color: white; border: 2px solid white; padding: 0.8rem 2rem; font-size: 1.1rem;">Contact Us</a>
+            <a href="#" class="secondary-btn" style="background: transparent; color: white; border: 2px solid white; padding: 0.8rem 2rem; font-size: 1.1rem;">Contact Alumni Relations</a>
         </section>
+
     </main>
-    <button id="backToTop" style="display: none;">↑</button>
 </div>
 
-<script src="script.js"></script>
-<script src="lang.js"></script>
-</body>
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Despierta Boricua at Yale</h4>
+            <p>Preserving and promoting Puerto Rican culture and identity at Yale University since 1972.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="news.html">Events</a></li>
+                <li><a href="donate.html">Donate</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Connect With Us</h4>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="/cdn-cgi/l/email-protection#0b6f6e787b626e797f6a2569647962687e6a4b726a676e256e6f7e"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Despierta Boricua at Yale. All rights reserved.</p>
+    </div>
+</footer>
 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="script.js"></script>
+<script>
+    // Password functionality for alumni resources
+    const correctPassword = "bomba2025";
+
+    document.getElementById('submit-password').addEventListener('click', function() {
+        const enteredPassword = document.getElementById('alumni-password').value;
+
+        if (enteredPassword === correctPassword) {
+            // Hide password section
+            document.getElementById('password-section').style.display = 'none';
+
+            // Show animation
+            document.getElementById('animation-container').style.display = 'flex';
+
+            // After animation, show protected content
+            setTimeout(function() {
+                document.getElementById('animation-container').style.display = 'none';
+                document.getElementById('protected-content').style.display = 'block';
+
+                // Smooth scroll to protected content
+                document.getElementById('protected-content').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 3000);
+        } else {
+            document.getElementById('password-error').style.display = 'block';
+            document.getElementById('alumni-password').value = '';
+        }
+    });
+
+    // Allow Enter key to submit password
+    document.getElementById('alumni-password').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            document.getElementById('submit-password').click();
+        }
+    });
+
+    // Logout functionality
+    document.getElementById('logout-btn').addEventListener('click', function() {
+        document.getElementById('protected-content').style.display = 'none';
+        document.getElementById('password-section').style.display = 'block';
+        document.getElementById('alumni-password').value = '';
+        document.getElementById('password-error').style.display = 'none';
+
+        // Scroll back to password section
+        document.getElementById('password-section').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+
+    // Gallery tab functionality
+    document.querySelectorAll('.gallery-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            this.classList.add('active');
+
+            // Hide all gallery content
+            document.querySelectorAll('.gallery-content').forEach(content => content.classList.remove('active'));
+            // Show the corresponding gallery content
+            const targetId = this.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+</script>
+</body>
 </html>
