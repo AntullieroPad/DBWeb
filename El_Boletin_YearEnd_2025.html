@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Boletín - End of Year 2025 | Despierta Boricua at Yale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Pacifico&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBLXR36GVL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NBLXR36GVL');
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; background: linear-gradient(135deg, #E8DCC4 0%, #D4C5A9 100%); color: #2B2D42; line-height: 1.6; }
+        .container { max-width: 850px; margin: 0 auto; background: #FFF8E7; box-shadow: 0 0 50px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+        .railroad-track-left, .railroad-track-right { position: absolute; width: 8px; background: #6B4423; top: 0; bottom: 0; z-index: 1; box-shadow: 0 0 10px rgba(107, 68, 35, 0.3); }
+        .railroad-track-left { left: 60px; }
+        .railroad-track-right { right: 60px; }
+        .railroad-track-left::before, .railroad-track-right::before { content: ''; position: absolute; width: 150%; height: 100%; background-image: repeating-linear-gradient(0deg, transparent, transparent 45px, #4A3219 45px, #4A3219 55px, transparent 55px, transparent 100px); left: -25%; top: 0; }
+        .vine-left, .vine-right { position: absolute; width: 40px; top: 0; bottom: 0; z-index: 2; pointer-events: none; }
+        .vine-left { left: 40px; background: linear-gradient(180deg, transparent 0%, rgba(45, 106, 79, 0.3) 10%, transparent 20%, rgba(64, 145, 108, 0.4) 30%, transparent 40%, rgba(45, 106, 79, 0.3) 50%, transparent 60%, rgba(64, 145, 108, 0.4) 70%, transparent 80%, rgba(45, 106, 79, 0.3) 90%, transparent 100%); }
+        .vine-right { right: 40px; background: linear-gradient(180deg, transparent 0%, rgba(64, 145, 108, 0.4) 15%, transparent 25%, rgba(45, 106, 79, 0.3) 35%, transparent 45%, rgba(64, 145, 108, 0.4) 55%, transparent 65%, rgba(45, 106, 79, 0.3) 75%, transparent 85%, rgba(64, 145, 108, 0.4) 95%, transparent 100%); }
+        .flower-accent { position: absolute; font-size: 1.8em; z-index: 3; animation: sway 4s ease-in-out infinite; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2)); }
+        @keyframes sway { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+        .flower-accent:nth-child(1) { left: 45px; top: 8%; } .flower-accent:nth-child(2) { right: 45px; top: 15%; animation-delay: 0.5s; } .flower-accent:nth-child(3) { left: 50px; top: 25%; animation-delay: 1s; } .flower-accent:nth-child(4) { right: 50px; top: 35%; animation-delay: 1.5s; } .flower-accent:nth-child(5) { left: 48px; top: 45%; animation-delay: 2s; } .flower-accent:nth-child(6) { right: 48px; top: 55%; animation-delay: 2.5s; } .flower-accent:nth-child(7) { left: 45px; top: 65%; animation-delay: 0.3s; } .flower-accent:nth-child(8) { right: 45px; top: 75%; animation-delay: 0.8s; } .flower-accent:nth-child(9) { left: 50px; top: 85%; animation-delay: 1.3s; } .flower-accent:nth-child(10) { right: 50px; top: 92%; animation-delay: 1.8s; }
+        .content-wrapper { position: relative; z-index: 4; padding: 0 90px; }
+        .railroad-header { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #1B1B1B 100%); border-top: 12px solid #D4A574; border-bottom: 12px solid #2D6A4F; padding: 50px 40px; text-align: center; position: relative; overflow: hidden; box-shadow: inset 0 0 50px rgba(0,0,0,0.5); }
+        .railroad-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 20% 30%, rgba(241, 168, 150, 0.15) 0%, transparent 40%), radial-gradient(circle at 80% 60%, rgba(168, 218, 220, 0.15) 0%, transparent 40%), radial-gradient(circle at 40% 80%, rgba(45, 106, 79, 0.2) 0%, transparent 40%); opacity: 0.6; }
+        .railroad-company-logo { background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 4px solid #D4A574; padding: 20px 30px; display: inline-block; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); position: relative; }
+        .railroad-company-logo::before, .railroad-company-logo::after { content: '🌿'; position: absolute; font-size: 1.5em; filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.3)); }
+        .railroad-company-logo::before { top: -10px; left: -10px; transform: rotate(-45deg); }
+        .railroad-company-logo::after { top: -10px; right: -10px; transform: rotate(45deg); }
+        .company-name { font-family: 'Courier Prime', monospace; font-size: 0.9em; font-weight: 700; color: #6B4423; letter-spacing: 3px; margin-bottom: 5px; text-transform: uppercase; }
+        .established { font-family: 'Courier Prime', monospace; font-size: 0.7em; color: #2D6A4F; letter-spacing: 2px; }
+        .main-title { font-family: 'Poppins', sans-serif; font-size: 4em; font-weight: 800; color: #D4A574; margin: 25px 0; text-shadow: 3px 3px 0px rgba(0,0,0,0.3), 0 0 30px rgba(45, 106, 79, 0.3); letter-spacing: 12px; position: relative; z-index: 2; }
+        .edition-badge { background: linear-gradient(135deg, #E63946 0%, #C5303E 100%); color: #FFF8E7; padding: 8px 25px; display: inline-block; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1em; letter-spacing: 3px; margin-bottom: 15px; border: 3px solid #FFD60A; box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4); animation: pulse-glow 3s ease-in-out infinite; }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4); } 50% { box-shadow: 0 4px 25px rgba(230, 57, 70, 0.7), 0 0 40px rgba(255, 214, 10, 0.3); } }
+        .subtitle-box { background: linear-gradient(135deg, #2D6A4F 0%, #40916C 100%); padding: 15px 30px; display: inline-block; color: #FFF8E7; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.1em; box-shadow: 0 4px 10px rgba(45, 106, 79, 0.4); margin: 15px 0; border: 3px solid #D4A574; }
+        .route-info { font-family: 'Courier Prime', monospace; color: #A8DADC; font-size: 1em; margin-top: 20px; letter-spacing: 2px; }
+        .route-info strong { color: #F1A896; }
+        .train-icon { font-size: 3em; margin: 15px 0; animation: train-cross 10s linear infinite; filter: drop-shadow(0 0 20px rgba(45, 106, 79, 0.5)); }
+        @keyframes train-cross { 0% { transform: translateX(120%); opacity: 0; } 1%, 49% { opacity: 1; } 50% { transform: translateX(0); opacity: 1; } 99% { opacity: 1; } 100% { transform: translateX(-120%); opacity: 0; } }
+        .station-platform { background: linear-gradient(135deg, #6B4423 0%, #4A3219 100%); color: #FFF8E7; padding: 25px 35px; margin: 50px 0 30px 0; position: relative; border-left: 8px solid #2D6A4F; border-right: 8px solid #2D6A4F; box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .station-platform::before { content: '🌺'; position: absolute; left: -25px; top: 50%; transform: translateY(-50%); font-size: 2.5em; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); animation: sway 3s ease-in-out infinite; }
+        .station-platform::after { content: '🌸'; position: absolute; right: -25px; top: 50%; transform: translateY(-50%); font-size: 2.5em; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); animation: sway 3s ease-in-out infinite 1.5s; }
+        .platform-number { font-family: 'Courier Prime', monospace; font-size: 0.9em; letter-spacing: 3px; opacity: 0.8; margin-bottom: 5px; }
+        .platform-name { font-family: 'Poppins', sans-serif; font-size: 2em; font-weight: 800; letter-spacing: 3px; }
+        .content { padding: 40px 0; }
+        .section { margin-bottom: 60px; }
+        .ticket-stub { background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 3px dashed #6B4423; padding: 25px; margin: 20px 0; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .ticket-stub::before { content: '✂'; position: absolute; left: -15px; top: 50%; transform: translateY(-50%) rotate(90deg); font-size: 1.5em; color: #6B4423; }
+        .ticket-header { font-family: 'Courier Prime', monospace; font-size: 0.8em; letter-spacing: 2px; color: #6B4423; border-bottom: 2px solid #D4A574; padding-bottom: 10px; margin-bottom: 15px; }
+        .railway-manifest { background: linear-gradient(135deg, #2B2B2B 0%, #1B4332 100%); color: #FFF8E7; padding: 30px; border: 6px double #D4A574; font-family: 'Courier Prime', monospace; margin: 60px 0 25px 0; box-shadow: 0 6px 20px rgba(0,0,0,0.4); position: relative; }
+        .railway-manifest::before { content: '🌿'; position: absolute; top: -40px; left: 50%; transform: translateX(-50%); font-size: 2em; background: #2D6A4F; padding: 8px 15px; border-radius: 20px; border: 3px solid #D4A574; z-index: 10; }
+        .railway-manifest.stats::before { content: '📊'; }
+        .railway-manifest.gratitude::before { content: '💚'; }
+        .railway-manifest.collection::before { content: '🔒'; }
+        .manifest-header { text-align: center; font-size: 1.2em; letter-spacing: 4px; border-bottom: 3px solid #D4A574; padding-bottom: 15px; margin-bottom: 20px; }
+        .manifest-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #D4A574; }
+        .manifest-item:last-child { border-bottom: none; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin: 30px 0; }
+        .stat-card { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); color: #FFF8E7; padding: 25px 20px; text-align: center; border: 4px solid #D4A574; border-radius: 10px; box-shadow: 0 6px 20px rgba(45, 106, 79, 0.3); transition: transform 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-number { font-family: 'Poppins', sans-serif; font-size: 3em; font-weight: 800; color: #FFD60A; line-height: 1; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .stat-label { font-family: 'Courier Prime', monospace; font-size: 0.85em; letter-spacing: 1px; opacity: 0.9; }
+        .event-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 30px 0; }
+        .train-ticket { background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 4px solid #6B4423; border-left: 20px solid #D4A574; padding: 25px; position: relative; box-shadow: 0 6px 15px rgba(45, 106, 79, 0.2); transition: all 0.3s ease; }
+        .train-ticket:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(45, 106, 79, 0.3); }
+        .train-ticket::before { content: ''; position: absolute; left: -25px; top: 0; bottom: 0; width: 20px; background: repeating-linear-gradient(0deg, transparent, transparent 10px, #2D6A4F 10px, #2D6A4F 15px); }
+        .ticket-route { font-family: 'Courier Prime', monospace; font-size: 0.8em; color: #2D6A4F; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+        .ticket-event-name { font-family: 'Poppins', sans-serif; font-size: 1.5em; font-weight: 700; color: #2B2B2B; margin: 10px 0; }
+        .ticket-details { margin: 15px 0; font-size: 0.95em; }
+        .railroad-button { display: inline-block; background: linear-gradient(135deg, #E63946 0%, #C5303E 100%); color: white; padding: 18px 40px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.1em; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; border: 4px solid #2D6A4F; box-shadow: 0 6px 0 #8B1A1A, 0 8px 20px rgba(45, 106, 79, 0.3); transition: all 0.2s ease; margin: 10px 5px; }
+        .railroad-button:hover { transform: translateY(3px); box-shadow: 0 3px 0 #8B1A1A, 0 5px 15px rgba(45, 106, 79, 0.3); }
+        .railroad-button-secondary { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); box-shadow: 0 6px 0 #0F2619, 0 8px 20px rgba(230, 57, 70, 0.2); border-color: #D4A574; }
+        .schedule-board { background: #1B1B1B; color: #FFD60A; padding: 30px; border: 8px solid #2D6A4F; font-family: 'Courier Prime', monospace; margin: 30px 0; box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 0 6px 20px rgba(45, 106, 79, 0.4); position: relative; }
+        .schedule-board::before { content: '🌴'; position: absolute; top: -20px; left: -20px; font-size: 2em; }
+        .schedule-board::after { content: '🌴'; position: absolute; bottom: -20px; right: -20px; font-size: 2em; }
+        .schedule-header { text-align: center; font-size: 1.5em; letter-spacing: 5px; margin-bottom: 25px; text-shadow: 0 0 10px #FFD60A, 0 0 20px rgba(45, 106, 79, 0.5); }
+        .schedule-row { display: flex; justify-content: space-between; padding: 12px 15px; border-bottom: 1px solid #6B4423; transition: all 0.3s ease; }
+        .schedule-row:hover { background: rgba(45, 106, 79, 0.2); }
+        .schedule-row:last-child { border-bottom: none; }
+        .station-board { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); padding: 40px; border: 10px solid #6B4423; margin: 40px 0; box-shadow: 0 8px 25px rgba(45, 106, 79, 0.4); position: relative; }
+        .station-board::before { content: '🌴🌺🌿'; position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 2.5em; filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.3)); }
+        .station-board-header { background: linear-gradient(135deg, #FFD60A 0%, #FFC300 100%); color: #1B1B1B; padding: 20px; text-align: center; font-family: 'Poppins', sans-serif; font-size: 1.5em; font-weight: 800; margin-bottom: 30px; border: 4px solid #2D6A4F; letter-spacing: 2px; }
+        .archival-trunk { background: linear-gradient(135deg, #8B6433 0%, #6B4423 100%); border: 8px ridge #2D6A4F; padding: 40px; margin: 40px 0; position: relative; box-shadow: 0 10px 30px rgba(45, 106, 79, 0.4); color: #FFF8E7; }
+        .archival-trunk::before { content: '🌺🌸🌿'; position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 2em; background: #2D6A4F; padding: 10px 20px; border: 4px solid #D4A574; border-radius: 20px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3)); }
+        .trunk-label { background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); color: #2B2B2B; padding: 20px; border: 3px solid #2D6A4F; margin: 20px 0; text-align: center; font-family: 'Courier Prime', monospace; }
+        .trunk-label-title { font-size: 1.8em; font-weight: 700; letter-spacing: 3px; margin-bottom: 10px; }
+        .track-crossing { margin: 60px 0; text-align: center; position: relative; height: 40px; }
+        .track-crossing::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 6px; background: linear-gradient(90deg, #6B4423 0%, #2D6A4F 25%, #6B4423 50%, #2D6A4F 75%, #6B4423 100%); }
+        .track-crossing::after { content: '🚂'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 2em; background: #FFF8E7; padding: 10px 20px; border: 4px solid #2D6A4F; border-radius: 50%; box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3); }
+        .new-year-banner { background: linear-gradient(135deg, #FFD60A 0%, #FFC300 50%, #FFD60A 100%); color: #1B1B1B; padding: 30px; text-align: center; margin: 30px 0; border: 6px solid #2D6A4F; position: relative; box-shadow: 0 6px 20px rgba(255, 214, 10, 0.4); }
+        .new-year-banner::before { content: '🎉'; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 2.5em; }
+        .new-year-banner::after { content: '🎊'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 2.5em; }
+        .new-year-banner h2 { font-family: 'Poppins', sans-serif; font-size: 2.5em; font-weight: 800; margin: 0; text-shadow: 2px 2px 0 rgba(45, 106, 79, 0.2); }
+        .quote-box { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); padding: 25px; margin: 30px 0; text-align: center; color: #FFF8E7; font-size: 1.2em; font-weight: 600; font-style: italic; border: 4px solid #D4A574; }
+        .photo-gallery-box { background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 4px solid #2D6A4F; padding: 30px; margin: 40px 0; border-radius: 10px; box-shadow: 0 6px 20px rgba(45, 106, 79, 0.2); }
+        .photo-gallery-header { font-family: 'Courier Prime', monospace; text-align: center; color: #2D6A4F; font-size: 1.5em; letter-spacing: 3px; margin-bottom: 25px; border-bottom: 3px solid #2D6A4F; padding-bottom: 15px; }
+        .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px 0; }
+        .photo-item img { width: 100%; height: auto; border: 3px solid #2D6A4F; border-radius: 5px; }
+        .photo-caption { font-size: 0.85em; color: #666; font-style: italic; text-align: center; margin-top: 8px; }
+        .train-depot-footer { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #1B1B1B 100%); border-top: 12px solid #D4A574; color: #FFF8E7; padding: 50px 40px; text-align: center; position: relative; }
+        .train-depot-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 20%, rgba(241, 168, 150, 0.2) 0%, transparent 50%); pointer-events: none; }
+        .depot-quote { font-family: 'Pacifico', cursive; font-size: 2.2em; color: #F1A896; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 30px rgba(45, 106, 79, 0.3); position: relative; z-index: 2; }
+        .depot-message { font-size: 1.15em; line-height: 2; margin: 25px 0; position: relative; z-index: 2; }
+        .final-destination { font-family: 'Courier Prime', monospace; font-size: 1.3em; color: #FFD60A; letter-spacing: 3px; margin: 30px 0; padding: 20px; border: 3px dashed #2D6A4F; position: relative; z-index: 2; }
+        .drop-cap::first-letter { font-size: 4.5em; font-weight: 800; float: left; line-height: 0.8; margin: 10px 15px 0 0; color: #2D6A4F; font-family: 'Poppins', sans-serif; text-shadow: 2px 2px 0px #D4A574; }
+        .emphasis-text { font-family: 'Pacifico', cursive; font-size: 1.4em; color: #E63946; margin: 20px 0; }
+        .sneak-peek-box { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%); color: #FFF8E7; padding: 40px; margin: 30px 0; border: 6px solid #D4A574; box-shadow: 0 8px 25px rgba(45, 106, 79, 0.4); }
+        .sneak-peek-box p { margin: 20px 0; line-height: 1.8; }
+        .sneak-peek-finale { font-family: 'Pacifico', cursive; font-size: 1.5em; color: #FFD60A; text-align: center; margin-top: 30px; }
+        @media (max-width: 768px) { .railroad-track-left { left: 20px; } .railroad-track-right { right: 20px; } .vine-left { left: 10px; } .vine-right { right: 10px; } .content-wrapper { padding: 0 50px; } .main-title { font-size: 2.5em; letter-spacing: 6px; } .platform-name { font-size: 1.5em; } .event-cards { grid-template-columns: 1fr; } .flower-accent { display: none; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .new-year-banner h2 { font-size: 1.8em; } .new-year-banner::before, .new-year-banner::after { font-size: 1.5em; } .photo-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="railroad-track-left"></div>
+        <div class="railroad-track-right"></div>
+        <div class="vine-left"></div>
+        <div class="vine-right"></div>
+        <div class="flower-accent">🌺</div>
+        <div class="flower-accent">🌸</div>
+        <div class="flower-accent">🌺</div>
+        <div class="flower-accent">🌿</div>
+        <div class="flower-accent">🌸</div>
+        <div class="flower-accent">🌺</div>
+        <div class="flower-accent">🌿</div>
+        <div class="flower-accent">🌸</div>
+        <div class="flower-accent">🌺</div>
+        <div class="flower-accent">🌿</div>
+        <div class="content-wrapper">
+            <div class="railroad-header">
+                <div class="railroad-company-logo">
+                    <div class="company-name">Puerto Rico Railroad & Transport Co.</div>
+                    <div class="established">EST. 1891 — DESPIERTA BORICUA LINE — 2025</div>
+                </div>
+                <div class="train-icon">🚂</div>
+                <div class="edition-badge">✨ 2025 YEAR-END EDITION ✨</div>
+                <h1 class="main-title">EL BOLETÍN</h1>
+                <div class="subtitle-box">THE DESPIERTA BORICUA RAILWAY GAZETTE</div>
+                <p class="route-info">
+                    <strong>ROUTE:</strong> PAST ═🌿═ PRESENT ═🌺═ FUTURE<br>
+                    <strong>DEPARTURE:</strong> NOV-DEC 2025 | VOLUME 2<br>
+                    <strong>DESTINATION:</strong> ¡PA'LANTE SIEMPRE!
+                </p>
+            </div>
+            <div class="content">
+                <div class="new-year-banner"><h2>2025: UN AÑO HISTÓRICO</h2></div>
+                <!-- ANDÉN NO. 1: DE LA DIRECTIVA -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 1</div>
+                    <div class="platform-name">DE LA DIRECTIVA</div>
+                </div>
+                <div class="section">
+                    <p class="emphasis-text">¡Wepa, familia!</p>
+                    <p class="drop-cap">This is the last Boletín of 2025, and honestly? We're still catching our breath.</p>
+                    <p style="margin: 20px 0;">This year was different. Not because of the events but because of what it felt like. There was a moment, not too long ago, when DB was barely holding on. COVID hit us hard. By 2023, the org was being run by two people: Mia Velez and Amelia Winn. Two people keeping the flame alive when it would've been easier to let it go out.</p>
+                    <p style="margin: 20px 0;">But they didn't. And the board that came after them didn't either. They showed up with energy, with care, with the kind of love that sprawls outward and pulls people in. And then came this board, our board, full of people with more aspirations and more dedication than would normally make sense.</p>
+                    <div class="quote-box">But I think that's what happens when you find community.<br>You love very unreasonably.</div>
+                    <p style="margin: 20px 0;">This year, we brought music. We brought dance. We brought food (40 pounds of it, seasoned and slow-roasted). We saw legends brought to campus: a Surgeon General, an artist who painted while he spoke, economists debating our island's future. We dug through archives and found ourselves in the pages. We marched through Hartford with flags and drums in our hands.</p>
+                    <p style="margin: 20px 0;">And every Friday, we gathered for cafecito. Sometimes two people, five people, and sometimes even twenty. While the numbers changed, what mattered was that we showed up.</p>
+                    <p style="margin: 20px 0;"><strong>2025 was about presence</strong>—letting people know we exist and building something worth coming to.</p>
+                    <p style="margin: 20px 0;">To everyone who came to an event, who brought a friend, who cooked with us, who danced with us, who sat in the back of a room just to feel a little less alone—<strong>thank you</strong>. You are what makes this real.</p>
+                    <p style="margin: 20px 0;">And to those that came before us, keeping this alive when no one was watching: we see you. We carry you with us.</p>
+                    <p style="margin: 30px 0; font-size: 1.2em; color: #2D6A4F; font-weight: 600;">This is just the beginning.</p>
+                    <p style="text-align: right; font-style: italic; color: #666; margin-top: 25px;"><em>Pa'lante siempre,</em><br>— La Directiva 2025 ✊🏽</p>
+                </div>
+                <div class="track-crossing"></div>
+                <!-- ANDÉN NO. 2: NOV-DEC — THE GRAND FINALE -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 2</div>
+                    <div class="platform-name">NOV-DEC — THE GRAND FINALE</div>
+                </div>
+                <div class="section">
+                    <p style="margin-bottom: 30px; font-size: 1.15em;">We closed out the year strong. Here's how we ended 2025:</p>
+                    <div class="event-cards">
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: LA CASA CULTURAL</div>
+                            <div class="ticket-event-name">🍳 Bori-Grad Brunch</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Sunday, November 9</strong> | 11:30am - 2:00pm</p>
+                                <p style="margin: 15px 0;">Professional school students joined us for our signature Grad Bori Brunch featuring <strong>queso frito, pan sobao, salchicas, bacalaitos, eggs, and farina</strong>. Most attendees were grad students from across the Latino community—proof that Puerto Rican food brings everyone together.</p>
+                                <p style="margin: 20px 0 0 0; padding-top: 15px; border-top: 2px dashed #D4A574; color: #2D6A4F; font-weight: 600; font-size: 0.95em;">Plot twist: People actually showed up on time. We're still in shock. 😳</p>
+                            </div>
+                        </div>
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: BEINECKE LIBRARY & LA CASA</div>
+                            <div class="ticket-event-name">📚 MEChA x DB: Shared History Teach-In</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Thursday & Friday, November 20-21</strong> | 7:00pm</p>
+                                <p style="margin: 15px 0;">A two-day collaboration with MEChA diving deep into our shared history in New Haven. Diego Martinez and Sonia Rosa presented archival discoveries, followed by a session at the Beinecke exploring primary sources together.</p>
+                                <p style="margin: 20px 0 0 0; padding-top: 15px; border-top: 2px dashed #D4A574; color: #2D6A4F; font-weight: 600; font-size: 0.95em;">Turns out we've been making history while FINDING history. Very meta. 📖✨</p>
+                            </div>
+                        </div>
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: LA CASA CULTURAL</div>
+                            <div class="ticket-event-name">🐷 Celebración de Lux — Lechón Asado</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Tuesday, December 2</strong> | 6:30pm</p>
+                                <p style="margin: 15px 0;">La Casa's annual holiday gathering, and DB went ALL OUT. Antonio Padilla picked up a <strong>40-pound whole pig</strong>, butchered it at La Casa, and seasoned it with <strong>sofrito, vinegar, oil, sazón, adobo, paprika, chili powder, and garlic paste</strong>. Hours later: tender, flavorful pernil that had everyone coming back for seconds and thirds.</p>
+                                <p style="margin: 20px 0 0 0; padding-top: 15px; border-top: 2px dashed #D4A574; color: #2D6A4F; font-weight: 600; font-size: 0.95em;">40 pounds of pork. Sparse leftovers. That's called EFFICIENCY. 💪🐷</p>
+                            </div>
+                        </div>
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: LA CASA CULTURAL</div>
+                            <div class="ticket-event-name">☕ Last Cafecito of the Semester</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Friday, December 5</strong> | 3:00pm</p>
+                                <p style="margin: 15px 0;">Antonio and his <strong>Grandma</strong> came through with homemade <strong>flan de vanilla, flan de queso, and pastelillos de guayaba</strong>. Plus empanadillas and leftover pernil. The perfect way to close out the semester: sweet treats, good conversation, and the warmth of family.</p>
+                                <p style="margin: 20px 0 0 0; padding-top: 15px; border-top: 2px dashed #D4A574; color: #2D6A4F; font-weight: 600; font-size: 0.95em;">Shoutout to Antonio's abuela—you're officially an honorary DB board member. 🧡</p>
+                            </div>
+                        </div>
+                        <div class="train-ticket">
+                            <div class="ticket-route">ROUTE: ST. ANTHONY HALL</div>
+                            <div class="ticket-event-name">🍹 Club Caribe — St. A's x DB Party</div>
+                            <div class="ticket-details">
+                                <p style="margin: 10px 0 5px 0;"><strong style="color: #2D6A4F;">Friday, December 5</strong> | 10:00pm</p>
+                                <p style="margin: 15px 0;"><strong>Club Caribe</strong> took over St. Anthony's for a Caribbean-themed night. DB brought fresh <strong>coquito</strong>. The perfect end to the semester.</p>
+                                <p style="margin: 20px 0 0 0; padding-top: 15px; border-top: 2px dashed #D4A574; color: #2D6A4F; font-weight: 600; font-size: 0.95em;">From flan at 3pm to coquito at midnight. We call that a FULL day. 🌴🍹</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="track-crossing"></div>
+                <!-- 2025 IN PHOTOS -->
+                <div class="photo-gallery-box">
+                    <h3 class="photo-gallery-header">📸 2025 IN PHOTOS 📸</h3>
+                    <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; font-style: italic;">A whole year of memories. From parades to lechón to legends on campus. <strong>Priceless.</strong> 🇵🇷✨</p>
+                    <div class="photo-grid">
+                        <div class="photo-item">
+                            <img src="https://despiertaboricua-yale.org/Nov-Dec/CDL1.jpg" alt="40 lb pig from Latella & Sons">
+                            <p class="photo-caption">40 lb pig from Latella & Sons</p>
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://despiertaboricua-yale.org/Nov-Dec/Flan.jpg" alt="Homemade flan from Abuela">
+                            <p class="photo-caption">Gracias Abuela! ❤️</p>
+                        </div>
+                    </div>
+                    <div style="background: #2D6A4F; color: #FFF8E7; padding: 20px; text-align: center; border-radius: 8px; margin: 25px 0;">
+                        <p style="font-size: 1.1em; margin: 10px 0;"><strong>🖼️ Want to see all the photos?</strong></p>
+                        <p style="margin: 15px 0;">Check out our <strong>Instagram</strong> @DespiertaBoricuaYale for the full gallery, or visit our website's photo archive to relive every single moment.</p>
+                    </div>
+                    <div style="text-align: center; margin-top: 25px;">
+                        <a href="https://www.instagram.com/despiertaboricuayale/" class="railroad-button">🖼️ VIEW THE FULL GALLERY</a>
+                    </div>
+                </div>
+                <div class="track-crossing"></div>
+                <!-- ANDÉN NO. 3: 2025 EN NÚMEROS -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 3</div>
+                    <div class="platform-name">2025 EN NÚMEROS — BY THE STATS</div>
+                </div>
+                <div class="section">
+                    <p style="margin-bottom: 30px; font-size: 1.15em;">Before we dive into the full recap, let's take a moment to appreciate just how much we accomplished together:</p>
+                    <div class="stats-grid">
+                        <div class="stat-card"><div class="stat-number">20+</div><div class="stat-label">Events Hosted</div></div>
+                        <div class="stat-card"><div class="stat-number">500+</div><div class="stat-label">Attendees Total</div></div>
+                        <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Partner Orgs</div></div>
+                        <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Living Legends Hosted</div></div>
+                        <div class="stat-card"><div class="stat-number">Many</div><div class="stat-label">Empanadillas Shared</div></div>
+                        <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">Memories Created</div></div>
+                    </div>
+                    <div class="railway-manifest stats">
+                        <div class="manifest-header">═══ 2025 IMPACT REPORT ═══</div>
+                        <div class="manifest-item"><span>📚 Archival Documents Recovered</span><span style="color: #2D6A4F;">✓</span></div>
+                        <div class="manifest-item"><span>🎓 Scholarship Database Created</span><span style="color: #2D6A4F;">✓</span></div>
+                        <div class="manifest-item"><span>🤝 Cross-Org Collaborations</span><span style="color: #FFD60A;">12</span></div>
+                        <div class="manifest-item"><span>🎶 Parties & Dance Workshops</span><span style="color: #FFD60A;">Many</span></div>
+                        <div class="manifest-item"><span>☕ Cafecitos Hosted</span><span style="color: #FFD60A;">Many</span></div>
+                        <div class="manifest-item"><span>🇵🇷 Parades Marched</span><span style="color: #FFD60A;">1 (Hartford!)</span></div>
+                    </div>
+                </div>
+                <div class="track-crossing"></div>
+                <!-- ANDÉN NO. 4: 2025 — EL AÑO QUE FUE -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 4</div>
+                    <div class="platform-name">2025 — EL AÑO QUE FUE</div>
+                </div>
+                <div class="section">
+                    <p style="margin-bottom: 30px; font-size: 1.15em;">A year of music, legends, food, and finding each other. Here are the moments that defined us:</p>
+                    <div class="schedule-board">
+                        <div class="schedule-header">═══ 2025 HIGHLIGHT REEL ═══</div>
+                        <div class="schedule-row"><span>🏥 Dr. Antonia Novello Visit</span><span>Sept 18</span></div>
+                        <div class="schedule-row"><span>🐰 Bad Bunny LIVE Watch Party</span><span>Sept 20</span></div>
+                        <div class="schedule-row"><span>🇵🇷 Hartford Puerto Rican Parade</span><span>Sept 21</span></div>
+                        <div class="schedule-row"><span>🌴 Caribbean Students Mixer</span><span>Sept 27</span></div>
+                        <div class="schedule-row"><span>💃 Día Nacional de la Salsa</span><span>Oct 5</span></div>
+                        <div class="schedule-row"><span>🎨 Antonio Martorell Fireside Chat</span><span>Oct 9</span></div>
+                        <div class="schedule-row"><span>☕🇩🇴 Cafecito Estilo Domino (DB x DSA)</span><span>Oct 10</span></div>
+                        <div class="schedule-row"><span>📊 Tobin Report 50th Anniversary</span><span>Oct 10</span></div>
+                        <div class="schedule-row"><span>🎶 Reggaeton y Dembow Party (DB x DSA)</span><span>Oct 11</span></div>
+                        <div class="schedule-row"><span>🍳 Bori-Grad Brunch</span><span>Nov 9</span></div>
+                        <div class="schedule-row"><span>📚 MEChA x DB: Shared History Teach-In</span><span>Nov 20-21</span></div>
+                        <div class="schedule-row"><span>🐷 Celebración de Lux — Lechón Asado</span><span>Dec 2</span></div>
+                        <div class="schedule-row"><span>☕ Last Cafecito of the Semester</span><span>Dec 5</span></div>
+                        <div class="schedule-row"><span>🍹 Club Caribe — St. A's x DB Party</span><span>Dec 5</span></div>
+                    </div>
+                </div>
+                <div class="track-crossing"></div>
+                <!-- ANDÉN NO. 5: COLABORACIONES — GRATITUDE -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 5</div>
+                    <div class="platform-name">COLABORACIONES — GRATITUDE</div>
+                </div>
+                <div class="section">
+                    <p style="margin-bottom: 30px; font-size: 1.15em;">None of this happens alone. A huge thank you to everyone who built with us this year:</p>
+                    <div class="railway-manifest gratitude">
+                        <div class="manifest-header">═══ 2025 PARTNERS ═══</div>
+                        <div class="manifest-item"><span>🏠 <strong>La Casa Cultural</strong></span><span>Our home base. Always.</span></div>
+                        <div class="manifest-item"><span>🇲🇽 <strong>MEChA</strong></span><span>Archive collaboration & solidarity</span></div>
+                        <div class="manifest-item"><span>🇩🇴 <strong>DSA</strong></span><span>Cafecitos, parties, hermandad</span></div>
+                        <div class="manifest-item"><span>💃 <strong>Sabro</strong></span><span>Salsa on the plaza</span></div>
+                        <div class="manifest-item"><span>🇧🇷 <strong>Brasil Club</strong></span><span>Latin American unity</span></div>
+                        <div class="manifest-item"><span>🌴 <strong>CSO & CAUSA</strong></span><span>Caribbean solidarity</span></div>
+                        <div class="manifest-item"><span>🏛️ <strong>LUL</strong></span><span>La familia Latina</span></div>
+                        <div class="manifest-item"><span>🍹 <strong>St. Anthony's</strong></span><span>Club Caribe vibes</span></div>
+                        <div class="manifest-item"><span>🎭 <strong>Movimiento Cultural</strong></span><span>Hartford Parade co-sponsors</span></div>
+                    </div>
+                    <div class="quote-box">🌟 When we come together, <em>magic</em> happens. 🌟</div>
+                </div>
+                <div class="track-crossing"></div>
+                <!-- ANDÉN NO. 6: AGRADECIMIENTOS — GIVING THANKS -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 6</div>
+                    <div class="platform-name">AGRADECIMIENTOS — GIVING THANKS</div>
+                </div>
+                <div class="section">
+                    <div class="archival-trunk">
+                        <div class="trunk-label">
+                            <div class="trunk-label-title">GRACIAS, FAMILIA</div>
+                            <p style="margin-top: 10px; font-size: 0.9em;">TO EVERYONE WHO MADE 2025 POSSIBLE</p>
+                        </div>
+                        <div class="railway-manifest gratitude" style="margin: 30px 0;">
+                            <div class="manifest-header">═══ RECOGNITION MANIFEST ═══</div>
+                            <div class="manifest-item"><span>👑 La Directiva 2025</span><span style="color: #FFD60A;">Leadership</span></div>
+                            <div class="manifest-item"><span>📚 Archival Team</span><span style="color: #FFD60A;">Kristen, Nina, Sonia, Amanda</span></div>
+                            <div class="manifest-item"><span>🏠 La Casa Cultural</span><span style="color: #FFD60A;">Our Home Base</span></div>
+                            <div class="manifest-item"><span>🤝 Partner Organizations</span><span style="color: #FFD60A;">DSA, CSO, CAUSA, Sabro, Brasil Club, Mecha </span></div>
+                            <div class="manifest-item"><span>🎓 Alumni Network</span><span style="color: #FFD60A;">Our Living History</span></div>
+                            <div class="manifest-item"><span>💚 Every Single Attendee</span><span style="color: #FFD60A;">YOU</span></div>
+                        </div>
+                        <p style="text-align: center; font-size: 1.15em; margin: 25px 0;">Special shoutout to everyone who cooked, cleaned, set up chairs, designed flyers, took photos, wrote captions, answered emails at 2am, and did the invisible labor that makes community possible.</p>
+                        <p style="text-align: center; font-size: 1.3em; margin: 25px 0; color: #FFD60A; font-family: 'Pacifico', cursive;">We see you. We appreciate you. We love you.</p>
+                    </div>
+                    <div class="ticket-stub" style="margin-top: 40px;">
+                        <div class="ticket-header">📜 SPECIAL RECOGNITION</div>
+                        <p style="font-size: 1.05em; margin: 15px 0;"><strong>Amanda Rivera</strong> will complete her <strong>PhD dissertation</strong> next semester. We are so proud of her work and dedication!</p>
+                        <p style="margin: 15px 0;"> She has been with us for many years. Amanda, <em>you will always be family</em>.
+                            Thank you, Amanda, for making sure our story gets told the way it deserves. We can't wait to read whatever you have to say. 🎓❤️ </p>
+                    </div>
+                </div>
+                <div class="track-crossing"></div>
+                <!-- ANDÉN NO. 7: 2026 — SNEAK PEEK -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 7</div>
+                    <div class="platform-name">2026 — SNEAK PEEK</div>
+                </div>
+                <div class="section">
+                    <div class="sneak-peek-box">
+                        <p>Next semester, we're taking DB off campus and into the streets. A <strong>block party</strong> is in the works, Spring 2026 Crown Street. Inspired by Calle de San Sebastián. That's all we'll say for now.</p>
+                        <p>We've also been building something bigger than Yale. A network. An alliance. Puerto Rican student orgs across the Northeast, connected for the first time. More on that soon.</p>
+                        <p>And beyond the parties and the coalitions, we're thinking about <strong>education</strong>. About reaching students here in New Haven. About reaching students on the island. About making sure the next generation knows that places like Yale aren't out of reach.</p>
+                        <p>We're dreaming bigger. And if 2025 taught us anything, it's that when we show up together, <em>things happen</em>.</p>
+                        <p>Stay tuned. Stay connected. And when we call, <strong>show up</strong>.</p>
+                        <p class="sneak-peek-finale">Lo mejor está por venir.</p>
+                    </div>
+                </div>
+                <div class="track-crossing"></div>
+                <!-- ANDÉN NO. 8: ARCHIVO VIVO -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 8</div>
+                    <div class="platform-name">ARCHIVO VIVO — OUR HISTORY</div>
+                </div>
+                <div class="section">
+                    <div class="archival-trunk">
+                        <div class="trunk-label">
+                            <div class="trunk-label-title">¡AYÚDANOS A ESCRIBIR NUESTRA HISTORIA!</div>
+                            <p style="margin-top: 10px; font-size: 0.9em;">WE NEED YOUR MEMORIES & MEMORABILIA</p>
+                        </div>
+                        <p style="font-style: italic; color: #FFD60A; text-align: center; font-size: 1.2em; margin: 25px 0; font-family: 'Pacifico', cursive;">"Cada foto es un tesoro. Cada historia es un riel que conecta el pasado con nuestro futuro."</p>
+                        <p style="text-align: center; font-size: 1.1em; margin: 25px 0;">This year we dug through archives and found ourselves in the pages. Now we're building our own. <strong>Your memories matter.</strong></p>
+                        <div class="railway-manifest collection" style="margin: 30px 0;">
+                            <div class="manifest-header">═══ STILL NEEDED ═══</div>
+                            <div class="manifest-item"><span>📖 Stories & Memories</span><span style="color: #2D6A4F;">Your words, your voice</span></div>
+                            <div class="manifest-item"><span>📸 Photographs (any decade)</span><span style="color: #2D6A4F;">Digital or physical</span></div>
+                            <div class="manifest-item"><span>🎟️ Event Materials</span><span style="color: #2D6A4F;">Tickets, posters, programs</span></div>
+                            <div class="manifest-item"><span>👕 DB Merchandise</span><span style="color: #2D6A4F;">T-shirts, pins, banners</span></div>
+                        </div>
+                        <div style="text-align: center; margin-top: 30px;">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSefXmniwovFWIDwe2ZEZN-GQCdFOd0FcpCkC5lFNKjmQCwWLw/viewform?usp=header" class="railroad-button">📧 SHARE YOUR STORY</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="track-crossing"></div>
+                <!-- ANDÉN NO. 9: STAY CONNECTED -->
+                <div class="station-platform">
+                    <div class="platform-number">ANDÉN NO. 9</div>
+                    <div class="platform-name">MANTENTE CONECTADO — ALL LINES OPEN</div>
+                </div>
+                <div class="section">
+                    <div class="station-board">
+                        <div class="station-board-header">🌐 YOUR PORTALS TO DB 🌐</div>
+                        <p style="text-align: center; color: #FFF8E7; font-size: 1.15em; margin-bottom: 30px;">Don't be a stranger. Here's how to stay in the loop:</p>
+                        <div class="schedule-board">
+                            <div class="schedule-header">═══ COMMUNICATION LINES ═══</div>
+                            <div class="schedule-row"><span>📷 INSTAGRAM</span><span><a href="https://www.instagram.com/despiertaboricuayale/" style="color: #2D6A4F;">@DespiertaBoricuaYale →</a></span></div>
+                            <div class="schedule-row"><span>📘 FACEBOOK</span><span><a href="https://www.facebook.com/despiertaboricuayale/" style="color: #2D6A4F;">Despierta Boricua at Yale →</a></span></div>
+                            <div class="schedule-row"><span>🌐 WEBSITE</span><span><a href="https://despiertaboricua-yale.org/" style="color: #2D6A4F;">despiertaboricua-yale.org →</a></span></div>
+                            <div class="schedule-row"><span>📧 EMAIL</span><span><a href="mailto:despiertaboricua@yale.edu" style="color: #2D6A4F;">despiertaboricua@yale.edu →</a></span></div>
+                            <div class="schedule-row"><span>🔗 LINKTREE</span><span><a href="https://linktr.ee/despiertaboricua_yale" style="color: #2D6A4F;">One link, all the info →</a></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FOOTER -->
+            <div class="train-depot-footer">
+                <p class="depot-quote">Juntos somos más fuertes</p>
+                <div class="depot-message">
+                    <p>But let's be real: we're not just stronger together—we're <strong>unstoppable</strong>.</p>
+                    <p style="margin-top: 25px;">Whether you graduated decades ago or you're a first-year trying to find your people, <em>you belong here</em>. Despierta Boricua isn't just an org—it's a legacy, our family, our home.</p>
+                    <p style="margin-top: 25px;">So keep showing up. Keep sharing your stories. Keep waving that flag with pride.</p>
+                </div>
+                <div class="final-destination">PORQUE ESTO ES PA'LANTE, SIEMPRE PA'LANTE 🌿</div>
+                <div style="font-size: 5em; margin: 40px 0;">¡WEPA!</div>
+                <p style="font-size: 1.3em; color: #FFD60A; margin: 30px 0; font-family: 'Poppins', sans-serif; font-weight: 600;">See you in 2026! 🇵🇷</p>
+                <div style="margin: 40px 0;">
+                    <div style="height: 4px; background: linear-gradient(90deg, #D4A574 0%, #2D6A4F 50%, #D4A574 100%); margin: 30px auto; max-width: 500px;"></div>
+                    <div style="font-family: 'Courier Prime', monospace; font-size: 0.9em; letter-spacing: 2px; color: #A8DADC;">
+                        PUERTO RICO RAILROAD & TRANSPORT CO.<br>
+                        DESPIERTA BORICUA LINE<br>
+                        EST. 1891 — SERVING COMUNIDAD SINCE 2025<br>
+                        <span style="color: #2D6A4F;">━━━ Reclaimed by Nature, Restored by Community ━━━</span>
+                    </div>
+                </div>
+                <div style="margin: 40px 0; font-size: 0.95em; line-height: 2;">
+                    <a href="https://www.instagram.com/despiertaboricuayale/" style="color: #A8DADC; text-decoration: none; margin: 0 15px;">Instagram</a>
+                    <a href="https://www.facebook.com/despiertaboricuayale/" style="color: #A8DADC; text-decoration: none; margin: 0 15px;">Facebook</a>
+                    <a href="https://despiertaboricua-yale.org/" style="color: #A8DADC; text-decoration: none; margin: 0 15px;">Website</a>
+                    <a href="mailto:despiertaboricua@yale.edu" style="color: #A8DADC; text-decoration: none; margin: 0 15px;">Email</a>
+                </div>
+                <p style="font-size: 0.9em; opacity: 0.7; margin-top: 40px;">🌴 Made with love, cafecito, and way too many late-night group chats 🌴</p>
+                <p style="margin-top: 30px; font-size: 1em;"><strong>P.S.</strong> — If you made it this far, you're officially part of the family.<br>Now go share this with someone who needs to see it. <em>¡Vamo'!</em></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
