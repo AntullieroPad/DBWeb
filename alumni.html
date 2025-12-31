@@ -581,6 +581,20 @@
             color: #eee;
         }
 
+        /* Join Network Cards - Bounce Effect */
+        .join-card {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+
+        .join-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .join-card:active {
+            transform: translateY(-5px) scale(1.01);
+        }
+
         /* Alumni Directory Styles */
         .alumni-directory-section {
             padding: 3rem 0;
@@ -1036,7 +1050,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
 
                 <!-- Register Card -->
-                <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #007bff;">
+                <div class="join-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #007bff;">
                     <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #007bff, #0056b3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
                         <i class="fas fa-id-card" style="font-size: 1.8rem; color: white;"></i>
                     </div>
@@ -1046,7 +1060,7 @@
                 </div>
 
                 <!-- Become Featured Card -->
-                <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); border-radius: 12px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #ffc107;">
+                <div class="join-card" style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); border-radius: 12px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #ffc107;">
                     <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #ffc107, #e0a800); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
                         <i class="fas fa-star" style="font-size: 1.8rem; color: white;"></i>
                     </div>
@@ -1062,7 +1076,7 @@
                 </div>
 
                 <!-- Mentorship Card -->
-                <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #28a745;">
+                <div class="join-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #28a745;">
                     <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #28a745, #1e7e34); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
                         <i class="fas fa-hands-helping" style="font-size: 1.8rem; color: white;"></i>
                     </div>
@@ -1144,7 +1158,7 @@
                 <button id="submit-password"><i class="fas fa-unlock-alt"></i> Access Resources</button>
             </div>
             <p class="password-error" id="password-error"><i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again or contact an administrator.</p>
-            <p class="note">Don't have the password? <a href="mailto:despierta.boricua@yale.edu">Contact the Alumni Relations team</a></p>
+            <p class="note">Don't have the password? <a href="/cdn-cgi/l/email-protection#77131204071e12050316591518051e140216370e161b1259121302">Contact the Alumni Relations team</a></p>
         </div>
 
         <!-- Bomba animation container (hidden by default) -->
@@ -1589,37 +1603,7 @@
     </main>
 </div>
 
-<!-- Footer -->
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Despierta Boricua at Yale</h4>
-            <p>Preserving and promoting Puerto Rican culture and identity at Yale University since 1972.</p>
-        </div>
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="news.html">Events</a></li>
-                <li><a href="donate.html">Donate</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Connect With Us</h4>
-            <div class="footer-social">
-                <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="/cdn-cgi/l/email-protection#0b6f6e787b626e797f6a2569647962687e6a4b726a676e256e6f7e"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Despierta Boricua at Yale. All rights reserved.</p>
-    </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="script.js"></script>
 <script>
     // Password functionality for alumni resources
