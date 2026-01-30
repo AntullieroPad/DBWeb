@@ -12,7 +12,7 @@ const translations = {
         navGallery: "Gallery",
 
         blackHeroHeading: "Celebrating Puerto Rican Identity & Resistance",
-        blackHeroParagraph: "More than a club—Despierta Boricua is a movement. We uplift, empower, and celebrate our culture, history, and people.",
+        blackHeroParagraph: "Despierta Boricua is a cultural-political movement. We uplift, empower, and celebrate our culture, history, and people.",
         learnMoreBtn: "Learn More",
 
         section1Tag: "SECTION 1",
