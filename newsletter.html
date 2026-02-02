@@ -650,7 +650,6 @@
         </div>
     </section>
 
-    <!-- SUBSCRIBE SECTION -->
     <section class="subscribe-section" id="subscribe">
         <div class="subscribe-content">
             <h2 data-key="subscribeTitle">Never Miss a Stop!</h2>
@@ -658,22 +657,120 @@
                 Join our mailing list to receive El Boletín directly in your inbox.
                 Stay connected with our community, no matter where your journey takes you.
             </p>
-            <form class="subscribe-form" action="#" method="post">
+
+            <form class="subscribe-form" id="mc-signup-form">
                 <input
                         type="email"
+                        id="mce-EMAIL"
+                        name="EMAIL"
                         placeholder="Enter your email"
                         required
                         aria-label="Email address"
                 />
-                <button type="submit" class="subscribe-btn">
+                <button type="submit" class="subscribe-btn" id="mc-submit-btn">
                     Subscribe
                 </button>
             </form>
+
+            <p id="mc-response-message" style="font-size: 0.95rem; margin-top: 1rem; min-height: 1.5em;"></p>
             <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">
                 ✉️ We respect your privacy. Unsubscribe anytime.
             </p>
         </div>
     </section>
+
+    <script>
+        (function() {
+            var form = document.getElementById('mc-signup-form');
+            var emailInput = document.getElementById('mce-EMAIL');
+            var submitBtn = document.getElementById('mc-submit-btn');
+            var messageEl = document.getElementById('mc-response-message');
+
+            // Your Mailchimp URL (converted to post-json format)
+            var mailchimpURL = 'https://despiertaboricua-yale.us21.list-manage.com/subscribe/post-json?u=18431a7bdf01a4c5676b5397f&id=5675c3c23b&f_id=00e6f6e9f0';
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                var email = emailInput.value.trim();
+
+                if (!email) {
+                    showMessage('Please enter your email address.', 'error');
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Subscribing...';
+                messageEl.textContent = '';
+
+                // Create callback function name
+                var callbackName = 'mc_callback_' + Date.now();
+
+                // Define the callback function
+                window[callbackName] = function(response) {
+                    // Clean up
+                    delete window[callbackName];
+                    var script = document.getElementById('mc-script');
+                    if (script) script.remove();
+
+                    // Reset button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Subscribe';
+
+                    if (response.result === 'success') {
+                        showMessage('🎉 ¡Gracias! Check your email to confirm your subscription.', 'success');
+                        emailInput.value = '';
+                    } else {
+                        // Handle different error messages
+                        var msg = response.msg || 'Something went wrong. Please try again.';
+
+                        // Clean up Mailchimp's HTML in error messages
+                        if (msg.includes('already subscribed')) {
+                            msg = 'You\'re already subscribed! Check your inbox for El Boletín.';
+                        } else if (msg.includes('too many')) {
+                            msg = 'Too many signup attempts. Please try again later.';
+                        } else if (msg.includes('invalid')) {
+                            msg = 'Please enter a valid email address.';
+                        }
+
+                        showMessage(msg, 'error');
+                    }
+                };
+
+                // Build the URL with parameters
+                var url = mailchimpURL + '&EMAIL=' + encodeURIComponent(email) + '&c=' + callbackName;
+
+                // Create and inject script tag (JSONP request)
+                var script = document.createElement('script');
+                script.id = 'mc-script';
+                script.src = url;
+
+                // Handle network errors
+                script.onerror = function() {
+                    delete window[callbackName];
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Subscribe';
+                    showMessage('Network error. Please check your connection and try again.', 'error');
+                };
+
+                document.body.appendChild(script);
+            });
+
+            function showMessage(text, type) {
+                messageEl.textContent = text;
+                messageEl.style.color = type === 'success' ? '#90EE90' : '#FFB6C1';
+                messageEl.style.opacity = '1';
+
+                // Auto-hide success messages after 8 seconds
+                if (type === 'success') {
+                    setTimeout(function() {
+                        messageEl.style.opacity = '0';
+                    }, 8000);
+                }
+            }
+        })();
+    </script>
 
 </div>
 
