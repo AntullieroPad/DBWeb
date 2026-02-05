@@ -452,7 +452,64 @@ const translations = {
         involvedText: "Join Despierta Boricua in honoring the legacy of Puerto Rican women and supporting ongoing efforts for gender justice.",
 
         attendBtn: "Attend an Event",
-        shareBtn: "Share Your Story"
+        shareBtn: "Share Your Story",
+
+
+
+        // Newsletter Showcase Section
+        newsletterBadge: "EL BOLETÍN",
+        newsletterShowcaseTitle: "Read Our Newsletter!",
+        newsletterShowcaseSubtitle: "The Despierta Boricua Railway Gazette",
+        newsletterShowcaseDesc: "Catch up on all our latest events, community stories, and cultural celebrations. Published every month and a half, El Boletín is your ticket to stay connected with the DB family.",
+        newsletterFeature1: "Event Recaps & Photos",
+        newsletterFeature2: "Community Spotlights",
+        newsletterFeature3: "Upcoming Events",
+        newsletterFeature4: "Archive Access",
+        latestEditionBadge: "✨ LATEST EDITION",
+        latestEditionTitle: "Volume 3 – February 2026",
+        latestEditionDate: "Published February 2026",
+        insideEditionTitle: "Inside This Edition:",
+        editionHighlight1: "🏆 Bad Bunny Grammy Win & \"ICE Out\"",
+        editionHighlight2: "🥊 Xander Zayas Boxing History",
+        editionHighlight3: "🐰 Benito Bowl — 400+ Attendees",
+        editionHighlight4: "🏛️ Estamos Aquí Conference (26 Universities)",
+        editionHighlight5: "🎉 Calle Corona Block Party",
+        editionHighlight6: "💛 Yale SOAR Fundraising Campaign",
+        exploreArchiveBtn: "Explore Newsletter Archive",
+
+// Spring 2026 Events - Temporary
+        spring2026EventsTitle: "Spring 2026 Events",
+
+        benitoBowlTitle: "🐰 Benito Bowl — Super Bowl Watch Party",
+        benitoBowlDate: "Sunday, Feb 8, 6:00pm | Marsh Hall, Yale Science Hill",
+        benitoBowlDesc: "Bad Bunny will be the first artist to intentionally represent Puerto Rico at the Super Bowl halftime show. We're gathering 400+ people to watch together. This is more than a watch party—it's a platform. We'll deliver a 5-minute speech representing the Latino community on ICE concerns, followed by a 5-minute video showcasing DB's work and promoting Calle Corona. Food from local PR restaurants, 100 disposable cameras, photo booth, and Sancocho Frog plushies.",
+        benitoBowlNote: "This is one of the few chances we get to make a message to this many people. Be there. 🇵🇷",
+
+        divasDancefloorTitle: "💃 Divas of the Dancefloor",
+        divasDancefloorDate: "Friday, Feb 13, 10:00pm | St. Anthony Hall",
+        divasDancefloorDesc: "A night dedicated to genres pioneered by those at the intersection of being POC and queerness/womanhood: techno, house music, freestyle. 70s/80s retro dancefloor vibes with a talented Latina student DJ. These genres were created so marginalized communities could express themselves freely—that's why we're doing this the night before Valentine's Day.",
+
+        juliaBurgosTitle: "📜 Julia de Burgos Birthday Celebration",
+        juliaBurgosDate: "Monday, Feb 16 | La Casa Cultural",
+        juliaBurgosDesc: "Honoring La Casa's namesake, the Afro Boricua poet born February 17. Collaborating with La Casa, Afro-American Cultural Center, YC³, DSA, Latina Women at Yale, Oye! Spoken Word, WORD, and Yale Black Women's Coalition. Featured: Diannely Antigua (poet) doing a reading, talkback, Q&A, and poetry workshop. Possibly a bomba performance.",
+
+        tainoHeritageTitle: "🏺 Taíno Heritage Event",
+        tainoHeritageDate: "Late February – Early March | Peabody Museum",
+        tainoHeritageDesc: "Following the opening of the Peabody's Taíno exhibit last December, we're collaborating with the Peabody Museum and NISA Yale for a guided exploration with the curators, followed by a table discussion about Caribbean indigeneity. Questions we'll explore: What choices shaped the exhibit? What does it mean to present indigenous identity? How do we connect to Taíno identity today?",
+
+        emmaAmadorTitle: "📚 Emma Amador x RITM",
+        emmaAmadorDate: "April 2026 | Details TBA",
+        emmaAmadorDesc: "Dr. Emma Amador (UConn History) presents her new book \"The Politics of Care Work: Puerto Rican Women Organizing for Social Justice.\" Co-sponsored by Yale's Center for Race, Indigeneity, and Transnational Migration (RITM).",
+
+        calleCoronaTitle: "🎉 CALLE CORONA — SanSe llegó al Norte",
+        calleCoronaDate: "Friday, April 24 | High Street & Crown Street, New Haven",
+        calleCoronaDesc: "DB's most ambitious project of this decade. We're bringing Las Fiestas de San Sebastián to New Haven—blocking off streets for a flea market, live bomba y salsa performances, dance workshops, food trucks, and local vendors. This is about inviting Yale and New Haven together, making the Latino community visible and celebrated, and closing the gap between students and the city.",
+        calleCoronaNote: "Puerto Rico's most beloved festival, brought to Connecticut. This one's for all of us. 🎊",
+
+        estamosAquiTitle: "🏛️ Estamos Aquí: In the Halls of Power",
+        estamosAquiDate: "Fall 2026 | The First Northeastern Puerto Rican Student Conference",
+        estamosAquiDesc: "26 universities—Harvard, MIT, Johns Hopkins, Cornell, Syracuse, and more—banding together to address the realities facing Puerto Rican youth. This conference is about our future: the political-cultural position of our community, bridging diaspora and island, the responsibilities of those in higher education, and addressing environmental justice and sustainability. Coalition building, academic exchange, and long-term collaboration across campuses.",
+        estamosAquiNote: "The first conference of its kind in a generation. History in the making. 🇵🇷"
 
     },
     es: {
@@ -906,6 +963,61 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
         involvedText: "Únete a Despierta Boricua para honrar el legado de las mujeres puertorriqueñas y apoyar los esfuerzos continuos por la justicia de género.",
 
         attendBtn: "Asistir a un Evento",
-        shareBtn: "Comparte Tu Historia"
+        shareBtn: "Comparte Tu Historia",
+
+        // Newsletter Showcase Section
+        newsletterBadge: "EL BOLETÍN",
+        newsletterShowcaseTitle: "¡Lee Nuestro Boletín!",
+        newsletterShowcaseSubtitle: "La Gaceta Ferroviaria de Despierta Boricua",
+        newsletterShowcaseDesc: "Ponte al día con todos nuestros eventos, historias comunitarias y celebraciones culturales. Publicado cada mes y medio, El Boletín es tu boleto para mantenerte conectado con la familia DB.",
+        newsletterFeature1: "Resúmenes de Eventos y Fotos",
+        newsletterFeature2: "Destacados de la Comunidad",
+        newsletterFeature3: "Próximos Eventos",
+        newsletterFeature4: "Acceso al Archivo",
+        latestEditionBadge: "✨ ÚLTIMA EDICIÓN",
+        latestEditionTitle: "Volumen 3 – Febrero 2026",
+        latestEditionDate: "Publicado en Febrero 2026",
+        insideEditionTitle: "En Esta Edición:",
+        editionHighlight1: "🏆 Bad Bunny Gana Grammy y \"ICE Out\"",
+        editionHighlight2: "🥊 Xander Zayas Hace Historia en el Boxeo",
+        editionHighlight3: "🐰 Benito Bowl — Más de 400 Asistentes",
+        editionHighlight4: "🏛️ Conferencia Estamos Aquí (26 Universidades)",
+        editionHighlight5: "🎉 Fiesta de Calle Corona",
+        editionHighlight6: "💛 Campaña de Recaudación Yale SOAR",
+        exploreArchiveBtn: "Explorar Archivo de Boletines",
+
+// Spring 2026 Events
+        spring2026EventsTitle: "Eventos de Primavera 2026",
+
+        benitoBowlTitle: "🐰 Benito Bowl — Fiesta del Super Bowl",
+        benitoBowlDate: "Domingo, 8 de Feb, 6:00pm | Marsh Hall, Yale Science Hill",
+        benitoBowlDesc: "Bad Bunny será el primer artista en representar intencionalmente a Puerto Rico en el show de medio tiempo del Super Bowl. Reuniremos a más de 400 personas para verlo juntos. Esto es más que una fiesta—es una plataforma. Daremos un discurso de 5 minutos representando a la comunidad latina sobre las preocupaciones de ICE, seguido de un video de 5 minutos mostrando el trabajo de DB y promoviendo Calle Corona. Comida de restaurantes PR locales, 100 cámaras desechables, fotomatón y peluches de Sancocho Frog.",
+        benitoBowlNote: "Esta es una de las pocas oportunidades que tenemos para enviar un mensaje a tanta gente. Estén ahí. 🇵🇷",
+
+        divasDancefloorTitle: "💃 Divas de la Pista de Baile",
+        divasDancefloorDate: "Viernes, 13 de Feb, 10:00pm | St. Anthony Hall",
+        divasDancefloorDesc: "Una noche dedicada a géneros creados por quienes están en la intersección de ser POC y queerness/feminidad: techno, house, freestyle. Ambiente retro de pista de baile de los 70s/80s con una talentosa DJ latina. Estos géneros fueron creados para que las comunidades marginadas pudieran expresarse libremente—por eso lo hacemos la noche antes del Día de San Valentín.",
+
+        juliaBurgosTitle: "📜 Celebración del Cumpleaños de Julia de Burgos",
+        juliaBurgosDate: "Lunes, 16 de Feb | La Casa Cultural",
+        juliaBurgosDesc: "Honrando a quien da nombre a La Casa, la poeta afro boricua nacida el 17 de febrero. Colaborando con La Casa, Centro Cultural Afroamericano, YC³, DSA, Latinas en Yale, Oye! Spoken Word, WORD, y Coalición de Mujeres Negras de Yale. Presentación: Diannely Antigua (poeta) con lectura, charla, preguntas y taller de poesía. Posiblemente una presentación de bomba.",
+
+        tainoHeritageTitle: "🏺 Evento de Herencia Taína",
+        tainoHeritageDate: "Finales de Febrero – Principios de Marzo | Museo Peabody",
+        tainoHeritageDesc: "Después de la apertura de la exhibición taína del Peabody en diciembre pasado, colaboramos con el Museo Peabody y NISA Yale para una exploración guiada con los curadores, seguida de una discusión sobre la indigeneidad caribeña. Preguntas que exploraremos: ¿Qué decisiones dieron forma a la exhibición? ¿Qué significa presentar la identidad indígena? ¿Cómo nos conectamos con la identidad taína hoy?",
+
+        emmaAmadorTitle: "📚 Emma Amador x RITM",
+        emmaAmadorDate: "Abril 2026 | Detalles por Confirmar",
+        emmaAmadorDesc: "La Dra. Emma Amador (Historia de UConn) presenta su nuevo libro \"The Politics of Care Work: Puerto Rican Women Organizing for Social Justice.\" Co-patrocinado por el Centro de Raza, Indigeneidad y Migración Transnacional de Yale (RITM).",
+
+        calleCoronaTitle: "🎉 CALLE CORONA — SanSe llegó al Norte",
+        calleCoronaDate: "Viernes, 24 de Abril | High Street & Crown Street, New Haven",
+        calleCoronaDesc: "El proyecto más ambicioso de DB en esta década. Traemos Las Fiestas de San Sebastián a New Haven—cerrando calles para un mercado de pulgas, presentaciones en vivo de bomba y salsa, talleres de baile, food trucks y vendedores locales. Se trata de unir a Yale y New Haven, hacer visible y celebrada a la comunidad latina, y cerrar la brecha entre estudiantes y la ciudad.",
+        calleCoronaNote: "El festival más querido de Puerto Rico, traído a Connecticut. Este es para todos nosotros. 🎊",
+
+        estamosAquiTitle: "🏛️ Estamos Aquí: En los Pasillos del Poder",
+        estamosAquiDate: "Otoño 2026 | La Primera Conferencia de Estudiantes Puertorriqueños del Noreste",
+        estamosAquiDesc: "26 universidades—Harvard, MIT, Johns Hopkins, Cornell, Syracuse y más—uniéndose para abordar las realidades que enfrentan los jóvenes puertorriqueños. Esta conferencia es sobre nuestro futuro: la posición político-cultural de nuestra comunidad, unir la diáspora y la isla, las responsabilidades de quienes están en la educación superior, y abordar la justicia ambiental y sostenibilidad. Construcción de coaliciones, intercambio académico y colaboración a largo plazo entre campus.",
+        estamosAquiNote: "La primera conferencia de su tipo en una generación. Historia en proceso. 🇵🇷",
     }
 };
