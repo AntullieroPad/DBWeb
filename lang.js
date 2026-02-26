@@ -456,26 +456,6 @@ const translations = {
 
 
 
-        // Newsletter Showcase Section
-        newsletterBadge: "EL BOLETÍN",
-        newsletterShowcaseTitle: "Read Our Newsletter!",
-        newsletterShowcaseSubtitle: "The Despierta Boricua Railway Gazette",
-        newsletterShowcaseDesc: "Catch up on all our latest events, community stories, and cultural celebrations. Published every month and a half, El Boletín is your ticket to stay connected with the DB family.",
-        newsletterFeature1: "Event Recaps & Photos",
-        newsletterFeature2: "Community Spotlights",
-        newsletterFeature3: "Upcoming Events",
-        newsletterFeature4: "Archive Access",
-        latestEditionBadge: "✨ LATEST EDITION",
-        latestEditionTitle: "Volume 3 – February 2026",
-        latestEditionDate: "Published February 2026",
-        insideEditionTitle: "Inside This Edition:",
-        editionHighlight1: "🏆 Bad Bunny Grammy Win & \"ICE Out\"",
-        editionHighlight2: "🥊 Xander Zayas Boxing History",
-        editionHighlight3: "🐰 Benito Bowl — 400+ Attendees",
-        editionHighlight4: "🏛️ Estamos Aquí Conference (26 Universities)",
-        editionHighlight5: "🎉 Calle Corona Block Party",
-        editionHighlight6: "💛 Yale SOAR Fundraising Campaign",
-        exploreArchiveBtn: "Explore Newsletter Archive",
 
 // Spring 2026 Events - Temporary
         spring2026EventsTitle: "Spring 2026 Events",
@@ -964,27 +944,6 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
 
         attendBtn: "Asistir a un Evento",
         shareBtn: "Comparte Tu Historia",
-
-        // Newsletter Showcase Section
-        newsletterBadge: "EL BOLETÍN",
-        newsletterShowcaseTitle: "¡Lee Nuestro Boletín!",
-        newsletterShowcaseSubtitle: "La Gaceta Ferroviaria de Despierta Boricua",
-        newsletterShowcaseDesc: "Ponte al día con todos nuestros eventos, historias comunitarias y celebraciones culturales. Publicado cada mes y medio, El Boletín es tu boleto para mantenerte conectado con la familia DB.",
-        newsletterFeature1: "Resúmenes de Eventos y Fotos",
-        newsletterFeature2: "Destacados de la Comunidad",
-        newsletterFeature3: "Próximos Eventos",
-        newsletterFeature4: "Acceso al Archivo",
-        latestEditionBadge: "✨ ÚLTIMA EDICIÓN",
-        latestEditionTitle: "Volumen 3 – Febrero 2026",
-        latestEditionDate: "Publicado en Febrero 2026",
-        insideEditionTitle: "En Esta Edición:",
-        editionHighlight1: "🏆 Bad Bunny Gana Grammy y \"ICE Out\"",
-        editionHighlight2: "🥊 Xander Zayas Hace Historia en el Boxeo",
-        editionHighlight3: "🐰 Benito Bowl — Más de 400 Asistentes",
-        editionHighlight4: "🏛️ Conferencia Estamos Aquí (26 Universidades)",
-        editionHighlight5: "🎉 Fiesta de Calle Corona",
-        editionHighlight6: "💛 Campaña de Recaudación Yale SOAR",
-        exploreArchiveBtn: "Explorar Archivo de Boletines",
 
 // Spring 2026 Events
         spring2026EventsTitle: "Eventos de Primavera 2026",
