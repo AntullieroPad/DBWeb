@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Boletín — Post-Calle Corona | Despierta Boricua at Yale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Pacifico&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; background: linear-gradient(135deg, #E8DCC4 0%, #D4C5A9 100%); color: #2B2D42; line-height: 1.6; }
+        .container { max-width: 850px; margin: 0 auto; background: #FFF8E7; box-shadow: 0 0 50px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+
+        /* RAILROAD TRACKS */
+        .railroad-track-left, .railroad-track-right { position: absolute; width: 8px; background: linear-gradient(180deg, #6B4423 0%, #8B5A2B 50%, #6B4423 100%); top: 0; bottom: 0; z-index: 1; box-shadow: 0 0 15px rgba(107,68,35,0.4); }
+        .railroad-track-left { left: 60px; }
+        .railroad-track-right { right: 60px; }
+        .railroad-track-left::before, .railroad-track-right::before { content: ''; position: absolute; width: 150%; height: 100%; background-image: repeating-linear-gradient(0deg, transparent, transparent 45px, #4A3219 45px, #4A3219 55px, transparent 55px, transparent 100px); left: -25%; top: 0; }
+
+        /* Vines */
+        .vine-left, .vine-right { position: absolute; width: 50px; top: 0; bottom: 0; z-index: 2; pointer-events: none; }
+        .vine-left { left: 35px; background: linear-gradient(180deg, transparent 0%, rgba(45,106,79,0.35) 8%, transparent 16%, rgba(64,145,108,0.45) 24%, transparent 32%, rgba(45,106,79,0.35) 40%, transparent 48%, rgba(64,145,108,0.45) 56%, transparent 64%, rgba(45,106,79,0.35) 72%, transparent 80%, rgba(64,145,108,0.45) 88%, transparent 96%); }
+        .vine-right { right: 35px; background: linear-gradient(180deg, transparent 0%, rgba(64,145,108,0.45) 12%, transparent 20%, rgba(45,106,79,0.35) 28%, transparent 36%, rgba(64,145,108,0.45) 44%, transparent 52%, rgba(45,106,79,0.35) 60%, transparent 68%, rgba(64,145,108,0.45) 76%, transparent 84%, rgba(45,106,79,0.35) 92%, transparent 100%); }
+
+        /* Flowers */
+        .flower-accent { position: absolute; font-size: 1.8em; z-index: 3; animation: sway 4s ease-in-out infinite; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2)); }
+        @keyframes sway { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+        .flower-accent:nth-child(1) { left: 45px; top: 4%; }
+        .flower-accent:nth-child(2) { right: 45px; top: 9%; animation-delay: 0.5s; }
+        .flower-accent:nth-child(3) { left: 50px; top: 16%; animation-delay: 1s; }
+        .flower-accent:nth-child(4) { right: 50px; top: 23%; animation-delay: 1.5s; }
+        .flower-accent:nth-child(5) { left: 48px; top: 30%; animation-delay: 2s; }
+        .flower-accent:nth-child(6) { right: 48px; top: 37%; animation-delay: 2.5s; }
+        .flower-accent:nth-child(7) { left: 45px; top: 44%; animation-delay: 0.3s; }
+        .flower-accent:nth-child(8) { right: 45px; top: 51%; animation-delay: 0.8s; }
+        .flower-accent:nth-child(9) { left: 50px; top: 58%; animation-delay: 1.3s; }
+        .flower-accent:nth-child(10) { right: 50px; top: 65%; animation-delay: 1.8s; }
+        .flower-accent:nth-child(11) { left: 48px; top: 72%; animation-delay: 2.3s; }
+        .flower-accent:nth-child(12) { right: 48px; top: 79%; animation-delay: 0.6s; }
+        .flower-accent:nth-child(13) { left: 45px; top: 86%; animation-delay: 1.1s; }
+        .flower-accent:nth-child(14) { right: 45px; top: 93%; animation-delay: 1.9s; }
+
+        .content-wrapper { position: relative; z-index: 4; padding: 0 90px; }
+
+        /* HEADER */
+        .railroad-header { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #1B1B1B 100%); border-top: 12px solid #D4A574; border-bottom: 12px solid #2D6A4F; padding: 50px 40px; text-align: center; position: relative; overflow: hidden; box-shadow: inset 0 0 50px rgba(0,0,0,0.5); }
+        .railroad-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 20% 30%, rgba(241,168,150,0.15) 0%, transparent 40%), radial-gradient(circle at 80% 60%, rgba(168,218,220,0.15) 0%, transparent 40%), radial-gradient(circle at 40% 80%, rgba(45,106,79,0.2) 0%, transparent 40%); opacity: 0.6; }
+
+        .railroad-company-logo { background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 4px solid #D4A574; padding: 20px 30px; display: inline-block; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); position: relative; }
+        .railroad-company-logo::before, .railroad-company-logo::after { content: '🌿'; position: absolute; font-size: 1.5em; filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.3)); }
+        .railroad-company-logo::before { top: -10px; left: -10px; transform: rotate(-45deg); }
+        .railroad-company-logo::after { top: -10px; right: -10px; transform: rotate(45deg); }
+        .company-name { font-family: 'Courier Prime', monospace; font-size: 0.9em; font-weight: 700; color: #6B4423; letter-spacing: 3px; margin-bottom: 5px; text-transform: uppercase; }
+        .established { font-family: 'Courier Prime', monospace; font-size: 0.7em; color: #2D6A4F; letter-spacing: 2px; }
+
+        .main-title { font-family: 'Poppins', sans-serif; font-size: 4em; font-weight: 800; color: #D4A574; margin: 25px 0; text-shadow: 3px 3px 0px rgba(0,0,0,0.3), 0 0 30px rgba(45,106,79,0.3); letter-spacing: 12px; position: relative; z-index: 2; }
+
+        .edition-badge { background: linear-gradient(135deg, #E63946 0%, #C5303E 100%); color: #FFF8E7; padding: 8px 25px; display: inline-block; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1em; letter-spacing: 3px; margin-bottom: 15px; border: 3px solid #FFD60A; box-shadow: 0 4px 15px rgba(230,57,70,0.4); animation: pulse-glow 3s ease-in-out infinite; }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 4px 15px rgba(230,57,70,0.4); } 50% { box-shadow: 0 4px 25px rgba(230,57,70,0.7), 0 0 40px rgba(255,214,10,0.3); } }
+
+        .subtitle-box { background: linear-gradient(135deg, #2D6A4F 0%, #40916C 100%); padding: 15px 30px; display: inline-block; color: #FFF8E7; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.1em; box-shadow: 0 4px 10px rgba(45,106,79,0.4); margin: 15px 0; border: 3px solid #D4A574; }
+
+        .route-info { font-family: 'Courier Prime', monospace; color: #A8DADC; font-size: 1em; margin-top: 20px; letter-spacing: 2px; line-height: 2; }
+        .route-info strong { color: #F1A896; }
+
+        .train-icon { font-size: 3em; margin: 15px 0; animation: train-cross 10s linear infinite; filter: drop-shadow(0 0 20px rgba(45,106,79,0.5)); }
+        @keyframes train-cross { 0% { transform: translateX(120%); opacity: 0; } 1%, 49% { opacity: 1; } 50% { transform: translateX(0); opacity: 1; } 99% { opacity: 1; } 100% { transform: translateX(-120%); opacity: 0; } }
+
+        /* Station Platforms */
+        .station-platform { background: linear-gradient(135deg, #6B4423 0%, #4A3219 100%); color: #FFF8E7; padding: 25px 35px; margin: 50px 0 30px 0; position: relative; border-left: 8px solid #2D6A4F; border-right: 8px solid #2D6A4F; box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .station-platform::before { content: '🌺'; position: absolute; left: -25px; top: 50%; transform: translateY(-50%); font-size: 2.5em; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); animation: sway 3s ease-in-out infinite; }
+        .station-platform::after { content: '🌸'; position: absolute; right: -25px; top: 50%; transform: translateY(-50%); font-size: 2.5em; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); animation: sway 3s ease-in-out infinite 1.5s; }
+        .platform-number { font-family: 'Courier Prime', monospace; font-size: 0.9em; letter-spacing: 3px; opacity: 0.8; margin-bottom: 5px; }
+        .platform-name { font-family: 'Poppins', sans-serif; font-size: 2em; font-weight: 800; letter-spacing: 3px; }
+
+        .content { padding: 40px 0; }
+        .section { margin-bottom: 60px; }
+
+        /* Quote boxes */
+        .quote-box { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); padding: 30px; margin: 30px 0; text-align: center; color: #FFF8E7; font-size: 1.2em; font-weight: 600; font-style: italic; border: 4px solid #D4A574; position: relative; }
+        .quote-box::before { content: '\201C'; position: absolute; top: -20px; left: 20px; font-size: 4em; color: #D4A574; font-family: Georgia, serif; line-height: 1; }
+        .quote-box .attribution { font-size: 0.75em; margin-top: 15px; font-style: normal; color: #A8DADC; letter-spacing: 2px; }
+
+        /* Hero announcement panel */
+        .hero-panel { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%); padding: 50px 40px; text-align: center; color: #FFF8E7; border: 6px double #D4A574; margin: 40px 0; position: relative; overflow: hidden; }
+        .hero-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 50%, rgba(255,214,10,0.08) 0%, transparent 60%), radial-gradient(circle at 70% 40%, rgba(241,168,150,0.1) 0%, transparent 60%); pointer-events: none; }
+        .hero-panel .label { font-family: 'Courier Prime', monospace; font-size: 0.9em; letter-spacing: 3px; color: #F1A896; margin-bottom: 10px; }
+        .hero-panel h2 { font-family: 'Poppins', sans-serif; font-size: 2.6em; font-weight: 800; color: #FFD60A; letter-spacing: 4px; margin: 15px 0; text-shadow: 2px 2px 0 rgba(0,0,0,0.4); position: relative; z-index: 2; }
+        .hero-panel .tagline { font-family: 'Pacifico', cursive; font-size: 1.3em; color: #F1A896; margin-bottom: 20px; }
+        .hero-panel .divider { height: 3px; background: linear-gradient(90deg, transparent, #D4A574, transparent); max-width: 300px; margin: 20px auto; }
+        .hero-panel p { font-size: 1.05em; line-height: 1.9; margin: 15px 0; position: relative; z-index: 2; }
+
+        /* Pillar cards */
+        .pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .pillar-card { background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 3px solid #6B4423; border-top: 8px solid #2D6A4F; padding: 25px 22px; position: relative; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .pillar-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(45,106,79,0.25); }
+        .pillar-card.red { border-top-color: #E63946; }
+        .pillar-card.gold { border-top-color: #D4A574; }
+        .pillar-card.navy { border-top-color: #1B3A5C; }
+        .pillar-number { font-family: 'Courier Prime', monospace; font-size: 0.75em; letter-spacing: 2px; color: #2D6A4F; margin-bottom: 8px; text-transform: uppercase; }
+        .pillar-number.red { color: #E63946; }
+        .pillar-number.gold { color: #B8860B; }
+        .pillar-number.navy { color: #1B3A5C; }
+        .pillar-title { font-family: 'Poppins', sans-serif; font-size: 1.3em; font-weight: 800; color: #2B2D42; margin-bottom: 12px; }
+        .pillar-card p { font-size: 0.92em; line-height: 1.75; color: #3A3A3A; }
+
+        /* Train tickets */
+        .train-ticket { background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 4px solid #6B4423; border-left: 20px solid #D4A574; padding: 30px; position: relative; box-shadow: 0 6px 15px rgba(45,106,79,0.2); transition: all 0.3s ease; margin-bottom: 30px; }
+        .train-ticket:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(45,106,79,0.3); }
+        .train-ticket::before { content: ''; position: absolute; left: -25px; top: 0; bottom: 0; width: 20px; background: repeating-linear-gradient(0deg, transparent, transparent 10px, #2D6A4F 10px, #2D6A4F 15px); }
+        .train-ticket.red { border-left-color: #E63946; }
+        .train-ticket.red::before { background: repeating-linear-gradient(0deg, transparent, transparent 10px, #E63946 10px, #E63946 15px); }
+        .train-ticket.navy { border-left-color: #1B3A5C; }
+        .train-ticket.navy::before { background: repeating-linear-gradient(0deg, transparent, transparent 10px, #1B3A5C 10px, #1B3A5C 15px); }
+        .ticket-route { font-family: 'Courier Prime', monospace; font-size: 0.8em; color: #2D6A4F; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+        .ticket-route.red { color: #E63946; }
+        .ticket-route.navy { color: #1B3A5C; }
+        .ticket-name { font-family: 'Poppins', sans-serif; font-size: 1.5em; font-weight: 700; color: #2B2B2B; margin: 8px 0; }
+        .ticket-divider { border: none; border-top: 2px dashed #D4A574; margin: 18px 0; }
+
+        /* Tribute / person cards */
+        .tribute-card { background: linear-gradient(135deg, #FFF8E7 0%, #F5E6D3 100%); border: 4px solid #6B4423; border-left: 20px solid #2D6A4F; padding: 30px; margin-bottom: 30px; position: relative; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .tribute-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(45,106,79,0.25); }
+        .tribute-card::before { content: ''; position: absolute; left: -25px; top: 0; bottom: 0; width: 20px; background: repeating-linear-gradient(0deg, transparent, transparent 10px, #2D6A4F 10px, #2D6A4F 15px); }
+        .tribute-card.gold-left { border-left-color: #D4A574; }
+        .tribute-card.gold-left::before { background: repeating-linear-gradient(0deg, transparent, transparent 10px, #B8860B 10px, #B8860B 15px); }
+        .tribute-card-label { font-family: 'Courier Prime', monospace; font-size: 0.75em; letter-spacing: 2px; color: #2D6A4F; margin-bottom: 8px; text-transform: uppercase; }
+        .tribute-card-label.gold { color: #B8860B; }
+        .tribute-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.5em; font-weight: 700; color: #2B2D42; margin-bottom: 15px; }
+        .tribute-card-footer { border-top: 2px dashed #D4A574; padding-top: 15px; margin-top: 20px; color: #2D6A4F; font-weight: 700; font-size: 0.9em; font-family: 'Courier Prime', monospace; }
+
+        /* Railway manifest (dark panels) */
+        .railway-manifest { background: linear-gradient(135deg, #2B2B2B 0%, #1B4332 100%); color: #FFF8E7; padding: 30px; border: 6px double #D4A574; font-family: 'Courier Prime', monospace; margin: 40px 0; box-shadow: 0 6px 20px rgba(0,0,0,0.4); position: relative; }
+        .railway-manifest::before { content: '🌿'; position: absolute; top: -40px; left: 50%; transform: translateX(-50%); font-size: 2em; background: #2D6A4F; padding: 8px 15px; border-radius: 20px; border: 3px solid #D4A574; z-index: 10; }
+        .railway-manifest.archive::before { content: '📜'; }
+        .railway-manifest.transition::before { content: '🌺'; }
+        .railway-manifest.conference::before { content: '✊🏽'; }
+        .manifest-header { text-align: center; font-size: 1.2em; letter-spacing: 4px; border-bottom: 3px solid #D4A574; padding-bottom: 15px; margin-bottom: 20px; color: #FFD60A; }
+        .manifest-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(212,165,116,0.4); gap: 15px; }
+        .manifest-item:last-child { border-bottom: none; }
+        .manifest-item-label { font-weight: 700; flex: 1; color: #FFF8E7; }
+        .manifest-item-detail { font-size: 0.85em; color: #A8DADC; text-align: right; flex-shrink: 0; }
+        .manifest-item-body { font-size: 0.9em; color: #D4C8B8; margin-top: 5px; font-weight: 400; line-height: 1.7; }
+
+        /* Green banner */
+        .green-banner { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); color: #FFF8E7; padding: 25px 30px; text-align: center; font-family: 'Poppins', sans-serif; font-size: 1.1em; font-weight: 600; margin: 30px 0; border: 3px solid #D4A574; }
+
+        /* Phase indicator */
+        .phase-strip { display: flex; gap: 0; margin: 30px 0; }
+        .phase-block { flex: 1; padding: 18px 10px; text-align: center; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.9em; letter-spacing: 1px; }
+        .phase-block.done { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); color: #FFD60A; border: 3px solid #D4A574; }
+        .phase-block.next { background: linear-gradient(135deg, #E63946 0%, #C5303E 100%); color: #FFF8E7; border: 3px solid #FFD60A; animation: pulse-glow 3s ease-in-out infinite; }
+        .phase-block.future { background: linear-gradient(135deg, #2B2B2B 0%, #1B1B1B 100%); color: #A8DADC; border: 3px solid #555; }
+        .phase-label { font-size: 0.7em; letter-spacing: 2px; opacity: 0.85; display: block; margin-bottom: 4px; }
+        .phase-name { font-size: 1em; }
+
+        /* CTA button */
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #E63946 0%, #C5303E 100%); color: #FFF8E7; padding: 14px 35px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1em; letter-spacing: 2px; text-decoration: none; border: 3px solid #FFD60A; box-shadow: 0 4px 15px rgba(230,57,70,0.4); transition: all 0.3s ease; margin: 10px 5px; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(230,57,70,0.5); }
+        .cta-button.green { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); border-color: #D4A574; box-shadow: 0 4px 15px rgba(45,106,79,0.4); }
+        .cta-center { text-align: center; margin: 30px 0; }
+
+        /* Connect grid */
+        .connect-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 30px 0; }
+        .connect-card { background: linear-gradient(135deg, #2B2B2B 0%, #1B1B1B 100%); color: #FFF8E7; padding: 20px 15px; text-align: center; text-decoration: none; border: 3px solid #D4A574; font-family: 'Courier Prime', monospace; transition: all 0.3s ease; display: block; }
+        .connect-card:hover { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(45,106,79,0.4); }
+        .connect-card .connect-icon { font-size: 1.8em; margin-bottom: 8px; }
+        .connect-card .connect-name { font-size: 0.75em; letter-spacing: 2px; color: #FFD60A; margin-bottom: 5px; }
+        .connect-card .connect-handle { font-size: 0.8em; color: #A8DADC; }
+
+        /* Flyer frame */
+        .flyer-frame { margin: 30px 0; text-align: center; }
+        .flyer-caption { font-family: 'Courier Prime', monospace; font-size: 0.8em; color: #6B4423; margin-top: 10px; font-style: italic; }
+
+        /* Typography helpers */
+        .drop-cap::first-letter { font-size: 4.5em; font-weight: 800; float: left; line-height: 0.8; margin: 10px 15px 0 0; color: #2D6A4F; font-family: 'Poppins', sans-serif; text-shadow: 2px 2px 0px #D4A574; }
+        .emphasis-text { font-family: 'Pacifico', cursive; font-size: 1.4em; color: #E63946; margin: 20px 0; }
+        .body-text { font-size: 1.05em; line-height: 1.85; margin: 18px 0; color: #2B2D42; }
+        .signature { text-align: right; font-style: italic; color: #666; margin: 25px 0; font-size: 0.95em; }
+
+        /* Footer */
+        .train-depot-footer { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #1B1B1B 100%); border-top: 12px solid #D4A574; color: #FFF8E7; padding: 60px 40px; text-align: center; position: relative; }
+        .train-depot-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 20%, rgba(241,168,150,0.15) 0%, transparent 50%); pointer-events: none; }
+        .depot-quote { font-family: 'Pacifico', cursive; font-size: 2.2em; color: #F1A896; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); position: relative; z-index: 2; }
+        .depot-message {
+            /* existing styles... */
+            max-width: 600px;
+            margin: 20px auto;
+        }        .final-destination { font-family: 'Courier Prime', monospace; font-size: 1.2em; color: #FFD60A; letter-spacing: 3px; margin: 30px 0; padding: 20px; border: 3px dashed #2D6A4F; position: relative; z-index: 2; }
+        .footer-links { margin: 30px 0; position: relative; z-index: 2; }
+        .footer-links a { color: #A8DADC; text-decoration: none; margin: 0 15px; font-size: 0.95em; transition: color 0.2s ease; }
+        .footer-links a:hover { color: #FFD60A; }
+        .wepa { font-family: 'Poppins', sans-serif; font-size: 3em; font-weight: 800; color: #FFD60A; margin: 30px 0; text-shadow: 3px 3px 0 rgba(0,0,0,0.3); position: relative; z-index: 2; }
+        .footer-railroad-id { font-family: 'Courier Prime', monospace; font-size: 0.8em; letter-spacing: 2px; color: #A8DADC; line-height: 2; position: relative; z-index: 2; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .railroad-track-left { left: 20px; }
+            .railroad-track-right { right: 20px; }
+            .vine-left { left: 10px; }
+            .vine-right { right: 10px; }
+            .content-wrapper { padding: 0 50px; }
+            .main-title { font-size: 2.5em; letter-spacing: 6px; }
+            .platform-name { font-size: 1.5em; }
+            .flower-accent { display: none; }
+            .pillar-grid { grid-template-columns: 1fr; }
+            .connect-grid { grid-template-columns: 1fr 1fr; }
+            .phase-strip { flex-direction: column; }
+            .station-platform::before, .station-platform::after { display: none; }
+        }
+        @media (max-width: 500px) {
+            .content-wrapper { padding: 0 30px; }
+            .railroad-header { padding: 35px 20px; }
+            .main-title { font-size: 2em; letter-spacing: 4px; }
+            .connect-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Railroad tracks -->
+    <div class="railroad-track-left"></div>
+    <div class="railroad-track-right"></div>
+    <div class="vine-left"></div>
+    <div class="vine-right"></div>
+
+    <!-- Flowers -->
+    <div class="flower-accent">🌺</div>
+    <div class="flower-accent">🌸</div>
+    <div class="flower-accent">🌺</div>
+    <div class="flower-accent">🌿</div>
+    <div class="flower-accent">🌸</div>
+    <div class="flower-accent">🌺</div>
+    <div class="flower-accent">🌿</div>
+    <div class="flower-accent">🌸</div>
+    <div class="flower-accent">🌺</div>
+    <div class="flower-accent">🌿</div>
+    <div class="flower-accent">🌸</div>
+    <div class="flower-accent">🌺</div>
+    <div class="flower-accent">🌿</div>
+    <div class="flower-accent">🌸</div>
+
+    <div class="content-wrapper">
+
+        <!-- HEADER -->
+        <div class="railroad-header">
+            <div class="railroad-company-logo">
+                <div class="company-name">Puerto Rico Railroad &amp; Transport Co.</div>
+                <div class="established">EST. 1891 — DESPIERTA BORICUA LINE — SPRING 2026</div>
+            </div>
+            <div class="train-icon">🚂</div>
+            <div class="edition-badge"> EDICIÓN — POST-CALLE CORONA </div>
+            <h1 class="main-title">EL BOLETÍN</h1>
+            <div class="subtitle-box">The Railway Gazette — La Voz de Despierta Boricua</div>
+            <div class="route-info">
+                <strong>RUTA:</strong> Calle Corona → El Futuro → La Isla y Más Allá<br>
+                <strong>FECHA:</strong> Mayo 2026 &nbsp;|&nbsp; <strong>DESTINO:</strong> Pa'lante, Siempre Pa'lante
+            </div>
+        </div>
+
+        <div class="content">
+
+            <!-- ═══ ANDÉN 1: OPENING ═══ -->
+            <div class="station-platform">
+                <div class="platform-number">ANDÉN NO. 1</div>
+                <div class="platform-name">GRACIAS — DE VERDAD</div>
+            </div>
+
+            <div class="section">
+                <p class="body-text drop-cap">Thank you.</p>
+
+                <p class="body-text">Thank you all for this amazing academic year for Despierta Boricua. Truly, we could not have done this without you.</p>
+
+                <p class="body-text">We wouldn't have been able to do even a fraction of what we've accomplished without your support. It means the world to us that you spread the word, showed up, helped set up, funded, or coordinated logistics with us. Every text message, every share, every body that arrived on Crown Street — it was felt.</p>
+
+                <p class="body-text">This edition of El Boletín is our full report back. What we built, what it meant, what comes next, and what we need to tell you before this chapter officially closes.</p>
+
+                <p class="body-text">Read on. There is a lot to celebrate — and a few things that need to be said.</p>
+
+            </div>
+
+            <!-- ═══ ANDÉN 2: FIESTA DE CALLE CORONA ═══ -->
+            <div class="station-platform">
+                <div class="platform-number">ANDÉN NO. 2</div>
+                <div class="platform-name">FIESTA DE CALLE CORONA — LO QUE LOGRAMOS</div>
+            </div>
+
+            <div class="section">
+
+                <p class="body-text">While Calle Corona was marketed to Yale as a celebration, it did a lot more than just that.</p>
+
+                <p class="body-text">We set down foundations in New Haven. We brought local businesses, community service providers, activists, cultural centers, and organizations into one place — and we got to connect with every single one of them. We now know who to turn to for support, who to connect for specific projects, and how to reach each other in the future. <strong>These connections mean more than anything.</strong></p>
+
+                <div class="flyer-frame">
+                    <img src="./Fiesta De Calle Corona Block Party/2.png" alt="Thank you to all involved in Fiesta de Calle Corona" style="width:100%; display:block; border: 4px solid #D4A574; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+                    <p class="flyer-caption">Gracias a todos los que hicieron posible la Fiesta de Calle Corona — nuestros vendors, performers, y comunidad 🇵🇷</p>
+                </div>
+
+                <p class="body-text">We did this because many Latinos have been living in fear. We live in a volatile, hostile political climate that antagonizes our community. Many have ducked under and hid. Our stance is firm: we do not back down when presented with a fight. We are here to represent and to take space. This festival was a declaration of solidarity — to Yale, to New Haven, and to ourselves.</p>
+
+                <div class="quote-box">
+                    "We represent a movement that happens to be at the university — not limited by it, and not originating from it. We exist because of the liberation movements that came before us. We exist to fight colonial conditions. We exist to improve the lives of Puerto Ricans here in New Haven and on the island."
+                    <div class="attribution">— DESPIERTA BORICUA</div>
+                </div>
+
+                <!-- MEChA Statement note -->
+                <div class="train-ticket navy">
+                    <div class="ticket-route navy">SOLIDARITY — DECLARACIÓN CONJUNTA</div>
+                    <div class="ticket-name">DB &amp; MEChA de Yale: Joint Statement on Immigration</div>
+                    <hr class="ticket-divider">
+                    <p class="body-text" style="margin:0;">This festival was also an act of solidarity with every Latino community under threat right now — not only Puerto Ricans. Together with MEChA de Yale, we issued a joint statement on immigration and the current political climate. We do not back down, and we do not stand alone. The full statement is available on our website and will be updated as our joint work continues.</p>
+                    <div style="margin-top:15px;">
+                        <a class="cta-button green" href="https://despiertaboricua-yale.org/" target="_blank">📄 READ THE FULL STATEMENT</a>
+                    </div>
+                </div>
+
+                <p class="body-text">Not only was this event a success, there were demands to do it again. We will need to financially recoup, but we now know what it takes.
+                    We will document every step so that the next DB leadership never starts from scratch and so that we inspire the Latino community at large to band together and take their own space.
+                    <strong>We set the precedent. We always have. We always will.</strong></p>
+
+
+                <!-- CENTRO -->
+                <div class="train-ticket">
+                    <div class="ticket-route">NEW PARTNERSHIP ✨</div>
+                    <div class="ticket-name">CENTRO — Centro de Estudios Puertorriqueños</div>
+                    <hr class="ticket-divider">
+                    <p class="body-text" style="margin:0;">As a result of the festival, we got the attention of <strong>CENTRO at Hunter College</strong>, the premier research institution for Puerto Rican Studies. Their newly appointed youth representative tabled at our event. We got to befriend her, update her about who we are, and were gifted resources and an enthusiasm to work with us as an institution. In return, we introduced them to our <strong>Northeastern Alliance (NEA)</strong> — the intercollegiate network of 20+ Puerto Rican student groups across northeastern universities. We have big plans together. See below.</p>
+                </div>
+
+            </div>
+
+            <!-- ═══ ANDÉN 3: CONFERENCE ═══ -->
+            <div class="station-platform">
+                <div class="platform-number">ANDÉN NO. 3</div>
+                <div class="platform-name">PHASE TWO — ESTAMOS AQUÍ</div>
+            </div>
+
+            <div class="section">
+
+                <div class="phase-strip">
+                    <div class="phase-block done">
+                        <span class="phase-label">✅ PHASE ONE</span>
+                        <span class="phase-name">Fiesta de Calle Corona</span>
+                    </div>
+                    <div class="phase-block next">
+                        <span class="phase-label">🔥 PHASE TWO</span>
+                        <span class="phase-name">The Futurity Conference</span>
+                    </div>
+                    <div class="phase-block future">
+                        <span class="phase-label">🔒 PHASE THREE</span>
+                        <span class="phase-name">Coming Soon...</span>
+                    </div>
+                </div>
+
+                <p class="body-text">The festival is just Phase One out of three. We are building something new and, to our knowledge, unseen — something that should have existed long before now. We are proud to present the next chapter for DB and the Northeastern Alliance (NEA):</p>
+
+                <div class="hero-panel">
+                    <div class="label">📣 ANNOUNCING</div>
+                    <h2>ESTAMOS AQUÍ</h2>
+                    <div class="tagline">In the Halls of Power</div>
+                    <div class="divider"></div>
+                    <p>The Puerto Rican Futurity Conference — in partnership with CENTRO</p>
+                    <p style="font-size:0.9em; color: #A8DADC;">A serious, sustained space for Puerto Rican students across the Northeast to turn access into power.</p>
+                </div>
+
+                <p class="body-text">This conference is not a cultural celebration and not a traditional activist summit. It is a space designed for Puerto Rican students at universities across the Northeast to grapple with the questions most conferences never ask directly. Four pillars will anchor the work:</p>
+
+                <div class="pillar-grid">
+
+                    <div class="pillar-card">
+                        <div class="pillar-number">PILAR I</div>
+                        <div class="pillar-title">🪞 Identity</div>
+                        <p>Puerto Rican identity has always been tied to struggle — shaped by colonial conditions, by the jíbaro, by the diaspora, by la brega. As more Puerto Ricans enter elite institutions, that identity is being renegotiated. The conference will work to expand who gets included in the Puerto Rican project — across island and diaspora, class, and generation — without demanding that people perform suffering to prove belonging. Success does not make you less Puerto Rican. We need everyone.</p>
+                    </div>
+
+                    <div class="pillar-card red">
+                        <div class="pillar-number red">PILAR II</div>
+                        <div class="pillar-title">⚖️ Positionality</div>
+                        <p>Many of us in higher education carry a real tension between pride, guilt, and uncertainty about what to do with the access we've been given. This conference doesn't shame that tension — but it doesn't let it end at self-reflection either. We are inside institutions where most Puerto Ricans never set foot. That places obligations on us: to build pipelines, to mentor, to carry institutional memory forward, and to make what feels exceptional today feel ordinary for the next generation.</p>
+                    </div>
+
+                    <div class="pillar-card gold">
+                        <div class="pillar-number gold">PILAR III</div>
+                        <div class="pillar-title">🎓 Education</div>
+                        <p>Through building the NEA, a clear pattern has emerged: most Puerto Rican students from the island attending northeastern universities come from Guaynabo, San Juan, or Caguas. This reflects a gap in visibility and infrastructure — not talent. Puerto Rico has remarkable young people across every municipality. Our position in the NEA means we can collectively build relationships with students and schools that have never had access to this kind of pipeline. This is diaspora-island solidarity made concrete.</p>
+                    </div>
+
+                    <div class="pillar-card navy">
+                        <div class="pillar-number navy">PILAR IV</div>
+                        <div class="pillar-title">🏝️ Post-Status Work</div>
+                        <p>When we surveyed NEA members, a clear pattern emerged: people are less interested in relitigating the status debate in the abstract, and more interested in the pragmatic work of building a better Puerto Rico in a post-status world. The topics people most wanted — food sovereignty, energy infrastructure, land displacement — are the real conditions shaping life on the island right now. The conference will center practitioners doing this work hands-on, and close with a structured look at what long-term planning for Puerto Rico actually requires.</p>
+                    </div>
+
+                </div>
+
+                <div class="green-banner">
+                    🤝 Developed in partnership with CENTRO — Centro de Estudios Puertorriqueños, Hunter College<br>
+                    <span style="font-size:0.85em; opacity:0.85;">More details on timeline, location, and how to get involved coming soon. Want to contribute? Reach out.</span>
+                </div>
+
+                <div class="cta-center">
+                    <a class="cta-button" href="mailto:despiertaboricua@yale.edu" target="_blank">✊🏽 GET INVOLVED — CONTACT US</a>
+                </div>
+
+            </div>
+
+            <!-- ═══ ANDÉN 4: AMANDA CAFECITO ═══ -->
+            <div class="station-platform">
+                <div class="platform-number">ANDÉN NO. 4</div>
+                <div class="platform-name">AMANDA RIVERA — CAFECITO DE DESPEDIDA</div>
+            </div>
+
+            <div class="section">
+
+                <p class="body-text">We have said this before and we cannot stress it enough: <strong>Amanda Rivera</strong> has played a central part in DB's revitalization. Her work on the history of Puerto Ricans in Connecticut — including Despierta Boricua itself — has enlightened us about our past and expanded our sense of what is possible, because we now have real examples to draw from. She has been with us throughout her time as a PhD student.</p>
+
+                <p class="body-text">We cannot say this enough: we are extremely grateful and proud of her. We wish her all the best in the next chapter of her life.</p>
+
+                <div class="tribute-card gold-left">
+                    <div class="tribute-card-label gold">EVENTO FINAL DEL AÑO</div>
+                    <h3>☕ Amanda Rivera's Cafecito</h3>
+                    <p class="body-text" style="margin:0 0 12px 0;">We are proud to announce that we will host one last Cafecito, dedicated entirely to Amanda. There will be food, community, and lots of learning from our one and only. This is our final event of the year — and it will be a celebration worthy of everything she has given us.</p>
+                    <div class="tribute-card-footer">📅 This Wednesday, April 29th, 2026, 3-5pm</div>
+                </div>
+
+                <div class="flyer-frame">
+                    <div style="background: linear-gradient(135deg, #2D6A4F, #1B4332); border: 4px solid #D4A574; padding: 40px; text-align: center; color: #FFF8E7;">
+                        <div style="font-family: 'Poppins', sans-serif; font-size: 1.4em; font-weight: 700; color: #FFD60A;">Amanda Rivera</div>
+                        <div style="font-family: 'Pacifico', cursive; font-size: 1em; color: #A8DADC; margin-top: 8px;">PhD Candidate — La Historiadora de DB</div>
+                    </div>
+                    <img src="./AmandaRivera.jpg" alt="Amanda Rivera" style="width:50%; display:block; margin: 0 auto; border: 4px solid #D4A574; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+                    <p class="flyer-caption">Amanda Rivera — PhD Candidate, La Historiadora de DB</p>
+                </div>
+
+                <!-- Archives subsection -->
+                <div class="railway-manifest archive" style="margin-top: 50px;">
+                    <div class="manifest-header">📜 ARCHIVOS — CONTINUANDO SU TRABAJO</div>
+
+                    <div class="manifest-item">
+                        <div>
+                            <div class="manifest-item-label">Developing Our Archives</div>
+                            <div class="manifest-item-body">To continue Amanda's work, we will be building our archives forward — and we will be reaching out to alumni and community members to share memories from specific periods of DB's history.</div>
+                        </div>
+                    </div>
+
+                    <div class="manifest-item">
+                        <div>
+                            <div class="manifest-item-label">Archiving with CENTRO</div>
+                            <div class="manifest-item-body">We are partnering with CENTRO, who practices more ethical forms of community archiving. With Yale, we would be required to surrender our rights to our materials — though they would remain accessible to anyone who requests them — in exchange for their care. CENTRO offers us a path that keeps ownership within the community where it belongs.</div>
+                        </div>
+                    </div>
+
+                    <div class="manifest-item">
+                        <div>
+                            <div class="manifest-item-label" style="color: #FFD60A;">First Probe: 2018–2022!</div>
+                            <div class="manifest-item-body">The first period we want to examine is 2018–2022, when DB students protested for Yale to divest from Puerto Rico's debt and occupied the Office of Investment. A YCC vote was put forward in 2022. But why did the protests stop? Did Yale ever actually divest? We do not know — and we want to find out. If you have memories, documents, photos, or stories from this period, <strong style="color: #F1A896;">we want to hear from you.</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="manifest-item" style="border-bottom: none;">
+                        <div>
+                            <div class="manifest-item-label" style="color: #A8DADC;">Also — Twitter Account!</div>
+                            <div class="manifest-item-body">We want to reconnect with our Twitter account. If anyone knows who currently controls it, please reach out to us directly at despiertaboricua@yale.edu.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ═══ ANDÉN 5: BOARD TRANSITION ═══ -->
+            <div class="station-platform">
+                <div class="platform-number">ANDÉN NO. 5</div>
+                <div class="platform-name">UN NUEVO CAPÍTULO — LA JUNTA 2026–27</div>
+            </div>
+
+            <div class="section">
+
+                <p class="body-text">Lastly, we want to announce that we are transitioning as a board. While this may feel bittersweet to some, it excites us deeply — we are eager to see the vision our next Co-Presidents will bring. We know they will do phenomenal things. We believe in them wholeheartedly.</p>
+
+                <div class="tribute-card">
+                    <div class="tribute-card-label">INCOMING CO-PRESIDENT — 2026–27</div>
+                    <h3>Sonia Rosa</h3>
+                    <img src="https://despiertaboricua-yale.org/IMG_3287 - Sonia Rosa.jpeg" alt="Sonia Rosa" style="width:50%; display:block; margin: 15px auto; border: 4px solid #D4A574; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+                    <p class="body-text" style="margin:0;">Sonia (any pronouns) is a certified Nuyorican from the Bronx, with family roots in Río Piedras, Puerto Rico. In Pierson College pursuing English and Ethnicity, Race & Migration, Sonia is a filmmaker, poet, and photographer — and a passionate voice in Yale's theater scene and publications. As DB's Alumni Relations Coordinator, she has been the bridge between current members and the generations of Bori-buddies who came before. We cannot wait to see where she takes this.</p>
+                    <div class="tribute-card-footer">📧 <a href="mailto:sonia.rosa@yale.edu" style="color:#D4A574;">sonia.rosa@yale.edu</a> &nbsp;|&nbsp; WEPAAAA! 🇵🇷</div>
+                </div>
+
+                <div class="tribute-card">
+                    <div class="tribute-card-label">INCOMING CO-PRESIDENT — 2026–27</div>
+                    <h3>Nina Feliciano-Bautista</h3>
+                    <img src="https://despiertaboricua-yale.org/Nina Feliciano-Batista.jpeg" alt="Nina Feliciano-Bautista" style="width:50%; display:block; margin: 15px auto; border: 4px solid #D4A574; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+                    <p class="body-text" style="margin:0;">From San Juan, Puerto Rico, with family in San Juan and Bayamón, Nina has been the heartbeat behind one of DB's most beloved traditions. As the former Cafecito Coordinator, she built a warm, consistent weekly space for Boricuas to gather, recharge, and find each other throughout the semester. That instinct — for community, for care, for showing up — is exactly what DB needs leading it forward.</p>
+                    <div class="tribute-card-footer">📧 <a href="mailto:nina.feliciano-bautista@yale.edu" style="color:#D4A574;">nina.feliciano-bautista@yale.edu</a> &nbsp;|&nbsp; 🌸 Bienvenida, Co-Presidenta</div>
+                </div>
+
+                <div class="quote-box" style="font-size: 1.05em;">
+                    Life in a movement works like this: the people who built it don't disappear — they become part of the story carried forward. As some chapters close, new voices and new energy step into the light. That's not loss. That's how something grows.
+                    <div class="attribution">— DESPIERTA BORICUA</div>
+                </div>
+
+                <p class="signature" style="margin-top: 40px; font-size: 1.05em;">
+                    Con cariño y orgullo,<br>
+                    <strong>Antonio Padilla &amp; Aryana Ramos-Vázquez</strong><br>
+                    <em>Sincerely, your now former Co-Presidents</em> 🇵🇷
+                </p>
+
+            </div>
+
+            <!-- ═══ ANDÉN 6: CLASS OF 2026 ═══ -->
+            <div class="station-platform">
+                <div class="platform-number">ANDÉN NO. 6</div>
+                <div class="platform-name">HASTA PRONTO — CLASS OF 2026</div>
+            </div>
+
+            <div class="section">
+
+                <p class="body-text">This year, we say <em>hasta pronto</em>, not goodbye, to the graduating Boricuas of the Class of 2026. </p>
+
+                <div class="railway-manifest transition">
+                    <div class="manifest-header">🎓 CLASE DE 2026 — HASTA PRONTO</div>
+                    <div class="manifest-item">
+                        <div class="manifest-item-label">Amanda Rivera</div>
+                    </div>
+                    <div class="manifest-item">
+                        <div class="manifest-item-label">Aryana Ramos-Vázquez</div>
+                    </div>
+                    <div class="manifest-item">
+                        <div class="manifest-item-label">Robert & Ricardo López &nbsp;👯 — nuestros gemelos favoritos</div>
+                    </div>
+                    <div class="manifest-item">
+                        <div class="manifest-item-label">Kristen St. Louis</div>
+                    </div>
+                    <div class="manifest-item" style="border-bottom: none;">
+                        <div class="manifest-item-label">Mia Cortés Castro</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ═══ ANDÉN 7: MERCH — 2026 COLLECTION ═══ -->
+            <div class="station-platform">
+                <div class="platform-number">ANDÉN NO. 7</div>
+                <div class="platform-name">NUEVA MERCH — 2026 COLLECTION</div>
+            </div>
+
+            <div class="section">
+                <p class="body-text">We have one more announcement — and this one comes straight from the hands of our very own <strong>Aryana Ramos-Vázquez</strong>.</p>
+
+                <p class="body-text">Aryana spent hours designing our newest DB shirt, and we believe it is the most vibrant design yet. <strong>Orders are now open.</strong> This is your chance to rep DB in style — don't sleep on it.</p>
+
+                <div class="flyer-frame">
+                    <img src="2026DBMerch1.png" alt="2026 Despierta Boricua shirt design — front" style="width:100%; display:block; border: 4px solid #D4A574; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+                    <p class="flyer-caption">2026 DB Shirt — Front</p>
+                </div>
+
+                <div class="flyer-frame">
+                    <img src="2026DBMerch2.png" alt="2026 Despierta Boricua shirt design — back" style="width:100%; display:block; border: 4px solid #D4A574; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+                    <p class="flyer-caption">2026 DB Shirt — Back</p>
+                </div>
+
+                <div class="green-banner">
+                    👕 Designed by Aryana Ramos-Vázquez — our most vibrant design yet. Orders are open now!
+                </div>
+
+                <div class="cta-center">
+                    <a class="cta-button" href="https://forms.gle/3jypRRvDbptUwRnz6" target="_blank">👕 ORDER YOUR SHIRT NOW</a>
+                </div>
+            </div>
+
+            <!-- ═══ ANDÉN 8: STAY CONNECTED ═══ -->
+            <div class="station-platform">
+                <div class="platform-number">ANDÉN NO. 8</div>
+                <div class="platform-name">MANTENTE CONECTADO — ALL LINES OPEN</div>
+            </div>
+
+            <div class="section">
+                <p class="body-text" style="text-align: center;">We're everywhere, and we want YOU in the mix:</p>
+
+                <div class="connect-grid">
+                    <a href="https://www.instagram.com/despiertaboricuayale/" class="connect-card">
+                        <div class="connect-icon">📷</div>
+                        <div class="connect-name">INSTAGRAM</div>
+                        <div class="connect-handle">@DespiertaBoricuaYale</div>
+                    </a>
+                    <a href="https://www.facebook.com/despiertaboricuayale/" class="connect-card">
+                        <div class="connect-icon">📘</div>
+                        <div class="connect-name">FACEBOOK</div>
+                        <div class="connect-handle">Despierta Boricua at Yale</div>
+                    </a>
+                    <a href="https://despiertaboricua-yale.org/" class="connect-card">
+                        <div class="connect-icon">🌐</div>
+                        <div class="connect-name">WEBSITE</div>
+                        <div class="connect-handle">despiertaboricua-yale.org</div>
+                    </a>
+                    <a href="mailto:despiertaboricua@yale.edu" class="connect-card">
+                        <div class="connect-icon">📧</div>
+                        <div class="connect-name">EMAIL</div>
+                        <div class="connect-handle">despiertaboricua@yale.edu</div>
+                    </a>
+                    <a href="https://www.linkedin.com/company/despierta-boricua-puerto-rican-student-organization-at-yale/" class="connect-card">
+                        <div class="connect-icon">💼</div>
+                        <div class="connect-name">LINKEDIN</div>
+                        <div class="connect-handle">Despierta Boricua at Yale</div>
+                    </a>
+                    <a href="https://linktr.ee/despiertaboricuayale" class="connect-card">
+                        <div class="connect-icon">🔗</div>
+                        <div class="connect-name">LINKTREE</div>
+                        <div class="connect-handle">All links in one place</div>
+                    </a>
+                </div>
+            </div>
+
+        </div><!-- end .content -->
+    </div><!-- end .content-wrapper -->
+
+    <!-- FOOTER -->
+    <div class="train-depot-footer">
+        <div class="depot-quote">Pa'lante, siempre pa'lante</div>
+
+        <p class="depot-message">Calle Corona was Phase One. This newsletter is the bridge. What comes next is bigger than any one event, any one board, any one year.</p>
+
+        <p class="depot-message">To everyone who has ever shown up for this organization — who donated, who marched, who stayed late, who believed before there was proof — <em>gracias. De verdad.</em></p>
+
+        <p class="depot-message">This is Despierta Boricua. This is what we do.</p>
+
+        <div class="final-destination">PORQUE SOMOS MÁS GRANDES QUE YALE — Y SIEMPRE LO SEREMOS 🌿</div>
+
+        <div class="wepa">¡WEPA!</div>
+
+        <div style="height: 4px; background: linear-gradient(90deg, transparent, #D4A574, transparent); max-width: 400px; margin: 30px auto;"></div>
+
+        <div class="footer-railroad-id">
+            PUERTO RICO RAILROAD &amp; TRANSPORT CO.<br>
+            DESPIERTA BORICUA LINE<br>
+            EST. 1891 — SERVING COMUNIDAD SINCE 2025<br>
+            <span style="color: #2D6A4F;">━━━ Reclaimed by Nature, Restored by Community ━━━</span>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://www.instagram.com/despiertaboricuayale/">Instagram</a>
+            <a href="https://www.facebook.com/despiertaboricuayale/">Facebook</a>
+            <a href="https://despiertaboricua-yale.org/">Website</a>
+            <a href="mailto:despiertaboricua@yale.edu">Email</a>
+            <a href="https://linktr.ee/despiertaboricuayale">Linktree</a>
+        </div>
+
+        <p style="font-size: 0.85em; opacity: 0.7; position: relative; z-index: 2;">
+            🌴 Made with love, cafecito, and the unshakeable belief that we belong here 🌴
+        </p>
+
+        <p style="font-style: italic; margin-top: 20px; position: relative; z-index: 2;">
+            Con cariño y lucha,<br>Despierta Boricua at Yale
+        </p>
+    </div>
+
+</div><!-- end .container -->
+</body>
+</html>
