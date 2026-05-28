@@ -344,17 +344,19 @@
 
         .subscribe-form {
             display: flex;
-            gap: 1rem;
-            max-width: 500px;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-width: 400px;
             margin: 0 auto;
         }
 
         .subscribe-form input {
-            flex: 1;
+            width: 100%;
             padding: 1rem 1.5rem;
             border: none;
             border-radius: 50px;
             font-size: 1rem;
+            box-sizing: border-box;
         }
 
         .subscribe-btn {
@@ -746,6 +748,13 @@
 
             <form class="subscribe-form" id="mc-signup-form">
                 <input
+                        type="text"
+                        id="mce-FNAME"
+                        name="FNAME"
+                        placeholder="First name"
+                        aria-label="First name"
+                />
+                <input
                         type="email"
                         id="mce-EMAIL"
                         name="EMAIL"
@@ -779,6 +788,7 @@
         if (!form) return;
 
         var emailInput = document.getElementById('mce-EMAIL');
+        var fnameInput = document.getElementById('mce-FNAME');
         var submitBtn = document.getElementById('mc-submit-btn');
         var messageEl = document.getElementById('mc-response-message');
 
@@ -811,6 +821,7 @@
                 if (response.result === 'success') {
                     showMessage('🎉 ¡Gracias! Check your email to confirm your subscription.', 'success');
                     emailInput.value = '';
+                    if (fnameInput) fnameInput.value = '';
                 } else {
                     var msg = response.msg || 'Something went wrong. Please try again.';
 
@@ -826,7 +837,8 @@
                 }
             };
 
-            var url = mailchimpURL + '&EMAIL=' + encodeURIComponent(email) + '&c=' + callbackName;
+            var fname = fnameInput ? fnameInput.value.trim() : '';
+            var url = mailchimpURL + '&EMAIL=' + encodeURIComponent(email) + (fname ? '&FNAME=' + encodeURIComponent(fname) : '') + '&c=' + callbackName;
 
             var script = document.createElement('script');
             script.id = 'mc-script';
