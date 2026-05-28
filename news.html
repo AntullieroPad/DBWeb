@@ -93,6 +93,30 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
 
+        <!-- SUBSCRIBE STRIP -->
+        <div class="news-subscribe-strip">
+            <p class="news-subscribe-label">📬 Get El Boletín in your inbox</p>
+            <form id="news-mc-signup-form" class="news-subscribe-form">
+                <input
+                        type="text"
+                        id="news-mce-FNAME"
+                        name="FNAME"
+                        placeholder="First name"
+                        aria-label="First name"
+                />
+                <input
+                        type="email"
+                        id="news-mce-EMAIL"
+                        name="EMAIL"
+                        placeholder="Your email"
+                        required
+                        aria-label="Email address"
+                />
+                <button type="submit" id="news-mc-submit-btn" class="news-subscribe-btn">Subscribe</button>
+            </form>
+            <p id="news-mc-response-message" class="news-subscribe-response"></p>
+        </div>
+
         <!-- FILTER CHECKBOXES -->
         <div class="filter-options">
             <label>
@@ -497,37 +521,173 @@
                                     <i class="far fa-calendar-alt"></i> <span data-key="latestEditionDate">Published April 2026</span>
                                 </p>
                             </div>
-                                    <div class="preview-highlights">
-                                        <h4 data-key="insideEditionTitle">Inside This Edition:</h4>
-                                        <ul>
-                                            <li data-key="editionHighlight1">🎊 Fiesta de Calle Corona — What We Built</li>
-                                            <li data-key="editionHighlight2">✊🏽 Phase Two: Estamos Aquí Futurity Conference</li>
-                                            <li data-key="editionHighlight3">☕ Amanda Rivera's Final Cafecito & DB Archives</li>
-                                            <li data-key="editionHighlight4">🎓 Class of 2026 — Hasta Pronto</li>
-                                            <li data-key="editionHighlight5">🌺 Incoming Co-Presidents: Sonia & Nina</li>
-                                            <li data-key="editionHighlight6">👕 Merch Orders Now Open</li>
-                                        </ul>
-                                    </div>
-                                    <a href="newsletter.html" class="newsletter-cta-btn">
-                                        <span data-key="exploreArchiveBtn">Read Latest Edition</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </a>
-                                </div>
+                            <div class="preview-highlights">
+                                <h4 data-key="insideEditionTitle">Inside This Edition:</h4>
+                                <ul>
+                                    <li data-key="editionHighlight1">🎊 Fiesta de Calle Corona — What We Built</li>
+                                    <li data-key="editionHighlight2">✊🏽 Phase Two: Estamos Aquí Futurity Conference</li>
+                                    <li data-key="editionHighlight3">☕ Amanda Rivera's Final Cafecito & DB Archives</li>
+                                    <li data-key="editionHighlight4">🎓 Class of 2026 — Hasta Pronto</li>
+                                    <li data-key="editionHighlight5">🌺 Incoming Co-Presidents: Sonia & Nina</li>
+                                    <li data-key="editionHighlight6">👕 Merch Orders Now Open</li>
+                                </ul>
                             </div>
-
                             <a href="newsletter.html" class="newsletter-cta-btn">
                                 <span data-key="exploreArchiveBtn">Read Latest Edition</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
+
+                    <a href="newsletter.html" class="newsletter-cta-btn">
+                        <span data-key="exploreArchiveBtn">Read Latest Edition</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-        </section>
+</div>
+</div>
+</section>
 
-    </main>
+</main>
 </div>
 
+<style>
+    .news-subscribe-strip {
+        background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+        color: white;
+        padding: 1.25rem 2rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+    }
+    .news-subscribe-label {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+    .news-subscribe-form {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .news-subscribe-form input {
+        padding: 0.55rem 1rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        background: rgba(255,255,255,0.18);
+        color: white;
+        min-width: 130px;
+    }
+    .news-subscribe-form input::placeholder { opacity: 0.75; }
+    .news-subscribe-form input:focus {
+        outline: 2px solid rgba(255,255,255,0.5);
+        background: rgba(255,255,255,0.25);
+    }
+    .news-subscribe-btn {
+        background: linear-gradient(135deg, #E63946 0%, #C5303E 100%);
+        color: white;
+        border: none;
+        padding: 0.55rem 1.4rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        box-shadow: 0 3px 10px rgba(230,57,70,0.3);
+    }
+    .news-subscribe-btn:hover {
+        background: linear-gradient(135deg, #C5303E 0%, #A02A2A 100%);
+        transform: translateY(-2px);
+    }
+    .news-subscribe-response {
+        width: 100%;
+        text-align: center;
+        font-size: 0.85rem;
+        margin: 0.25rem 0 0;
+        min-height: 1.2em;
+    }
+</style>
+
+<!-- Mailchimp signup script for news page -->
+<script>
+    (function() {
+        var form = document.getElementById('news-mc-signup-form');
+        if (!form) return;
+
+        var emailInput = document.getElementById('news-mce-EMAIL');
+        var fnameInput = document.getElementById('news-mce-FNAME');
+        var submitBtn  = document.getElementById('news-mc-submit-btn');
+        var messageEl  = document.getElementById('news-mc-response-message');
+
+        var mailchimpURL = 'https://despiertaboricua-yale.us21.list-manage.com/subscribe/post-json?u=18431a7bdf01a4c5676b5397f&id=5675c3c23b&f_id=00e6f6e9f0';
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var email = emailInput.value.trim();
+            if (!email) { showMessage('Please enter your email.', 'error'); return; }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Subscribing...';
+            messageEl.textContent = '';
+
+            var callbackName = 'news_mc_cb_' + Date.now();
+            var fname = fnameInput ? fnameInput.value.trim() : '';
+            var url = mailchimpURL
+                + '&EMAIL=' + encodeURIComponent(email)
+                + (fname ? '&FNAME=' + encodeURIComponent(fname) : '')
+                + '&c=' + callbackName;
+
+            window[callbackName] = function(response) {
+                delete window[callbackName];
+                var s = document.getElementById('news-mc-script');
+                if (s) s.remove();
+
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe';
+
+                if (response.result === 'success') {
+                    showMessage('🎉 ¡Gracias! You\'re on the list.', 'success');
+                    emailInput.value = '';
+                    if (fnameInput) fnameInput.value = '';
+                } else {
+                    var msg = response.msg || 'Something went wrong. Please try again.';
+                    if (msg.includes('already subscribed')) msg = "You\'re already subscribed!";
+                    else if (msg.includes('invalid'))       msg = 'Please enter a valid email.';
+                    showMessage(msg, 'error');
+                }
+            };
+
+            var script = document.createElement('script');
+            script.id  = 'news-mc-script';
+            script.src = url;
+            script.onerror = function() {
+                delete window[callbackName];
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe';
+                showMessage('Network error. Please try again.', 'error');
+            };
+            document.body.appendChild(script);
+        });
+
+        function showMessage(text, type) {
+            messageEl.textContent = text;
+            messageEl.style.color = type === 'success' ? '#90EE90' : '#FFB6C1';
+            messageEl.style.opacity = '1';
+            if (type === 'success') {
+                setTimeout(function() { messageEl.style.opacity = '0'; }, 7000);
+            }
+        }
+    })();
+</script>
 <!-- Optional JS -->
 <script src="script.js"></script>
 <script src="lang.js"></script>

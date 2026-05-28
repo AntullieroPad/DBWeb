@@ -386,9 +386,26 @@
                     <div class="cta-newsletter">
                         <h3 data-key="ctaNewsletterHeading">Sign Up to Our Newsletter</h3>
                         <p data-key="ctaNewsletterText">Stay updated on DB Yale happenings, events, and more!</p>
-                        <a href="newsletter.html" class="cta-btn" data-key="ctaNewsletterBtn">
-                            Read Newsletter
-                        </a>
+                        <form id="hp-mc-signup-form" class="hp-subscribe-form">
+                            <input
+                                    type="text"
+                                    id="hp-mce-FNAME"
+                                    name="FNAME"
+                                    placeholder="First name"
+                                    aria-label="First name"
+                            />
+                            <input
+                                    type="email"
+                                    id="hp-mce-EMAIL"
+                                    name="EMAIL"
+                                    placeholder="Your email"
+                                    required
+                                    aria-label="Email address"
+                            />
+                            <button type="submit" class="cta-btn" id="hp-mc-submit-btn">Subscribe</button>
+                        </form>
+                        <p id="hp-mc-response-message" style="font-size:0.85rem; margin-top:0.75rem; min-height:1.2em;"></p>
+                        <a href="newsletter.html" style="font-size:0.85rem; opacity:0.8; color:inherit; display:block; margin-top:0.5rem;" data-key="ctaNewsletterBtn">Read past editions →</a>
                     </div>
 
                     <!-- Vertical Divider -->
@@ -446,6 +463,114 @@
 <script src="script.js"></script>
 <script src="lang.js"></script>
 <button id="backToTop" title="Back to top">&#8675;</button>
+
+<style>
+    .hp-subscribe-form {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch;
+        gap: 0.5rem;
+        margin: 1rem auto 0;
+        max-width: 220px;
+        width: 100%;
+    }
+    .hp-subscribe-form input {
+        padding: 0.65rem 1.1rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+        background: rgba(255,255,255,0.15);
+        color: inherit;
+        text-align: center;
+    }
+    .hp-subscribe-form input::placeholder {
+        opacity: 0.7;
+    }
+    .hp-subscribe-form input:focus {
+        outline: 2px solid rgba(255,255,255,0.5);
+        background: rgba(255,255,255,0.22);
+    }
+    .hp-subscribe-form button {
+        width: 100%;
+    }
+    #hp-mc-response-message {
+        text-align: center;
+    }
+</style>
+
+<!-- Mailchimp signup script for homepage form -->
+<script>
+    (function() {
+        var form = document.getElementById('hp-mc-signup-form');
+        if (!form) return;
+
+        var emailInput = document.getElementById('hp-mce-EMAIL');
+        var fnameInput = document.getElementById('hp-mce-FNAME');
+        var submitBtn  = document.getElementById('hp-mc-submit-btn');
+        var messageEl  = document.getElementById('hp-mc-response-message');
+
+        var mailchimpURL = 'https://despiertaboricua-yale.us21.list-manage.com/subscribe/post-json?u=18431a7bdf01a4c5676b5397f&id=5675c3c23b&f_id=00e6f6e9f0';
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var email = emailInput.value.trim();
+            if (!email) { showMessage('Please enter your email.', 'error'); return; }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Subscribing...';
+            messageEl.textContent = '';
+
+            var callbackName = 'hp_mc_cb_' + Date.now();
+            var fname = fnameInput ? fnameInput.value.trim() : '';
+            var url = mailchimpURL
+                + '&EMAIL=' + encodeURIComponent(email)
+                + (fname ? '&FNAME=' + encodeURIComponent(fname) : '')
+                + '&c=' + callbackName;
+
+            window[callbackName] = function(response) {
+                delete window[callbackName];
+                var s = document.getElementById('hp-mc-script');
+                if (s) s.remove();
+
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe';
+
+                if (response.result === 'success') {
+                    showMessage('🎉 ¡Gracias! You\'re on the list.', 'success');
+                    emailInput.value = '';
+                    if (fnameInput) fnameInput.value = '';
+                } else {
+                    var msg = response.msg || 'Something went wrong. Please try again.';
+                    if (msg.includes('already subscribed')) msg = "You're already subscribed!";
+                    else if (msg.includes('invalid'))       msg = 'Please enter a valid email.';
+                    showMessage(msg, 'error');
+                }
+            };
+
+            var script = document.createElement('script');
+            script.id  = 'hp-mc-script';
+            script.src = url;
+            script.onerror = function() {
+                delete window[callbackName];
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe';
+                showMessage('Network error. Please try again.', 'error');
+            };
+            document.body.appendChild(script);
+        });
+
+        function showMessage(text, type) {
+            messageEl.textContent = text;
+            messageEl.style.color = type === 'success' ? '#90EE90' : '#FFB6C1';
+            if (type === 'success') {
+                setTimeout(function() { messageEl.style.opacity = '0'; }, 7000);
+            }
+        }
+    })();
+</script>
 
 
 </div>
