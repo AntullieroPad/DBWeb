@@ -3,30 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>About - DB Yale</title>
+    <title>About – DB Yale</title>
     <meta name="description" content="Founded in 1971, Despierta Boricua at Yale University promotes Puerto Rican culture and advocacy. Learn about our founders, mission, and community impact.">
     <meta name="keywords" content="despierta boricua history, yale puerto rican student organization, puerto rican yale history, boricua yale founders">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://despiertaboricua-yale.org/about.html">
-
-    <!-- Same CSS file as your index page -->
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
-
-    <!-- Favicon links for browser tab icons -->
     <link rel="icon" type="image/png" href="./DB Logo Outline.png">
-    <link rel="icon" type="DB Logo Outline.png" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.ico">
+
+    <style>
+        /* ── History timeline ── */
+        .history-section { max-width: 820px; }
+        .history-section p { line-height: 1.85; margin-bottom: 1.25rem; font-size: 1.02rem; }
+        .history-section .history-pull {
+            border-left: 4px solid #dc2626;
+            padding: 0.75rem 1.25rem;
+            margin: 1.75rem 0;
+            font-style: italic;
+            font-size: 1.08rem;
+            background: rgba(220,38,38,0.04);
+            border-radius: 0 8px 8px 0;
+        }
+        body.dark-mode .history-section .history-pull {
+            background: rgba(220,38,38,0.08);
+        }
+        .history-attribution {
+            font-size: 0.82rem;
+            font-style: italic;
+            color: #888;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        body.dark-mode .history-attribution { color: #666; border-top-color: #333; }
+
+        /* ── Founders grid ── */
+        .founders-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.75rem;
+            margin-top: 1.5rem;
+        }
+        .founder-card {
+            text-align: center;
+            width: 280px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .founder-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+        }
+        body.dark-mode .founder-card {
+            background: #1e1e1e;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+        .founder-image {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1B4332, #2D6A4F);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        .founder-image .founder-initials {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            opacity: 0.85;
+        }
+        .founder-card h3 {
+            font-size: 1.05rem;
+            margin: 0.85rem 1rem 0.25rem;
+        }
+        .founder-card p {
+            font-size: 0.85rem;
+            color: #888;
+            margin: 0 1rem 1rem;
+        }
+        body.dark-mode .founder-card p { color: #aaa; }
+
+        /* dark mode Julia section */
+        body.dark-mode .julia-flag-section .flag-container p { color: #aaa; }
+        body.dark-mode .julia-quote { border-left-color: #9b59b6; }
+        body.dark-mode .la-casa-info { background: rgba(155,89,182,0.1); }
+        body.dark-mode .secondary-btn[data-key="learnMoreWomenBtn"] { border-color: #9b59b6; color: #d4a6e8; }
+        body.dark-mode .primary-btn[data-key="visitLaCasaBtn"] { background-color: #9b59b6; border-color: #9b59b6; }
+    </style>
 </head>
 <body>
 
-<!-- The same fixed sidebar -->
 <aside class="sidebar">
     <div class="sidebar-logo">
         <a href="index.html">
-            <img
-                    src="DB Logo Outline.png"
-                    alt="DB Yale Logo"
-                    class="logo-img"/>
+            <img src="DB Logo Outline.png" alt="DB Yale Logo" class="logo-img"/>
         </a>
     </div>
     <nav class="sidebar-nav">
@@ -37,11 +120,9 @@
         <a href="news.html" data-key="navNews">Upcoming Events</a>
         <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
         <a href="alumni.html" data-key="navAlumni">Alumni</a>
-        <a href="prospective.html" class="active">Prospective Students</a>        <a href="merch.html" data-key="navMerch">Merch</a>
+        <a href="prospective.html" data-key="navProspective">Prospective Students</a>
+        <a href="merch.html" data-key="navMerch">Merch</a>
         <a href="gallery.html" data-key="navGallery">Gallery</a>
-        <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
-        </a> -->
         <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
             <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
         </a>
@@ -51,11 +132,7 @@
         <span class="icon">🌙</span>
         <span class="label">Dark Mode</span>
     </button>
-
     <div class="sidebar-footer">
-
-        <!-- Social links / license info as before -->
-
         <div class="social-icons">
             <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
                 <i class="fab fa-facebook-f"></i>
@@ -66,250 +143,182 @@
             <a href="mailto:despiertaboricua@yale.edu" class="social-link">
                 <i class="fas fa-envelope"></i>
             </a>
-        </div> <!-- Correctly closing social-icons div -->
-
+        </div>
         <div class="license">© 2026 DB Yale</div>
     </div>
-
 </aside>
 
-<!-- Hamburger button for mobile -->
 <button class="hamburger-btn">
     <span></span>
     <span></span>
     <span></span>
 </button>
 
-<!-- MAIN CONTAINER -->
 <div class="main-container">
 
-    <!-- Optional hero or banner for the About page -->
     <section class="black-hero">
         <div class="hero-content">
             <h1 data-key="aboutHeroTitle">About DB Yale</h1>
         </div>
     </section>
 
-    <!-- MAIN CONTENT -->
-    <section class="content-section mission-section">
-        <div class="section-header">
-            <div class="section-icon"><i class="fas fa-compass"></i></div>
-            <h2 data-key="missionTitle">Our Mission</h2>
-        </div>
-        <div class="mission-content">
-            <blockquote class="mission-quote">
-                <p data-key="missionText">Despierta Boricua exists as Yale's
-                    Puerto Rican cultural group to elevate, empower,
-                    and unite the Puerto Rican community—celebrating our rich heritage,
-                    confronting injustice, and crafting a future where our voices are
-                    heard and our dignity is upheld.</p>
-            </blockquote>
-        </div>
-    </section>
+    <main class="main-content">
 
-        <section class="content-section">
-            <h3 data-key="historyTitle">Our History</h3>
-            <p data-key="historyText1">
-                Despierta Boricua (DB) was founded in 1971 by Puerto Rican
-                students at Yale University. The founders included Eduardo Padró,
-                Manuel Del Valle, Cruz Ramos, Gilberto "Gilbert" Casellas, and
-                Hector Medina. These men were working-class, (mostly)
-                New York-based Puerto Rican men who were committed to advocating
-                for the needs of Puerto Rican students at Yale and for the Puerto
-                Rican community in New Haven.</p>
-
-            <p class="text-wrap" data-key="historyText2">
-                    DB's initial focus was on increasing the number of mainland Puerto
-                Rican students at Yale. At the time, the majority of Puerto Rican
-                students at Yale came from the island of Puerto Rico and were from
-                upper-class backgrounds.
-                <img src="./OldDBLogo1.png" alt="Old DB Logo" class="about-logo">
-
-                DB believed that it was important to increase
-                the representation of mainland Puerto Ricans, who were more likely to be
-                working-class and from public school backgrounds.
-
-                In addition to their work on admissions, DB also advocated for the
-                establishment of a Puerto Rican studies program at Yale. They believed
-                that it was important for Puerto Rican students to have the opportunity
-                to learn about their history and culture. DB also sought to create an
-                inter-Ivy League network of Puerto Rican students and establish a Puerto Rican
-                cultural center at Yale.</p>
-
-            <p class="text-wrap" data-key="historyText3">
-                DB's activism was successful in increasing the number of mainland Puerto
-                Rican students at Yale and in raising awareness of the needs of Puerto Rican
-                students and the Puerto Rican community. DB also helped to create a more inclusive
-                environment for all students at Yale.</p>
-
-            <p data-key="historyText4">
-                DB is still active today and continues to advocate for the needs of Puerto Rican
-                students at Yale and for the Puerto Rican community.</p>
-
-            <p data-key="historyAttribution">
-                <b> <i> History brought to you by Amanda Rivera, Yale University, Dissertation in Progress, 2024 </i> </b> </p>
-        </section>
-
-
-    <!-- Julia de Burgos and Feminist Flag Section -->
-    <section class="content-section julia-flag-section">
-        <div class="section-header">
-            <div class="section-icon"><i class="fas fa-landmark"></i></div>
-            <h2 data-key="juliaBurgosTitle">Julia de Burgos & La Casa Cultural</h2>
-        </div>
-
-        <div class="content-row alt fade-in-section">
-
-            <div class="img-col">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 400px;">
-                    <img src="./Women'sHistoryMonth/Julia_Burgos.jpg"
-                         alt="Julia de Burgos"
-                         style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 5px;" />
-                    <img src="./FeministFlag.png"
-                         alt="Purple Puerto Rican Flag"
-                         style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 5px;" />
-                </div>
-                <p style="font-size: 0.8rem; margin-top: 8px; font-style: italic; color: #666; text-align: center;">
-                    Julia de Burgos and the purple flag symbolizing feminist resistance
-                </p>
+        <!-- Mission -->
+        <section class="content-section mission-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-compass"></i></div>
+                <h2 data-key="missionTitle">Our Mission</h2>
             </div>
-            <div class="text-col">
-                <h3 data-key="juliaSubtitle">Poet, Feminist, Revolutionary</h3>
-                <p data-key="juliaText1">
-                    Yale's La Casa Cultural center is dedicated to the legacy of Julia de Burgos (1914-1953), one of Puerto Rico's most celebrated poets and an enduring symbol of Puerto Rican identity and feminist thought. Her revolutionary voice continues to inspire movements for justice and equality.
-                </p>
-                <p data-key="juliaText2">
-                    Born in Carolina, Puerto Rico, Julia de Burgos broke boundaries through her poetry that explored themes of feminism, social justice, and national identity. She wrote boldly about women's liberation long before the feminist movements of the 1960s and 70s, making her a pioneer whose words resonate with contemporary struggles.
-                </p>
-                <p data-key="juliaText3">
-                    The purple Puerto Rican flag represents this ongoing feminist struggle. Just as Julia challenged patriarchal norms in her writing and life, the purple flag reimagines traditional national symbols to center women's experiences, particularly highlighting the crisis of gender-based violence in Puerto Rico.
-                </p>
-                <blockquote class="julia-quote" style="font-style: italic; margin: 20px 0; padding-left: 20px; border-left: 3px solid #8e44ad;">
-                    <p data-key="juliaQuote">"I wanted to be like men wanted me to be: an attempt at life; a game of hide and seek with my being. But I was made of nows."</p>
-                    <footer style="text-align: right;">— Julia de Burgos, "I Was My Own Route"</footer>
+            <div class="mission-content">
+                <blockquote class="mission-quote">
+                    <p data-key="missionText">Despierta Boricua exists as Yale's Puerto Rican cultural group to elevate, empower, and unite the Puerto Rican community — celebrating our rich heritage, confronting injustice, and crafting a future where our voices are heard and our dignity is upheld.</p>
                 </blockquote>
             </div>
-        </div>
+        </section>
 
-        <div class="la-casa-info" style="background: rgba(142, 68, 173, 0.05); padding: 20px; border-radius: 8px; margin-top: 20px;">
-            <h3 data-key="laCasaTitle">La Casa Cultural: A Home for Resistance and Celebration</h3>
-            <p data-key="laCasaText1">
-                Established in 1974, La Casa Cultural Julia de Burgos serves as both a cultural center and a space for activism. By naming our center after a feminist poet who challenged colonial and patriarchal power, Yale's Puerto Rican and Latino community affirms our commitment to the values she embodied.
-            </p>
-            <p data-key="laCasaText2">
-                Today, La Casa at 301 Crown Street continues Julia's legacy by fostering dialogue about gender justice and cultural identity. It stands as a space where women's resistance, dignity, and power is honored through programming, community building, and artistic expression.
-            </p>
-            <div class="cta-buttons" style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
-                <a href="https://lacasa.yalecollege.yale.edu/" target="_blank" class="primary-btn" data-key="visitLaCasaBtn" style="background-color: #8e44ad; border-color: #8e44ad;">Visit La Casa Website</a>
-                <a href="womens-history-month.html" class="secondary-btn" data-key="learnMoreWomenBtn" style="border-color: #8e44ad; color: #8e44ad;">Feminisn in Puerto Rico</a>
+        <!-- History -->
+        <section class="content-section history-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-book"></i></div>
+                <h2 data-key="historyTitle">Our History</h2>
             </div>
-        </div>
-    </section>
 
-    <!-- CSS for dark mode support -->
-    <style>
-        body.dark-mode .julia-flag-section .flag-container p {
-            color: #aaa;
-        }
+            <p>Despierta Boricua was founded in the fall of 1971 by a group of working-class, mostly New York-based Puerto Rican men who believed Yale had a responsibility to its Puerto Rican students — and was failing to meet it. The organization's name invoked the rallying cry of the Young Lords: <em>"Despierta Boricua, y defiende lo que tuyo"</em> — Wake up, Boricua, and defend what is yours.</p>
 
-        body.dark-mode .julia-quote {
-            border-left-color: #9b59b6;
-        }
+            <p>The founding members were Eduardo Padró, a freshman from East Harlem; Manuel Del Valle, a law student and Princeton alumnus who had already established the first Puerto Rican and Latiné organization in the Ivy League at Princeton; Cruz Ramos, a freshman from the Bronx; Gilberto "Gilbert" Casellas, a sophomore from Tampa; Hector Medina, a junior from the Lower East Side; and Martín-José Sepúlveda, a transfer student from Wesleyan University and East Harlem native. Together, they built something that had never existed at Yale before.</p>
 
-        body.dark-mode .la-casa-info {
-            background: rgba(155, 89, 182, 0.1);
-        }
+            <div class="history-pull">
+                "Despierta Boricua, y defiende lo que tuyo" — Wake up, Boricua, and defend what is yours.
+            </div>
 
-        body.dark-mode .secondary-btn[data-key="learnMoreWomenBtn"] {
-            border-color: #9b59b6;
-            color: #d4a6e8;
-        }
+            <p>Their first public action came in November 1971, challenging the lack of Puerto Rican and Latiné admissions to Yale Law School. In February 1972 — then operating as Boricuas Unidos — DB sent an open letter to President Kingman Brewster Jr., condemning Yale's indifference to mainland Puerto Rican students. In a student body of 9,300, just eight were mainland Puerto Ricans. On April 5, 1972, DB took their protest to the Yale Club of New York, with Nuyorican Congressman Herman Badillo showing up in solidarity. The protest generated results: the incoming class of 1976 included 22 mainland Puerto Ricans — the largest number Yale had admitted to that point.</p>
 
-        body.dark-mode .primary-btn[data-key="visitLaCasaBtn"] {
-            background-color: #9b59b6;
-            border-color: #9b59b6;
-        }
+            <p>DB understood that getting Puerto Rican students to Yale was only half the battle.
+                <img src="./OldDBLogo1.png" alt="Old DB Logo" class="about-logo">
+                In 1972, they established PROP — the Puerto Rican Orientation Program — to support incoming students through the academic and cultural transition into Yale, particularly those from under-resourced inner-city public schools. PROP proved so effective that Yale expanded it the following year to all minoritized students, renaming it the Pre-Registration Orientation Program. Within five years, minoritized students collectively made up 16.5% of total admissions at Yale. Puerto Rican students had built something Yale then claimed as its own.</p>
 
+            <p>In 1973, DB formally demanded that President Brewster provide a Puerto Rican cultural center on campus — a space for students and for New Haven's growing Puerto Rican community alike. When Brewster's administration stalled, DB escalated. Per oral tradition, members occupied Brewster's office one evening, covering themselves in chains and locking the door, refusing to leave until he committed to their demand. In 1976, Brewster agreed. DB selected 301 Crown Street as the site of their new center and named it <strong>La Casa Cultural Julia de Burgos</strong> — after the Afro-Puerto Rican independentista poet whose fierce nationalism and feminist resistance made her the ideal figurehead for the space they had fought so hard to create. La Casa became the first Puerto Rican cultural center in the Ivy League, and the first building on Yale's campus named for a person of color.</p>
 
-    </style>
+            <p>Through the 1980s and 1990s, DB continued to defend what they had built. When Yale's Dean Richard Brodhead questioned whether cultural houses were necessary at all, DB and allied student organizations mobilized to protect the structures their communities had created. In 1999, after strategic deliberation, DB and Chicano students proposed converting La Casa into Yale's pan-Latiné cultural center — combining forces to secure more resources and better serve Yale's growing Latiné student body. La Casa kept its name. The community it served grew broader.</p>
 
-    <!-- Founders gallery section -->
-    <section class="content-section founders-section">
-        <div class="section-header">
-            <div class="section-icon"><i class="fas fa-users"></i></div>
-            <h2>Our Founders</h2>
-        </div>
+            <p>Today, Despierta Boricua continues as Yale's Puerto Rican student organization, affiliated with La Casa Cultural Julia de Burgos at 301 Crown Street. We carry forward the commitments of our founders: to fight for Puerto Rican presence at Yale, to build community across the diaspora, and to ensure that Yale remains accountable to the city of New Haven and to the Puerto Rican people.</p>
 
-        <div class="founders-gallery">
-            <div class="founder-card">
-                <div class="founder-image">
-                    <img src="./Founding Members-20251112T191711Z-1-001/Founding Members/Eduardo Padro/EduardoP3.jpeg" alt="Eduardo Padró">
+            <p class="history-attribution">History research by Amanda Rivera, Yale University (Dissertation in Progress). Updated 2026.</p>
+        </section>
+
+        <!-- Julia de Burgos -->
+        <section class="content-section julia-flag-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-landmark"></i></div>
+                <h2 data-key="juliaBurgosTitle">Julia de Burgos &amp; La Casa Cultural</h2>
+            </div>
+            <div class="content-row alt fade-in-section">
+                <div class="img-col">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 400px;">
+                        <img src="./Women'sHistoryMonth/Julia_Burgos.jpg" alt="Julia de Burgos" style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 5px;" />
+                        <img src="./FeministFlag.png" alt="Purple Puerto Rican Flag" style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 5px;" />
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 8px; font-style: italic; color: #666; text-align: center;">Julia de Burgos and the purple flag symbolizing feminist resistance</p>
                 </div>
-                <h3>Eduardo Padró</h3>
-                <p>Co-founder, 1975</p>
-            </div>
-
-            <div class="founder-card">
-                <div class="founder-image">
-                    <img src="./Founding Members-20251112T191711Z-1-001/Founding Members/Manuel Del Valle/ManuelDV10.jpeg" alt="Manuel Del Valle">
+                <div class="text-col">
+                    <h3 data-key="juliaSubtitle">Poet, Feminist, Revolutionary</h3>
+                    <p data-key="juliaText1">Julia de Burgos (1914–1953) was an Afro-Puerto Rican poet, activist, and independentista whose work challenged colonialism, racial oppression, and patriarchy with equal force. Born in Carolina, Puerto Rico, she became one of the most celebrated voices in Latin American literature — and a symbol of Puerto Rican resistance and identity.</p>
+                    <p data-key="juliaText2">When DB fought to establish a Puerto Rican cultural center at Yale in the 1970s, they named it La Casa Cultural Julia de Burgos — not only to honor her legacy, but to declare what kind of space it would be: one rooted in resistance, community, and unapologetic Puerto Rican pride. La Casa opened in 1976 as the first Puerto Rican cultural center in the Ivy League and the first building at Yale named for a person of color.</p>
+                    <div class="la-casa-info" style="background: rgba(155,89,182,0.08); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <p><i class="fas fa-map-marker-alt" style="color: #9b59b6; margin-right: 6px;"></i> <strong>La Casa Cultural Julia de Burgos</strong><br>301 Crown Street, New Haven, CT</p>
+                    </div>
+                    <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <a href="https://lacasa.yale.edu" target="_blank" rel="noopener noreferrer" class="primary-btn" data-key="visitLaCasaBtn">Visit La Casa</a>
+                        <a href="syllabus.html" class="secondary-btn" data-key="learnMoreWomenBtn">Women's History Resources</a>
+                    </div>
                 </div>
-                <h3>Manuel Del Valle</h3>
-                <p>Co-founder, 1971</p>
             </div>
+        </section>
 
-            <div class="founder-card">
-                <div class="founder-image">
-                    <img src="./Founding Members-20251112T191711Z-1-001/Founding Members/Gilberto C/GilbertC2.jpg" alt="Gilberto Casellas">
+        <!-- Founders -->
+        <section class="content-section founders-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-users"></i></div>
+                <h2>The Founding Generation</h2>
+            </div>
+            <p style="margin-bottom: 1.5rem; max-width: 700px;">Six students who changed Yale forever — and built the first Puerto Rican cultural center in the Ivy League.</p>
+
+            <div class="founders-gallery">
+
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="./Founding Members-20251112T191711Z-1-001/Founding Members/Eduardo Padro/EduardoP3.jpeg" alt="Eduardo Padró">
+                    </div>
+                    <h3>Eduardo Padró</h3>
+                    <p>East Harlem · Class of 1975</p>
                 </div>
-                <h3>Gilberto Casellas</h3>
-                <p>Co-founder, 1974</p>
-            </div>
 
-            <div class="founder-card">
-                <div class="founder-image">
-
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="./Founding Members-20251112T191711Z-1-001/Founding Members/Manuel Del Valle/ManuelDV10.jpeg" alt="Manuel Del Valle">
+                    </div>
+                    <h3>Manuel Del Valle</h3>
+                    <p>Law School · 1971</p>
                 </div>
-                <h3>Cruz Ramos</h3>
-                <p>Co-founder, 1971</p>
-            </div>
 
-
-            <div class="founder-card">
-                <div class="founder-image">
-
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="./Founding Members-20251112T191711Z-1-001/Founding Members/Gilberto C/GilbertC2.jpg" alt="Gilberto Casellas">
+                    </div>
+                    <h3>Gilberto Casellas</h3>
+                    <p>Tampa · Class of 1974</p>
                 </div>
-                <h3>Hector Medina</h3>
-                <p>Co-founder, 1973</p>
-            </div>
-        </div>
-    </section>
 
-        <!-- Values section -->
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <span class="founder-initials">CR</span>
+                    </div>
+                    <h3>Cruz Ramos</h3>
+                    <p>The Bronx · Class of 1975</p>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <span class="founder-initials">HM</span>
+                    </div>
+                    <h3>Hector Medina</h3>
+                    <p>Lower East Side · Class of 1973</p>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <span class="founder-initials">MS</span>
+                    </div>
+                    <h3>Martín-José Sepúlveda</h3>
+                    <p>East Harlem · Transfer from Wesleyan</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Values -->
         <section class="content-section values-section">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-star"></i></div>
                 <h2 data-key="valuesTitle">Our Values</h2>
             </div>
-
             <div class="values-grid">
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
                     <h3 data-key="communityTitle">Community</h3>
                     <p data-key="communityText">Building strong connections within the Yale Puerto Rican community and beyond.</p>
                 </div>
-
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
                     <h3 data-key="justiceTitle">Justice</h3>
                     <p data-key="justiceText">Advocating for social and political equity for Puerto Ricans and all marginalized groups.</p>
                 </div>
-
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-book-open"></i></div>
                     <h3 data-key="educationTitle">Education</h3>
                     <p data-key="educationText">Promoting knowledge and understanding of Puerto Rican history, culture, and current issues.</p>
                 </div>
-
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-fist-raised"></i></div>
                     <h3 data-key="activismTitle">Activism</h3>
@@ -318,32 +327,26 @@
             </div>
         </section>
 
-    <section class="la-brega-quiz-section">
-        <div class="section-header">
-            <div class="section-icon"><i class="fas fa-puzzle-piece"></i></div>
-            <h2>Cultural Experience</h2>
-        </div>
-        <div class="hidden-quiz-container">
-            <p class="quiz-explainer">
-                <em>"La brega"</em> is a uniquely Puerto Rican concept that embodies resourcefulness,
-                resilience, and the ability to navigate life's challenges with creativity.
-                It's an essential part of Puerto Rican cultural identity, especially in the face of adversity.
-            </p>
-            <div class="brega-quiz-container">
-                <a href="#" id="brega-link" class="brega-link">¿Sabes bregar?</a>
-                <div id="quiz-container" style="display: none;">
-                    <!-- Quiz will be inserted here by JavaScript -->
+        <!-- La Brega Quiz -->
+        <section class="la-brega-quiz-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-puzzle-piece"></i></div>
+                <h2>Cultural Experience</h2>
+            </div>
+            <div class="hidden-quiz-container">
+                <p class="quiz-explainer">
+                    <em>"La brega"</em> is a uniquely Puerto Rican concept that embodies resourcefulness, resilience, and the ability to navigate life's challenges with creativity. It's an essential part of Puerto Rican cultural identity, especially in the face of adversity.
+                </p>
+                <div class="brega-quiz-container">
+                    <a href="#" id="brega-link" class="brega-link">¿Sabes bregar?</a>
+                    <div id="quiz-container" style="display: none;">
+                        <!-- Quiz will be inserted here by JavaScript -->
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Success stories / testimonials -->
-
-    <!-- Upcoming opportunities section -->
-
-
-    <!-- CTA section -->
+        <!-- CTA -->
         <section class="about-cta-section">
             <h2 data-key="joinTitle">Join Our Community</h2>
             <p data-key="joinText">Be part of our ongoing mission to elevate Puerto Rican voices and create meaningful change.</p>
@@ -359,15 +362,11 @@
     </main>
 </div>
 
-
-
-<!-- (Optional) JS for hamburger toggle, etc. -->
 <script src="script.js"></script>
 <script src="lang.js"></script>
-<!-- Add this script right before the closing </body> tag -->
-<<script type="text/javascript">
+<script src="quiz.js"></script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Add a subtle animation to draw attention to the quiz link
         const quizContainer = document.querySelector('.hidden-quiz-container');
         if (quizContainer) {
             setTimeout(() => {
@@ -379,7 +378,6 @@
         }
     });
 </script>
-    <script src="quiz.js"></script>
-</script>
+
 </body>
 </html>
