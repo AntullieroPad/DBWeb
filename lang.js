@@ -981,4 +981,48 @@ questionsHeading: "Preguntas Orientadoras para un Estudio Profundo",
         estamosAquiDesc: "26 universidades—Harvard, MIT, Johns Hopkins, Cornell, Syracuse y más—uniéndose para abordar las realidades que enfrentan los jóvenes puertorriqueños. Esta conferencia es sobre nuestro futuro: la posición político-cultural de nuestra comunidad, unir la diáspora y la isla, las responsabilidades de quienes están en la educación superior, y abordar la justicia ambiental y sostenibilidad. Construcción de coaliciones, intercambio académico y colaboración a largo plazo entre campus.",
         estamosAquiNote: "La primera conferencia de su tipo en una generación. Historia en proceso. 🇵🇷",
     }
-};
+};// ─── Language Toggle Logic ───────────────────────────────────────────────────
+
+(function () {
+    let currentLang = localStorage.getItem('db-lang') || 'en';
+
+    function applyLanguage(lang) {
+        const dict = translations[lang];
+        if (!dict) return;
+
+        document.querySelectorAll('[data-key]').forEach(function (el) {
+            const key = el.getAttribute('data-key');
+            if (dict[key] !== undefined) {
+                el.innerHTML = dict[key];
+            }
+        });
+
+        const btn = document.getElementById('lang-toggle');
+        if (btn) {
+            btn.textContent = lang === 'en' ? 'Español' : 'English';
+        }
+
+        document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+        localStorage.setItem('db-lang', lang);
+        currentLang = lang;
+    }
+
+    function init() {
+        const btn = document.getElementById('lang-toggle');
+        if (btn) {
+            btn.addEventListener('click', function () {
+                applyLanguage(currentLang === 'en' ? 'es' : 'en');
+            });
+        }
+
+        if (currentLang === 'es') {
+            applyLanguage('es');
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
