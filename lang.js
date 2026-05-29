@@ -5,9 +5,10 @@ const translations = {
         navAbout: "About",
         navSyllabus: "Syllabus",
         navCollaborate: "Collaborate",
-        navNews: "News + Events",
+        navNews: "Events & News",
         navBoard: "Meet the Board",
         navAlumni: "Alumni",
+        navProspective: "Prospective Students",
         navMerch: "Merch",
         navGallery: "Gallery",
 
@@ -40,7 +41,7 @@ const translations = {
         section6Paragraph: "Activism and resistance have been central to Puerto Rican identity and struggle, both on the island and in the diaspora. From environmental justice to education reform and decolonization, Puerto Ricans continually challenge oppression in pursuit of sovereignty, dignity, and self-determination.",
         section6ParagraphB: "Movements such as the Grito de Lares, student protests at the University of Puerto Rico, and decades-long resistance against the Navy’s occupation of Vieques exemplify the resilience and determination of Puerto Rican people.",
 
-        newsEventsHeading: "📰 News & Events",
+        newsEventsHeading: "📰 DB in the Press",
         newsItem1Title: "Incoming Features",
         newsItem1Text: "Exclusive alumni connections",
         newsItem2Text: "Co-Chair on the importance of Puerto Rican Music history at Yale",
@@ -497,9 +498,10 @@ const translations = {
         navAbout: "Sobre Nosotros",
         navSyllabus: "Programa",
         navCollaborate: "Colaborar",
-        navNews: "Noticias + Eventos",
+        navNews: "Eventos & Noticias",
         navBoard: "Conoce la Junta",
         navAlumni: "Exalumnos",
+        navProspective: "Estudiantes Prospectivos",
         navMerch: "Mercancía",
         navGallery: "Galería",
 
@@ -532,7 +534,7 @@ const translations = {
         section6Paragraph: "El activismo y la resistencia han sido centrales en la identidad y la lucha puertorriqueña, tanto en la isla como en la diáspora. Desde la justicia ambiental hasta la reforma educativa y la descolonización, los puertorriqueños desafían constantemente la opresión en busca de soberanía, dignidad y autodeterminación.",
         section6ParagraphB: "Movimientos como el Grito de Lares, las protestas estudiantiles en la Universidad de Puerto Rico y la resistencia de décadas contra la ocupación de Vieques ejemplifican la resiliencia y determinación del pueblo puertorriqueño.",
 
-        newsEventsHeading: "📰 Noticias y Eventos",
+        newsEventsHeading: "📰 DB en la noticias",
         newsItem1Title: "Nuevas Funciones",
         newsItem1Text: "Conexiones exclusivas con exalumnos",
         newsItem2Text: "Co-Chair sobre la importancia de la historia de la música puertorriqueña en Yale",

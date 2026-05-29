@@ -1,20 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DTMF Party - DB Yale</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link your CSS -->
-    <!-- Favicon links for browser tab icons -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Weekly Cafecitos – DB Yale</title>
+    <meta name="description" content="Photos from DB Yale's weekly Cafecito gatherings — coffee, conversation, and community every week at La Casa Cultural.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://despiertaboricua-yale.org/weekly-cafecitos.html">
+
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="./DB Logo Outline.png">
-    <link rel="icon" type="DB Logo Outline.png" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet"/>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/lightbox.css" />
+    <style>
+        /* ── Page hero ── */
+        .cafecito-hero {
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 60%, #52B788 100%);
+            color: white;
+            padding: 3rem 2rem 2.5rem;
+            text-align: center;
+        }
+        .cafecito-hero h1 {
+            font-size: 2.25rem;
+            margin: 0 0 0.5rem;
+        }
+        .cafecito-hero p {
+            font-size: 1.05rem;
+            opacity: 0.88;
+            max-width: 560px;
+            margin: 0 auto 1.25rem;
+        }
+        .cafecito-hero-meta {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            letter-spacing: 0.04em;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: white; }
 
+        /* ── Semester nav bar ── */
+        .semester-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        body.dark-mode .semester-nav {
+            background: #1a1a1a;
+            border-bottom-color: #333;
+        }
+        .semester-nav-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+        }
+        body.dark-mode .semester-nav-label { color: #aaa; }
+        .semester-nav a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border: 1.5px solid #2D6A4F;
+            border-radius: 50px;
+            color: #2D6A4F;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        body.dark-mode .semester-nav a {
+            border-color: #52B788;
+            color: #52B788;
+        }
+        .semester-nav a:hover {
+            background: #2D6A4F;
+            color: white;
+        }
+        body.dark-mode .semester-nav a:hover {
+            background: #52B788;
+            color: #1a1a1a;
+        }
 
+        /* ── Semester sections ── */
+        .cafecito-main {
+            padding: 0 2rem 3rem;
+            max-width: 1100px;
+        }
+        .semester-section {
+            margin-top: 2.5rem;
+            scroll-margin-top: 60px;
+        }
+        .semester-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid #2D6A4F;
+        }
+        body.dark-mode .semester-header { border-bottom-color: #52B788; }
+        .semester-header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: #1B4332;
+        }
+        body.dark-mode .semester-header h2 { color: #52B788; }
+        .semester-count {
+            font-size: 0.8rem;
+            background: #e8f5e9;
+            color: #2D6A4F;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        body.dark-mode .semester-count {
+            background: #1B4332;
+            color: #52B788;
+        }
+
+        /* ── Photo grid ── */
+        .cafecito-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 8px;
+        }
+        .cafecito-grid a {
+            display: block;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 4/3;
+        }
+        .cafecito-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+        .cafecito-grid a:hover img {
+            transform: scale(1.06);
+        }
+
+        /* ── Footer ── */
+        .cafecito-footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #eee;
+        }
+        body.dark-mode .cafecito-footer {
+            border-top-color: #333;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .cafecito-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cafecito-hero h1 { font-size: 1.75rem; }
+            .cafecito-main { padding: 0 1rem 2rem; }
+        }
+    </style>
 </head>
 <body>
+
+<!-- FIXED SIDEBAR -->
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <a href="index.html">
+            <img src="DB Logo Outline.png" alt="DB Yale Logo" class="logo-img"/>
+        </a>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="index.html" data-key="navHome">Home</a>
+        <a href="about.html" data-key="navAbout">About</a>
+        <a href="syllabus.html" data-key="navSyllabus">Syllabus</a>
+        <a href="collaborate.html" data-key="navCollaborate">Collaborate</a>
+        <a href="news.html" data-key="navNews">Upcoming Events</a>
+        <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
+        <a href="alumni.html" data-key="navAlumni">Alumni</a>
+        <a href="prospective.html" data-key="navProspective">Prospective Students</a>
+        <a href="merch.html" data-key="navMerch">Merch</a>
+        <a href="gallery.html" data-key="navGallery">Gallery</a>
+        <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
+        </a>
+    </nav>
+    <button id="lang-toggle">Español</button>
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <span class="icon">🌙</span>
+        <span class="label">Dark Mode</span>
+    </button>
+    <div class="sidebar-footer">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:despiertaboricua@yale.edu" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <div class="license">© 2026 DB Yale</div>
+    </div>
+</aside>
 
 <!-- Hamburger button for mobile -->
 <button class="hamburger-btn">
@@ -23,117 +232,116 @@
     <span></span>
 </button>
 
-<a href="gallery.html" class="back-to-gallery desktop-back">
-    <i class="fas fa-arrow-left"></i> Back to Gallery
-</a>
+<!-- MAIN CONTAINER -->
+<div class="main-container">
 
-<main class="main-content">
-    <section class="event-gallery">
-        <h2>Weekly Cafecitos</h2>
-        <div class="image-grid">
-            <a href="./Cafecitos/Cafecito_img1.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-            <img src="./Cafecitos/Cafecito_img1.jpg" alt="BR Mixer" class="cover">
-            </a>
+    <!-- Hero -->
+    <div class="cafecito-hero">
+        <a href="gallery.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Gallery
+        </a>
+        <h1>☕ Weekly Cafecitos</h1>
+        <p>Every week, rain or shine — coffee, conversation, and community. Not an event, an institution.</p>
+        <p class="cafecito-hero-meta">La Casa Cultural · Every Friday · 2022–Present</p>
+    </div>
 
-            <a href="./Cafecitos/Cafecito_img2.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-            <img src="./Cafecitos/Cafecito_img2.jpg" alt="DTMF Party" class="cover">
-            </a>
+    <!-- Sticky semester nav -->
+    <nav class="semester-nav">
+        <span class="semester-nav-label"><i class="fas fa-calendar-alt" style="margin-right:0.3rem;"></i>Jump to:</span>
+        <a href="#spring-2026">Spring 2026</a>
+        <a href="#fall-2025">Fall 2025</a>
+        <a href="#spring-2025">Spring 2025</a>
+        <a href="#fall-2024">Fall 2024</a>
+    </nav>
 
-            <a href="./Cafecitos/Cafecito_img3.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-            <img src="./Cafecitos/Cafecito_img3.jpg" alt="DTMF Party" class="cover">
-            </a>
+    <main class="cafecito-main">
 
-                <a href="./Cafecitos/Cafecito_img4.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Cafecitos/Cafecito_img4.jpg" alt="DTMF Party" class="cover">
+        <!-- ── Spring 2026 ── -->
+        <section class="semester-section" id="spring-2026">
+            <div class="semester-header">
+                <h2>Spring 2026</h2>
+                <span class="semester-count">Add photos</span>
+            </div>
+            <div class="cafecito-grid">
+                <!-- Add Spring 2026 Cafecito photos here as they come in -->
+                <!-- Example:
+                <a href="./Cafecitos/Spring2026/img1.jpg" data-lightbox="cafecitos-sp26" data-title="Cafecito — Spring 2026">
+                    <img src="./Cafecitos/Spring2026/img1.jpg" alt="Cafecito Spring 2026">
                 </a>
+                -->
+            </div>
+            <p style="color:#999; font-size:0.9rem; margin-top:0.75rem; font-style:italic;">Photos coming soon — check back after each week's Cafecito.</p>
+        </section>
 
-                    <a href="./Cafecitos/Cafecito_img5.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                    <img src="./Cafecitos/Cafecito_img5.jpg" alt="BR Mixer" class="cover">
-                    </a>
+        <!-- ── Fall 2025 ── -->
+        <section class="semester-section" id="fall-2025">
+            <div class="semester-header">
+                <h2>Fall 2025</h2>
+                <span class="semester-count">19 photos</span>
+            </div>
+            <div class="cafecito-grid">
+                <a href="./Cafecitos/Cafecito_img1.jpg"  data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img1.jpg"  alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img2.jpg"  data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img2.jpg"  alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img3.jpg"  data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img3.jpg"  alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img4.jpg"  data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img4.jpg"  alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img5.jpg"  data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img5.jpg"  alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img6.jpg"  data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img6.jpg"  alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img7.jpg"  data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img7.jpg"  alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img8.jpg"  data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img8.jpg"  alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img9.jpg"  data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img9.jpg"  alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img11.jpg" data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img11.jpg" alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img12.jpg" data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img12.jpg" alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img13.jpg" data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img13.jpg" alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img14.jpg" data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img14.jpg" alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img15.jpg" data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img15.jpg" alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img16.jpg" data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img16.jpg" alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img17.jpg" data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img17.jpg" alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img18.jpg" data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img18.jpg" alt="Cafecito Fall 2025"></a>
+                <a href="./Cafecitos/Cafecito_img19.jpg" data-lightbox="cafecitos-f25" data-title="Cafecito — Fall 2025"><img src="./Cafecitos/Cafecito_img19.jpg" alt="Cafecito Fall 2025"></a>
+            </div>
+        </section>
 
-                        <a href="./Cafecitos/Cafecito_img6.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                        <img src="./Cafecitos/Cafecito_img6.jpg" alt="DTMF Party" class="cover">
-                        </a>
+        <!-- ── Spring 2025 ── -->
+        <section class="semester-section" id="spring-2025">
+            <div class="semester-header">
+                <h2>Spring 2025</h2>
+                <span class="semester-count">3 photos</span>
+            </div>
+            <div class="cafecito-grid">
+                <a href="./Nov-Dec/Cafecito_img20.jpg" data-lightbox="cafecitos-sp25" data-title="Cafecito — Spring 2025"><img src="./Nov-Dec/Cafecito_img20.jpg" alt="Cafecito Spring 2025"></a>
+                <a href="./Nov-Dec/Cafecito_img21.jpg" data-lightbox="cafecitos-sp25" data-title="Cafecito — Spring 2025"><img src="./Nov-Dec/Cafecito_img21.jpg" alt="Cafecito Spring 2025"></a>
+                <a href="./Nov-Dec/Cafecito_img22.jpg" data-lightbox="cafecitos-sp25" data-title="Cafecito — Spring 2025"><img src="./Nov-Dec/Cafecito_img22.jpg" alt="Cafecito Spring 2025"></a>
+            </div>
+        </section>
 
-                            <a href="./Cafecitos/Cafecito_img7.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                            <img src="./Cafecitos/Cafecito_img7.jpg" alt="DTMF Party" class="cover">
-                            </a>
+        <!-- ── Fall 2024 ── -->
+        <section class="semester-section" id="fall-2024">
+            <div class="semester-header">
+                <h2>Fall 2024</h2>
+                <span class="semester-count">Add photos</span>
+            </div>
+            <div class="cafecito-grid">
+                <!-- Add Fall 2024 photos here -->
+            </div>
+            <p style="color:#999; font-size:0.9rem; margin-top:0.75rem; font-style:italic;">Photos from this semester coming soon.</p>
+        </section>
 
-                                <a href="./Cafecitos/Cafecito_img8.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                                <img src="./Cafecitos/Cafecito_img8.jpg" alt="DTMF Party" class="cover">
-                                </a>
+    </main>
 
-                                    <a href="./Cafecitos/Cafecito_img9.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                                    <img src="./Cafecitos/Cafecito_img9.jpg" alt="BR Mixer" class="cover">
-                                    </a>
+    <footer class="cafecito-footer">© 2026 DB Yale</footer>
 
-                                        <a href="./Cafecitos/Cafecito_img11.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                                        <img src="./Cafecitos/Cafecito_img11.jpg" alt="DTMF Party" class="cover">
-                                        </a>
+</div><!-- end .main-container -->
 
-                                            <a href="./Cafecitos/Cafecito_img12.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                                            <img src="./Cafecitos/Cafecito_img12.jpg" alt="DTMF Party" class="cover">
-                                            </a>
-
-                                                <a href="./Cafecitos/Cafecito_img13.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                                                <img src="./Cafecitos/Cafecito_img13.jpg" alt="DTMF Party" class="cover">
-                                                </a>
-
-                                                    <a href="./Cafecitos/Cafecito_img14.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                                                    <img src="./Cafecitos/Cafecito_img14.jpg" alt="DTMF Party" class="cover">
-                                                    </a>
-
-            <a href="./Cafecitos/Cafecito_img15.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Cafecitos/Cafecito_img15.jpg" alt="DTMF Party" class="cover">
-            </a>
-
-            <a href="./Cafecitos/Cafecito_img16.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Cafecitos/Cafecito_img16.jpg" alt="DTMF Party" class="cover">
-            </a>
-
-            <a href="./Cafecitos/Cafecito_img17.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Cafecitos/Cafecito_img17.jpg" alt="DTMF Party" class="cover">
-            </a>
-
-            <a href="./Cafecitos/Cafecito_img18.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Cafecitos/Cafecito_img18.jpg" alt="DTMF Party" class="cover">
-            </a>
-
-            <a href="./Cafecitos/Cafecito_img19.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Cafecitos/Cafecito_img19.jpg" alt="DTMF Party" class="cover">
-            </a>
-
-            <a href="./Nov-Dec/Cafecito_img20.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Nov-Dec/Cafecito_img20.jpg" alt="DTMF Party" class="cover">
-            </a>
-
-            <a href="./Nov-Dec/Cafecito_img21.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Nov-Dec/Cafecito_img21.jpg" alt="DTMF Party" class="cover">
-            </a>
-
-            <a href="./Nov-Dec/Cafecito_img22.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Nov-Dec/Cafecito_img22.jpg" alt="DTMF Party" class="cover">
-            </a>
-
-            <!--
-            <a href="./Nov-Dec/Flan.jpg" data-lightbox="cafecitos" data-title="Coffee & Chat #1">
-                <img src="./Nov-Dec/Flan.jpg" alt="DTMF Party" class="cover">
-            </a>
-            -->
-        </div>
-    </section>
-</main>
-
-<!-- Footer (Optional) -->
-<footer>
-    <p>© 2025 DB Yale</p>
-</footer>
-
-<!-- Link to JS if needed -->
 <script src="script.js"></script>
+<script src="lang.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-<script src="js/lightbox.js"></script>
-
+<script>
+    lightbox.option({
+        resizeDuration: 200,
+        wrapAround: true,
+        albumLabel: "Photo %1 of %2"
+    });
+</script>
 
 </body>
 </html>

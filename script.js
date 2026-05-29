@@ -263,53 +263,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ------------------------------
-    // Language Toggle (English/Spanish)
-    // ------------------------------
-document.addEventListener("DOMContentLoaded", () => {
-        const langToggle = document.getElementById("lang-toggle");
-        const elementsToTranslate = document.querySelectorAll("[data-key]");
-        let currentLang = localStorage.getItem("lang") || "en";
-
-        function updateLanguage(lang) {
-            elementsToTranslate.forEach((el) => {
-                const key = el.getAttribute("data-key");
-                // Assumes translations is a defined global object
-                if (typeof translations !== "undefined" && translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-        }
-
-
-
-// Function to update all translatable elements using innerHTML.
-    function updateLanguage(lang) {
-        const elementsToTranslate = document.querySelectorAll("[data-key]");
-        elementsToTranslate.forEach(el => {
-            const key = el.getAttribute("data-key");
-            if (translations[lang] && translations[lang][key]) {
-                el.innerHTML = translations[lang][key];
-            }
-        });
-    }
-
-        if (langToggle) {
-            langToggle.addEventListener("click", () => {
-                currentLang = currentLang === "en" ? "es" : "en";
-                localStorage.setItem("lang", currentLang);
-                updateLanguage(currentLang);
-                langToggle.textContent = currentLang === "en" ? "Español" : "English";
-            });
-
-            updateLanguage(currentLang);
-            langToggle.textContent = currentLang === "en" ? "Español" : "English";
-        } else {
-            console.error("Language toggle not found!");
-        }
-    });
-
-
 
 // this is for homepage logo button function
 
@@ -1383,10 +1336,10 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Antonio Padilla",
             role: "Co-President",
-            lat: 18.4288,  // Manatí coordinates
-            lng: -66.4800,
-            city: "Manatí",
-            description: "My family is from Manatí."
+            lat: 18.0794,
+            lng: -66.9603,
+            city: "Sabana Grande / Yauco",
+            description: "My family is from Sabana Grande and Yauco."
         },
         {
             name: "Gabriella Pollack",

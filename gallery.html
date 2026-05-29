@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Gallery – DB Yale</title>
-    <meta name="description" content="Browse photos from DB Yale's vibrant Puerto Rican cultural events, including Bad Bunny listening parties, Brazilian mixers, and La Brega podcast discussions.">
+    <meta name="description" content="Browse photos from DB Yale's Puerto Rican cultural events — Calle Corona street festival, Antonio Martorell fireside, Hartford Parade, weekly Cafecitos, and more.">
     <meta name="keywords" content="puerto rican events yale, despierta boricua photos, boricua cultural events, yale puerto rican gallery">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://despiertaboricua-yale.org/gallery.html">
@@ -615,7 +615,7 @@
         <a href="news.html" data-key="navNews">Upcoming Events</a>
         <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
         <a href="alumni.html" data-key="navAlumni">Alumni</a>
-        <a href="prospective.html" class="active">Prospective Students</a>
+        <a href="prospective.html" data-key="navProspective">Prospective Students</a>
         <a href="merch.html" data-key="navMerch">Merch</a>
         <a href="gallery.html" data-key="navGallery">Gallery</a>
         <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
@@ -640,7 +640,7 @@
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
-        <div class="license">© 2025 DB Yale</div>
+        <div class="license">© 2026 DB Yale</div>
     </div>
 </aside>
 
@@ -670,7 +670,8 @@
             <div class="gallery-nav-inner">
                 <span class="gallery-nav-label"><i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i>Jump to year:</span>
                 <div class="year-tabs" id="yearTabs">
-                    <button class="year-tab active" data-year="2025">2025</button>
+                    <button class="year-tab active" data-year="2026">2026</button>
+                    <button class="year-tab" data-year="2025">2025</button>
                     <button class="year-tab" data-year="2024">2024</button>
                 </div>
             </div>
@@ -731,41 +732,136 @@
             </div>
         </section>
 
-        <!-- Weekly Cafecitos -->
+        <!-- Weekly Cafecitos — Masonry Grid -->
         <section class="permanent-section gallery-section" data-category="WeeklyGatherings">
             <div class="permanent-section-header">
-                <div class="permanent-section-icon">
+                <div class="permanent-section-icon" style="background: linear-gradient(135deg, #2D6A4F, #52B788);">
                     <i class="fas fa-mug-hot"></i>
                 </div>
                 <h2 data-key="cafecitosTitle">Weekly Cafecitos</h2>
             </div>
-            <p class="permanent-section-desc" data-key="cafecitosDesc">
-                Our regular gatherings for coffee, conversation, and community building—happening every week.
+            <p class="permanent-section-desc">
+                Every week, rain or shine — coffee, conversation, and community.
+                This is the heartbeat of DB, not an event but an institution.
             </p>
-            <div class="carousel-container gallery-carousel-container">
-                <button class="carousel-button prev">‹</button>
-                <div class="carousel-window">
-                    <div class="carousel-track">
-                        <div class="carousel-item">
-                            <div class="event-folder">
-                                <a href="weekly-cafecitos.html">
-                                    <div class="folder-preview">
-                                        <img src="./Cafecitos/Cafecito_img13.jpg" alt="Weekly Cafecitos 1">
-                                        <img src="./Cafecitos/Cafecito_img10.jpg" alt="Weekly Cafecitos 2">
-                                        <img src="./Cafecitos/Cafecito_img8.jpg" alt="Weekly Cafecitos 3">
-                                        <img src="./Cafecitos/Cafecito_img3.jpg" alt="Weekly Cafecitos 4">
-                                    </div>
-                                    <div class="folder-text">
-                                        <h3 data-key="cafecitosTitle">Weekly Cafecitos</h3>
-                                        <p data-key="cafecitosDesc">Our ongoing gatherings for coffee, conversation, and community building.</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
+            <!-- Masonry photo grid — grid on a div, CTA as separate link -->
+            <div class="cafecito-mosaic">
+                <div class="cafecito-grid">
+                    <img src="./Cafecitos/Cafecito_img13.jpg" alt="Cafecito gathering" class="mosaic-tall">
+                    <img src="./Cafecitos/Cafecito_img10.jpg" alt="Cafecito gathering">
+                    <img src="./Cafecitos/Cafecito_img8.jpg"  alt="Cafecito gathering">
+                    <img src="./Cafecitos/Cafecito_img3.jpg"  alt="Cafecito gathering" class="mosaic-wide">
+                    <img src="./Cafecitos/Cafecito_img13.jpg" alt="Cafecito gathering">
+                    <img src="./Cafecitos/Cafecito_img10.jpg" alt="Cafecito gathering">
                 </div>
-                <button class="carousel-button next">›</button>
+                <a href="weekly-cafecitos.html" class="cafecito-view-all">
+                    <i class="fas fa-images"></i> View all Cafecito photos →
+                </a>
             </div>
+
+            <!-- Quick links to past semesters -->
+            <div class="cafecito-past-links">
+                <span class="cafecito-past-label">Browse by semester:</span>
+                <a href="weekly-cafecitos.html#spring-2026">Spring 2026</a>
+                <a href="weekly-cafecitos.html#fall-2025">Fall 2025</a>
+                <a href="weekly-cafecitos.html#spring-2025">Spring 2025</a>
+                <a href="weekly-cafecitos.html#fall-2024">Fall 2024</a>
+            </div>
+
+            <style>
+                .cafecito-mosaic {
+                    max-width: 860px;
+                }
+                .cafecito-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-auto-rows: 170px;
+                    gap: 6px;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    margin-bottom: 1rem;
+                }
+
+                .cafecito-grid img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    transition: transform 0.4s ease;
+                }
+                .cafecito-grid:hover img {
+                    transform: scale(1.03);
+                }
+                .mosaic-tall  { grid-row: span 2; }
+                .mosaic-wide  { grid-column: span 2; }
+
+                .cafecito-view-all {
+                    display: inline-block;
+                    margin-top: 0.85rem;
+                    background: linear-gradient(135deg, #2D6A4F, #52B788);
+                    color: white;
+                    font-weight: 700;
+                    font-size: 0.9rem;
+                    padding: 0.55rem 1.25rem;
+                    border-radius: 50px;
+                    text-decoration: none;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                    box-shadow: 0 3px 10px rgba(45,106,79,0.3);
+                }
+                .cafecito-view-all:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(45,106,79,0.4);
+                }
+
+                /* Past semester quick links */
+                .cafecito-past-links {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                }
+                .cafecito-past-label {
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    color: #666;
+                    text-transform: uppercase;
+                    letter-spacing: 0.04em;
+                    margin-right: 0.25rem;
+                }
+                body.dark-mode .cafecito-past-label { color: #aaa; }
+                .cafecito-past-links a {
+                    font-size: 0.85rem;
+                    padding: 0.35rem 0.85rem;
+                    border: 1.5px solid #2D6A4F;
+                    border-radius: 50px;
+                    color: #2D6A4F;
+                    text-decoration: none;
+                    font-weight: 600;
+                    transition: all 0.2s ease;
+                }
+                body.dark-mode .cafecito-past-links a {
+                    border-color: #52B788;
+                    color: #52B788;
+                }
+                .cafecito-past-links a:hover {
+                    background: #2D6A4F;
+                    color: white;
+                }
+                body.dark-mode .cafecito-past-links a:hover {
+                    background: #52B788;
+                    color: #1a1a1a;
+                }
+
+                @media (max-width: 600px) {
+                    .cafecito-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-auto-rows: 130px;
+                    }
+                    .mosaic-tall { grid-row: span 1; }
+                }
+            </style>
         </section>
 
 
@@ -773,6 +869,90 @@
         <!-- ========================================== -->
         <!-- YEAR SECTIONS (Collapsible)               -->
         <!-- ========================================== -->
+
+        <!-- ==================== 2026 ==================== -->
+        <section class="year-section" id="year-2026" data-year="2026">
+            <div class="year-header" onclick="toggleYear(this)">
+                <h2><span class="year-icon"><i class="fas fa-calendar"></i></span> 2026</h2>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="year-content">
+
+                <!-- Major Events 2026 -->
+                <div class="category-section gallery-section" data-category="MajorEvents2026">
+                    <div class="category-header" onclick="toggleCategory(this)">
+                        <span class="category-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <h3><i class="fas fa-star" style="margin-right: 0.5rem; color: #007bff;"></i>Major Events</h3>
+                    </div>
+                    <div class="category-content">
+                        <p class="category-description">Speaker events, formal programming, community outreach, and annual cultural events.</p>
+                        <div class="carousel-container gallery-carousel-container">
+                            <button class="carousel-button prev">‹</button>
+                            <div class="carousel-window">
+                                <div class="carousel-track">
+
+                                    <!-- Calle Corona -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="CalleCorona.html">
+                                                <div class="folder-preview" style="background: linear-gradient(135deg, #1B4332 0%, #E63946 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem;">
+                                                    <span style="font-size:3rem;">🎉</span>
+                                                    <span style="color:white; font-weight:700; font-size:1.1rem; text-align:center; padding:0 1rem;">Calle Corona</span>
+                                                    <span style="color:rgba(255,255,255,0.8); font-size:0.85rem;">Add photos here</span>
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3>Festival de Calle Corona</h3>
+                                                    <p>New Haven's first Puerto Rican street festival — SanSe llegó al Norte. April 24, 2026.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button class="carousel-button next">›</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Events 2026 -->
+                <div class="category-section gallery-section" data-category="SocialEvents2026">
+                    <div class="category-header" onclick="toggleCategory(this)">
+                        <span class="category-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <h3><i class="fas fa-users" style="margin-right: 0.5rem; color: #007bff;"></i>Social Events: Mixers, Retreats, Parties</h3>
+                    </div>
+                    <div class="category-content">
+                        <p class="category-description">Informal gatherings, celebrations, watch parties, and cross-cultural exchanges.</p>
+                        <div class="carousel-container gallery-carousel-container">
+                            <button class="carousel-button prev">‹</button>
+                            <div class="carousel-window">
+                                <div class="carousel-track">
+
+                                    <!-- Benito Bowl -->
+                                    <div class="carousel-item">
+                                        <div class="event-folder">
+                                            <a href="BenitoBowl.html">
+                                                <div class="folder-preview" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem;">
+                                                    <span style="font-size:3rem;">🐰</span>
+                                                    <span style="color:white; font-weight:700; font-size:1rem; text-align:center; padding:0 1rem;">Benito Bowl</span>
+                                                </div>
+                                                <div class="folder-text">
+                                                    <h3>Benito Bowl — Super Bowl Watch Party</h3>
+                                                    <p>400+ people. Bad Bunny's halftime show. February 8, 2026.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button class="carousel-button next">›</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <!-- ==================== 2025 ==================== -->
         <section class="year-section collapsed" id="year-2025" data-year="2025">
