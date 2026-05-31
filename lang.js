@@ -12,8 +12,8 @@ const translations = {
         navMerch: "Merch",
         navGallery: "Gallery",
 
-        blackHeroHeading: "Celebrating Puerto Rican Identity & Resistance",
-        blackHeroParagraph: "Despierta Boricua is a cultural-political movement. We uplift, empower, and celebrate our culture, history, and people.",
+        blackHeroHeading: "Empowering Puerto Rican Identity & Resistance",
+        blackHeroParagraph: "We connect Puerto Rican students, New Haven community, and the broader Boricua diaspora through culture, political education, and collective care.",
         learnMoreBtn: "Learn More",
 
         section1Tag: "SECTION 1",
