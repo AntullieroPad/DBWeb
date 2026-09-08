@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Boletín — Lo Que Construimos Este Verano | Despierta Boricua at Yale</title>
+<meta name="description" content="El Boletín, Volume 7. Edición de Regreso: a conference at CENTRO, a Caribbean Studies certificate, and what the Peabody holds.">
+<meta property="og:title" content="El Boletín — Lo Que Construimos Este Verano">
+<meta property="og:description" content="Lo que construimos este verano. Fall 2026.">
+<meta property="og:image" content="https://despiertaboricua-yale.org/images/fall2026/lacasa_fb.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Barlow+Condensed:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   EL BOLETÍN v2 — design tokens
+   Edit the :root values to retheme an edition. Everything else
+   reads from these.
+   ============================================================ */
+:root{
+  --paper:#F2E8D0;        /* timetable stock */
+  --paper-deep:#E6D8B5;   /* aged edge / ticket */
+  --ink:#1F2A24;          /* body text */
+  --ink-soft:#4E5B54;     /* captions, meta */
+  --selva:#1E4D3A;        /* station-plate green */
+  --selva-deep:#143528;
+  --cana:#D4A574;         /* DB gold — rails, rules, accents */
+  --cana-deep:#B7884F;
+  --rojo:#B8322F;         /* used once per page: the stamp */
+  --white:#FBF7EE;
+  --mint:#DCEBD9;         /* page ground outside the car */
+  --coral:#E4572E;        /* flamboyán */
+  --pink:#E8618C;         /* amapola */
+  --celeste:#5BA4CF;      /* the old-flag blue */
+  --palm:#3E8E5E;
+  --wood:#7A4B25;         /* rails */
+  --tie:#3E2A18;
+  --mono:"Courier Prime","Courier New",monospace;
+
+  --measure:54rem;        /* wider car; body copy still capped below */
+  --gutter:clamp(1.25rem,4vw,2.5rem);
+  --radius:6px;
+  --amarillo:#F2C230;     /* the wink button hearts */
+  --green-grad:linear-gradient(160deg,#2F7455 0%,#1E4D3A 48%,#123227 100%);
+
+  --serif:"Fraunces","Iowan Old Style","Georgia",serif;
+  --sign:"Barlow Condensed","Arial Narrow","Helvetica Neue",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#1B1F1C;
+    --paper-deep:#242A26;
+    --ink:#EFE7D3;
+    --ink-soft:#B4AC98;
+    --selva:#163A2C;
+    --selva-deep:#0F281E;
+    --white:#F5EEDC;
+    --mint:#141916;
+    --wood:#9C6A3E;
+    --tie:#5A3F27;
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;
+  background:var(--mint);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 14,"SOFT" 30;
+  font-size:1.0625rem;
+  line-height:1.6;
+  font-feature-settings:"kern","liga","onum";
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--selva);text-decoration-color:var(--cana);text-decoration-thickness:1.5px;text-underline-offset:3px}
+@media (prefers-color-scheme:dark){a{color:var(--cana)}}
+a:focus-visible,button:focus-visible{outline:3px solid var(--cana);outline-offset:3px}
+p{margin:0 0 1.1em}
+strong{font-weight:650}
+em{font-style:italic}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ------------------------------------------------------------
+   Rail rule — the divider that replaces emoji rows.
+   Two rails with ties, drawn with gradients so it scales.
+   ------------------------------------------------------------ */
+.rail{
+  height:14px;border:0;margin:2.75rem 0;position:relative;
+  background:
+    repeating-linear-gradient(90deg,var(--cana-deep) 0 6px,transparent 6px 22px) center/100% 14px no-repeat,
+    linear-gradient(var(--cana),var(--cana)) center 2px/100% 2px no-repeat,
+    linear-gradient(var(--cana),var(--cana)) center 12px/100% 2px no-repeat;
+  background-position:0 0,0 2px,0 12px;
+  opacity:.85;
+}
+.rail::after{ /* a leaf resting on the track */
+  content:"🌿";position:absolute;right:-4px;top:-14px;font-size:1.25rem;filter:saturate(.8)
+}
+
+/* ============================================================
+   MASTHEAD — an enamel station plate
+   ============================================================ */
+.masthead{
+  background:var(--green-grad);
+  color:var(--white);
+  padding:2.25rem var(--gutter) 0;
+  position:relative;
+  overflow:hidden;
+  box-shadow:inset 0 -1px 0 rgba(255,255,255,.08);
+}
+.masthead::before{ /* plate rim */
+  content:"";position:absolute;inset:10px;border:1.5px solid rgba(251,247,238,.35);pointer-events:none;border-radius:3px;
+}
+.masthead-inner{max-width:calc(var(--measure) + 15rem);margin:0 auto;position:relative}
+.foliage{position:absolute;pointer-events:none;opacity:.32;color:var(--palm)}
+.foliage.tl{left:-40px;top:-30px;width:240px;transform:rotate(-20deg)}
+.foliage.br{right:-50px;bottom:40px;width:300px;transform:scaleX(-1) rotate(-12deg)}
+.flor{position:absolute;pointer-events:none;width:70px;right:8%;top:22px;color:var(--pink);opacity:.9;
+  transform-origin:50% 90%;animation:sway 5s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+@media (prefers-reduced-motion:reduce){.flor{animation:none}}
+@media (max-width:40rem){.foliage.br{display:none}.flor{width:48px;right:4%;top:14px}}
+.band{height:10px;background:linear-gradient(90deg,
+  var(--coral) 0 20%,var(--cana) 20% 40%,var(--celeste) 40% 60%,var(--pink) 60% 80%,var(--palm) 80% 100%)}
+.company{
+  font-family:var(--sign);font-weight:600;letter-spacing:.06em;font-size:.95rem;
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  color:rgba(251,247,238,.8);
+}
+.company span+span{color:var(--cana)}
+.masthead h1{
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 144,"SOFT" 100,"wght" 700;
+  font-weight:700;
+  font-size:clamp(4rem,13vw,7.5rem);
+  line-height:.9;letter-spacing:-.02em;
+  margin:1.25rem 0 .5rem;
+  color:var(--white);
+}
+.masthead h1 .tilde{color:var(--cana)}
+.masthead .tag{
+  font-variation-settings:"opsz" 30,"SOFT" 60;
+  font-style:italic;font-size:clamp(1.1rem,2.4vw,1.45rem);margin:0 0 1.75rem;color:rgba(251,247,238,.88);
+}
+/* the timetable */
+.timetable{
+  border-collapse:collapse;width:100%;font-family:var(--sign);
+  border-top:1.5px solid rgba(251,247,238,.35);
+}
+.timetable th,.timetable td{
+  padding:.55rem .2rem;text-align:left;vertical-align:top;
+  border-bottom:1px solid rgba(251,247,238,.18);
+}
+.timetable th{
+  font-weight:600;letter-spacing:.08em;font-size:.8rem;color:var(--cana);width:7.5rem;white-space:nowrap
+}
+.timetable td{font-size:1.15rem;font-weight:500;color:var(--white)}
+.timetable td .arrow{color:var(--cana);margin:0 .35rem}
+/* the one motion on the page: a train crosses the plate once */
+.track{position:relative;height:56px;margin-top:1.5rem}
+.track::before{
+  content:"";position:absolute;left:0;right:0;bottom:12px;height:10px;
+  background:
+    repeating-linear-gradient(90deg,rgba(212,165,116,.55) 0 5px,transparent 5px 18px) 0 0/100% 10px no-repeat,
+    linear-gradient(var(--cana),var(--cana)) 0 1px/100% 1.5px no-repeat,
+    linear-gradient(var(--cana),var(--cana)) 0 8.5px/100% 1.5px no-repeat;
+}
+.train{
+  position:absolute;bottom:20px;left:0;width:64px;height:auto;
+  animation:cross 16s linear .6s infinite;
+  transform:translateX(calc(100vw + 40px)) scaleX(-1);
+}
+@keyframes cross{
+  0%{transform:translateX(calc(100vw + 40px)) scaleX(-1)}
+  45%{transform:translateX(-80px) scaleX(-1)}
+  100%{transform:translateX(-80px) scaleX(-1)}
+}
+.train.toot{animation:cross 16s linear .6s infinite, toot .5s ease-out 2}
+@keyframes toot{0%,100%{margin-bottom:0}50%{margin-bottom:6px}}
+.masthead{cursor:pointer}
+.puff{position:absolute;bottom:34px;left:0;font-size:1.4rem;opacity:0;pointer-events:none}
+.puff.go{animation:puff 1.2s ease-out forwards}
+@keyframes puff{0%{opacity:.9;transform:translate(0,0) scale(.6)}100%{opacity:0;transform:translate(-30px,-40px) scale(1.6)}}
+@media (prefers-reduced-motion:reduce){.train,.train.toot{animation:none;transform:translateX(0) scaleX(-1)}}
+
+/* ============================================================
+   PAGE FRAME — stops rail on the left, article on the right
+   ============================================================ */
+.page{
+  max-width:calc(var(--measure) + 15rem);
+  margin:0 auto;padding:0 var(--gutter) 4rem;
+  display:grid;grid-template-columns:1fr;gap:0 3rem;
+}
+@media (min-width:56rem){
+  .page{grid-template-columns:11rem minmax(0,var(--measure))}
+}
+
+/* stops (table of contents) */
+.stops{position:sticky;top:0;align-self:start;padding:2rem 0 1rem;min-width:0}
+.stops-title{
+  font-family:var(--sign);font-weight:600;letter-spacing:.08em;font-size:.8rem;color:var(--cana-deep);margin:0 0 .75rem;
+}
+.stops ol{list-style:none;margin:0;padding:0;position:relative}
+.stops ol::before{ /* the vertical rail */
+  content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--cana);
+}
+.stops li{position:relative;padding:.3rem 0 .3rem 1.6rem}
+.stops li::before{ /* the stop marker */
+  content:"";position:absolute;left:3px;top:.72rem;width:12px;height:12px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--cana-deep);transition:background .2s,transform .2s;
+}
+.stops a{
+  font-family:var(--sign);font-weight:500;font-size:1.02rem;line-height:1.25;color:var(--ink-soft);text-decoration:none;display:block
+}
+.stops li.is-current::before{background:var(--selva);border-color:var(--selva);transform:scale(1.25)}
+.stops li.is-current a{color:var(--ink);font-weight:700}
+.stops a:hover{color:var(--selva)}
+@media (max-width:55.99rem){
+  .stops{position:relative;padding:1.75rem 0 .25rem;margin:0;padding-inline:var(--gutter);
+    border-bottom:1.5px solid var(--cana);}
+  .stops::after{content:"";position:absolute;right:0;top:0;bottom:0;width:3rem;pointer-events:none;
+    background:linear-gradient(90deg,transparent,var(--mint));}
+  .stops ol{display:flex;gap:.25rem 1.25rem;overflow-x:auto;max-width:100%;padding-bottom:.5rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .stops ol::before{display:none}
+  .stops li{padding:0 0 0 1.2rem;flex:0 0 auto}
+  .stops li::before{top:.35rem;left:0}
+  .stops a{white-space:nowrap;font-size:.98rem}
+}
+
+.car{position:relative;min-width:0;background:var(--paper);padding:0 calc(22px + 2.25rem);
+  box-shadow:0 0 0 1px rgba(122,75,37,.15)}
+.car::before,.car::after{
+  content:"";position:absolute;top:0;bottom:0;width:22px;background:
+    repeating-linear-gradient(180deg,var(--tie) 0 9px,transparent 9px 42px) 5px 0/12px 100% no-repeat,
+    linear-gradient(var(--wood),var(--wood)) 4px 0/3px 100% no-repeat,
+    linear-gradient(var(--wood),var(--wood)) 15px 0/3px 100% no-repeat,
+    var(--mint);
+}
+.car::before{left:0}
+.car::after{right:0}
+article{padding-top:2.25rem;padding-bottom:2rem;min-width:0}
+article p,article .pillars p,.ticket ol{max-width:46rem}
+@media (max-width:55.99rem){
+  .page{padding-inline:0}
+  .car{padding:0 calc(22px + 1rem)}
+  .stops{margin:0}
+}
+
+/* ------------------------------------------------------------
+   "Si solo lees una cosa" — a ticket stub
+   ------------------------------------------------------------ */
+.ticket{
+  position:relative;background:var(--paper-deep);
+  padding:1.5rem 1.75rem 1.5rem 2rem;margin:0 0 2.75rem;
+  border-radius:var(--radius);
+  --hole:10px;
+  -webkit-mask:
+    radial-gradient(circle at 0 50%,transparent var(--hole),#000 calc(var(--hole) + .5px)) left/50% 100% no-repeat,
+    radial-gradient(circle at 100% 50%,transparent var(--hole),#000 calc(var(--hole) + .5px)) right/50% 100% no-repeat;
+          mask:
+    radial-gradient(circle at 0 50%,transparent var(--hole),#000 calc(var(--hole) + .5px)) left/50% 100% no-repeat,
+    radial-gradient(circle at 100% 50%,transparent var(--hole),#000 calc(var(--hole) + .5px)) right/50% 100% no-repeat;
+}
+.ticket::before{ /* perforation line */
+  content:"";position:absolute;left:1.15rem;top:12px;bottom:12px;border-left:2px dashed var(--cana-deep);opacity:.7;
+}
+.ticket-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.6rem}
+.ticket .hib{position:absolute;right:-6px;bottom:-10px;width:64px;color:var(--pink);opacity:.9;pointer-events:none}
+.ticket .punch{position:absolute;left:48%;top:14px;width:18px;height:18px;border-radius:50%;background:var(--mint);
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.25);opacity:0;transform:scale(.2);transition:opacity .15s,transform .25s cubic-bezier(.2,1.6,.4,1)}
+.ticket.punched .punch{opacity:1;transform:scale(1)}
+.ticket.punched .stamp{transform:rotate(-14deg) scale(1.1);color:var(--palm);border-color:var(--palm)}
+.ticket.punched .stamp::after{content:" · leído"}
+.ticket .stamp{cursor:pointer;user-select:none;transition:transform .25s cubic-bezier(.2,1.6,.4,1),color .2s,border-color .2s}
+.ticket h2{
+  font-family:var(--serif);font-variation-settings:"opsz" 40,"SOFT" 80;font-weight:600;font-style:italic;
+  font-size:1.35rem;margin:0;letter-spacing:-.01em
+}
+.stamp{ /* the page's single use of red */
+  background:none;font:inherit;
+  font-family:var(--sign);font-weight:700;font-size:.78rem;letter-spacing:.1em;color:var(--rojo);
+  border:2px solid var(--rojo);padding:.15rem .5rem;border-radius:3px;transform:rotate(-3deg);opacity:.9;white-space:nowrap
+}
+.ticket ol{margin:0;padding-left:1.25rem;font-size:1.02rem;line-height:1.5}
+.ticket li{margin:.35rem 0;padding-left:.2rem}
+.ticket li::marker{font-family:var(--sign);font-weight:700;color:var(--selva)}
+.ticket li a{font-weight:600}
+
+/* ------------------------------------------------------------
+   Sections — each is an andén (platform)
+   ------------------------------------------------------------ */
+.anden{scroll-margin-top:1rem}
+.anden-plate{ /* platform number, set like a small enamel sign */
+  display:inline-block;font-family:var(--sign);font-weight:700;font-size:.82rem;letter-spacing:.12em;
+  color:var(--white);background:var(--selva);padding:.3rem .65rem .25rem;border-radius:3px;margin-bottom:.9rem;
+}
+.anden-plate{transition:transform .2s}
+.anden-plate:hover{transform:rotate(-2deg) scale(1.05)}
+.anden h2{
+  font-family:var(--serif);font-variation-settings:"opsz" 96,"SOFT" 70,"wght" 600;font-weight:600;
+  font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 1.1rem;
+}
+.anden h2 .sub{ /* a Spanish/English second line, quieter */
+  display:block;font-variation-settings:"opsz" 30,"SOFT" 80;font-weight:400;font-style:italic;
+  font-size:.55em;letter-spacing:0;color:var(--ink-soft);margin-top:.35rem
+}
+.anden h3{
+  font-family:var(--serif);font-variation-settings:"opsz" 48,"SOFT" 60;font-weight:650;
+  font-size:1.35rem;line-height:1.2;margin:1.75rem 0 .5rem;letter-spacing:-.01em
+}
+.lede{font-size:1.2rem;line-height:1.5;font-variation-settings:"opsz" 20,"SOFT" 40}
+.big{font-size:2.4rem;line-height:1.05;font-weight:500;font-variation-settings:"opsz" 96,"SOFT" 100;margin:0 0 1.25rem;letter-spacing:-.02em}
+
+figure{margin:1.75rem 0}
+figure img{border-radius:2px;width:100%;object-fit:cover;background:var(--white);padding:8px 8px 8px;
+  box-shadow:0 2px 0 rgba(0,0,0,.05),0 8px 20px rgba(62,42,24,.18);transform:rotate(-1.2deg);transition:transform .3s}
+figure:nth-of-type(even) img{transform:rotate(1deg)}
+figure:hover img{transform:rotate(0) scale(1.01)}
+.person figure img,.pair figure img{transform:none}
+.pair figure img{padding:6px}
+.pair figure:first-child img{transform:rotate(-2deg)}.pair figure:last-child img{transform:rotate(2deg)}
+.pair figure:hover img{transform:rotate(0)}
+figcaption{font-size:.9rem;color:var(--ink-soft);margin-top:.55rem;font-style:italic;font-variation-settings:"opsz" 12,"SOFT" 40}
+
+blockquote.pull{
+  margin:2.25rem 0;padding:0 0 0 1.25rem;border-left:3px solid var(--coral);
+  font-variation-settings:"opsz" 40,"SOFT" 90;font-size:1.45rem;line-height:1.35;font-weight:400;letter-spacing:-.01em
+}
+blockquote.pull p{margin:0 0 .6rem}
+blockquote.pull cite{font-family:var(--sign);font-style:normal;font-weight:600;font-size:.85rem;letter-spacing:.08em;color:var(--ink-soft)}
+
+/* notice — a small boxed announcement inside a section */
+.notice{
+  position:relative;margin:1.75rem 0 1.75rem .5rem;padding:1.35rem 1.5rem 1.35rem 2rem;background:var(--white);
+  border:1.5px solid var(--cana-deep);border-radius:2px 8px 8px 2px;
+  box-shadow:3px 4px 0 var(--paper-deep);transform:rotate(-.4deg);transition:transform .25s
+}
+.notice:nth-of-type(even){transform:rotate(.4deg)}
+.notice:hover{transform:rotate(0)}
+.notice::before{ /* spiral binding */
+  content:"";position:absolute;left:-9px;top:10px;bottom:10px;width:16px;
+  background:repeating-linear-gradient(180deg,var(--cana) 0 8px,transparent 8px 20px);
+  border-radius:3px;
+}
+.notice::after{ /* a piece of tape */
+  content:"";position:absolute;right:18px;top:-9px;width:64px;height:18px;transform:rotate(3deg);
+  background:rgba(232,97,140,.35);border:1px solid rgba(232,97,140,.3)
+}
+.notice h3{margin-top:0}
+.notice p:last-child{margin-bottom:0}
+.notice .kicker{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin:0 0 .35rem}
+.notice .when{font-family:var(--mono);font-weight:700;color:var(--palm);margin:1rem 0 0;padding-top:.85rem;border-top:2px dashed var(--cana)}
+.notice .when .btn{font-family:var(--sign)}
+.notice .asks li{border-color:var(--paper-deep)}
+@media (prefers-color-scheme:dark){.notice{background:var(--paper-deep);box-shadow:3px 4px 0 var(--selva-deep)}}
+
+/* buttons */
+.btn{
+  display:inline-block;font-family:var(--sign);font-weight:700;font-size:1.05rem;letter-spacing:.05em;
+  color:var(--white);background:var(--selva);padding:.7rem 1.15rem .6rem;border-radius:var(--radius);text-decoration:none;
+  border:2px solid var(--selva);transition:background .15s,color .15s;
+}
+.btn{transition:background .15s,color .15s,transform .15s}
+.btn:hover{background:var(--coral);border-color:var(--coral);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--selva);border-color:var(--selva)}
+.btn.ghost:hover{background:var(--coral);border-color:var(--coral);color:var(--white)}
+@media (prefers-color-scheme:dark){
+  .btn.ghost{color:var(--cana);border-color:var(--cana)}
+  .btn.ghost:hover{background:var(--cana);color:var(--ink)}
+}
+.btn-row{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 .5rem}
+/* the wink button: red plate on a green frame with a hard shadow */
+.btn.wink{
+  background:var(--rojo);border:3px solid var(--selva);color:var(--white);font-size:1.15rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.85rem 1.6rem .75rem;box-shadow:4px 4px 0 var(--selva);border-radius:2px;transform:none
+}
+.btn.wink b{color:var(--amarillo);font-weight:700}
+.btn.wink:hover{background:#D33B37;border-color:var(--selva);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--selva)}
+.btn.wink:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--selva)}
+.wink{ /* the dashed red box */
+  margin:2.5rem 0 1rem;padding:2rem 1.5rem;border:3px dashed var(--rojo);text-align:center;background:var(--white)
+}
+@media (prefers-color-scheme:dark){.wink{background:var(--paper-deep)}}
+.wink .kicker{font-family:var(--mono);letter-spacing:.25em;text-transform:uppercase;font-size:.8rem;color:var(--ink-soft);margin:0 0 1rem}
+.wink .q{font-size:1.15rem;line-height:1.55;margin:0 0 1.5rem}
+.wink .fine{font-style:italic;color:var(--ink-soft);font-size:.95rem;margin:1.25rem 0 0}
+
+/* phases — a real sequence, so a numbered strip is warranted */
+.phases{list-style:none;margin:1.5rem 0 2rem;padding:0;display:grid;gap:.5rem;grid-template-columns:repeat(3,1fr)}
+@media (max-width:36rem){.phases{grid-template-columns:1fr}}
+.phases li{
+  font-family:var(--sign);padding:.75rem .9rem;border-radius:var(--radius);
+  border:1.5px solid var(--cana);color:var(--ink-soft);line-height:1.2
+}
+.phases li b{display:block;font-size:.78rem;letter-spacing:.1em;font-weight:600;margin-bottom:.15rem}
+.phases li span{font-size:1.1rem;font-weight:600;color:var(--ink)}
+.phases li.done{background:var(--paper-deep)}
+.phases li{transition:transform .2s}.phases li:hover{transform:translateY(-3px)}
+.phases li.now{background:var(--coral);border-color:var(--coral);color:rgba(251,247,238,.85)}
+.phases li.now span{color:var(--white)}
+.phases li.locked{opacity:.65;border-style:dashed}
+
+/* announcement — Estamos Aquí */
+.announce{
+  margin:3rem 0 2rem;padding:2.25rem 1.75rem 2rem;background:var(--green-grad);color:var(--white);border-radius:var(--radius);
+  position:relative;overflow:hidden
+}
+.announce{border:2px solid var(--cana);border-radius:4px;overflow:visible;text-align:center}
+.announce::after{
+  content:"";position:absolute;inset:7px;border:1px solid var(--cana);opacity:.55;border-radius:2px;pointer-events:none
+}
+.announce .badge{ /* the tab that hangs over the frame */
+  position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;
+  background:var(--green-grad);border:2px solid var(--cana);border-radius:0 0 26px 26px;border-top:0;
+  display:grid;place-items:center;color:var(--amarillo);font-size:1.5rem;z-index:1
+}
+.announce .frame-rule{height:2px;background:var(--cana);margin:1rem auto;width:100%}
+.announce .kicker{font-family:var(--mono);letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;margin-top:.75rem}
+.announce .partner{font-family:var(--mono);font-size:.9rem;letter-spacing:.06em}
+.announce p{max-width:40rem;margin-left:auto;margin-right:auto}
+.announce .kicker{font-family:var(--sign);font-weight:600;letter-spacing:.1em;font-size:.82rem;color:var(--cana);margin:0 0 .5rem}
+.announce h3{
+  font-variation-settings:"opsz" 144,"SOFT" 100,"wght" 700;font-weight:700;color:var(--white);
+  font-size:clamp(2.4rem,7vw,3.6rem);line-height:.95;margin:0;letter-spacing:-.025em
+}
+.announce .sub{font-style:italic;font-variation-settings:"opsz" 30,"SOFT" 80;font-size:1.3rem;margin:.5rem 0 1rem;color:rgba(251,247,238,.9)}
+.announce p{color:rgba(251,247,238,.88)}
+.announce .partner{font-family:var(--sign);font-weight:500;font-size:1rem;color:var(--cana);margin-top:1.25rem}
+
+/* pillars — four are a set, not a sequence; use a ruled list, not cards */
+.pillars{list-style:none;margin:1.5rem 0;padding:0;border-top:1.5px solid var(--cana)}
+.pillars li{padding:1.15rem 0;border-bottom:1.5px solid var(--cana);display:grid;grid-template-columns:7rem 1fr;gap:1rem}
+@media (max-width:36rem){.pillars li{grid-template-columns:1fr;gap:.35rem}}
+.pillars .name{font-family:var(--sign);font-weight:700;font-size:1.15rem;line-height:1.2;color:var(--selva)}
+.pillars li:nth-child(1) .name{color:var(--coral)}.pillars li:nth-child(2) .name{color:var(--celeste)}
+.pillars li:nth-child(3) .name{color:var(--palm)}.pillars li:nth-child(4) .name{color:var(--pink)}
+.pillars li{transition:background .2s}.pillars li:hover{background:rgba(212,165,116,.15)}
+.pillars .name small{display:block;font-weight:500;font-size:.78rem;letter-spacing:.1em;color:var(--ink-soft)}
+@media (prefers-color-scheme:dark){.pillars .name{color:var(--cana)}}
+.pillars p{margin:0;font-size:1rem}
+
+/* people — one portrait row per person, alternating sides so it isn't a card grid */
+.person{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;align-items:start;margin:1.75rem 0;padding-top:1.5rem;border-top:1.5px solid var(--cana)}
+.person:nth-of-type(even){grid-template-columns:1fr 9rem}
+.person:nth-of-type(even) figure{order:2}
+.person figure{margin:0}
+.person img{aspect-ratio:1;object-fit:cover;border-radius:50%;border:3px solid var(--cana)}
+.person h3{margin-top:0}
+.person .role{font-family:var(--sign);font-weight:600;font-size:.82rem;letter-spacing:.08em;color:var(--ink-soft);margin:0 0 .5rem}
+.person .contact{font-family:var(--sign);font-size:1rem;margin:0}
+@media (max-width:36rem){
+  .person,.person:nth-of-type(even){grid-template-columns:5.5rem 1fr}
+  .person:nth-of-type(even) figure{order:0}
+}
+
+/* roll call (graduates) */
+.roll{columns:2;column-gap:2rem;margin:1rem 0 0;padding:0;list-style:none;font-variation-settings:"opsz" 30,"SOFT" 60;font-size:1.25rem;line-height:1.45}
+.roll li{break-inside:avoid;padding:.25rem 0;border-bottom:1px dotted var(--cana-deep)}
+.roll li small{display:block;font-size:.82rem;color:var(--ink-soft);font-family:var(--sign);letter-spacing:.04em}
+@media (max-width:30rem){.roll{columns:1}}
+
+/* merch pair */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+@media (max-width:30rem){.pair{grid-template-columns:1fr}}
+.pair figure{margin:0}
+
+/* links (all lines open) */
+.lines{list-style:none;margin:1.25rem 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}
+.lines a{
+  display:block;padding:.75rem .9rem;border:1.5px solid var(--cana);border-radius:var(--radius);text-decoration:none;
+  font-family:var(--sign);font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.2;overflow-wrap:anywhere
+}
+.lines a small{display:block;font-weight:500;font-size:.8rem;letter-spacing:.08em;color:var(--ink-soft)}
+.lines a{transition:transform .2s cubic-bezier(.2,1.4,.4,1),box-shadow .2s;border-top-width:4px}
+.lines li:nth-child(6n+1) a{border-top-color:var(--pink)}.lines li:nth-child(6n+2) a{border-top-color:var(--celeste)}
+.lines li:nth-child(6n+3) a{border-top-color:var(--coral)}.lines li:nth-child(6n+4) a{border-top-color:var(--palm)}
+.lines li:nth-child(6n+5) a{border-top-color:var(--cana)}.lines li:nth-child(6n+6) a{border-top-color:var(--selva)}
+.lines a:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 8px 16px rgba(62,42,24,.15);background:var(--paper-deep);color:var(--ink)}
+.lines a:hover small{color:var(--ink-soft)}
+
+/* signature */
+.sig{margin:2rem 0 0;font-variation-settings:"opsz" 30,"SOFT" 80}
+.sig .names{font-weight:650}
+.sig .sub{display:block;font-style:italic;color:var(--ink-soft)}
+
+/* ============================================================
+   FOOTER — departures board + plate
+   ============================================================ */
+.departures{
+  margin:3rem 0 0;border:1.5px solid var(--cana);border-radius:var(--radius);overflow:hidden;font-family:var(--sign)
+}
+.departures .head{background:var(--green-grad);color:var(--white);padding:.55rem 1rem;font-weight:600;letter-spacing:.1em;font-size:.82rem}
+.departures .row{display:grid;grid-template-columns:1fr auto;gap:1rem;padding:1rem;align-items:center}
+.departures .row b{display:block;font-size:1.25rem;font-weight:700;line-height:1.1}
+.departures .row span{color:var(--ink-soft);font-size:.95rem}
+.departures .status{font-weight:700;color:var(--selva);display:flex;align-items:center;gap:.4rem;white-space:nowrap}
+.departures .status::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--selva);box-shadow:0 0 0 3px rgba(30,77,58,.2)}
+@media (prefers-color-scheme:dark){.departures .status{color:var(--cana)}.departures .status::before{background:var(--cana);box-shadow:none}}
+.departures .row + .row{border-top:1px solid var(--cana)}
+
+.plate{
+  background:var(--green-grad);color:var(--white);margin-top:3rem;padding:2.5rem var(--gutter) 2rem;position:relative
+}
+.plate::before{content:"";position:absolute;inset:10px;border:1.5px solid rgba(251,247,238,.3);pointer-events:none;border-radius:3px}
+.plate-inner{max-width:calc(var(--measure) + 15rem);margin:0 auto;display:grid;gap:2rem;grid-template-columns:1fr;position:relative}
+@media (min-width:48rem){.plate-inner{grid-template-columns:1.4fr 1fr}}
+.plate .closing{font-variation-settings:"opsz" 40,"SOFT" 90;font-size:1.3rem;line-height:1.4}
+.plate .closing p:first-child{font-size:1.75rem;line-height:1.15;font-weight:600;letter-spacing:-.02em}
+.plate .colophon{font-family:var(--sign);font-size:.95rem;line-height:1.5;color:rgba(251,247,238,.82)}
+.plate .colophon b{display:block;color:var(--cana);letter-spacing:.1em;font-size:.82rem;font-weight:600;margin-bottom:.35rem}
+.plate .colophon a{color:var(--white)}
+.plate .colophon ul{list-style:none;padding:0;margin:.25rem 0 1rem;display:flex;flex-wrap:wrap;gap:.35rem 1rem}
+.plate .motto{margin-top:1.5rem;font-style:italic;font-variation-settings:"opsz" 30,"SOFT" 80;color:rgba(251,247,238,.9)}
+
+/* --- Fall 2026 additions --- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:1.75rem 0;text-align:center}
+@media (max-width:30rem){.stats{grid-template-columns:1fr}}
+.stats div{padding:1rem .5rem;border:1.5px solid var(--cana);border-radius:var(--radius);background:var(--paper-deep)}
+.stats b{display:block;font-family:var(--serif);font-variation-settings:"opsz" 144,"SOFT" 100,"wght" 700;font-size:2.6rem;line-height:1;color:var(--selva)}
+.stats span{font-family:var(--sign);font-weight:600;letter-spacing:.06em;font-size:.9rem;color:var(--ink-soft)}
+@media (prefers-color-scheme:dark){.stats b{color:var(--cana)}}
+.exists{list-style:none;padding:0;margin:1.25rem 0;font-variation-settings:"opsz" 40,"SOFT" 80;font-size:1.45rem;line-height:1.35;font-weight:500}
+.exists li{padding-left:1.25rem;border-left:3px solid var(--palm);margin:.25rem 0}
+.asks{list-style:none;padding:0;margin:1.5rem 0;counter-reset:ask}
+.asks li{counter-increment:ask;position:relative;padding:1.1rem 0 1.1rem 3.25rem;border-top:1.5px solid var(--cana)}
+.asks li:last-child{border-bottom:1.5px solid var(--cana)}
+.asks li::before{content:counter(ask);position:absolute;left:0;top:1rem;width:2.25rem;height:2.25rem;border-radius:50%;
+  background:var(--selva);color:var(--white);font-family:var(--sign);font-weight:700;font-size:1.2rem;display:grid;place-items:center}
+.asks h4{font-family:var(--sign);font-weight:700;font-size:1.15rem;margin:0 0 .35rem;letter-spacing:.02em}
+.asks p{margin-bottom:.75rem}
+.asks .btn{margin-top:.25rem}
+.peek{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1.5rem 0 2rem}
+@media (max-width:40rem){.peek{grid-template-columns:repeat(2,1fr)}}
+.peek figure{margin:0}
+.peek img{aspect-ratio:1;object-fit:cover;padding:5px;transform:rotate(-1.5deg)}
+.peek figure:nth-child(even) img{transform:rotate(1.5deg)}
+.peek figcaption{text-align:center;font-style:normal;font-family:var(--sign);font-weight:600;font-size:.95rem;color:var(--ink)}
+.track-head{font-family:var(--mono);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:var(--coral);margin:2.25rem 0 .25rem}
+.event{margin:1.25rem 0}
+.event h4{font-family:var(--serif);font-variation-settings:"opsz" 48,"SOFT" 60;font-weight:650;font-size:1.2rem;margin:0 0 .3rem;line-height:1.25}
+.event h4 small{display:block;font-family:var(--sign);font-weight:500;font-size:.8rem;letter-spacing:.08em;color:var(--ink-soft);margin-top:.15rem}
+.wepa{font-variation-settings:"opsz" 144,"SOFT" 100,"wght" 800;font-weight:800;font-size:clamp(3rem,8vw,5rem);line-height:1;color:var(--amarillo);margin:1.25rem 0 0;letter-spacing:-.03em}
+
+/* --- document slider: a stack of page images you can flip through --- */
+.slider{position:relative;margin:1.75rem 0;background:var(--paper-deep);border:1.5px solid var(--cana);border-radius:var(--radius);padding:1rem 1rem .75rem}
+.slider .frame{overflow:hidden;border-radius:2px;background:var(--white);box-shadow:0 6px 18px rgba(62,42,24,.18)}
+.slider .strip{display:flex;transition:transform .35s cubic-bezier(.2,.8,.2,1);touch-action:pan-y}
+.slider .strip img{flex:0 0 100%;width:100%;height:auto;display:block;transform:none;padding:0;box-shadow:none;border-radius:0;user-select:none;-webkit-user-drag:none}
+.slider .ctl{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-top:.75rem;font-family:var(--sign)}
+.slider button{font:inherit;font-weight:700;font-size:1rem;letter-spacing:.05em;background:var(--selva);color:var(--white);border:0;border-radius:var(--radius);padding:.45rem .9rem;cursor:pointer}
+.slider button:disabled{opacity:.35;cursor:default}
+.slider .count{font-weight:600;color:var(--ink-soft)}
+.slider .dl{display:block;text-align:center;font-family:var(--sign);font-weight:600;margin-top:.6rem;font-size:.95rem}
+.slider .label{font-family:var(--mono);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.75rem;color:var(--coral);margin:0 0 .6rem}
+@media (prefers-reduced-motion:reduce){.slider .strip{transition:none}}
+/* --- three-up gallery --- */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0 2rem;align-items:start}
+@media (max-width:40rem){.gallery{grid-template-columns:1fr}}
+.gallery figure{margin:0}
+.gallery img{aspect-ratio:4/3;object-fit:cover;padding:6px}
+.gallery figure:nth-child(1) img{transform:rotate(-1.5deg)}.gallery figure:nth-child(2) img{transform:rotate(1deg)}.gallery figure:nth-child(3) img{transform:rotate(-.8deg)}
+.gallery figure:hover img{transform:rotate(0)}
+/* --- QR beside an ask --- */
+.qr{display:grid;grid-template-columns:1fr 9rem;gap:1.25rem;align-items:center}
+@media (max-width:36rem){.qr{grid-template-columns:1fr}.qr img{max-width:11rem}}
+.qr img{width:100%;border:1.5px solid var(--cana);border-radius:var(--radius);background:#fff;padding:6px;transform:none;box-shadow:none}
+.qr small{display:block;text-align:center;font-family:var(--sign);font-size:.8rem;letter-spacing:.06em;color:var(--ink-soft);margin-top:.35rem}
+.peek figcaption small{display:block;font-weight:400;font-size:.8rem;color:var(--ink-soft);letter-spacing:.02em;margin-top:.15rem}
+.credit{font-family:var(--sign);font-size:.85rem;color:var(--ink-soft);margin:-.75rem 0 1.5rem}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     MASTHEAD
+     Per edition, edit: the season in .company, the edition label,
+     and the three timetable rows.
+     ============================================================ -->
+<header class="masthead">
+  <svg class="foliage tl" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true"><path d="M100 190C60 150 20 120 10 60 40 70 70 95 90 130 92 90 95 50 110 10 130 50 135 95 128 135 150 100 175 80 195 70 185 120 150 160 100 190Z"/></svg>
+  <svg class="foliage br" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true"><path d="M100 190C60 150 20 120 10 60 40 70 70 95 90 130 92 90 95 50 110 10 130 50 135 95 128 135 150 100 175 80 195 70 185 120 150 160 100 190Z"/></svg>
+  <svg class="flor" viewBox="0 0 100 100" aria-hidden="true"><g fill="currentColor"><ellipse cx="50" cy="22" rx="16" ry="22"/><ellipse cx="76" cy="41" rx="16" ry="22" transform="rotate(72 76 41)"/><ellipse cx="66" cy="72" rx="16" ry="22" transform="rotate(144 66 72)"/><ellipse cx="34" cy="72" rx="16" ry="22" transform="rotate(216 34 72)"/><ellipse cx="24" cy="41" rx="16" ry="22" transform="rotate(288 24 41)"/></g><circle cx="50" cy="50" r="9" fill="#D4A574"/><path d="M50 50v30" stroke="#3E8E5E" stroke-width="3"/></svg>
+  <div class="masthead-inner">
+    <p class="company"><span>Puerto Rico Railroad &amp; Transport Co.</span><span>Despierta Boricua Line &middot; Est. 1891 &middot; Fall 2026</span></p>
+
+    <h1>El Bolet<span class="tilde">í</span>n</h1>
+    <p class="tag">The Railway Gazette &mdash; la voz de Despierta Boricua</p>
+
+    <table class="timetable" aria-label="Edition details">
+      <tr><th scope="row">Edición</th><td>Volume 7 · Edición de Regreso — Lo que construimos este verano</td></tr>
+      <tr><th scope="row">Ruta</th><td>El verano <span class="arrow">&#8594;</span> Los pasillos <span class="arrow">&#8594;</span> La isla</td></tr>
+      <tr><th scope="row">Fecha</th><td>Septiembre 2026</td></tr>
+      <tr><th scope="row">Destino</th><td>Pa'lante, siempre pa'lante</td></tr>
+    </table>
+
+    <div class="track" aria-hidden="true">
+      <span class="puff" aria-hidden="true">☁︎</span>
+      <svg class="train" viewBox="0 0 64 30" fill="none">
+        <rect x="2" y="9" width="42" height="14" rx="2" fill="#FBF7EE"/>
+        <rect x="44" y="4" width="16" height="19" rx="2" fill="#FBF7EE"/>
+        <rect x="47" y="8" width="10" height="7" rx="1" fill="#1E4D3A"/>
+        <rect x="8" y="2" width="6" height="8" rx="1" fill="#D4A574"/>
+        <rect x="0" y="21" width="64" height="3" fill="#D4A574"/>
+        <circle cx="12" cy="26" r="3.5" fill="#D4A574"/><circle cx="24" cy="26" r="3.5" fill="#D4A574"/>
+        <circle cx="40" cy="26" r="3.5" fill="#D4A574"/><circle cx="53" cy="26" r="3.5" fill="#D4A574"/>
+      </svg>
+    </div>
+  </div>
+</header>
+<div class="band" aria-hidden="true"></div>
+
+<div class="page">
+
+  <nav class="stops" aria-label="Sections">
+    <p class="stops-title">Paradas en esta edición</p>
+    <ol>
+      <li><a href="#anden-1">De la Silla de Coaliciones</a></li>
+      <li><a href="#anden-2">Estamos Aquí: la constelación</a></li>
+      <li><a href="#anden-3">Caribbean Studies</a></li>
+      <li><a href="#anden-4">El Peabody</a></li>
+      <li><a href="#anden-5">La Casa at 50</a></li>
+      <li><a href="#anden-6">The sneak peek</a></li>
+      <li><a href="#anden-7">Esencia No Va</a></li>
+      <li><a href="#anden-8">Nueva merch</a></li>
+      <li><a href="#anden-9">Apoya el movimiento</a></li>
+      <li><a href="#anden-10">Mantente conectado</a></li>
+    </ol>
+  </nav>
+
+  <div class="car">
+  <article>
+
+    <aside class="ticket" aria-labelledby="ticket-title">
+      <span class="punch" aria-hidden="true"></span>
+      <div class="ticket-head">
+        <h2 id="ticket-title">Si solo lees una cosa</h2>
+        <button class="stamp" type="button" aria-pressed="false" title="Punch your ticket">4 min</button>
+      </div>
+      <ol>
+        <li><a href="#anden-2">Estamos Aquí has a home and a date</a> — May 2027 at CENTRO, Hunter College. We need alumni practitioners and elders in the room.</li>
+        <li><a href="#anden-3">Caribbean Studies goes to the Committee on Majors in December</a> — fifty-two years after Yale was first asked. Sign the petition.</li>
+        <li><a href="#anden-4">Yale has confirmed the Peabody holds Taíno-affiliated ancestral remains</a> — and there is now a path to returning them.</li>
+      </ol>
+      <svg class="hib" viewBox="0 0 100 100" aria-hidden="true"><g fill="currentColor"><ellipse cx="50" cy="22" rx="16" ry="22"/><ellipse cx="76" cy="41" rx="16" ry="22" transform="rotate(72 76 41)"/><ellipse cx="66" cy="72" rx="16" ry="22" transform="rotate(144 66 72)"/><ellipse cx="34" cy="72" rx="16" ry="22" transform="rotate(216 34 72)"/><ellipse cx="24" cy="41" rx="16" ry="22" transform="rotate(288 24 41)"/></g><circle cx="50" cy="50" r="9" fill="#D4A574"/></svg>
+    </aside>
+
+    <!-- ANDÉN 1 -->
+    <section class="anden" id="anden-1">
+      <span class="anden-plate">Andén 1</span>
+      <h2>De la Silla de Coaliciones</h2>
+      <p class="big">Familia, welcome back!</p>
+      <p class="lede">To our first-years beginning a brand-new chapter at Yale, to everyone returning to campus, and to all of you who continue to follow and support Despierta Boricua: welcome to a new year.</p>
+      <p>We took a long, much-needed summer break, but we were far from quiet. Behind the scenes, we've been working on some of our biggest ambitions yet, building new relationships, and imagining what DB can become.</p>
+      <p>Now campus is alive again, and so are we.</p>
+      <p><strong>Something… huge is in the air.</strong></p>
+      <figure>
+        <img src="./Newsletter September -20260907T233304Z-1-001/ECBazaar27.jpeg" alt="Despierta Boricua at the Extracurricular Bazaar, Fall 2026" loading="lazy">
+        <figcaption>DB en el Extracurricular Bazaar — el primer día de un año que se siente diferente 🇵🇷</figcaption>
+      </figure>
+    </section>
+
+    <hr class="rail">
+
+    <!-- ANDÉN 2 -->
+    <section class="anden" id="anden-2">
+      <span class="anden-plate">Andén 2</span>
+      <h2>The Puerto Rican Futurity Conference<span class="sub">La constelación</span></h2>
+      <p class="lede">This summer, one of our biggest ideas stopped being just an idea.</p>
+      <p>The conference has a home and a date. Put it in your calendar now: <strong>May 2027, at CENTRO</strong> — Centro de Estudios Puertorriqueños at Hunter College, the premier research institution for Puerto Rican Studies, in partnership with the NEA's 20+ campuses.</p>
+
+      <div class="announce">
+        <span class="badge" aria-hidden="true">✦</span>
+        <p class="kicker">Save the date</p>
+        <h3>Estamos Aquí</h3>
+        <p class="sub">In the Halls of Power — the Puerto Rican Futurity Conference</p>
+        <div class="frame-rule"></div>
+        <p>Mayo 2027 · CENTRO, Hunter College · En alianza con la Northeast Alliance</p>
+        <p class="partner">Developed in partnership with CENTRO — Centro de Estudios Puertorriqueños, Hunter College</p>
+      </div>
+
+      <!-- EDIT: add a CENTRO / Hunter College photo here when you have one -->
+
+      <p>And over the summer, we completely rebuilt the conference itself.</p>
+      <p>The conference will be organized around a <strong>constellation</strong> of related issues that focus on the youth: different areas of work happening at the same time, speaking to one another, and refusing the idea that we have to wait our turn.</p>
+      <p>It will revolve around four major clusters.</p>
+
+      <ul class="pillars">
+        <li>
+          <div class="name">Educación<small>Cluster I</small></div>
+          <p>The future of Puerto Rican education: the cuts facing UPR, higher-education access, student organizing, brain drain, and what it would actually take for more young Puerto Ricans to stay, return, and build lives on the archipelago.</p>
+        </li>
+        <li>
+          <div class="name">Practitioners<small>Cluster II</small></div>
+          <p>People doing the work directly. Organizers, researchers, engineers, workers, and experts in energy, water, food sovereignty, climate, infrastructure, and housing.</p>
+        </li>
+        <li>
+          <div class="name">Multigeneracional<small>Cluster III</small></div>
+          <p>Real conversations between generations. Not an elder giving a keynote while students listen quietly, but organizers from the '70s, '80s, and '90s sitting across from students today and asking each other what has changed, what has not, and what comes next.</p>
+        </li>
+        <li>
+          <div class="name">Imaginación<small>Cluster IV</small></div>
+          <p>Puerto Ricans — especially the youth — have become extremely good at explaining everything that is wrong. Colonialism. Debt. Displacement. Corruption. Austerity. Brain drain. Climate vulnerability. We know the vocabulary of crisis very well. But what would it look like to become as serious about imagining what could be right? What kind of Puerto Rico are we actually trying to build? What institutions would it need? What would education look like? Energy? Housing? Culture? Community? What would have to exist for the next generation not simply to inherit the same problems with better language for describing them?</p>
+        </li>
+      </ul>
+
+      <p>That is the question behind the conference. And now we get to build it.</p>
+
+      <div class="notice">
+        <p class="kicker">Lo que necesitamos de ustedes</p>
+        <h3>This is where alumni matter more than anyone.</h3>
+        <p><strong>Practitioners</strong> — if you work in energy, water, food systems, housing, climate, or infrastructure, on the island or in the diaspora, we want you in the second cluster.</p>
+        <p><strong>Elders</strong> — if you were organizing in the '70s, '80s, '90s, the multigenerational track is yours. We are not asking you to give a speech. We are asking you to sit across from a 19-year-old.</p>
+        <p><strong>Connections</strong> — you know someone we don't. Send us their name.</p>
+        <p class="when"><a class="btn wink" href="mailto:despiertaboricua@yale.edu?subject=ESTAMOS%20AQU%C3%8D"><b>✊🏽</b> Reach out — subject: Estamos Aquí</a></p>
+      </div>
+    </section>
+
+    <hr class="rail">
+
+    <!-- ANDÉN 3 -->
+    <section class="anden" id="anden-3">
+      <span class="anden-plate">Andén 3</span>
+      <h2>Caribbean Studies<span class="sub">Archipiélagos, Mares y Diásporas</span></h2>
+      <p class="lede">This summer, we found something in Yale's archives that made this project feel a little different.</p>
+      <p>Yale has been asked for Caribbean Studies before, in variations.</p>
+      <p>In 1973, CENTRO's founding director Frank Bonilla wrote directly to Yale President Kingman Brewster supporting Despierta Boricua's push for Puerto Rican Studies. A full proposal followed in 1974. Later came a Chicano/Boricua Studies concentration (1982), seminars, individual courses, and decades of students trying to build pieces of an education that Yale never quite institutionalized.</p>
+
+      <div class="slider" data-slider aria-label="1973 correspondence to President Kingman Brewster">
+        <p class="label">De los archivos · Sterling Memorial Library, 1973</p>
+        <div class="frame"><div class="strip">
+        <img src="BrewsterCorrespondence/Brewster Correspondence-6.png" alt="Yale Daily News, February 9, 1972" data-title="Yale Daily News, February 9, 1972" data-cap="Open letter to President Brewster from the Executive Committee of Boricuas Unidos — Héctor Medina, Gilbert Casellas, Eduardo Padró, Cruz Ramos, Manuel del Valle.">
+         <img src="BrewsterCorrespondence/Brewster Correspondence-5.png" alt="Yale Daily News, February 21, 1972" data-title="Yale Daily News, February 21, 1972" data-cap=""Latinos Refuse Recruiting Role" — Boricuas Unidos declines to recruit for Yale until it commits to Puerto Rican students and studies." loading="lazy">
+         <img src="BrewsterCorrespondence/Brewster Correspondence-2.png" alt="Yale inter-office memo, April 7, 1972 (1 of 3)" data-title="Yale inter-office memo, April 7, 1972 (1 of 3)" data-cap="Lawrence Noble to Henry Chauncey Jr., re: Puerto Rican recruitment. The administration's own account of the standoff." loading="lazy">
+        <img src="BrewsterCorrespondence/Brewster Correspondence-3.png" alt="Yale inter-office memo, April 7, 1972 (2 of 3)" data-title="Yale inter-office memo, April 7, 1972 (2 of 3)" data-cap="Noble to Chauncey, continued." loading="lazy">
+        <img src="BrewsterCorrespondence/Brewster Correspondence-4.png" alt="Yale inter-office memo, April 7, 1972 (3 of 3)" data-title="Yale inter-office memo, April 7, 1972 (3 of 3)" data-cap="Noble to Chauncey, continued." loading="lazy">
+       <img src="BrewsterCorrespondence/Brewster Correspondence-7.png" alt="Center for Puerto Rican Studies, April 23, 1973" data-title="Center for Puerto Rican Studies, April 23, 1973" data-cap="Frank Bonilla, founding director of CENTRO, to President Brewster: the Center stands ready to help Yale build Puerto Rican Studies." loading="lazy">
+      <img src="./BrewsterCorrespondence/Brewster Correspondence-1.png" alt="White & Case, May 2, 1973" data-title="White & Case, May 2, 1973" data-cap="A New York attorney writes to his friend "King" Brewster after meeting three Puerto Rican students: 12,000 Puerto Ricans in New Haven, 1.8 million on the Eastern seaboard." loading="lazy">
+          <img src="BrewsterCorrespondence/Brewster Correspondence-8.png" alt="Livingston College, Rutgers, May 31, 1973" data-title="Livingston College, Rutgers, May 31, 1973" data-cap="Luis Nieves, Dean of Student Affairs, to Brewster: programs already run at Brooklyn College, Hunter, Fordham, and Livingston." loading="lazy">
+        </div></div>
+        <div class="ctl">
+          <button type="button" data-prev aria-label="Previous page">&larr; Anterior</button>
+          <span class="count"><span data-cur>1</span> / <span data-total>8</span></span>
+          <button type="button" data-next aria-label="Next page">Siguiente &rarr;</button>
+        </div>
+        <a class="dl" href="files/Brewster_Correspondence_1973.pdf">Download the full correspondence (PDF)</a>
+      </div>
+      <p class="credit">Fifty-two years later, we are asking again. Slide through the pages, or swipe on your phone.</p>
+
+      <p>Fifty-two years later, we are asking again — and this time we are asking with larger support.</p>
+      <p>Our argument is bigger than simply saying Yale should offer more Caribbean classes.</p>
+
+      <blockquote class="pull"><p>The Caribbean is not a subsection of Latin America.</p></blockquote>
+
+      <p>A framework centered on Spanish and Portuguese cannot adequately contain Haiti, Jamaica, Trinidad, Martinique, Curaçao, or the wider Anglophone, Francophone, and Dutch Caribbean. And separating Puerto Rico into one department, Haiti into another, Cuba into another, and Jamaica somewhere else obscures the histories that connect them: slavery and emancipation, colonialism, migration, language, race, revolution, environment, diaspora, and the sea itself.</p>
+      <p>Even more importantly: the Caribbean is too often taught as the object of someone else's history. Haiti becomes a story about France or U.S. intervention. Cuba becomes a Cold War story. Puerto Rico becomes a problem of U.S. territorial policy.</p>
+      <p>We want students to encounter the Caribbean as a <em>subject</em> — with its own thinkers, political traditions, intellectual debates, scientific questions, literatures, communities, and ways of understanding the world.</p>
+      <p>Caribbean futurity is being shaped in laboratories, clinics, coastlines, farms, archives, and classrooms: climate science, public health, energy, food sovereignty, environmental justice, migration, history, literature, and political thought all belong in the same conversation. Yale already has much of this work. What it lacks is the undergraduate structure connecting it.</p>
+      <p>We are working with faculty and student groups in preparing to submit the <strong>Certificate in Caribbean Studies: Archipelagos, Seas, and Diasporas</strong> to Yale's Committee on Majors this December.</p>
+      <p>The groundwork is increasingly real: Kaiama Glover and Alex Gil Fuentes as proposed co-directors; a faculty advisory board spanning multiple departments; more than a dozen doctoral students involved; partnerships with CENTRO, the CUNY Dominican Studies Institute, the CUNY Haitian Studies Institute, and UConn's Puerto Rican Studies Initiative; and more than two dozen eligible Yale courses already on the books.</p>
+
+      <div class="stats">
+        <div><b>2</b><span>Co-directors</span></div>
+        <div><b>12+</b><span>Doctoral students</span></div>
+        <div><b>24+</b><span>Eligible courses</span></div>
+      </div>
+
+      <p>In other words:</p>
+      <ul class="exists">
+        <li>The faculty exist.</li>
+        <li>The courses exist.</li>
+        <li>The archives exist.</li>
+        <li>The students exist.</li>
+      </ul>
+      <p>What does not yet exist is the name, structure, and permanence. That is what we are asking Yale to provide.</p>
+      <p>A certificate puts Caribbean Studies into the catalog, onto transcripts, into advising, and eventually into the institutional memory of the university. DB graduates. Students graduate. A curriculum can outlive us.</p>
+      <p><strong>And after fifty-two years, we think Yale has had enough time.</strong></p>
+
+      <div class="notice">
+        <p class="kicker">Lo que necesitamos de ustedes</p>
+        <h3>The proposal is built. Now we need to show Yale the demand is there too.</h3>
+        <ol class="asks">
+          <li>
+            <h4>Sign the petition — everyone can sign</h4>
+            <p>Undergraduates, graduate students, faculty, staff, alumni, friends of the program — if you believe Yale should establish a Certificate in Caribbean Studies, add your name. The petition is our clearest way of showing the Committee on Majors that this is not a niche request from a handful of students. It has a community behind it.</p>
+            <!-- EDIT: replace #PETITION-LINK -->
+            <a class="btn wink" href="#PETITION-LINK"><b>📣</b> Sign the petition</a>
+          </li>
+          <li>
+            <h4>Current &amp; former students — fill out the survey</h4>
+            <div class="qr">
+              <div>
+                <p>We are collecting your academic history to see how many students have already taken enough Caribbean-focused courses that they may effectively pre-qualify for the certificate today. We also want to know: would you (have) pursue(d) it? How valued would it be to your education? What have you struggled to find? What should this program actually look like? That information becomes evidence that students are already building a Caribbean Studies education without a formal program to recognize them.</p>
+                <a class="btn wink" href="https://docs.google.com/forms/d/e/1FAIpQLSeT5_vvCgQORyHosm1tc5EmlJkPK8KTQuqd6tatwBT8w9DyXQ/viewform?usp=header"><b>📋</b> Take the student survey</a>
+              </div>
+              <div><img src="Newsletter September -20260907T233304Z-1-001/Certif_QR_Code.png" alt="QR code linking to the Caribbean Studies student survey"><small>Or scan me for petition</small></div>
+            </div>
+          </li>
+          <li>
+            <h4>Read what we're asking Yale to approve</h4>
+            <p>Read it. Critique it. Send us feedback. Share all three links.</p>
+            <!-- EDIT: replace #PROPOSAL-LINK -->
+            <a class="btn wink" href="#PROPOSAL-LINK"><b>📄</b> Read the full proposal</a>
+          </li>
+        </ol>
+        <p>We are not asking Yale to invent a field that does not exist here.</p>
+      </div>
+    </section>
+
+    <hr class="rail">
+
+    <!-- ANDÉN 4 -->
+    <section class="anden" id="anden-4">
+      <span class="anden-plate">Andén 4</span>
+      <h2>El Peabody<span class="sub">Lo que Yale tiene</span></h2>
+      <p class="lede">This project has moved further than we were ready to publicly say even a few months ago.</p>
+      <p>Over the summer, DB worked to understand the scale of Yale's Puerto Rican archaeological collections, including material collected through expeditions led by Froelich Rainey in 1934 and Irving Rouse in 1936 and 1938 across Puerto Rico, Vieques, and Mona.</p>
+
+      <figure>
+        <img src="./Newsletter September -20260907T233304Z-1-001/Newsletter September /IrvingRouse.jpg" alt="Cover of Irving Rouse's The Tainos: Rise and Decline of the People Who Greeted Columbus" loading="lazy">
+        <figcaption>Irving Rouse, <em>The Tainos: Rise and Decline of the People Who Greeted Columbus</em>. Rouse led the Yale expeditions to Puerto Rico, Vieques, and Mona in 1936 and 1938; Froelich Rainey led the 1934 expedition.</figcaption>
+      </figure>
+
+      <p>And Yale has now confirmed something fundamental: <strong>the Peabody holds Taíno-affiliated ancestral human remains.</strong></p>
+      <p>They are fragmentary remains, not a complete individual, but that distinction does not change the ethical question in front of us.</p>
+      <p>There is also now a clearer path forward, after many caveats.</p>
+      <p>Puerto Rico falls outside the legislative geographic reach of NAGPRA; the federal repatriation process available to federally recognized Native nations does not automatically apply here. Recognition alone cannot fix that; the problem is written into the statute's jurisdiction.</p>
+      <p>But that does not mean Yale is powerless to act.</p>
+      <p>The Peabody can pursue a voluntary, non-NAGPRA repatriation through its own human-remains and repatriation process. Yale has indicated that it can consider a return once an appropriate request is brought forward — and that consultation could potentially include support for travel, examination of the collection, community consultation, and ultimately the transportation of ancestors or belongings.</p>
+      <p>So the question has changed. We are no longer asking only: <em>"Can repatriation happen?"</em> We are now asking: <strong><em>"Who should rightfully participate in deciding how it happens, and where should the ancestors go?"</em></strong></p>
+      <p>There is no single organization that can simply declare itself the representative of all Taíno people. As Jeannie Karaya has emphasized throughout these conversations, legitimacy has to come from relationships, consultation, and process — not from pretending that one organization speaks for everyone.</p>
+      <p>The work now is toward a narrow Taíno consultation and repatriation body capable of bringing multiple voices into that process, including organizers and representatives connected to ¡Taíno Vive!, Higüayagua, UCTP, Borikén, and the diaspora, alongside scholars and others with relevant knowledge.</p>
+
+      <blockquote class="pull">
+        <p>DB is not the community of descent. We are not trying to become the authority here. Our role is to research, connect people, use our access to Yale, and help create the conditions in which the people who should have authority can exercise it.</p>
+        <cite>Despierta Boricua</cite>
+      </blockquote>
+
+      <p>And there is a bigger issue underneath all of this: Taíno people were declared extinct for generations while their ancestors were excavated, catalogued, studied, and stored in institutions far from the Caribbean. They were treated as a disappeared people precisely while museums accumulated the material evidence of their existence.</p>
+      <p>Repatriation cannot undo that history, but Yale does have a choice about whether it continues it.</p>
+      <p>For us, this is not simply about museum policy. It is about dignity, burial, historical responsibility, and the right of living communities to participate in deciding what happens to their ancestors.</p>
+      <p><strong>The legal pathway may be complicated; the moral question is much simpler.</strong></p>
+    </section>
+
+    <hr class="rail">
+
+    <!-- ANDÉN 5 -->
+    <section class="anden" id="anden-5">
+      <span class="anden-plate">Andén 5</span>
+      <h2>La Casa at 50</h2>
+      <p class="big">La Casa Cultural de Julia de Burgos turns 50.</p>
+      <div class="gallery">
+        <figure><img src="./Newsletter September -20260907T233304Z-1-001/Newsletter September /DB_1983-84_LaCasa_010.jpg" alt="Students at a table inside La Casa, 1983–84" loading="lazy"><figcaption>1983–84 — Despierta Boricua at La Casa</figcaption></figure>
+        <figure><img src="./Newsletter September -20260907T233304Z-1-001/Newsletter September /97_Christmas.png" alt="Group photo at La Casa's Christmas celebration, 1997" loading="lazy"><figcaption>Navidad 1997 — la familia de La Casa</figcaption></figure>
+        <figure><img src="./Newsletter September -20260907T233304Z-1-001/Newsletter September /FB_IMG_1779260604902.jpg" alt="Students holding a Puerto Rican flag inside La Casa" loading="lazy"><figcaption>Y la familia de hoy — cincuenta años de hogar dentro de Yale</figcaption></figure>
+      </div>
+      <p>Five decades of Puerto Rican and Latino students building community, making culture, organizing, arguing, dancing, studying, and creating a home inside Yale.</p>
+      <p>For DB, that anniversary is not just about looking backward. It is also a challenge: what should the next fifty years of La Casa look like?</p>
+      <p>We want to honor the people who built this space before us while also expanding what it can be — a cultural home, an intellectual home, a place for political education, a center for coalition-building, and a space where Latino and Caribbean students can actually imagine projects together.</p>
+      <p><strong>So naturally, we have plans.</strong></p>
+    </section>
+
+    <hr class="rail">
+
+    <!-- ANDÉN 6 -->
+    <section class="anden" id="anden-6">
+      <span class="anden-plate">Andén 6</span>
+      <h2>The Sneak Peek<span class="sub">Lo que se cocina este semestre</span></h2>
+      <p class="lede">We have a lot cooking this semester: some cultural, some political, some academic, and some just meant to bring people together.</p>
+
+      <div class="peek">
+        <figure><img src="./Newsletter September -20260907T233304Z-1-001/Newsletter September /PR_NHV_Parade_Bomba.jpg" alt="Bomba dancers in white skirts performing at the New Haven Puerto Rican parade, with Dean Carolina Dávila among them" loading="lazy"><figcaption>Bomba<small>Puerto Rican Parade, New Haven — featuring our wonderful Dean of La Casa, Carolina Dávila</small></figcaption></figure>
+        <figure><img src="./Newsletter September -20260907T233304Z-1-001/Chiringa.jpg" alt="A kite with a long red tail against a blue sky" loading="lazy"><figcaption>Vejigantes y chiringas<small>Photo: José Rivera Collection</small></figcaption></figure>
+        <figure><img src="./Newsletter September -20260907T233304Z-1-001/Newsletter September /Centro_PR_Parade.jpg" alt="CENTRO contingent with stilt walkers at the Puerto Rican Day Parade" loading="lazy"><figcaption>DB goes to CENTRO<small>CENTRO at the Puerto Rican Day Parade</small></figcaption></figure>
+        <figure><img src="./Newsletter September -20260907T233304Z-1-001/Newsletter September /Carib_Mix_2023.png" alt="Students around a table at the 2023 Caribbean Student Mixer" loading="lazy"><figcaption>Caribbean Student Mixer<small>2023 edition</small></figcaption></figure>
+      </div>
+
+      <p class="track-head">Cultura, arte y memoria</p>
+      <div class="event">
+        <h4>Bomba at Schwarzman<small>with Movimiento Cultural</small></h4>
+        <p>We are working with Movimiento Cultural on a bomba collaboration at Schwarzman Center — bringing Afro-Puerto Rican music, rhythm, dance, and history into one of Yale's biggest shared spaces. Bomba is a tradition built through conversation: between drummer and dancer, between generations, and between community and history. We want Yale to experience that conversation.</p>
+      </div>
+      <div class="event">
+        <h4>Kite-making + vejigante masks<small>with Arte Inc. and New Haven youth</small></h4>
+        <p>We are also planning hands-on cultural workshops with Arte Inc. and young people from New Haven. Think kite-making, vejigante mask-making, art, history, and intergenerational community-building — not culture behind glass, but culture you actually make with your hands.</p>
+      </div>
+      <div class="event">
+        <h4>Graffiti workshop… maybe 👀</h4>
+        <p>And one more thing we are playing with: a possible graffiti workshop exploring street art, lettering, political expression, and the visual language of Puerto Rican and Latino urban culture. Still cooking. But you know us — we have ideas.</p>
+      </div>
+
+      <p class="track-head">Política, historia y conversación</p>
+      <div class="event">
+        <h4>La Urna<small>voter registration + civic power</small></h4>
+        <p>This fall, we are planning a voter-registration and civic-engagement event at La Casa with Juan Candelaria, alongside campus partners. Expect practical help with registration, absentee ballots, state-specific voting questions, and civic resources — but also a larger conversation about what political participation can and cannot do. Voting is not the entirety of political power, but knowing how to use the systems is part of it. We want La Casa to be a place where civic engagement happens.</p>
+      </div>
+      <div class="event">
+        <h4>DB × MEChA × DECO documentary screening</h4>
+        <p>DB, MEChA, and DECO are planning a documentary screening centered on the Puerto Rican diaspora and/or broader Latine activism, followed by a community conversation. The point is not just to watch something together. We want the screening to become a starting point for talking across movements, histories, and communities.</p>
+      </div>
+
+      <p class="track-head">DB goes to CENTRO</p>
+      <div class="event">
+        <p>This fall, the DB board is planning a day trip to New York City to visit CENTRO — the Center for Puerto Rican Studies at Hunter College. With help from Karina, CENTRO's student liaison, we'll tour the center, learn more about its work, and spend time with selected archival collections.</p>
+        <p>For us, this trip connects several pieces of what DB has been building: the Caribbean Studies certificate, Estamos Aquí, our own institutional history, and the larger question of what it means for Puerto Rican students to have access to our archives. Sometimes the work means building something new. Sometimes it means learning what people before us already left behind.</p>
+      </div>
+
+      <p class="track-head">La Casa, open doors</p>
+      <div class="event">
+        <h4>DB hosts New Haven high school students</h4>
+        <p>Once a month, DB plans to open the DB room and La Casa to local high school students. We want students from New Haven to be able to come into Yale not as visitors being shown around, but as young people invited into a space that is actually meant to welcome them. Meet the board. Hang out. Ask questions. Learn about college. Use the space. La Casa should not only face inward toward Yale.</p>
+      </div>
+      <div class="event">
+        <h4>Haiti, Puerto Rico, and the Caribbean<small>cafecito</small></h4>
+        <p>One of the collaborations we are most excited about is with Yale's Haitian student community. We have been fighting to bring the Haitian Student Association, LakaYALE, into La Casa. With the same motives that brought Club Brasil to La Casa, we believe this center is meant for Latinos in all of their shapes, sizes, colors, and origins.</p>
+        <p>Over cafecito, we want to bring students together for a conversation about Haiti, Puerto Rico, neocolonialism, and Caribbean solidarity — especially what different colonial histories can teach us when we stop studying our islands separately. Haiti's revolutionary history, Puerto Rico's continuing territorial status, migration, foreign intervention, debt, race, and diaspora may look different across the region, but they also speak to one another. And sometimes the most useful political conversation starts with coffee and a table.</p>
+      </div>
+
+      <p class="track-head">Caribbean Student Mixer</p>
+      <div class="event">
+        <p>And, of course, one of our yearly traditions returns: the Caribbean Student Mixer. Puerto Rican, Haitian, Dominican, Jamaican, Trinidadian, Cuban, and other Caribbean student communities — one room, music, food, conversation, and hopefully some new collaborations by the end of the night.</p>
+      </div>
+
+      <blockquote class="pull"><p>The Caribbean makes more sense when we stop studying, organizing, and existing as islands unto ourselves.</p></blockquote>
+    </section>
+
+    <hr class="rail">
+
+    <!-- ANDÉN 7 -->
+    <section class="anden" id="anden-7">
+      <span class="anden-plate">Andén 7</span>
+      <h2>Esencia No Va<span class="sub">What we learned from Cabo Rojo</span></h2>
+      <p class="lede">Earlier this semester, DB hosted a stop on the 2026 Puerto Rico Solidarity Tour, welcoming filmmaker and community organizer Gabo Ramos of Defiende a Cabo Rojo for a screening and conversation about the fight against Project Esencia.</p>
+      <p>The event went incredibly well — but we walked away from it much more alarmed than we entered.</p>
+
+      <figure>
+        <img src="./Newsletter September -20260907T233304Z-1-001/Newsletter September /Essencia_CentroSolAgua.jpg" alt="Hand-painted banner reading No al Proyecto Esencia" loading="lazy">
+        <figcaption>"No al Proyecto Esencia" — from CENTRO 'A Sea of Islands' Summit, by Agua, Sol, Y Sereno.</figcaption>
+      </figure>
+
+      <p>Because Esencia is not simply "another luxury hotel." It is a proposed multi-billion-dollar luxury enclave spanning more than 1,500 acres in Cabo Rojo — hundreds of hotel rooms, roughly a thousand residences, golf, shops, spas — sited in an ecologically sensitive stretch of southwestern Puerto Rico, between major protected areas and near habitats for endangered species. The area also holds numerous documented archaeological sites.</p>
+      <p>And then there is the water. The project's own environmental documents estimate demand at around 1.5 million gallons per day, in a region that already experiences scarcity. In recent Senate hearings, the Puerto Rico Aqueduct and Sewer Authority acknowledged it currently lacks the capacity to supply that demand, and the Puerto Rico Electric Power Authority has opposed the project as designed.</p>
+      <p>But what struck us most during the screening was that Esencia is not only an environmental story. It is a story about land, displacement, inequality, and who Puerto Rico is increasingly being built for. Ultra-luxury development does not exist separately from rising property values, privatization pressure, and the growing difficulty working Puerto Ricans face in remaining in their own communities. That is why the opposition has grown from environmental organizations into a broad movement of community groups, scientists, cultural organizations, and Puerto Ricans across the diaspora — thousands marched in Cabo Rojo again in August.</p>
+
+      <blockquote class="pull"><p>Pay attention to Cabo Rojo.</p></blockquote>
+
+      <p>Project Esencia is a local fight, but the questions underneath it are national ones: Who gets Puerto Rico's land? Who gets its water? Who bears the environmental cost of development? And development for whom?</p>
+      <p>We are extremely grateful to Gabo Ramos, Defiende a Cabo Rojo, and the Puerto Rico Solidarity Tour for bringing that conversation directly into our space.</p>
+      <p class="big">Esencia No Va.</p>
+    </section>
+
+    <hr class="rail">
+
+    <!-- ANDÉN 8 -->
+    <section class="anden" id="anden-8">
+      <span class="anden-plate">Andén 8</span>
+      <h2>Nueva merch<span class="sub">Todavía en el taller</span></h2>
+      <p>You've seen the 2026 design. You've asked about it. Here's where it stands.</p>
+      <div class="notice">
+        <p class="kicker">Status — en proceso</p>
+        <h3>Still in the workshop 👕</h3>
+        <p>We are still working on the merch. Not because anything went wrong — because we decided it wasn't finished. We're adding a bioluminescent water flow across the design and a few other details we're not ready to show yet. It's going to be worth the wait.</p>
+        <p class="when">Orders reopen once the final design is locked. We'll announce it here first and on Instagram.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn wink" href="https://despiertaboricua-yale.org/merch.html"><b>👀</b> See previous designs</a>
+      </div>
+    </section>
+
+    <hr class="rail">
+
+    <!-- ANDÉN 9 -->
+    <section class="anden" id="anden-9">
+      <span class="anden-plate">Andén 9</span>
+      <h2>Apoya el movimiento</h2>
+      <p>Everything in this edition — a conference at CENTRO, a certificate proposal, archival research, a museum consultation, a semester of programming for Yale and New Haven — is being built by students with a student budget. Calle Corona showed us what this community can do when it decides to show up. Your support is what lets us keep setting the precedent.</p>
+      <div class="wink">
+        <p class="kicker">Conductor's wink</p>
+        <p class="q">Every contribution goes directly toward DB programming, community events, and the projects above.</p>
+        <a class="btn wink" href="https://despiertaboricua-yale.org/donate.html"><b>💚</b> Donate to Despierta Boricua <b>💚</b></a>
+      </div>
+    </section>
+
+    <hr class="rail">
+
+    <!-- ANDÉN 10 -->
+    <section class="anden" id="anden-10">
+      <span class="anden-plate">Andén 10</span>
+      <h2>Mantente conectado<span class="sub">All lines open</span></h2>
+      <p>We're everywhere, and we want you in the mix.</p>
+      <ul class="lines">
+        <li><a href="https://www.instagram.com/despiertaboricuayale/">@DespiertaBoricuaYale<small>Instagram</small></a></li>
+        <li><a href="https://www.facebook.com/despiertaboricuayale/">Despierta Boricua at Yale<small>Facebook</small></a></li>
+        <li><a href="https://despiertaboricua-yale.org/">despiertaboricua-yale.org<small>Website</small></a></li>
+        <li><a href="mailto:despiertaboricua@yale.edu">despiertaboricua@yale.edu<small>Email</small></a></li>
+        <li><a href="https://www.linkedin.com/company/despierta-boricua-puerto-rican-student-organization-at-yale/">Despierta Boricua at Yale<small>LinkedIn</small></a></li>
+        <li><a href="https://linktr.ee/despiertaboricuayale">All links in one place<small>Linktree</small></a></li>
+      </ul>
+
+      <div class="departures" aria-label="Departures">
+        <div class="head">Salidas · Departures</div>
+        <div class="row">
+          <div><b>Next train: Estamos Aquí</b><span>Mayo 2027 · CENTRO, Hunter College</span></div>
+          <span class="status">On time</span>
+        </div>
+        <div class="row">
+          <div><b>El archivo completo</b><span>All editions — todas las ediciones · Platform 1</span></div>
+          <a class="status" href="https://despiertaboricua-yale.org/newsletter.html">Boarding</a>
+        </div>
+      </div>
+    </section>
+
+  </article>
+  </div>
+</div>
+
+<footer class="plate">
+  <div class="plate-inner">
+    <div class="closing">
+      <p>Pa'lante, siempre pa'lante.</p>
+      <p>A conference, a certificate, and a museum claim look like three different projects. They are one. Everything above answers the same question: what do you owe when you are inside a place that was not built for you? We think the answer is that you build things that outlast your own enrollment.</p>
+      <p>We are not asking the institution for permission on any of it. We are doing the work and bringing it to them finished.</p>
+      <p class="motto">Porque somos más grandes que Yale — y siempre lo seremos 🌿</p>
+      <p class="wepa">¡WEPA!</p>
+    </div>
+    <div class="colophon">
+      <b>Puerto Rico Railroad &amp; Transport Co.</b>
+      Despierta Boricua Line · Platform 1<br>
+      Est. 1891 · Serving comunidad since 2025<br>
+      Reclaimed by nature, restored by community
+      <ul>
+        <li><a href="https://www.instagram.com/despiertaboricuayale/">Instagram</a></li>
+        <li><a href="https://www.facebook.com/despiertaboricuayale/">Facebook</a></li>
+        <li><a href="https://despiertaboricua-yale.org/">Website</a></li>
+        <li><a href="mailto:despiertaboricua@yale.edu">Email</a></li>
+        <li><a href="https://linktr.ee/despiertaboricuayale">Linktree</a></li>
+      </ul>
+      🌴 Made with love, cafecito, and the unshakeable belief that we belong here 🌴<br>
+      Con cariño y lucha, Despierta Boricua at Yale.
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Tap the masthead: the train toots and puffs. Tap the stamp: punch the ticket. */
+(function(){
+  var head=document.querySelector('.masthead'),train=document.querySelector('.train'),puff=document.querySelector('.puff');
+  head.addEventListener('click',function(){
+    train.classList.remove('toot');void train.offsetWidth;train.classList.add('toot');
+    var r=train.getBoundingClientRect(),h=head.getBoundingClientRect();
+    puff.style.left=(r.right-h.left-24)+'px';
+    puff.classList.remove('go');void puff.offsetWidth;puff.classList.add('go');
+  });
+  var t=document.querySelector('.ticket'),b=t.querySelector('.stamp');
+  b.addEventListener('click',function(){
+    var on=t.classList.toggle('punched');b.setAttribute('aria-pressed',on);
+  });
+})();
+/* Document sliders: buttons, keyboard, and swipe. */
+document.querySelectorAll('[data-slider]').forEach(function(sl){
+  var strip=sl.querySelector('.strip'),imgs=strip.children,n=imgs.length,i=0;
+  var prev=sl.querySelector('[data-prev]'),next=sl.querySelector('[data-next]'),cur=sl.querySelector('[data-cur]');
+  sl.querySelector('[data-total]').textContent=n;
+  function go(k){i=Math.max(0,Math.min(n-1,k));strip.style.transform='translateX(-'+(i*100)+'%)';cur.textContent=i+1;prev.disabled=i===0;next.disabled=i===n-1;}
+  prev.addEventListener('click',function(){go(i-1)});next.addEventListener('click',function(){go(i+1)});
+  sl.tabIndex=0;sl.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(i-1);if(e.key==='ArrowRight')go(i+1);});
+  var x0=null;
+  strip.addEventListener('pointerdown',function(e){x0=e.clientX});
+  strip.addEventListener('pointerup',function(e){if(x0===null)return;var dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40)go(dx<0?i+1:i-1);});
+  go(0);
+});
+/* Highlight the current stop in the sidebar as the reader scrolls. */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.stops a'));
+  var items={};links.forEach(function(a){items[a.getAttribute('href').slice(1)]=a.parentNode;});
+  if(!('IntersectionObserver' in window))return;
+  var current=null;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current)current.classList.remove('is-current');
+        current=items[e.target.id];current&&current.classList.add('is-current');
+      }
+    });
+  },{rootMargin:'-20% 0px -65% 0px'});
+  document.querySelectorAll('.anden').forEach(function(s){io.observe(s);});
+})();
+</script>
+</body>
+</html>
