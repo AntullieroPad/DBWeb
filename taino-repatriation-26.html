@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ancestors in the Record — Taíno Repatriation Briefing | Despierta Boricua</title>
+  <meta name="description" content="Yale's Peabody Museum holds Taíno ancestral remains taken from Puerto Rico in the 1930s. A working public briefing on what Yale holds, what blocks return, and who decides — prepared by Despierta Boricua.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://despiertaboricua-yale.org/repatriation">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Despierta Boricua · Yale">
+  <meta property="og:title" content="Ancestors in the Record — Taíno Repatriation Briefing">
+  <meta property="og:description" content="Yale holds Taíno ancestral remains taken from Puerto Rico in the 1930s. What blocks their return, and who decides.">
+  <meta property="og:url" content="https://despiertaboricua-yale.org/repatriation">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_PR">
+  <!-- 1200×630 image; place the file, then confirm this path resolves -->
+  <meta property="og:image" content="https://despiertaboricua-yale.org/img/repatriation-share.jpg">
+  <meta property="og:image:alt" content="Ancestors in the Record — a briefing on Taíno repatriation at Yale">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#17201C;
+      --ink-2:#1F2B26;
+      --paper:#E9E7DE;
+      --paper-2:#F4F2EB;
+      --sea:#1F5D54;
+      --stone:#5C594F;      /* darkened from #78746A → ~7.0:1 on paper, AA for small text */
+      --stone-lt:#A5A093;   /* dark backgrounds only — passes on --ink */
+      --stone-dk:#4A4842;   /* small metadata on light backgrounds */
+      --blocked:#A8332B;
+      --active:#B4832A;
+      --theirs:#4F4A85;
+      --rule:#CFCBBE;
+      --rule-dk:#33403A;
+      --f-display:"Fraunces",Georgia,serif;
+      --f-body:"Archivo",system-ui,sans-serif;
+      --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--paper);color:var(--ink);
+      font-family:var(--f-body);font-size:17px;line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+    @media(max-width:640px){.wrap{padding:0 20px}body{font-size:16px}}
+
+    .eyebrow{
+      font-family:var(--f-mono);font-size:11.5px;font-weight:500;
+      letter-spacing:.16em;text-transform:uppercase;color:var(--stone);
+    }
+    h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;line-height:1.1}
+    h1{font-size:clamp(2.6rem,6.5vw,4.6rem);font-variation-settings:"SOFT" 40,"WONK" 1;letter-spacing:-.02em}
+    h2{font-size:clamp(1.9rem,4vw,2.9rem);letter-spacing:-.015em}
+    h3{font-size:1.22rem;font-weight:600;letter-spacing:-.005em}
+    p{margin:0 0 1.1em}
+    a{color:inherit}
+
+    /* ---------- hero ---------- */
+    .hero{background:var(--ink);color:var(--paper-2);padding:76px 0 92px;position:relative;overflow:hidden}
+    .hero .eyebrow{color:var(--stone-lt)}
+    .hero h1{color:#F6F4ED;max-width:16ch;margin:26px 0 0}
+    .hero h1 em{font-style:normal;color:#9FC4B8}
+    .hero-lede{max-width:52ch;color:#C6C3B8;margin-top:26px;font-size:1.06rem}
+
+    .record{
+      margin-top:52px;max-width:640px;background:var(--ink-2);
+      border:1px solid var(--rule-dk);border-radius:3px;
+    }
+    .record-head{
+      display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+      padding:14px 22px;border-bottom:1px solid var(--rule-dk);
+      font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--stone-lt);
+    }
+    .row{
+      display:grid;grid-template-columns:150px 1fr;gap:20px;
+      padding:13px 22px;border-bottom:1px solid rgba(255,255,255,.055);
+    }
+    .row:last-child{border-bottom:0}
+    .row dt{
+      font-family:var(--f-mono);font-size:11.5px;letter-spacing:.11em;
+      text-transform:uppercase;color:var(--stone-lt);padding-top:3px;
+    }
+    .row dd{margin:0;font-size:15.5px;color:#DEDBD0;line-height:1.5}
+    .row dd small{display:block;color:#9A968A;font-size:13px;margin-top:3px}
+    .row.void{background:rgba(159,196,184,.05)}
+    .row.void dt{color:#9FC4B8}
+    .blank{
+      display:block;height:1px;background:repeating-linear-gradient(90deg,#5E7A71 0 9px,transparent 9px 16px);
+      margin:14px 0 9px;
+    }
+    .blank-note{font-family:var(--f-mono);font-size:12px;color:#9FC4B8;letter-spacing:.04em}
+    @media(max-width:560px){.row{grid-template-columns:1fr;gap:5px}}
+
+    /* ---------- sections ---------- */
+    section{padding:88px 0}
+    .sec-head{margin-bottom:44px;max-width:60ch}
+    .sec-num{
+      font-family:var(--f-mono);font-size:12px;letter-spacing:.15em;color:var(--sea);
+      display:block;margin-bottom:16px;
+    }
+    .sec-head h2{margin-bottom:18px}
+    .sec-head p{color:#4C544F;max-width:56ch}
+    .dark{background:var(--ink);color:var(--paper-2)}
+    .dark .sec-num{color:#9FC4B8}
+    .dark h2{color:#F6F4ED}
+    .dark .sec-head p{color:#B9B6AB}
+
+    /* ---------- constraint rows ---------- */
+    .constraint{
+      display:grid;grid-template-columns:1fr 168px;gap:28px;align-items:start;
+      padding:24px 0;border-top:1px solid var(--rule);
+    }
+    .constraint:last-child{border-bottom:1px solid var(--rule)}
+    .constraint h3{margin-bottom:6px}
+    .constraint p{margin:0;color:#565E58;font-size:15.5px}
+    .tag{
+      justify-self:start;font-family:var(--f-mono);font-size:11px;font-weight:500;
+      letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;
+      border-radius:2px;white-space:nowrap;
+    }
+    .tag.blocked{background:rgba(168,51,43,.11);color:var(--blocked);border:1px solid rgba(168,51,43,.28)}
+    .tag.active{background:rgba(180,131,42,.13);color:#8A6318;border:1px solid rgba(180,131,42,.3)}
+    .tag.theirs{background:rgba(79,74,133,.1);color:var(--theirs);border:1px solid rgba(79,74,133,.26)}
+    @media(max-width:640px){.constraint{grid-template-columns:1fr;gap:12px}}
+
+    /* ---------- pathway columns ---------- */
+    .paths{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .path{background:var(--paper-2);border:1px solid var(--rule);border-radius:3px;padding:26px 22px 22px}
+    .path.live{border-color:var(--sea);border-width:1.5px;background:#EFF3F0}
+    .path .kicker{
+      font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--stone);display:block;margin-bottom:12px;
+    }
+    .path.live .kicker{color:var(--sea)}
+    .path h3{margin-bottom:10px}
+    .path>p{font-size:15px;color:#565E58;margin-bottom:18px}
+    .path ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+    .path li{
+      font-family:var(--f-mono);font-size:12.5px;color:#5D6560;
+      padding:9px 0;border-bottom:1px solid var(--rule);letter-spacing:.01em;
+    }
+    .path li:last-child{border-bottom:0;color:var(--ink);font-weight:500}
+    @media(max-width:820px){.paths{grid-template-columns:1fr}}
+
+    .callout{
+      margin-top:34px;padding:22px 26px;background:var(--ink);color:#DEDBD0;
+      border-radius:3px;font-size:16px;
+    }
+    .callout strong{color:#9FC4B8;font-weight:500}
+
+    /* ---------- disposition ---------- */
+    .forks{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .fork{
+      background:var(--ink-2);border:1px solid var(--rule-dk);border-radius:3px;
+      padding:26px 24px;
+    }
+    .fork h3{color:#F6F4ED;margin-bottom:10px}
+    .fork>p{color:#B9B6AB;font-size:15px;margin-bottom:18px}
+    .fork dl{margin:0;border-top:1px solid rgba(255,255,255,.07)}
+    .fork dl div{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    .fork dl div:last-child{border-bottom:0}
+    .fork dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8E8A7D;padding-top:2px}
+    .fork dd{margin:0;font-size:14px;color:#CFCCC1;line-height:1.5}
+    @media(max-width:760px){.forks{grid-template-columns:1fr}}
+
+    /* ---------- process ---------- */
+    .steps{counter-reset:s;border-top:1px solid var(--rule)}
+    .step{
+      display:grid;grid-template-columns:64px 1fr 150px;gap:24px;align-items:baseline;
+      padding:22px 0;border-bottom:1px solid var(--rule);
+    }
+    .step::before{
+      counter-increment:s;content:counter(s,decimal-leading-zero);
+      font-family:var(--f-mono);font-size:13px;color:var(--stone);letter-spacing:.06em;
+    }
+    .step h3{font-size:1.08rem;margin-bottom:5px}
+    .step p{margin:0;font-size:15px;color:#565E58}
+    .step .who{
+      font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;color:var(--sea);
+      text-align:right;
+    }
+    .step.gate{background:linear-gradient(90deg,rgba(168,51,43,.06),transparent 62%)}
+    .step.gate .who{color:var(--blocked)}
+    @media(max-width:760px){
+      .step{grid-template-columns:44px 1fr;gap:16px}
+      .step .who{grid-column:2;text-align:left;margin-top:8px}
+    }
+
+    /* ---------- join ---------- */
+    .join{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+    .join-card{border-top:2px solid var(--sea);padding-top:18px}
+    .join-card h3{margin-bottom:8px;font-size:1.1rem}
+    .join-card p{font-size:15px;color:#565E58;margin:0}
+    @media(max-width:820px){.join{grid-template-columns:1fr;gap:28px}}
+
+    /* ---------- standing update ---------- */
+    .update{border-bottom:1px solid var(--rule);background:var(--paper-2);padding:52px 0 56px}
+    .update .eyebrow{color:var(--sea)}
+    .update h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:14px 0 20px;max-width:22ch}
+    .update>.wrap>p{max-width:62ch;color:#4C544F;margin-bottom:26px}
+    .ledger{margin:0;border-top:1px solid var(--rule)}
+    .ledger div{display:grid;grid-template-columns:186px 1fr;gap:24px;padding:16px 0;border-bottom:1px solid var(--rule)}
+    .ledger dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--sea);padding-top:4px}
+    .ledger dd{margin:0;font-size:15.5px;color:#4C544F;line-height:1.55}
+    @media(max-width:640px){.ledger div{grid-template-columns:1fr;gap:6px}}
+
+    footer{border-top:1px solid var(--rule);padding:36px 0 60px;color:var(--stone);font-size:14px}
+    footer .eyebrow{margin-bottom:10px}
+
+    /* ---------- motion ----------
+       Progressive enhancement: content is visible by default. The hidden
+       starting state only applies once JS has added .js to <html>, so a
+       failed or blocked script leaves the page fully readable. */
+    .js .rise{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+    .js .rise.in{opacity:1;transform:none}
+    .js .record .row{opacity:0;transform:translateY(8px);animation:fade .6s ease forwards}
+    .record .row:nth-child(2){animation-delay:.18s}
+    .record .row:nth-child(3){animation-delay:.30s}
+    .record .row:nth-child(4){animation-delay:.42s}
+    .record .row:nth-child(5){animation-delay:.54s}
+    .record .row:nth-child(6){animation-delay:.66s}
+    @keyframes fade{to{opacity:1;transform:none}}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .js .rise{opacity:1;transform:none;transition:none}
+      .js .record .row{opacity:1;transform:none;animation:none}
+    }
+    :focus-visible{outline:2px solid var(--sea);outline-offset:3px}
+
+    /* ---------- skip link ---------- */
+    .skip{
+      position:absolute;left:-9999px;top:0;z-index:100;
+      background:var(--ink);color:#F6F4ED;padding:12px 18px;
+      font-family:var(--f-mono);font-size:13px;text-decoration:none;
+    }
+    .skip:focus{left:12px;top:12px}
+
+    /* ---------- status banner ---------- */
+    .status{
+      background:var(--paper-2);border-bottom:1px solid var(--rule);
+      font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;
+      color:var(--stone-dk);
+    }
+    .status .wrap{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding-top:11px;padding-bottom:11px}
+    .status b{font-weight:500;color:var(--ink)}
+    .status .sep{color:var(--rule);}
+    .status .disclaim{color:var(--stone-dk)}
+    @media(max-width:640px){.status .sep{display:none}.status .wrap{flex-direction:column;align-items:flex-start;gap:4px}}
+
+    /* ---------- section nav ---------- */
+    .snav{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:50}
+    .snav nav{display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .snav nav::-webkit-scrollbar{display:none}
+    .snav a{
+      flex:0 0 auto;padding:15px 20px 13px;text-decoration:none;
+      font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;
+      color:var(--stone);border-bottom:2px solid transparent;white-space:nowrap;
+      transition:color .2s ease,border-color .2s ease;
+    }
+    .snav a:first-child{padding-left:0}
+    .snav a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+    .snav a.cur{color:var(--sea);border-bottom-color:var(--sea)}
+    .snav a .n{color:var(--stone);opacity:.7;margin-right:7px}
+    .snav a.cur .n{color:var(--sea)}
+    @media(max-width:640px){.snav a{padding:13px 15px 11px;font-size:11.5px}}
+    section[id]{scroll-margin-top:64px}
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="status">
+  <div class="wrap">
+    <span><b>Working public briefing</b></span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span>Updated September 2026</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="disclaim">Despierta Boricua does not represent Taíno communities or speak on their behalf</span>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Briefing · Despierta Boricua · Coalition deliberation draft</span>
+      <h1>Ancestors held as a <em>catalog entry</em></h1>
+      <p class="hero-lede">Yale holds Taíno ancestral remains and cultural materials taken from Puerto Rico in the 1930s. Returning them is not one problem with one lock. It is five — and federal law is only one of them.</p>
+
+      <dl class="record" id="record">
+        <div class="record-head"><span>Collection record</span><span>Yale Peabody Museum</span></div>
+        <div class="row">
+          <dt>Expeditions</dt>
+          <dd>1934, 1936, 1938<small>1934 led by F. Rainey, funded through PRERA. 1936 and 1938 led by Irving Rouse.</small></dd>
+        </div>
+        <div class="row">
+          <dt>Origin</dt>
+          <dd>19+ municipios, plus Vieques and Mona</dd>
+        </div>
+        <div class="row">
+          <dt>Contents</dt>
+          <dd>Ancestral human remains and cultural materials<small>Yale has confirmed the museum holds Ta&iacute;no-affiliated ancestral remains; the human remains it has identified are fragmentary. A separate Yale Biological Anthropology legacy collection may hold more.</small></dd>
+        </div>
+        <div class="row">
+          <dt>NAGPRA status</dt>
+          <dd>Does not apply<small>For NAGPRA purposes, "United States" means the 50 states and D.C. Puerto Rico falls outside that definition; recognition alone does not cure the exclusion.</small></dd>
+        </div>
+        <div class="row void">
+          <dt>Disposition</dt>
+          <dd>
+            <span class="blank"></span>
+            <span class="blank-note">Unanswered. This document exists to fill this field.</span>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="snav">
+    <div class="wrap">
+      <nav aria-label="Sections">
+        <a href="#record"><span class="n" aria-hidden="true">01</span>What Yale holds</a>
+        <a href="#blocks"><span class="n" aria-hidden="true">02</span>What blocks return</a>
+        <a href="#pathways"><span class="n" aria-hidden="true">03</span>Legal pathways</a>
+        <a href="#decides"><span class="n" aria-hidden="true">04</span>Who decides</a>
+        <a href="#process"><span class="n" aria-hidden="true">05</span>How return works</a>
+        <a href="#help"><span class="n" aria-hidden="true">06</span>How to help</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="update">
+    <div class="wrap">
+      <span class="eyebrow">Where things stand</span>
+      <h2>What has changed since August</h2>
+      <p>Two of the five constraints below have moved. Yale has answered the questions it can answer on its own, which shifts the remaining work to the community side &mdash; where it was always going to sit.</p>
+      <dl class="ledger">
+        <div>
+          <dt>Holdings confirmed</dt>
+          <dd>Yale has confirmed that the Peabody holds Ta&iacute;no-affiliated ancestral human remains, and that the 1930s expeditions covered Puerto Rico, Vieques, and Mona. The remains identified so far are fragmentary.</dd>
+        </div>
+        <div>
+          <dt>Yale's posture</dt>
+          <dd>The museum has indicated it can pursue a voluntary return outside NAGPRA through its own process, and that it can consider a return once an appropriate request is brought forward. Yale has described consultation as potentially including travel support, examination of the collection, community consultation, and transport. No return has been agreed to; what exists is a stated willingness to receive a request.</dd>
+        </div>
+        <div>
+          <dt>The representative question</dt>
+          <dd>The working goal is no longer a single authorized representative. It is a narrow consultation and repatriation body assembled for this purpose &mdash; drawing on island-based leadership, diaspora organizations, ceremonial figures, scholars, and people with museum and repatriation experience. Legitimacy here comes from relationships and process, not from a signature.</dd>
+        </div>
+        <div>
+          <dt>In motion</dt>
+          <dd>Conversations are underway with leadership across several Ta&iacute;no organizations in Puerto Rico and the diaspora, with introductions being passed between them and in-person meetings this month. This is now a network rather than a set of separate approaches.</dd>
+        </div>
+        <div>
+          <dt>Despierta Boricua's role</dt>
+          <dd>Research, connecting people, and using our access to Yale. We are not the community of descent, and we are not the authority. Nothing about the body's composition or the question of disposition is ours to settle.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="blocks">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="sec-num">01 — The terrain</span>
+        <h2>Five constraints, not one</h2>
+        <p>Organizing conversations tend to collapse into the legal question, because it is the one with a familiar villain. But the legal door is closed by statute and will not open soon. The questions that actually decide this — who speaks, where ancestors go, on whose terms they are received — belong to us rather than to Congress.</p>
+      </div>
+
+      <div class="rise">
+        <div class="constraint">
+          <div>
+            <h3>Legal and jurisdictional</h3>
+            <p>NAGPRA's reach is geographic. For the statute's purposes, "United States" means the 50 states and the District of Columbia; Puerto Rico falls outside that definition. Recognition alone does not cure the exclusion — the Guainía Taíno Tribe's recognition did not confer NAGPRA access. Changing this requires Congress. Rulemaking cannot reach what the statute does not authorize.</p>
+          </div>
+          <span class="tag blocked">Closed by statute</span>
+        </div>
+
+        <div class="constraint">
+          <div>
+            <h3>Representative authority</h3>
+            <p>Yale needs evidence that the party negotiating a return has been authorized by relevant Taíno communities. This does not require every Ta&iacute;no organization to merge, or to agree on every question of identity or membership. It requires a legitimate process for deciding who speaks for this repatriation. A consultation and repatriation body convened for this purpose is now taking shape; its composition and mandate are being worked out by the organizations joining it.</p>
+          </div>
+          <span class="tag active">In formation</span>
+        </div>
+
+        <div class="constraint">
+          <div>
+            <h3>Post-return conditions</h3>
+            <p>Some institutions condition returns on the existence of a curatorial facility. Whether Yale would require this in a Taíno return has not been established; its published policy prioritizes preservation but allows communities to request alternate arrangements, subject to review. Any disposition standard should be negotiated with the descendant community rather than assumed in advance.</p>
+          </div>
+          <span class="tag theirs">Unsettled</span>
+        </div>
+
+        <div class="constraint">
+          <div>
+            <h3>Disposition</h3>
+            <p>Reburial, custodial holding, community stewardship, or a changed relationship with Yale. This is contested within Taíno communities themselves, and it is not an institution's question to settle.</p>
+          </div>
+          <span class="tag theirs">Community's call</span>
+        </div>
+
+        <div class="constraint">
+          <div>
+            <h3>Transfer and ceremony</h3>
+            <p>How ancestors are moved, who accompanies them, under what protocol, and who is present when they arrive. Almost entirely undiscussed, and the part most likely to be decided badly by default.</p>
+          </div>
+          <span class="tag blocked">Unexamined</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pathways" style="background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="sec-num">02 — Legal pathways</span>
+        <h2>Three roads, and only one is open</h2>
+        <p>One is a decade-long federal campaign. One is a legal theory no one has tested. The third is Yale's own voluntary process — the only road actually open, and the one that requires no federal recognition, because recognition would not help.</p>
+      </div>
+
+      <div class="paths rise">
+        <div class="path">
+          <span class="kicker">Pathway A</span>
+          <h3>Amend the statute</h3>
+          <p>Extend NAGPRA's reach to the Indigenous peoples of U.S. territories. Fixes the gap for everyone, permanently.</p>
+          <ul>
+            <li>Congress and committees</li>
+            <li>National tribal coalitions</li>
+            <li>Legislation only — not rulemaking</li>
+            <li>5–15 years · low odds</li>
+          </ul>
+        </div>
+
+        <div class="path">
+          <span class="kicker">Pathway B</span>
+          <h3>Litigation</h3>
+          <p>Sue institutions for the theft of bodies and cultural heritage. Counsel at the Association on American Indian Affairs notes this has never been attempted.</p>
+          <ul>
+            <li>Untested legal theory</li>
+            <li>Counsel, standing, a claimant body</li>
+            <li>Changes leverage even unfiled</li>
+            <li>No precedent · unknown odds</li>
+          </ul>
+        </div>
+
+        <div class="path live">
+          <span class="kicker">Pathway C · open</span>
+          <h3>Negotiated institutional return</h3>
+          <p>The Peabody's own repatriation policy, governed by an internal advisory panel. Available today, and where every realistic version of this ends.</p>
+          <ul>
+            <li>Human Remains Advisory Panel</li>
+            <li>Division curators</li>
+            <li>A consultation body with a mandate</li>
+            <li>Yale has said it will receive a request</li>
+            <li>State Dept. recognition may assist</li>
+            <li>1&ndash;3 years &middot; viable now</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout rise">
+        <strong>Recognition is beside the point.</strong> Federal acknowledgment does not deliver NAGPRA rights to a people whose homeland the statute excludes — the Guainía Taíno Tribe's recognition did not. Recognition campaigns and repatriation are separate projects, and Pathway C waits on neither. What it does wait on is a body that can speak. Once one exists, the State Department may recognize it for repatriation purposes with U.S. and international institutions — which is the step that makes an institution less afraid of returning to the wrong party.
+      </div>
+    </div>
+  </section>
+
+  <section id="decides" class="dark">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="sec-num">03 — The contested center</span>
+        <h2>Where should they go?</h2>
+        <p>This is the fork everything else hangs from, and the one an institution will quietly answer for you if no one answers it first. The "facility" line below records what museums have typically expected — not a standard any community owes them. Reburial is listed first because it is the option institutions are least likely to raise on their own.</p>
+      </div>
+
+      <div class="forks rise">
+        <div class="fork">
+          <h3>Reburial</h3>
+          <p>Return to the earth in Puerto Rico, at or near the places they were taken from.</p>
+          <dl>
+            <div><dt>Requires</dt><dd>Land, site protection, an entity able to hold title</dd></div>
+            <div><dt>Facility</dt><dd>None ongoing</dd></div>
+            <div><dt>After</dt><dd>The institutional relationship ends</dd></div>
+          </dl>
+        </div>
+
+        <div class="fork">
+          <h3>Custodial holding</h3>
+          <p>The Te Papa model: held in dutiful custody, not accessioned, not displayed, pending a final decision.</p>
+          <dl>
+            <div><dt>Requires</dt><dd>A trusted intermediary institution</dd></div>
+            <div><dt>Facility</dt><dd>Full conservation standard</dd></div>
+            <div><dt>After</dt><dd>Defers the question, does not close it</dd></div>
+          </dl>
+        </div>
+
+        <div class="fork">
+          <h3>Community stewardship</h3>
+          <p>Transfer to a Taíno-led or Puerto Rico-based institution holding them on the community's own terms.</p>
+          <dl>
+            <div><dt>Requires</dt><dd>An operating organization and a building</dd></div>
+            <div><dt>Facility</dt><dd>Full conservation standard</dd></div>
+            <div><dt>After</dt><dd>Ongoing community authority</dd></div>
+          </dl>
+        </div>
+
+        <div class="fork">
+          <h3>Co-stewardship with Yale</h3>
+          <p>The Peru model: an MOU restructuring the relationship while the collection stays put.</p>
+          <dl>
+            <div><dt>Requires</dt><dd>A negotiated agreement</dd></div>
+            <div><dt>Facility</dt><dd>None new</dd></div>
+            <div><dt>After</dt><dd>Ancestors remain in Yale's custody</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="callout rise" style="background:rgba(255,255,255,.05);border:1px solid var(--rule-dk)">
+        <strong>Read the last one carefully.</strong> Co-stewardship asks the least of everyone and costs an institution almost nothing, which is precisely why it is the option most likely to be offered. That does not make it wrong. It does mean it should be chosen, not defaulted into.
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="sec-num">04 — Process</span>
+        <h2>What the Peabody actually requires</h2>
+        <p>Steps one and two are ours, and step one is underway. Everything below them is Yale's routine machinery, and the museum has said it will engage once a request arrives.</p>
+      </div>
+
+      <div class="steps rise">
+        <div class="step gate">
+          <div>
+            <h3>Convene the consultation body</h3>
+            <p>A body with a mandate to speak for this repatriation, assembled across island and diaspora leadership. In formation.</p>
+          </div>
+          <span class="who">Community</span>
+        </div>
+        <div class="step gate">
+          <div>
+            <h3>Name the receiving entity and purpose</h3>
+            <p>A specific destination and a stated purpose. Yale will ask what conditions ancestors will be held in; answering that is not the same as accepting the museum's standard as the test.</p>
+          </div>
+          <span class="who">Community</span>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Submit the formal request</h3>
+            <p>To the Human Remains Advisory Panel, at ypm.hrap@yale.edu. Making the request opens the process.</p>
+          </div>
+          <span class="who">HRAP</span>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Consultation</h3>
+            <p>The Division of Anthropology and the Repatriation Office engage the requesting party.</p>
+          </div>
+          <span class="who">Anthropology</span>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Recommendation and decision</h3>
+            <p>HRAP advises. Final authority rests with the division curators.</p>
+          </div>
+          <span class="who">Curators</span>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Legal review</h3>
+            <p>The Office of General Counsel reviews documentation after internal approval. It is not a gatekeeper.</p>
+          </div>
+          <span class="who">OGC</span>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Transfer</h3>
+            <p>Yale typically funds consultation travel and physical transport of collections.</p>
+          </div>
+          <span class="who">Yale</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="help" style="background:var(--paper-2);border-top:1px solid var(--rule);padding-bottom:60px">
+    <div class="wrap">
+      <div class="sec-head rise">
+        <span class="sec-num">05 — Where you come in</span>
+        <h2>What an allied organization can actually do</h2>
+        <p>The current blocker is not a formal refusal from Yale. It is the absence of a Yale-specific representative mandate and an agreed path for disposition. An allied organization can help create the conditions for Taíno communities to resolve those questions; it cannot resolve them itself.</p>
+      </div>
+
+      <div class="join rise">
+        <div class="join-card">
+          <h3>Convening</h3>
+          <p>Help bring Taíno community leadership, scholars, and organizations into one room to work out what an authorized body looks like and who sits on it.</p>
+        </div>
+        <div class="join-card">
+          <h3>Research</h3>
+          <p>Provenance depth on the 1934–38 expeditions, the separate Yale Biological Anthropology legacy collection, and precedent for returns where no curational facility was required.</p>
+        </div>
+        <div class="join-card">
+          <h3>Public record</h3>
+          <p>Statements, campus press, and community media — held in reserve, and most useful if the institutional process stalls rather than before it starts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="eyebrow">Despierta Boricua · Yale University</span>
+    <p style="margin:0;max-width:64ch">Prepared for coalition deliberation. Process details reflect direct correspondence and meetings with Peabody staff and Yale's published human remains stewardship policy. The legal analysis in sections 01 and 02 was corrected in August 2026 following correspondence with Shannon O'Loughlin (Choctaw), Chief Executive &amp; Attorney of the Association on American Indian Affairs; earlier drafts wrongly treated federal recognition as the operative barrier. The September 2026 update reflects Yale's confirmation of its holdings and of the voluntary process available, and the shift from seeking a single authorized representative to convening a consultation body. This is a working document — corrections from community partners are wanted and expected.</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    if(!('IntersectionObserver' in window)) return;   // no observer: leave content visible
+    document.documentElement.classList.add('js');     // only now is the hidden state armed
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -60px 0px'});
+    document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+
+    // scrollspy: mark the nav link for the section currently in view
+    var links = Array.prototype.slice.call(document.querySelectorAll('.snav a'));
+    var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+    var spy = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var i = targets.indexOf(e.target);
+        if(i < 0) return;
+        links.forEach(function(a){ a.classList.remove('cur'); a.removeAttribute('aria-current'); });
+        links[i].classList.add('cur');
+        links[i].setAttribute('aria-current','true');
+      });
+    },{rootMargin:'-20% 0px -70% 0px'});
+    targets.forEach(function(t){ if(t) spy.observe(t); });
+  })();
+</script>
+</body>
+</html>
