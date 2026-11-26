@@ -490,29 +490,29 @@
         <a href="news.html" data-key="navNews">Events & News</a>
         <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
         <a href="alumni.html" data-key="navAlumni">Alumni</a>
-        <a href="prospective.html" class="active">Prospective Students</a>
+        <a href="prospective.html" data-key="navProspective">Prospective Students</a>
         <a href="merch.html" data-key="navMerch">Merch</a>
         <a href="gallery.html" data-key="navGallery">Gallery</a>
-        <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
+        <a href="donate.html" data-key="navDonate" class="donate-nav-link">
+            <i class="fas fa-heart" aria-hidden="true"></i> Donate
         </a>
     </nav>
-    <button id="lang-toggle">Español</button>
-    <button id="dark-mode-toggle" class="dark-mode-toggle">
+    <button id="lang-toggle" type="button">Español</button>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" type="button">
         <span class="icon">🌙</span>
-        <span class="label">Dark Mode</span>
+        <span class="label">Dark mode</span>
     </button>
 
     <div class="sidebar-footer">
         <!-- Social Media Links -->
         <div class="social-icons">
-            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" rel="noopener" class="social-link">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" rel="noopener" class="social-link">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="/cdn-cgi/l/email-protection#d0b4b5a3a0b9b5a2a4b1b2bfa2b9b3a5b190a9b1bcb5feb5b4a5" class="social-link">
+            <a href="mailto:despiertaboricua@yale.edu" class="social-link">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
@@ -522,7 +522,7 @@
 </aside>
 
 <!-- Hamburger button for mobile -->
-<button class="hamburger-btn">
+<button class="hamburger-btn" type="button" aria-label="Open menu">
     <span></span>
     <span></span>
     <span></span>
@@ -548,24 +548,24 @@
     <section class="featured-edition">
         <div class="featured-card">
             <div class="featured-content">
-                <span class="featured-badge">📬 Latest Edition – September 2026</span>
-                <h2>Volume 7 – Edición de Regreso: Lo Que Construimos Este Verano</h2>
+                <span class="featured-badge">📬 Latest Edition – November 2026</span>
+                <h2>Volume 8 – Edición de Acción de Gracias: Gracias, Familia</h2>
                 <div class="featured-meta">
                     <div class="meta-item">
                         <i class="far fa-calendar-alt"></i>
-                        <span>Published: September 2026</span>
+                        <span>Published: November 2026</span>
                     </div>
                     <div class="meta-item">
                         <i class="fas fa-train"></i>
-                        <span>Ruta: El Verano → Los Pasillos → La Isla</span>
+                        <span>Ruta: La Mesa → Los Pasillos → La Isla</span>
                     </div>
                 </div>
                 <div class="featured-preview">
-                    <p><strong>We took the summer off. We did not go quiet.</strong> <em>Estamos Aquí: In the Halls of Power</em> now has a home and a date — May 2027 at CENTRO, Hunter College — and a rebuilt constellation of four clusters. The <em>Certificate in Caribbean Studies: Archipelagos, Seas, and Diasporas</em> goes to Yale's Committee on Majors this December, fifty-two years after Yale was first asked, and we found the 1972–73 letters to prove it.</p>
-                    <p>Also inside: Yale confirms the Peabody holds Taíno-affiliated ancestral remains, and a path to returning them. La Casa Cultural de Julia de Burgos turns 50. What we learned from Cabo Rojo. And a full sneak peek at the semester ahead.</p>
+                    <p><strong>This Thanksgiving, we're grateful for everyone who showed up.</strong> The Puerto Rican Futurity Conference — <em>Estamos Aquí, in the Halls of Power</em> — is set for April 23–24, 2027 at CENTRO, and we need speakers and funding. The <em>Certificate in Caribbean Studies</em> goes to the Committee on Majors in December, now in partnership with the MacMillan Center, with a note from our Coalition Chair on why it matters.</p>
+                    <p>Also inside: thank-yous to the allies we shared tables with this semester, El Voto Es Nuestra Bala and Beyond Borders, our Taíno repatriation proposal heading to an advisory board of elders, a welcome to ISLA, and the dates to save.</p>
                     <p><em>Pa'lante, siempre pa'lante.</em> 🇵🇷</p>
                 </div>
-                <a href="ElBoletin_Sept2026.html" class="read-btn">
+                <a href="ElBoletin_Nov2026.html" class="read-btn">
                     Read Full Edition
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -582,7 +582,32 @@
             </p>
 
             <div class="archive-grid">
-                <!-- September 2026 Edición de Regreso (Latest) -->
+                <!-- November 2026 Edición de Acción de Gracias (Latest) -->
+                <div class="archive-card">
+                    <div class="archive-thumbnail">
+                        <div class="train-icon">🦃</div>
+                    </div>
+                    <div class="archive-info">
+                        <div class="archive-date">November 2026</div>
+                        <h3 class="archive-title">Volume 8 – Edición de Acción de Gracias: Gracias, Familia</h3>
+                        <p class="archive-description">
+                            What you helped make happen this semester, and what's coming next: speakers for the Futurity Conference, a certificate heading to the Committee on Majors, and a repatriation proposal in the hands of the community.
+                        </p>
+                        <ul class="archive-highlights">
+                            <li>Puerto Rican Futurity Conference — April 23–24, 2027</li>
+                            <li>Gracias a Nuestros Aliados</li>
+                            <li>El Voto Es Nuestra Bala &amp; Beyond Borders</li>
+                            <li>Caribbean Studies — A Note from Antonio</li>
+                            <li>Taíno Repatriation &amp; Welcome, ISLA</li>
+                            <li>Save the Dates</li>
+                        </ul>
+                        <a href="ElBoletin_Nov2026.html" class="archive-link">
+                            Read Edition <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- September 2026 Edición de Regreso -->
                 <div class="archive-card">
                     <div class="archive-thumbnail">
                         <div class="train-icon">🚂</div>
@@ -802,7 +827,7 @@
 <!-- Scripts -->
 <script src="script.js"></script>
 <script src="lang.js"></script>
-<button id="backToTop" title="Back to top">&#8679;</button>
+<button id="backToTop" type="button" aria-label="Back to top">↑</button>
 
 <!-- Mailchimp Newsletter Signup Script -->
 <script>

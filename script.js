@@ -1193,13 +1193,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Initialize: Ensure all sections start collapsed
-    document.querySelectorAll('.collapsible-content').forEach(content => {
-        content.classList.remove('expanded');
-    });
-
-    // Initialize: Set all toggle buttons to collapsed state
-    document.querySelectorAll('.collapse-toggle').forEach(button => {
-        button.setAttribute('aria-expanded', 'false');
+    // Initialize: open the sections whose toggle says aria-expanded="true" in the HTML
+    // (e.g. the current semester), and collapse everything else.
+    document.querySelectorAll('.collapsible-header').forEach(header => {
+        const toggleButton = header.querySelector('.collapse-toggle');
+        const content = header.nextElementSibling;
+        if (!toggleButton || !content) return;
+        const startOpen = toggleButton.getAttribute('aria-expanded') === 'true';
+        content.classList.toggle('expanded', startOpen);
+        toggleButton.setAttribute('aria-expanded', startOpen ? 'true' : 'false');
     });
 });

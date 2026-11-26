@@ -42,29 +42,29 @@
         <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
             <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
         </a> -->
-        <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
+        <a href="donate.html" data-key="navDonate" class="donate-nav-link">
+            <i class="fas fa-heart" aria-hidden="true"></i> Donate
         </a>
     </nav>
-    <button id="lang-toggle">Español</button>
-    <button id="dark-mode-toggle" class="dark-mode-toggle">
+    <button id="lang-toggle" type="button">Español</button>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" type="button">
         <span class="icon">🌙</span>
-        <span class="label">Dark Mode</span>
+        <span class="label">Dark mode</span>
     </button>
 
     <div class="sidebar-footer">
         <!-- Social Media Links -->
         <div class="social-icons">
-            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" rel="noopener" class="social-link">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" rel="noopener" class="social-link">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="/cdn-cgi/l/email-protection#dfbbbaacafb6baadabbebdb0adb6bcaabe9fa6beb3baf1babbaa" class="social-link">
+            <a href="mailto:despiertaboricua@yale.edu" class="social-link">
                 <i class="fas fa-envelope"></i>
             </a>
-        </div> <!-- Correctly closing social-icons div -->
+        </div>
 
         <div class="license">© 2026 DB Yale</div>
     </div>
@@ -72,7 +72,7 @@
 </aside>
 
 <!-- Hamburger button for mobile -->
-<button class="hamburger-btn">
+<button class="hamburger-btn" type="button" aria-label="Open menu">
     <span></span>
     <span></span>
     <span></span>
@@ -135,15 +135,15 @@
                 <input type="checkbox" name="category" value="media" checked />
                 <span>Media Coverage</span>
             </label>
-            <button id="resetFilters">Reset Filters</button>
+            <button id="resetFilters" type="button">Reset Filters</button>
         </div>
 
 
         <!-- Add a search bar for events -->
         <div class="events-search">
             <input type="text" id="eventSearch" placeholder="Search events..." />
-            <button id="searchButton">
-                <i class="fas fa-search"></i>
+            <button id="searchButton" type="button" aria-label="Search events">
+                <i class="fas fa-search" aria-hidden="true"></i>
             </button>
         </div>
 
@@ -176,19 +176,19 @@
         <div class="category-legend">
             <div class="legend-title">Event Categories:</div>
             <div class="legend-item">
-                <span class="legend-color" style="background-color: #4CAF50;"></span>
+                <span class="legend-color" style="background-color: #3F8F5A;"></span>
                 <span class="legend-label">Social Events</span>
             </div>
             <div class="legend-item">
-                <span class="legend-color" style="background-color: #F44336;"></span>
+                <span class="legend-color" style="background-color: #C8102E;"></span>
                 <span class="legend-label">Activism Events</span>
             </div>
             <div class="legend-item">
-                <span class="legend-color" style="background-color: #FFC107;"></span>
+                <span class="legend-color" style="background-color: #C9922B;"></span>
                 <span class="legend-label">Recent Events</span>
             </div>
             <div class="legend-item">
-                <span class="legend-color" style="background-color: #9C27B0;"></span>
+                <span class="legend-color" style="background-color: #6E4D9E;"></span>
                 <span class="legend-label">Media Coverage</span>
             </div>
         </div>
@@ -261,17 +261,17 @@
             <div class="events-category collapsible-section">
                 <h3 class="collapsible-header">
                     <span data-key="fall2026EventsTitle">Fall 2026 Events</span>
-                    <button class="collapse-toggle" aria-expanded="true" aria-controls="fall-2026-events">
+                    <button class="collapse-toggle" type="button" aria-expanded="true" aria-controls="fall-2026-events">
                         <i class="fas fa-chevron-down"></i>
                     </button>
                 </h3>
-                <div id="fall-2026-events" class="collapsible-content" style="display: block;">
+                <div id="fall-2026-events" class="collapsible-content">
                     <ul class="event-list">
                         <li data-category="activism">
-                            <strong>📜 Caribbean Studies Certificate — Petition &amp; Student Survey</strong><br>
+                            <strong>📜 Caribbean Studies Certificate — Petition, Survey &amp; Testimonies</strong><br>
                             <em>Now through December 2026 | Committee on Majors submission</em><br>
-                            The <em>Certificate in Caribbean Studies: Archipelagos, Seas, and Diasporas</em> goes to Yale's Committee on Majors this December. Everyone can sign the petition; current and former students should also fill out the survey on Caribbean-focused coursework they have already taken. Fifty-two years after Yale was first asked.<br>
-                            <em><a href="https://docs.google.com/forms/d/e/1FAIpQLSeT5_vvCgQORyHosm1tc5EmlJkPK8KTQuqd6tatwBT8w9DyXQ/viewform?usp=header" style="color:#2D6A4F; font-weight:600;">Take the student survey →</a> · <a href="ElBoletin_Sept2026.html#anden-3" style="color:#2D6A4F; font-weight:600;">Read the full case in El Boletín →</a></em>
+                            This December, co-directors Alex Gil Fuentes and Kaiama Glover, with their faculty team, submit the <i>Certificate in Caribbean Studies: Archipelagos, Seas, and Diasporas</i> to Yale's Committee on Majors — now in partnership with the MacMillan Center. About 150 people have signed so far. There's still time to add your voice: sign the petition, and take the survey or share a testimony.<br>
+                            <em><a href="https://actionnetwork.org/petitions/establish-a-certificate-in-caribbean-studies-at-yale" style="color:#2D6A4F; font-weight:600;">Sign the petition</a> · <a href="https://docs.google.com/forms/d/e/1FAIpQLSeT5_vvCgQORyHosm1tc5EmlJkPK8KTQuqd6tatwBT8w9DyXQ/viewform" style="color:#2D6A4F; font-weight:600;">Take the survey or share a testimony</a> · <a href="ElBoletin_Nov2026.html#anden-5" style="color:#2D6A4F; font-weight:600;">Read the latest in El Boletín →</a></em>
                         </li>
                         <li data-category="social">
                             <strong>🥁 Bomba at Schwarzman</strong><br>
@@ -282,11 +282,6 @@
                             <strong>🪁 Kite-Making &amp; Vejigante Mask Workshops</strong><br>
                             <em>Fall 2026 | with Arte Inc. and New Haven youth</em><br>
                             Hands-on cultural workshops: chiringas, vejigante masks, art, history, and intergenerational community-building. Not culture behind glass — culture you make with your hands.
-                        </li>
-                        <li data-category="activism">
-                            <strong>🗳️ La Urna — Voter Registration &amp; Civic Power</strong><br>
-                            <em>Fall 2026 | La Casa Cultural — with Juan Candelaria and campus partners</em><br>
-                            Practical help with registration, absentee ballots, and state-specific voting questions, plus a larger conversation about what political participation can and cannot do.
                         </li>
                         <li data-category="activism">
                             <strong>🎬 DB × MEChA × DECO Documentary Screening</strong><br>
@@ -303,11 +298,6 @@
                             <em>Monthly | DB Room &amp; La Casa Cultural</em><br>
                             Once a month, DB opens the DB room and La Casa to local high school students. Meet the board, hang out, ask questions, learn about college, use the space.
                         </li>
-                        <li data-category="activism">
-                            <strong>☕ Haiti, Puerto Rico &amp; the Caribbean — Cafecito Conversation</strong><br>
-                            <em>Fall 2026 | La Casa Cultural — with LakaYALE</em><br>
-                            A conversation with Yale's Haitian student community about Haiti, Puerto Rico, neocolonialism, and Caribbean solidarity — what our different colonial histories teach us when we stop studying our islands separately.
-                        </li>
                         <li data-category="social">
                             <strong>🌴 Caribbean Student Mixer</strong><br>
                             <em>Fall 2026 | Details TBA</em><br>
@@ -320,9 +310,15 @@
                         </li>
                         <li data-category="activism">
                             <strong data-key="estamosAquiTitle">🏛️ Estamos Aquí: In the Halls of Power</strong><br>
-                            <em data-key="estamosAquiDate">May 2027 | CENTRO, Hunter College — The Puerto Rican Futurity Conference</em><br>
-                            <span data-key="estamosAquiDesc">Developed in partnership with CENTRO and the Northeast Alliance's 20+ campuses, and organized around a constellation of four clusters: Educación, Practitioners, Multigeneracional, and Imaginación. A serious, sustained space for Puerto Rican students across the Northeast to turn access into power — and to get as serious about imagining what could be right as we are about explaining what is wrong.</span><br>
-                            <em data-key="estamosAquiNote">Alumni practitioners and elders: we need you in the room. Write to despiertaboricua@yale.edu with the subject "Estamos Aquí." 🇵🇷</em>
+                            <em data-key="estamosAquiDate">April 23–24, 2027 | CENTRO, Hunter College — The Puerto Rican Futurity Conference</em><br>
+                            <span data-key="estamosAquiDesc">An intercollegiate conference DB is helping lead, bringing students from across the Northeast to CENTRO. We have the venue, the catering, and a vision, built around four connected clusters: Educación (UPR cuts, student activists, access, brain drain), Practitioners (climate, infrastructure, food sovereignty, water, energy), Multigeneracional (elders passing on their movements, their trains of thought, and the wisdom it takes for a community to succeed together), and Youth futures (what it would take for young people to imagine a future on the island).</span><br>
+                            <em data-key="estamosAquiNote">Now we need speakers and funding. Speaker invitations go out in December — send a name to despiertaboricua@yale.edu by December 8, or write to help a planning subcommittee. 🇵🇷 — <a href="ElBoletin_Nov2026.html#anden-2" style="color:#2D6A4F; font-weight:600;">Read more in El Boletín →</a></em>
+                        </li>
+                        <li data-category="activism">
+                            <strong>🏺 Taíno Repatriation — Proposal with the Elders</strong><br>
+                            <em>Fall 2026 | Peabody Museum</em><br>
+                            The research is done and the alliances are in place. DB has shared a written proposal with our Taíno community partners, who will bring it to an advisory board of elders and leaders from tribes across the Caribbean. If the board moves forward, it will submit a request for voluntary repatriation to the Peabody. Decisions about representation and the return of the ancestors belong to Taíno communities.<br>
+                            <em><a href="ElBoletin_Nov2026.html#anden-6" style="color:#2D6A4F; font-weight:600;">Read the update in El Boletín →</a></em>
                         </li>
                     </ul>
                 </div>
@@ -332,11 +328,11 @@
             <div class="events-category collapsible-section">
                 <h3 class="collapsible-header">
                     <span>Recent Events 26-27</span>
-                    <button class="collapse-toggle" aria-expanded="true" aria-controls="recent-events-2627">
+                    <button class="collapse-toggle" type="button" aria-expanded="true" aria-controls="recent-events-2627">
                         <i class="fas fa-chevron-down"></i>
                     </button>
                 </h3>
-                <div id="recent-events-2627" class="collapsible-content" style="display: block;">
+                <div id="recent-events-2627" class="collapsible-content">
                     <ul class="event-list">
                         <li data-category="recent">
                             <strong>Extracurricular Bazaar</strong><br>
@@ -349,6 +345,38 @@
                             DB hosted a stop on the 2026 Puerto Rico Solidarity Tour, welcoming filmmaker and organizer Gabo Ramos of Defiende a Cabo Rojo for a screening and conversation on the fight against Project Esencia — a 1,500-acre luxury enclave, 1.5 million gallons of water a day, and the question of who Puerto Rico is being built for.<br>
                             <em>Pay attention to Cabo Rojo. — <a href="ElBoletin_Sept2026.html#anden-7" style="color:#2D6A4F; font-weight:600;">Read what we learned in El Boletín →</a></em>
                         </li>
+                        <li data-category="social">
+                            <strong>Tropicoqueta</strong><br>
+                            <em>October 16, 2026 | with Sabrosura</em><br>
+                            Thank you to Sabrosura for hosting with us.
+                        </li>
+                        <li data-category="activism">
+                            <strong>🗳️ El Voto Es Nuestra Bala</strong><br>
+                            <em>October 30, 2026 | with Yale Democrats &amp; the Yale Progressive Party</em><br>
+                            We organized El Voto Es Nuestra Bala to make civic power practical: help with voter registration, absentee ballots, and state-specific voting questions, alongside a bigger conversation about what political participation can and can't do for our communities. State Representatives Juan Candelaria and Christopher Rosario and Junta for Progressive Action joined us in the room.<br>
+                            <em>Voting isn't the whole of political power, but knowing how to use the system is part of it.</em>
+                        </li>
+                        <li data-category="activism">
+                            <strong>Beyond Borders — MEChA de Yale</strong><br>
+                            <em>November 7, 2026 | MEChA's mini-conference</em><br>
+                            DB collaborated with Diaspora Pa'lante at MEChA de Yale's Beyond Borders mini-conference, where Diaspora Pa'lante led a teaching on the neocolonialism Puerto Rico faces today. Thank you to MEChA for including us.
+                        </li>
+                        <li data-category="activism">
+                            <strong>☕ Cafecito with LakaYale</strong><br>
+                            <em>Fall 2026 | with Yale's Haitian student group</em><br>
+                            Thank you to Victoria Guierrier and Soleil for hosting, and for sharing <i>Haiti in the Age of Revolutions</i>, the Peabody's new exhibition, which opened November 13.
+                        </li>
+                        <li data-category="social">
+                            <strong>Collab Party</strong><br>
+                            <em>November 13, 2026 | with Oasis, Club Columba, and CAUSA</em><br>
+                            Thank you to Oasis, Club Columba, and CAUSA for hosting with us.
+                        </li>
+                        <li data-category="social">
+                            <strong>Grad Student Brunch</strong><br>
+                            <em>November 14, 2026</em><br>
+                            Delicious food all around. Thank you to our graduate community for joining us, and to our Graduate Peer Liaison, Ana Cristina Betancourt.<br>
+                            <em><a href="ElBoletin_Nov2026.html#anden-3" style="color:#2D6A4F; font-weight:600;">Gracias a nuestros aliados — El Boletín →</a></em>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -357,11 +385,11 @@
             <div class="events-category collapsible-section">
                 <h3 class="collapsible-header">
                     <span data-key="spring2026EventsTitle">Spring 2026 Events</span>
-                    <button class="collapse-toggle" aria-expanded="false" aria-controls="spring-2026-events">
+                    <button class="collapse-toggle" type="button" aria-expanded="false" aria-controls="spring-2026-events">
                         <i class="fas fa-chevron-down"></i>
                     </button>
                 </h3>
-                <div id="spring-2026-events" class="collapsible-content" style="display: none;">
+                <div id="spring-2026-events" class="collapsible-content">
                     <ul class="event-list">
                         <!-- February Events -->
                         <li data-category="social">
@@ -407,11 +435,11 @@
             <div class="events-category collapsible-section">
                 <h3 class="collapsible-header">
                     <span>Recent Events 25-26</span>
-                    <button class="collapse-toggle" aria-expanded="true" aria-controls="recent-events-2526">
+                    <button class="collapse-toggle" type="button" aria-expanded="false" aria-controls="recent-events-2526">
                         <i class="fas fa-chevron-down"></i>
                     </button>
                 </h3>
-                <div id="recent-events-2526" class="collapsible-content" style="display: block;">
+                <div id="recent-events-2526" class="collapsible-content">
                     <ul class="event-list">
                         <!-- September Events -->
                         <li data-category="recent">
@@ -423,7 +451,7 @@
                         <li data-category="social">
                             <strong>Bad Bunny LIVE Watch Party</strong><br>
                             <em>Saturday, Sept 20, 8:30pm | Hopper Buttery</em><br>
-                            When Bad Bunny announced he was livestreaming his FINAL <em>Debí Tirar Más Fotos</em> concert from Puerto Rico, we gathered to watch together. Antonio cooked fresh alcapurrias and arroz con gandules in the buttery, plus homemade limber. A night of music, food, and feeling connected to home—even from thousands of miles away.<br>
+                            When Bad Bunny announced he was livestreaming his FINAL <i>Debí Tirar Más Fotos</i> concert from Puerto Rico, we gathered to watch together. Antonio cooked fresh alcapurrias and arroz con gandules in the buttery, plus homemade limber. A night of music, food, and feeling connected to home—even from thousands of miles away.<br>
                             <em>Lesson Learned: Alcapurrias need to be frozen first or they fall apart 😅</em>
                         </li>
                         <li data-category="activism">
@@ -512,7 +540,7 @@
             <div class="events-category collapsible-section">
                 <h3 class="collapsible-header">
                     <span>Events 24-25</span>
-                    <button class="collapse-toggle" aria-expanded="false" aria-controls="past-events">
+                    <button class="collapse-toggle" type="button" aria-expanded="false" aria-controls="past-events">
                         <i class="fas fa-chevron-down"></i>
                     </button>
                 </h3>
@@ -605,23 +633,23 @@
                         <div class="newsletter-preview-card">
                             <div class="preview-header">
                                 <span class="latest-badge" data-key="latestEditionBadge">🎉 LATEST EDITION</span>
-                                <h3 data-key="latestEditionTitle">Volume 7 – Edición de Regreso: Lo Que Construimos Este Verano</h3>
+                                <h3 data-key="latestEditionTitle">Volume 8 – Edición de Acción de Gracias: Gracias, Familia</h3>
                                 <p class="preview-date">
-                                    <i class="far fa-calendar-alt"></i> <span data-key="latestEditionDate">Published September 2026</span>
+                                    <i class="far fa-calendar-alt"></i> <span data-key="latestEditionDate">Published November 2026</span>
                                 </p>
                             </div>
                             <div class="preview-highlights">
                                 <h4 data-key="insideEditionTitle">Inside This Edition:</h4>
                                 <ul>
-                                    <li data-key="editionHighlight1">🏛️ Estamos Aquí — May 2027 at CENTRO</li>
-                                    <li data-key="editionHighlight2">📜 Caribbean Studies Certificate — Sign the Petition</li>
-                                    <li data-key="editionHighlight3">🏺 El Peabody — Taíno Repatriation Path</li>
-                                    <li data-key="editionHighlight4">🏠 La Casa at 50</li>
-                                    <li data-key="editionHighlight5">👀 The Sneak Peek — Fall 2026</li>
-                                    <li data-key="editionHighlight6">🌊 Esencia No Va</li>
+                                    <li data-key="editionHighlight1">🏛️ Futurity Conference — Speakers Needed, April 23–24</li>
+                                    <li data-key="editionHighlight2">🤝 Gracias a Nuestros Aliados</li>
+                                    <li data-key="editionHighlight3">🗳️ El Voto Es Nuestra Bala &amp; Beyond Borders</li>
+                                    <li data-key="editionHighlight4">📜 Caribbean Studies — To the Committee on Majors</li>
+                                    <li data-key="editionHighlight5">🏺 Taíno Repatriation — With the Elders</li>
+                                    <li data-key="editionHighlight6">📅 Save the Dates</li>
                                 </ul>
                             </div>
-                            <a href="ElBoletin_Sept2026.html" class="newsletter-cta-btn">
+                            <a href="ElBoletin_Nov2026.html" class="newsletter-cta-btn">
                                 <span data-key="exploreArchiveBtn">Read Latest Edition</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -629,7 +657,7 @@
                     </div>
 
                     <a href="newsletter.html" class="newsletter-cta-btn">
-                        <span data-key="exploreArchiveBtn">Read Other Editions</span>
+                        <span data-key="otherEditionsBtn">Read Other Editions</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
 
@@ -679,7 +707,7 @@
         background: rgba(255,255,255,0.25);
     }
     .news-subscribe-btn {
-        background: linear-gradient(135deg, #E63946 0%, #C5303E 100%);
+        background: var(--accent-gradient, linear-gradient(135deg, #164D8F 0%, #2672C4 100%));
         color: white;
         border: none;
         padding: 0.55rem 1.4rem;
@@ -689,10 +717,10 @@
         cursor: pointer;
         transition: all 0.3s ease;
         white-space: nowrap;
-        box-shadow: 0 3px 10px rgba(230,57,70,0.3);
+        box-shadow: 0 3px 10px rgba(30,99,181,0.3);
     }
     .news-subscribe-btn:hover {
-        background: linear-gradient(135deg, #C5303E 0%, #A02A2A 100%);
+        background: var(--accent-gradient-hover, linear-gradient(135deg, #123F76 0%, #1E63B5 100%));
         transform: translateY(-2px);
     }
     .news-subscribe-response {
@@ -779,7 +807,7 @@
 <!-- Optional JS -->
 <script src="script.js"></script>
 <script src="lang.js"></script>
-<button id="backToTop" title="Back to top">&#8679;</button>
+<button id="backToTop" type="button" aria-label="Back to top">↑</button>
 
 
 </body>
