@@ -1,49 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Metadata and character encoding -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="More than a club—Despierta Boricua is a movement. We uplift, empower, and celebrate our culture, history, and people.">
     <meta name="keywords" content="despierta boricua, puerto rican yale, boricua student organization, puerto rican culture, yale latino organizations">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://despiertaboricua-yale.org/">
 
-
-    <!-- Open Graph tags (for Facebook, LinkedIn) -->
+    <!-- Open Graph (Facebook, LinkedIn) -->
     <meta property="og:title" content="Despierta Boricua - DB Yale">
     <meta property="og:description" content="Despierta Boricua is a cultural-political movement. We uplift, empower, and celebrate our culture, history, and people.">
-    <meta property="og:image" content="https://despiertaboricua-yale.org/DB Logo Outline.png">
+    <meta property="og:image" content="https://despiertaboricua-yale.org/DB%20Logo%20Outline.png">
     <meta property="og:url" content="https://despiertaboricua-yale.org">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card tags -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Despierta Boricua - DB Yale">
     <meta name="twitter:description" content="More than a club—Despierta Boricua is a movement.">
-    <meta name="twitter:image" content="https://despiertaboricua-yale.org/DB Logo Outline.png">
+    <meta name="twitter:image" content="https://despiertaboricua-yale.org/DB%20Logo%20Outline.png">
 
-    <!-- Page Title -->
     <title>Despierta Boricua - DB Yale</title>
 
-    <!-- Font Awesome Kit for icons -->
-    <script src="https://kit.fontawesome.com/d7310f2557.js"
-            crossorigin="anonymous"></script>
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/d7310f2557.js" crossorigin="anonymous"></script>
 
-    <!-- Link to external CSS file for styling -->
-    <link rel="stylesheet" href="style.css" />
+    <!-- Fonts (Newsreader + Schibsted Grotesk) load from style.css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Google Fonts: Preconnect for performance, then load the Roboto font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-            rel="stylesheet"
-    />
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Favicon links for browser tab icons -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="./DB Logo Outline.png">
-    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBLXR36GVL"></script>
@@ -51,164 +42,141 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-NBLXR36GVL');
     </script>
-
 </head>
 <body>
 
 <div class="page-wrapper">
-    <!-- Fixed SIDEBAR -->
+
+    <!-- ===== SIDEBAR ===== -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <!-- Give the link an ID so we can target it in JS -->
-            <a href="index.html" id="homepageLogoLink">
-                <img
-                        src="./DB Logo Outline.png"
-                        alt="DB Yale Logo"
-                        class="logo-img"
-                />
+            <a href="index.html" id="homepageLogoLink" aria-label="DB Yale home">
+                <img src="./DB Logo Outline.png" alt="DB Yale logo" class="logo-img">
             </a>
         </div>
 
-        <!-- Navigation Links within the sidebar -->
-        <nav class="sidebar-nav">
+        <nav class="sidebar-nav" aria-label="Main">
             <a href="index.html" data-key="navHome">Home</a>
             <a href="about.html" data-key="navAbout">About</a>
             <a href="syllabus.html" data-key="navSyllabus">Syllabus</a>
             <a href="collaborate.html" data-key="navCollaborate">Collaborate</a>
-            <a href="news.html" data-key="navNews">Events & News</a>
+            <a href="news.html" data-key="navNews">Events &amp; News</a>
             <a href="meettheboard.html" data-key="navBoard">Meet the Board</a>
             <a href="alumni.html" data-key="navAlumni">Alumni</a>
-            <a href="prospective.html" data-key="navProspective">Prospective Students</a>            <a href="merch.html" data-key="navMerch">Merch</a>
+            <a href="prospective.html" data-key="navProspective">Prospective Students</a>
+            <a href="merch.html" data-key="navMerch">Merch</a>
             <a href="gallery.html" data-key="navGallery">Gallery</a>
-            <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
-            </a> -->
-            <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
+            <!-- Seasonal link — uncomment for Women's History Month:
+            <a href="womens-history-month.html" data-key="navWomensHistory"><i class="fas fa-venus"></i> Women's History</a>
+            -->
+            <a href="donate.html" data-key="navDonate" class="donate-nav-link">
+                <i class="fas fa-heart" aria-hidden="true"></i> Donate
             </a>
         </nav>
 
-        <button id="lang-toggle">Español</button>
-        <button id="dark-mode-toggle" class="dark-mode-toggle">
-            <span class="icon">🌙</span>
-            <span class="label">Dark Mode</span>
+        <button id="lang-toggle" type="button">Español</button>
+        <button id="dark-mode-toggle" class="dark-mode-toggle" type="button">
+            <span class="icon" aria-hidden="true">🌙</span>
+            <span class="label">Dark mode</span>
         </button>
 
-        <!-- Sidebar Footer: Includes search, social icons, and license info -->
         <div class="sidebar-footer">
-            <!-- Search Bar inside the sidebar -->
             <div class="sidebar-search">
-                <input type="text" id="sidebarSearch" placeholder="Search news/events...">
-                <button id="searchButton"><i class="fas fa-search"></i></button>
-                <!-- Font Awesome search icon -->
+                <input type="text" id="sidebarSearch" placeholder="Search news/events..." aria-label="Search the site">
+                <button id="searchButton" type="button" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
             </div>
 
-            <!-- Social Media Links -->
             <div class="social-icons">
-                <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
-                    <i class="fab fa-facebook-f"></i>
+                <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
                 </a>
-                <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
-                    <i class="fab fa-instagram"></i>
+                <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
                 </a>
-                <a href="mailto:despiertaboricua@yale.edu" class="social-link">
-                    <i class="fas fa-envelope"></i>
+                <a href="mailto:despiertaboricua@yale.edu" class="social-link" aria-label="Email">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                 </a>
             </div>
 
-            <!-- Copyright / License Information -->
-            <div class="license">© 2026 DB Yale <span id="pirate-trigger" style="font-size: 13px; cursor: pointer; margin-left: 5px; vertical-align: middle;">🏴‍☠️</span></div>
-            <span id="abuela-trigger" style="font-size: 14px; cursor: pointer; margin-left: 10px; opacity: 0.7;" title="¿Qué diría mi abuela?">👡</span>
+            <div class="license">
+                © 2026 DB Yale
+                <!-- Easter-egg triggers: hidden unless DB_EASTER_EGGS = true in script.js -->
+                <span id="pirate-trigger">🏴‍☠️</span>
+                <span id="abuela-trigger" title="¿Qué diría mi abuela?">👡</span>
+            </div>
         </div>
-
     </aside>
 
-    <!-- Hamburger button for mobile -->
-    <button class="hamburger-btn">
+    <!-- Hamburger (mobile) — must stay directly after .sidebar -->
+    <button class="hamburger-btn" type="button" aria-label="Open menu">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <!-- Main Container: Contains the primary content (to the right of the fixed sidebar) -->
+    <!-- ===== MAIN ===== -->
     <div class="main-container">
 
-        <!-- HERO SECTION: Large background image as a visual header -->
+        <!-- Hero photo -->
         <section class="hero-image">
-            <!-- The .hero-overlay will hold your main hero text -->
             <div class="hero-overlay">
-                <img
-                        src="./DbImages/Screenshot 2025-02-06 204053.png"
-                        alt="Despierta Boricua Yale student organization gathering - Puerto Rican cultural celebration at Yale University"
-                        class="full-hero-img"
-                >
+                <img src="./DbImages/Screenshot 2025-02-06 204053.png"
+                     alt="Despierta Boricua members gathered at a Puerto Rican cultural celebration at Yale"
+                     class="full-hero-img">
             </div>
         </section>
 
-        <!-- Secondary Hero Section with the main title -->
+        <!-- Masthead -->
         <section class="hero">
             <div class="hero-overlay">
                 <h1 id="fancy-title">Despierta Boricua</h1>
             </div>
         </section>
 
-        <!-- Black Hero Section: Emphasizes club's mission with a call-to-action button -->
+        <!-- Mission panel -->
         <section class="black-hero">
             <div class="hero-content">
-                <h1 data-key="blackHeroHeading"> Empowering Puerto Rican Identity & Resistance</h1>
+                <h1 data-key="blackHeroHeading">Empowering Puerto Rican Identity &amp; Resistance</h1>
                 <p data-key="blackHeroParagraph">
                     We connect Puerto Rican students, New Haven community,
                     and the broader Boricua diaspora through culture, political education,
                     and collective care.
                 </p>
-                <!-- Button to navigate to the About page -->
-                <button class="hero-btn" onclick="window.location.href='about.html'">
-                    Learn More
-                </button>
-
+                <button class="hero-btn" type="button" onclick="window.location.href='about.html'">Learn More</button>
             </div>
         </section>
 
-
-        <!-- MAIN CONTENT -->
         <main class="main-content">
 
-            <!-- A sample "intro" section -->
+            <!-- Intro -->
             <section class="content-section">
-                <h3 data-key="introTitle"> Welcome to DB Yale | Yale's Puerto Rican Student Organization</h3>
+                <h3 data-key="introTitle">Welcome to DB Yale | Yale's Puerto Rican Student Organization</h3>
                 <p data-key="introSubtitle">
                     Explore our initiatives, engage with our community, and celebrate culture and activism.
                 </p>
             </section>
 
-            <!-- ROWS: "WHAT DB STANDS FOR" content sections -->
-            <!-- Section 1: Education & Community Empowerment -->
+            <!-- ===== WHAT DB STANDS FOR ===== -->
+
+            <!-- 1. Education & Community Empowerment -->
             <section class="content-row alt fade-in-section">
                 <div class="img-col split-images">
-                    <!-- Split image container -->
                     <div class="split-image-container">
-                        <div class="split-image-half">
-                            <img
-                                    src="./PedroAlbPhoto.jpg"
-                                    alt="Pedro Albizu Campos - influential Puerto Rican independence leader and political activist"
-                            />
-                            <div class="image-caption">Pedro Albizu Campos</div>
-                        </div>
-                        <div class="split-image-half">
-                            <img
-                                    src="./EugenioMariaDeHostos.jpeg"
-                                    alt="Eugenio María de Hostos - Puerto Rican educator and independence advocate"
-                            />
-                            <div class="image-caption">Eugenio María de Hostos</div>
-                        </div>
+                        <figure class="split-image-half">
+                            <img src="./PedroAlbPhoto.jpg" alt="Pedro Albizu Campos, Puerto Rican independence leader" loading="lazy">
+                            <figcaption class="image-caption">Pedro Albizu Campos</figcaption>
+                        </figure>
+                        <figure class="split-image-half">
+                            <img src="./EugenioMariaDeHostos.jpeg" alt="Eugenio María de Hostos, Puerto Rican educator and independence advocate" loading="lazy">
+                            <figcaption class="image-caption">Eugenio María de Hostos</figcaption>
+                        </figure>
                     </div>
                 </div>
                 <div class="text-col">
-                    <h3 class="section-tag" data-key="section1Tag">SECTION 1</h3>
-                    <h2 data-key="section1Title">Education & Community Empowerment</h2>
+                    <h3 class="section-tag" data-key="section1Tag">Section 1</h3>
+                    <h2 data-key="section1Title">Education &amp; Community Empowerment</h2>
                     <p data-key="section1Paragraph">
                         DB prioritizes knowledge-sharing at the
                         local level. By partnering with community
@@ -218,20 +186,17 @@
                 </div>
             </section>
 
-            <!-- Section 2: Cultural Preservation & Representation -->
+            <!-- 2. Cultural Preservation & Representation -->
             <section class="content-row alt fade-in-section">
                 <div class="img-col">
-                    <div class="single-image-container">
-                        <img
-                                src="./Puerto-Sugar.webp"
-                                alt="Puerto Rican sugar plantation history - representing cultural heritage and economic history of Puerto Rico"
-                        />
-                        <div class="image-caption">Sugar Plantation History</div>
-                    </div>
+                    <figure class="single-image-container">
+                        <img src="./Puerto-Sugar.webp" alt="Workers on a Puerto Rican sugar plantation" loading="lazy">
+                        <figcaption class="image-caption">Sugar Plantation History</figcaption>
+                    </figure>
                 </div>
                 <div class="text-col">
-                    <h3 class="section-tag" data-key="section2Tag">SECTION 2</h3>
-                    <h2 data-key="section2Title">Cultural Preservation & Representation</h2>
+                    <h3 class="section-tag" data-key="section2Tag">Section 2</h3>
+                    <h2 data-key="section2Title">Cultural Preservation &amp; Representation</h2>
                     <p data-key="section2Paragraph">
                         Celebrating the rich histories and traditions that
                         shape our identities. DB highlights underrepresented voices,
@@ -241,19 +206,16 @@
                 </div>
             </section>
 
-            <!-- Section 3: Critical Analysis of Sociopolitical Issues -->
-            <section  class="content-row alt fade-in-section">
+            <!-- 3. Critical Analysis of Sociopolitical Issues -->
+            <section class="content-row alt fade-in-section">
                 <div class="img-col">
-                    <div class="single-image-container">
-                        <img
-                                src="./Ponce_Massacre.jpg"
-                                alt="Ponce Massacre of 1937 - historical Puerto Rican resistance against colonial oppression studied at Yale"
-                        />
-                        <div class="image-caption">Ponce Massacre (1937)</div>
-                    </div>
+                    <figure class="single-image-container">
+                        <img src="./Ponce_Massacre.jpg" alt="The Ponce Massacre of 1937" loading="lazy">
+                        <figcaption class="image-caption">Ponce Massacre (1937)</figcaption>
+                    </figure>
                 </div>
                 <div class="text-col">
-                    <h3 class="section-tag" data-key="section3Tag">SECTION 3</h3>
+                    <h3 class="section-tag" data-key="section3Tag">Section 3</h3>
                     <h2 data-key="section3Title">Critical Analysis of Sociopolitical Issues</h2>
                     <p data-key="section3Paragraph">
                         DB pushes for discussions about pressing
@@ -264,18 +226,16 @@
                 </div>
             </section>
 
-            <!-- Section 4: Collaborative Action -->
-            <section  class="content-row alt fade-in-section">
+            <!-- 4. Collaborative Action -->
+            <section class="content-row alt fade-in-section">
                 <div class="img-col">
-                    <div class="single-image-container">
-                        <img
-                                src="./PR_1963_NPS.jpeg"
-                                alt="Historic Puerto Rican civil rights demonstration" />
-                        <div class="image-caption">Puerto Rican Activism (1963)</div>
-                    </div>
+                    <figure class="single-image-container">
+                        <img src="./PR_1963_NPS.jpeg" alt="Historic Puerto Rican civil rights demonstration, 1963" loading="lazy">
+                        <figcaption class="image-caption">Puerto Rican Activism (1963)</figcaption>
+                    </figure>
                 </div>
                 <div class="text-col">
-                    <h3 class="section-tag" data-key="section4Tag">SECTION 4</h3>
+                    <h3 class="section-tag" data-key="section4Tag">Section 4</h3>
                     <h2 data-key="section4Title">Collaborative Action</h2>
                     <p data-key="section4Paragraph">
                         DB unites activists, educators, students,
@@ -287,19 +247,16 @@
                 </div>
             </section>
 
-            <!-- Section 5: Inclusivity -->
+            <!-- 5. Inclusivity -->
             <section class="content-row alt fade-in-section">
                 <div class="img-col">
-                    <div class="single-image-container">
-                        <img
-                                src="./SylviaRivera-Activ.jpg"
-                                alt="Sylvia Rivera - Puerto Rican LGBTQ+ activist and civil rights pioneer"
-                        />
-                        <div class="image-caption">Sylvia Rivera</div>
-                    </div>
+                    <figure class="single-image-container">
+                        <img src="./SylviaRivera-Activ.jpg" alt="Sylvia Rivera, Puerto Rican LGBTQ+ activist and civil rights pioneer" loading="lazy">
+                        <figcaption class="image-caption">Sylvia Rivera</figcaption>
+                    </figure>
                 </div>
                 <div class="text-col">
-                    <h3 class="section-tag" data-key="section5Tag">SECTION 5</h3>
+                    <h3 class="section-tag" data-key="section5Tag">Section 5</h3>
                     <h2 data-key="section5Title">Inclusivity</h2>
                     <p data-key="section5Paragraph">
                         Progress demands that we consider overlapping
@@ -310,204 +267,138 @@
                 </div>
             </section>
 
-            <!-- Section 6: Activism & Resistance -->
-            <section  class="content-row alt fade-in-section">
+            <!-- 6. Activism & Resistance -->
+            <section class="content-row alt fade-in-section">
                 <div class="img-col">
-                    <div class="single-image-container">
-                        <img
-                                src="./The First Rainbow Coalition-1024-512.jpg"
-                                alt="The First Rainbow Coalition - multicultural activism alliance representing Puerto Rican solidarity movements"
-                        />
-                        <div class="image-caption">The First Rainbow Coalition</div>
-                    </div>
+                    <figure class="single-image-container">
+                        <img src="./The First Rainbow Coalition-1024-512.jpg" alt="The original Rainbow Coalition, a multiracial alliance that included the Young Lords" loading="lazy">
+                        <figcaption class="image-caption">The First Rainbow Coalition</figcaption>
+                    </figure>
                 </div>
                 <div class="text-col">
-                    <h3 class="section-tag" data-key="section6Tag">SECTION 6</h3>
-                    <h2 data-key="section6Title">Activism & Resistance</h2>
+                    <h3 class="section-tag" data-key="section6Tag">Section 6</h3>
+                    <h2 data-key="section6Title">Activism &amp; Resistance</h2>
                     <p data-key="section6Paragraph">
                         Activism and resistance have been central to
                         Puerto Rican identity and struggle, both on the
                         island and diaspora: environmental
                         justice, education reform, and decolonization. Puerto Ricans
                         have continually resisted oppression and fought for sovereignty,
-                        dignity, and self-determination. </p>
-
+                        dignity, and self-determination.
+                    </p>
                     <p data-key="section6ParagraphB">
                         Movements such as the Grito de Lares (1868),
                         student protests at the University of
                         Puerto Rico, and decades of struggle against the Navy's
-                        occupation of Vieques exemplify the resilience Puerto Rican people.
+                        occupation of Vieques exemplify the resilience of the Puerto Rican people.
                         Grassroots organizations, artists,
-                        and activists continues to challenge injustices.
+                        and activists continue to challenge injustices.
                     </p>
                 </div>
             </section>
 
+            <!-- ===== PRESS ===== -->
             <section class="news-events">
-                <h2 data-key="newsEventsHeading">📰 DB in the Press</h2>
-                <!-- HOME carousel container with unique class -->
+                <h2 data-key="newsEventsHeading">DB in the Press</h2>
                 <div class="homepage-carousel">
-                    <!-- The "track" for homepage slides -->
                     <div class="homepage-carousel-track">
 
-                        <!-- Slide 1 -->
                         <div class="news-item">
-                            <img src="./MediaCover/DB_Hist_AmandaR.png" alt="Co-chair on Bad Bunny Class">
+                            <img src="./MediaCover/DB_Hist_AmandaR.png" alt="Article: historian and archivist Amanda Rivera on DB's history" loading="lazy">
                             <p>Historian/Archivist Amanda Rivera on DB's origins and history</p>
                         </div>
 
-                        <!-- Slide 2 -->
                         <div class="news-item">
-                            <img src="./MediaCover/BadBunnyNews.png" alt="Co-chair on Bad Bunny Class">
+                            <img src="./MediaCover/BadBunnyNews.png" alt="Article: DB co-chair on the Bad Bunny class at Yale" loading="lazy">
                             <p data-key="newsItem2Text">Co-Chair on the importance of Puerto Rican Music history at Yale</p>
                         </div>
 
-                        <!-- Slide 3 -->
                         <div class="news-item">
-                            <h3><b>Bad Bunny, music history, and P Fkn R</b></h3>
-                            <img src="./MediaCover/BBClass_Laguna_Ritm.png" alt="Co-chair on Bad Bunny Class">
+                            <h3>Bad Bunny, music history, and P FKN R</h3>
+                            <img src="./MediaCover/BBClass_Laguna_Ritm.png" alt="Vanessa Díaz and Petra Rivera-Rideau's book P FKN R" loading="lazy">
                             <p>With an ecstatic semester-duration of 2025 cultural history, Vanessa Diaz and Petra Rivera-Rideau go from Yale speaker note to a Superbowl audience with their published book P FKN R</p>
                         </div>
 
-                        <!-- Slide 4: Calle Corona -->
                         <div class="news-item">
-                            <h3><b>Festival de Calle Corona — April 2026</b></h3>
+                            <h3>Festival de Calle Corona — April 2026</h3>
                             <p>New Haven's first Puerto Rican street festival on Crown Street — modeled after San Sebastián in San Juan. Music, vendors, community, and culture, right in our backyard.</p>
-                            <a href="gallery.html" style="display:inline-block; margin-top:0.5rem; font-weight:600; color: var(--accent-color, #E63946);">See the Gallery →</a>
+                            <a href="gallery.html" class="news-link">See the gallery</a>
                         </div>
 
                     </div>
-
-                    <!-- Carousel Navigation Buttons for homepage -->
-                    <button class="home-prev" onclick="moveSlide(-1)">&#10094;</button>
-                    <button class="home-next" onclick="moveSlide(1)">&#10095;</button>
+                    <button class="home-prev" type="button" onclick="moveSlide(-1)" aria-label="Previous story">&#10094;</button>
+                    <button class="home-next" type="button" onclick="moveSlide(1)" aria-label="Next story">&#10095;</button>
                 </div>
             </section>
 
-            <!-- CTA Box / Footer Section -->
-            <section class="cta-box">
-                <div class="cta-content">
-                    <!-- Newsletter Section -->
-                    <div class="cta-newsletter">
-                        <h3 data-key="ctaNewsletterHeading">Sign Up to Our Newsletter</h3>
-                        <p data-key="ctaNewsletterText">Stay updated on DB Yale happenings, events, and more!</p>
-                        <form id="hp-mc-signup-form" class="hp-subscribe-form">
-                            <input
-                                    type="text"
-                                    id="hp-mce-FNAME"
-                                    name="FNAME"
-                                    placeholder="First name"
-                                    aria-label="First name"
-                            />
-                            <input
-                                    type="email"
-                                    id="hp-mce-EMAIL"
-                                    name="EMAIL"
-                                    placeholder="Your email"
-                                    required
-                                    aria-label="Email address"
-                            />
-                            <button type="submit" class="cta-btn" id="hp-mc-submit-btn">Subscribe</button>
-                        </form>
-                        <p id="hp-mc-response-message" style="font-size:0.85rem; margin-top:0.75rem; min-height:1.2em;"></p>
-                        <a href="newsletter.html" style="font-size:0.85rem; opacity:0.8; color:inherit; display:block; margin-top:0.5rem;" data-key="ctaNewsletterBtn">Read past editions →</a>
-                    </div>
+        </main>
 
-                    <!-- Vertical Divider -->
-                    <div class="cta-divider"></div>
+        <!-- ===== FOOTER CTA ===== -->
+        <section class="cta-box">
+            <div class="cta-content">
 
-                    <!-- La Casa Link Section -->
-                    <div class="la-casa-link">
-                        <h3 data-key="laCasaHeading">La Casa Cultural</h3>
-                        <p data-key="laCasaText">Learn more about events and resources at Yale's La Casa Cultural.</p>
-                        <a href="https://lacasa.yalecollege.yale.edu/" class="la-casa-btn" target="_blank" rel="noopener noreferrer" data-key="laCasaBtn">
-                            Visit La Casa
+                <div class="cta-newsletter">
+                    <h3 data-key="ctaNewsletterHeading">Sign Up to Our Newsletter</h3>
+                    <p data-key="ctaNewsletterText">Stay updated on DB Yale happenings, events, and more!</p>
+                    <form id="hp-mc-signup-form" class="hp-subscribe-form" novalidate>
+                        <input type="text" id="hp-mce-FNAME" name="FNAME" placeholder="First name" aria-label="First name" autocomplete="given-name">
+                        <input type="email" id="hp-mce-EMAIL" name="EMAIL" placeholder="Your email" required aria-label="Email address" autocomplete="email">
+                        <button type="submit" class="cta-btn" id="hp-mc-submit-btn">Subscribe</button>
+                    </form>
+                    <p id="hp-mc-response-message" role="status" aria-live="polite"></p>
+                    <a href="newsletter.html" class="past-editions" data-key="ctaNewsletterBtn">Read past editions →</a>
+                </div>
+
+                <div class="cta-divider" aria-hidden="true"></div>
+
+                <div class="la-casa-link">
+                    <h3 data-key="laCasaHeading">La Casa Cultural</h3>
+                    <p data-key="laCasaText">Learn more about events and resources at Yale's La Casa Cultural.</p>
+                    <a href="https://lacasa.yalecollege.yale.edu/" class="la-casa-btn" target="_blank" rel="noopener noreferrer" data-key="laCasaBtn">Visit La Casa</a>
+                </div>
+
+                <div class="cta-divider" aria-hidden="true"></div>
+
+                <div class="cta-socials">
+                    <h3 data-key="ctaFollowHeading">Follow Us</h3>
+                    <div class="cta-social-icons">
+                        <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" rel="noopener" aria-label="Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <!-- TODO: replace with DB's real Twitter/X (or other) link -->
+                        <a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="mailto:despiertaboricua@yale.edu" aria-label="Email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
                         </a>
                     </div>
-
-                    <!-- Vertical Divider -->
-                    <div class="cta-divider"></div>
-
-                    <!-- Follow Us Section -->
-                    <div class="cta-socials">
-                        <h3 data-key="ctaFollowHeading">Follow Us</h3>
-                        <div class="cta-social-icons">
-                            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" aria-label="Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="mailto:despiertaboricua@yale.edu" aria-label="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </div>
-                        <a href="donate.html" class="cta-btn" data-key="ctaDonateBtn">Donate</a>
-                    </div>
-
+                    <a href="donate.html" class="cta-btn" data-key="ctaDonateBtn">Donate</a>
                 </div>
 
-                <!-- Piragüero Cart (Bottom Right Corner) -->
-                <div id="piraguero-cart" class="hidden-piraguero" title="¿Tienes sed?">
-                    <img src="piraguero-cart.png" alt="Piragüero Cart" width="60" height="60">
-                    <p style="font-size: 0.7rem; margin-top: 5px; opacity: 0.8;">🧊 Tap me!</p>
-                </div>
+            </div>
 
-    </div>
-</div>
-</section>
+            <!-- Easter egg: hidden unless DB_EASTER_EGGS = true in script.js -->
+            <div id="piraguero-cart" class="hidden-piraguero" title="¿Tienes sed?">
+                <img src="piraguero-cart.png" alt="Piragüero cart" width="60" height="60">
+                <p>🧊 Tap me!</p>
+            </div>
+        </section>
 
-</main>
+    </div><!-- /.main-container -->
+</div><!-- /.page-wrapper -->
 
+<button id="backToTop" type="button" aria-label="Back to top">↑</button>
 
-</div>
-<!-- External JavaScript file for functionality -->
 <script src="script.js"></script>
 <script src="lang.js"></script>
-<button id="backToTop" title="Back to top">&#8675;</button>
 
-<style>
-    .hp-subscribe-form {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch;
-        gap: 0.5rem;
-        margin: 1rem auto 0;
-        max-width: 220px;
-        width: 100%;
-    }
-    .hp-subscribe-form input {
-        padding: 0.65rem 1.1rem;
-        border: none;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        width: 100%;
-        box-sizing: border-box;
-        background: rgba(255,255,255,0.15);
-        color: inherit;
-        text-align: center;
-    }
-    .hp-subscribe-form input::placeholder {
-        opacity: 0.7;
-    }
-    .hp-subscribe-form input:focus {
-        outline: 2px solid rgba(255,255,255,0.5);
-        background: rgba(255,255,255,0.22);
-    }
-    .hp-subscribe-form button {
-        width: 100%;
-    }
-    #hp-mc-response-message {
-        text-align: center;
-    }
-</style>
-
-<!-- Mailchimp signup script for homepage form -->
+<!-- Mailchimp signup (homepage form) -->
 <script>
-    (function() {
+    (function () {
         var form = document.getElementById('hp-mc-signup-form');
         if (!form) return;
 
@@ -518,15 +409,15 @@
 
         var mailchimpURL = 'https://despiertaboricua-yale.us21.list-manage.com/subscribe/post-json?u=18431a7bdf01a4c5676b5397f&id=5675c3c23b&f_id=00e6f6e9f0';
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
 
             var email = emailInput.value.trim();
-            if (!email) { showMessage('Please enter your email.', 'error'); return; }
+            if (!email) { showMessage('Enter your email to subscribe.', 'error'); return; }
 
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Subscribing...';
-            messageEl.textContent = '';
+            submitBtn.textContent = 'Subscribing…';
+            showMessage('', '');
 
             var callbackName = 'hp_mc_cb_' + Date.now();
             var fname = fnameInput ? fnameInput.value.trim() : '';
@@ -535,22 +426,24 @@
                 + (fname ? '&FNAME=' + encodeURIComponent(fname) : '')
                 + '&c=' + callbackName;
 
-            window[callbackName] = function(response) {
+            function reset() {
                 delete window[callbackName];
                 var s = document.getElementById('hp-mc-script');
                 if (s) s.remove();
-
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Subscribe';
+            }
 
+            window[callbackName] = function (response) {
+                reset();
                 if (response.result === 'success') {
-                    showMessage('🎉 ¡Gracias! You\'re on the list.', 'success');
+                    showMessage('¡Gracias! You’re on the list.', 'success');
                     emailInput.value = '';
                     if (fnameInput) fnameInput.value = '';
                 } else {
-                    var msg = response.msg || 'Something went wrong. Please try again.';
-                    if (msg.includes('already subscribed')) msg = "You're already subscribed!";
-                    else if (msg.includes('invalid'))       msg = 'Please enter a valid email.';
+                    var msg = response.msg || 'Couldn’t subscribe. Try again in a moment.';
+                    if (msg.indexOf('already subscribed') !== -1) msg = 'You’re already subscribed.';
+                    else if (msg.indexOf('invalid') !== -1) msg = 'That email doesn’t look right. Check it and try again.';
                     showMessage(msg, 'error');
                 }
             };
@@ -558,27 +451,22 @@
             var script = document.createElement('script');
             script.id  = 'hp-mc-script';
             script.src = url;
-            script.onerror = function() {
-                delete window[callbackName];
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Subscribe';
-                showMessage('Network error. Please try again.', 'error');
+            script.onerror = function () {
+                reset();
+                showMessage('Couldn’t reach the newsletter service. Check your connection and try again.', 'error');
             };
             document.body.appendChild(script);
         });
 
         function showMessage(text, type) {
             messageEl.textContent = text;
-            messageEl.style.color = type === 'success' ? '#90EE90' : '#FFB6C1';
+            messageEl.className = type ? 'is-' + type : '';
+            messageEl.style.opacity = '1';
             if (type === 'success') {
-                setTimeout(function() { messageEl.style.opacity = '0'; }, 7000);
+                setTimeout(function () { messageEl.style.opacity = '0'; }, 7000);
             }
         }
     })();
 </script>
-
-
-</div>
-<!-- Note: The mobile toggle script is also included in script.js -->
 </body>
 </html>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Meet the Board – DB Yale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Main site CSS -->
     <link rel="stylesheet" href="style.css" />
@@ -40,36 +42,36 @@
         <!--  <a href="womens-history-month.html" data-key="navWomensHistory" class="special-nav-link" style="background: linear-gradient(to right, #8e44ad, #9b59b6); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(142, 68, 173, 0.3); display: flex; align-items: center; justify-content: center;">
             <i class="fas fa-venus" style="margin-right: 8px;"></i> Women's History
         </a> -->
-        <a href="donate.html" data-key="navDonate" class="donate-nav-link" style="background: linear-gradient(to right, #dc2626, #ef4444); color: white !important; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-weight: 500; box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-heart" style="margin-right: 8px;"></i> Donate
+        <a href="donate.html" data-key="navDonate" class="donate-nav-link">
+            <i class="fas fa-heart" aria-hidden="true"></i> Donate
         </a>
     </nav>
-    <button id="lang-toggle">Español</button>
-    <button id="dark-mode-toggle" class="dark-mode-toggle">
+    <button id="lang-toggle" type="button">Español</button>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" type="button">
         <span class="icon">🌙</span>
-        <span class="label">Dark Mode</span>
+        <span class="label">Dark mode</span>
     </button>
 
     <div class="sidebar-footer">
         <!-- Social Media Links -->
         <div class="social-icons">
-            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" class="social-link">
+            <a href="https://www.facebook.com/despiertaboricuayale/" target="_blank" rel="noopener" class="social-link">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" class="social-link">
+            <a href="https://www.instagram.com/despiertaboricuayale/" target="_blank" rel="noopener" class="social-link">
                 <i class="fab fa-instagram"></i>
             </a>
             <a href="mailto:despiertaboricua@yale.edu" class="social-link">
                 <i class="fas fa-envelope"></i>
             </a>
-        </div> <!-- Correctly closing social-icons div -->
+        </div>
 
         <div class="license">© 2026 DB Yale</div>
     </div>
 </aside>
 
 <!-- Hamburger button for mobile -->
-<button class="hamburger-btn">
+<button class="hamburger-btn" type="button" aria-label="Open menu">
     <span></span>
     <span></span>
     <span></span>
@@ -131,7 +133,7 @@
                 -->
 
                 <!-- 1) Nina Feliciano-Bautista — Co-President (prev. Cafecito Coordinator) -->
-                <div class="board-member polaroid" onclick="location.href='board-members/CoChair1.html';" style="cursor: pointer;">
+                <div class="board-member polaroid" onclick="location.href='board-members/CoChair1.html';">
                     <img src="./NinaPhoto2Bio.jpeg" alt="Nina Feliciano-Bautista" />
                     <h3 class="person-name">Nina Feliciano-Bautista</h3>
                     <span data-key="ninaRole" class="member-role">Co-President</span>
@@ -146,7 +148,7 @@
                 </div>
 
                 <!-- 2) Sonia Rosa — Co-President (prev. Local Network Chair) -->
-                <div class="board-member polaroid" onclick="location.href='board-members/CoChair2.html';" style="cursor: pointer;">
+                <div class="board-member polaroid" onclick="location.href='board-members/CoChair2.html';">
                     <img src="./IMG_3287 - Sonia Rosa.jpeg" alt="Sonia Rosa" />
                     <h3 class="person-name">Sonia Rosa</h3>
                     <span data-key="soniaRole" class="member-role">Co-President</span>
@@ -161,7 +163,7 @@
                 </div>
 
                 <!-- 3) Antonio Padilla — Coalition Chair (prev. Co-President) -->
-                <div class="board-member polaroid" onclick="location.href='board-members/CoalitionChair.html';" style="cursor: pointer;">
+                <div class="board-member polaroid" onclick="location.href='board-members/CoalitionChair.html';">
                     <img src="./IMG_20250601_074620 - Antonio Padilla.jpg" alt="Antonio Padilla" />
                     <h3 class="person-name">Antonio Padilla</h3>
                     <span data-key="antonioRole" class="member-role">Coalition Chair</span>
@@ -174,7 +176,7 @@
                 </div>
 
                 <!-- 4) Daniel Torres — Co-Treasurer (prev. Treasurer) -->
-                <div class="board-member polaroid" onclick="location.href='board-members/Treasurer.html';" style="cursor: pointer;">
+                <div class="board-member polaroid" onclick="location.href='board-members/Treasurer.html';">
                     <img src="./IMG_8804 - Daniel Torres.jpeg" alt="Daniel Torres" />
                     <h3 class="person-name">Daniel Torres</h3>
                     <span data-key="danielRole" class="member-role">Co-Treasurer</span>
@@ -187,7 +189,7 @@
 
                 <!-- 5) Natalia Andreu-Bird — Co-Treasurer (new position holder) -->
                 <!-- TODO: add photo file and create board-members/Treasurer2.html -->
-                <div class="board-member polaroid" onclick="location.href='board-members/Treasurer2.html';" style="cursor: pointer;">
+                <div class="board-member polaroid" onclick="location.href='board-members/Treasurer2.html';">
                     <img src="./NataliaBird.jpeg" alt="Natalia Andreu-Bird" />
                     <h3 class="person-name">Natalia Andreu-Bird</h3>
                     <span data-key="nataliaRole" class="member-role">Co-Treasurer</span>
@@ -200,7 +202,7 @@
 
                 <!-- 6) Patricia Huerta de Mend — Social Chair -->
                 <!-- TODO: confirm full last name; add photo; create board-members/SocialChair.html content -->
-                <div class="board-member polaroid" onclick="location.href='board-members/SocialChair.html';" style="cursor: pointer;">
+                <div class="board-member polaroid" onclick="location.href='board-members/SocialChair.html';">
                     <img src="./PatriciaMend.jpeg" alt="Patricia Huertado de Mendoza Peña" />
                     <h3 class="person-name">Patricia Huerta de Mend</h3>
                     <span data-key="patriciaRole" class="member-role">Social Chair</span>
@@ -213,7 +215,7 @@
 
                 <!-- 7) Kelly — Marketing & Communications Chair -->
                 <!-- TODO: add last name, email, photo; create board-members/MarketingComms.html
-                <div class="board-member polaroid" onclick="location.href='board-members/MarketingComms.html';" style="cursor: pointer;">
+                <div class="board-member polaroid" onclick="location.href='board-members/MarketingComms.html';">
                     <img src="./DB Logo Outline.png" alt="Kelly" />
                     <h3 class="person-name">Kelly Chamber</h3>
                     <span data-key="kellyRole" class="member-role">Marketing &amp; Communications Chair</span>
@@ -226,7 +228,7 @@
 -->
                 <!-- 8) Jay Hatch — First Year Peer Liaison -->
                 <!-- TODO: add photo; create board-members/FirstYearLiaison.html -->
-                <div class="board-member polaroid" onclick="location.href='board-members/FirstYearLiaison.html';" style="cursor: pointer;">
+                <div class="board-member polaroid" onclick="location.href='board-members/FirstYearLiaison.html';">
                     <img src="./JayHatch.jpeg" alt="Jay Hatch" />
                     <h3 class="person-name">Jay Hatch</h3>
                     <span data-key="jayRole" class="member-role">First Year Peer Liaison</span>
@@ -238,7 +240,7 @@
                 </div>
 
                 <!-- 9) Ana Cristina Betancourt — Graduate Peer Liaison -->
-                <div class="board-member polaroid" onclick="location.href='board-members/GradLiaison.html';" style="cursor: pointer;">
+                <div class="board-member polaroid" onclick="location.href='board-members/GradLiaison.html';">
                     <img src="./AnaCristinaBetancourt.jpeg" alt="Ana Cristina Betancourt" />
                     <h3 class="person-name">Ana Cristina Betancourt</h3>
                     <span data-key="anaRole" class="member-role">Graduate Peer Liaison</span>
@@ -260,7 +262,7 @@
 
             <div class="map-container">
                 <!-- Map container -->
-                <div id="board-member-map" style="height: 500px; width: 100%; border-radius: 10px;"></div>
+                <div id="board-member-map"></div>
             </div>
 
             <div class="map-legend">
@@ -303,15 +305,16 @@
             </p>
 
             <iframe
+                    class="constitution-viewer"
                     src="./Despierta Boricua Constitution 2026-2027.pdf"
+                    title="Despierta Boricua Constitution 2026–2027"
                     width="100%"
-                    height="600px"
-                    style="border: none;"
+                    height="600"
             ></iframe>
 
             <p>
-                <a href="./Despierta Boricua Constitution 2026-2027.pdf" target="_blank">
-                    Click here to download
+                <a href="./Despierta Boricua Constitution 2026-2027.pdf" class="secondary-btn" target="_blank" rel="noopener" download>
+                    <i class="fas fa-download" aria-hidden="true"></i> Download the constitution (PDF)
                 </a>
             </p>
         </section>
@@ -337,7 +340,7 @@
 <!-- Optional JS for hamburger, etc. -->
 <script src="script.js"></script>
 <script src="lang.js"></script>
-<button id="backToTop" title="Back to top">&#8679;</button>
+<button id="backToTop" type="button" aria-label="Back to top">↑</button>
 
 </body>
 </html>
